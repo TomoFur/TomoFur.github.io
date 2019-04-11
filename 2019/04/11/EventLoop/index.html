@@ -7,7 +7,7 @@
     
 
     <title>
-       | TomoFur 
+      JavaScript运行机制 | TomoFur 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,19 +16,19 @@
     
     
 
-    <meta name="description" content="JavaScript运行机制为什么JavaScript是单线程JavaScript的单线程，与它的用途有关，作为浏览器脚本语言，JavaScript的主要用途是为了与用户互动以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如：假定JavaScript同时又两个线程，一个线程在某个DOM节点上添加内容，一个线程要删除这个节点，这时，浏览器就不知道该以哪个线程为准。 同步任务和异">
+    <meta name="description" content="为什么JavaScript是单线程JavaScript的单线程，与它的用途有关，作为浏览器脚本语言，JavaScript的主要用途是为了与用户互动以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如：假定JavaScript同时又两个线程，一个线程在某个DOM节点上添加内容，一个线程要删除这个节点，这时，浏览器就不知道该以哪个线程为准。 同步任务和异步任务同步任务：在主线程上排">
 <meta property="og:type" content="article">
-<meta property="og:title" content=" | TomoFur">
+<meta property="og:title" content="JavaScript运行机制 | TomoFur">
 <meta property="og:url" content="http://yoursite.com/2019/04/11/EventLoop/index.html">
 <meta property="og:site_name" content="TomoFur">
-<meta property="og:description" content="JavaScript运行机制为什么JavaScript是单线程JavaScript的单线程，与它的用途有关，作为浏览器脚本语言，JavaScript的主要用途是为了与用户互动以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如：假定JavaScript同时又两个线程，一个线程在某个DOM节点上添加内容，一个线程要删除这个节点，这时，浏览器就不知道该以哪个线程为准。 同步任务和异">
+<meta property="og:description" content="为什么JavaScript是单线程JavaScript的单线程，与它的用途有关，作为浏览器脚本语言，JavaScript的主要用途是为了与用户互动以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如：假定JavaScript同时又两个线程，一个线程在某个DOM节点上添加内容，一个线程要删除这个节点，这时，浏览器就不知道该以哪个线程为准。 同步任务和异步任务同步任务：在主线程上排">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="f:/学习/前端笔记/images/宏任务和微任务.PNG">
-<meta property="og:updated_time" content="2019-03-22T15:04:15.142Z">
+<meta property="og:image" content="http://yoursite.com/2019/04/11/EventLoop/宏任务和微任务.PNG">
+<meta property="og:updated_time" content="2019-04-11T12:15:03.563Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content=" | TomoFur">
-<meta name="twitter:description" content="JavaScript运行机制为什么JavaScript是单线程JavaScript的单线程，与它的用途有关，作为浏览器脚本语言，JavaScript的主要用途是为了与用户互动以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如：假定JavaScript同时又两个线程，一个线程在某个DOM节点上添加内容，一个线程要删除这个节点，这时，浏览器就不知道该以哪个线程为准。 同步任务和异">
-<meta name="twitter:image" content="f:/学习/前端笔记/images/宏任务和微任务.PNG">
+<meta name="twitter:title" content="JavaScript运行机制 | TomoFur">
+<meta name="twitter:description" content="为什么JavaScript是单线程JavaScript的单线程，与它的用途有关，作为浏览器脚本语言，JavaScript的主要用途是为了与用户互动以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如：假定JavaScript同时又两个线程，一个线程在某个DOM节点上添加内容，一个线程要删除这个节点，这时，浏览器就不知道该以哪个线程为准。 同步任务和异步任务同步任务：在主线程上排">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/11/EventLoop/宏任务和微任务.PNG">
     
     
     
@@ -141,6 +141,45 @@ classes that you can use:
 
 
 
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/TomoFur" title="Huno on GitHub">
+          <i class="icon icon-social-github"></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
         </div>
 
       </div>
@@ -159,7 +198,7 @@ classes that you can use:
 
   <header class="post-header">
     
-    <h1 class="post-title"></h1>
+    <h1 class="post-title">JavaScript运行机制</h1>
 
     
 
@@ -180,14 +219,14 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <h1 id="JavaScript运行机制"><a href="#JavaScript运行机制" class="headerlink" title="JavaScript运行机制"></a>JavaScript运行机制</h1><h2 id="为什么JavaScript是单线程"><a href="#为什么JavaScript是单线程" class="headerlink" title="为什么JavaScript是单线程"></a>为什么JavaScript是单线程</h2><p>JavaScript的单线程，与它的用途有关，作为浏览器脚本语言，JavaScript的主要用途是为了与用户互动以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如：假定JavaScript同时又两个线程，一个线程在某个DOM节点上添加内容，一个线程要删除这个节点，这时，浏览器就不知道该以哪个线程为准。</p>
+    <h2 id="为什么JavaScript是单线程"><a href="#为什么JavaScript是单线程" class="headerlink" title="为什么JavaScript是单线程"></a>为什么JavaScript是单线程</h2><p>JavaScript的单线程，与它的用途有关，作为浏览器脚本语言，JavaScript的主要用途是为了与用户互动以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如：假定JavaScript同时又两个线程，一个线程在某个DOM节点上添加内容，一个线程要删除这个节点，这时，浏览器就不知道该以哪个线程为准。</p>
 <h2 id="同步任务和异步任务"><a href="#同步任务和异步任务" class="headerlink" title="同步任务和异步任务"></a>同步任务和异步任务</h2><p>同步任务：在主线程上排队执行额任务，只有前一个任务执行完毕之后才能执行下一个任务。</p>
 <p>异步任务：不进入主线程，而是进入任务队列的任务。</p>
 <p><strong>注</strong>：除了放置异步任务的事件，任务队列还可以放置定时器任务。</p>
 <h2 id="EventLoop"><a href="#EventLoop" class="headerlink" title="EventLoop"></a>EventLoop</h2><p>任务队列是一个事件的队列，主线程读取任务队列，就是读取里面的事件。</p>
 <p>主线程从“任务队列”中读取事件，这种过程是循环不断的，所以整个过程的运行机制又称为EventLoop</p>
 <p>不同的任务源会被分配到不同的Task队列中去，任务源又可以分为微任务(miscrotask)和宏任务(mascrotask)</p>
-<p><img src="F:\学习\前端笔记\images\宏任务和微任务.PNG" alt></p>
+<p><img src="/2019/04/11/EventLoop/宏任务和微任务.PNG" alt></p>
 <p>EventLoop循环过程如下：</p>
 <ol>
 <li>执行完同步代码，当所有同步代码均被执行完毕之后，执行栈清空，查询是否有异步代码</li>
