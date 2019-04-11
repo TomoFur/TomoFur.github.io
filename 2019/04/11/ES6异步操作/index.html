@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="异步操作async/awaitasync函数返回的是一个promise对象，如果在函数中return一个直接量，saync会把这个直接量通过Promise.resolve()封装成一个Promise对象。，如果async函数没有返回值，就会封装成async(undefined) 个人理解：async函数在调用完毕之后，不管函数本身有没有设置返回值，都会自动返回一个Promise对象。如果async">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2019/04/11/ES6异步操作/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="异步操作async/awaitasync函数返回的是一个promise对象，如果在函数中return一个直接量，saync会把这个直接量通过Promise.resolve()封装成一个Promise对象。，如果async函数没有返回值，就会封装成async(undefined) 个人理解：async函数在调用完毕之后，不管函数本身有没有设置返回值，都会自动返回一个Promise对象。如果async">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-19T08:36:35.496Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="异步操作async/awaitasync函数返回的是一个promise对象，如果在函数中return一个直接量，saync会把这个直接量通过Promise.resolve()封装成一个Promise对象。，如果async函数没有返回值，就会封装成async(undefined) 个人理解：async函数在调用完毕之后，不管函数本身有没有设置返回值，都会自动返回一个Promise对象。如果async">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ES6异步操作" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/11/ES6异步操作/" class="article-date">
+  <time datetime="2019-04-11T06:40:49.930Z" itemprop="datePublished">2019-04-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="异步操作"><a href="#异步操作" class="headerlink" title="异步操作"></a>异步操作</h1><h2 id="async-await"><a href="#async-await" class="headerlink" title="async/await"></a>async/await</h2><p>async函数返回的是一个promise对象，如果在函数中return一个直接量，saync会把这个直接量通过Promise.resolve()封装成一个Promise对象。，如果async函数没有返回值，就会封装成async(undefined)</p>
+<p><strong>个人理解</strong>：async函数在调用完毕之后，不管函数本身有没有设置返回值，都会自动返回一个Promise对象。如果async函数有设置返回值，则返回的Promise对象是Promise.resolve(返回值)，如果async本身没有设置返回值，则返回的Promise对象是Promise.resolve(undefined).</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/04/11/ES6异步操作/" data-id="cjuca7zp50000r8u75y7nwe8b" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/04/11/EventLoop/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/04/11/EventLoop/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/11/ES6异步操作/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

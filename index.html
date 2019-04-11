@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-EventLoop" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/11/EventLoop/" class="article-date">
+  <time datetime="2019-04-11T06:42:46.942Z" itemprop="datePublished">2019-04-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JavaScript运行机制"><a href="#JavaScript运行机制" class="headerlink" title="JavaScript运行机制"></a>JavaScript运行机制</h1><h2 id="为什么JavaScript是单线程"><a href="#为什么JavaScript是单线程" class="headerlink" title="为什么JavaScript是单线程"></a>为什么JavaScript是单线程</h2><p>JavaScript的单线程，与它的用途有关，作为浏览器脚本语言，JavaScript的主要用途是为了与用户互动以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如：假定JavaScript同时又两个线程，一个线程在某个DOM节点上添加内容，一个线程要删除这个节点，这时，浏览器就不知道该以哪个线程为准。</p>
+<h2 id="同步任务和异步任务"><a href="#同步任务和异步任务" class="headerlink" title="同步任务和异步任务"></a>同步任务和异步任务</h2><p>同步任务：在主线程上排队执行额任务，只有前一个任务执行完毕之后才能执行下一个任务。</p>
+<p>异步任务：不进入主线程，而是进入任务队列的任务。</p>
+<p><strong>注</strong>：除了放置异步任务的事件，任务队列还可以放置定时器任务。</p>
+<h2 id="EventLoop"><a href="#EventLoop" class="headerlink" title="EventLoop"></a>EventLoop</h2><p>任务队列是一个事件的队列，主线程读取任务队列，就是读取里面的事件。</p>
+<p>主线程从“任务队列”中读取事件，这种过程是循环不断的，所以整个过程的运行机制又称为EventLoop</p>
+<p>不同的任务源会被分配到不同的Task队列中去，任务源又可以分为微任务(miscrotask)和宏任务(mascrotask)</p>
+<p><img src="F:\学习\前端笔记\images\宏任务和微任务.PNG" alt></p>
+<p>EventLoop循环过程如下：</p>
+<ol>
+<li>执行完同步代码，当所有同步代码均被执行完毕之后，执行栈清空，查询是否有异步代码</li>
+<li>在macrotask队列中选择最早的那一个，如果没有可选的任务，就跳到下面的microtask队列中</li>
+<li>将上面选中的macrotask设置为正在运行的task</li>
+<li>运行被选中的task</li>
+<li>运行完毕之后，将eventloop中的current running task设置为null</li>
+<li>从task队列中移除前面运行的macrotask</li>
+<li>执行所有在microtask队列里的任务。</li>
+<li>更新渲染</li>
+<li>返回到开始</li>
+</ol>
+<h3 id="另一理解"><a href="#另一理解" class="headerlink" title="另一理解"></a>另一理解</h3><ol>
+<li>一段代码执行时先执行宏任务中的同步代码</li>
+<li>如果遇到像setTimeOut这种宏任务就会把代码放置在宏任务队列中去</li>
+<li>如果遇到promise.then这类任务会放置在微任务队列中。</li>
+<li>在本轮宏任务执行完之后会依此执行本轮微任务队列中的所有代码，然后开始下一轮的宏任务代码。</li>
+</ol>
+<p><strong>注</strong>：await后面无论接的是同步代码还是异步代码都必须等他们执行完毕之后才能执行await结果后面的代码。</p>
+<p><strong>注释</strong>：在遇见定时器后，会将定时器内的函数进行注册，也就是放在Event Table。然后在定时器设定的事件后将Event Table内注册的函数放入Event queue。如果主线程中的call stack为空就将Event queue按顺序放入call stack中进行执行，如果call stack并不为空，Event queue内的事件并不会进入call stack，也就不会执行。</p>
+<p>在call stack中的内容执行完毕后清空，会在Event queue检查一下哪些任务时宏任务，哪些是微任务，然后执行所有的微任务，然后执行下一个宏任务，之后再次执行所有的微任务。也就是说在主线程任务执行完毕后会把任务队列里的微任务全部执行，然后再执行下一个宏任务，这个宏任务执行完再次检查队列内部的微任务，有就全部执行，没有就再执行一个宏任务。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/04/11/EventLoop/" data-id="cjuca7zpl0001r8u7u2avp8mf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-ES6异步操作" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/11/ES6异步操作/" class="article-date">
+  <time datetime="2019-04-11T06:40:49.930Z" itemprop="datePublished">2019-04-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="异步操作"><a href="#异步操作" class="headerlink" title="异步操作"></a>异步操作</h1><h2 id="async-await"><a href="#async-await" class="headerlink" title="async/await"></a>async/await</h2><p>async函数返回的是一个promise对象，如果在函数中return一个直接量，saync会把这个直接量通过Promise.resolve()封装成一个Promise对象。，如果async函数没有返回值，就会封装成async(undefined)</p>
+<p><strong>个人理解</strong>：async函数在调用完毕之后，不管函数本身有没有设置返回值，都会自动返回一个Promise对象。如果async函数有设置返回值，则返回的Promise对象是Promise.resolve(返回值)，如果async本身没有设置返回值，则返回的Promise对象是Promise.resolve(undefined).</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/04/11/ES6异步操作/" data-id="cjuca7zp50000r8u75y7nwe8b" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/04/11/EventLoop/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/11/ES6异步操作/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
