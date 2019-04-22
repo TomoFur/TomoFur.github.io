@@ -5,8 +5,8 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="标签, TomoFur">
-    <meta name="description" content="标签 | TomoFur">
+    <meta name="keywords" content="分类: VUE, TomoFur">
+    <meta name="description" content="分类: VUE | TomoFur">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>标签 | TomoFur</title>
+    <title>分类: VUE | TomoFur</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -266,77 +266,39 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
     
 
-<div id="tags" class="container chip-container">
+<div id="category-cloud" class="container chip-container">
     <div class="card">
         <div class="card-content">
             <div class="tag-title center-align">
-                <i class="fa fa-tags"></i>&nbsp;&nbsp;文章标签
+                <i class="fa fa-bookmark"></i>&nbsp;&nbsp;文章分类
             </div>
             <div class="tag-chips">
                 
                 
-                <a href="/tags/CSS-tips/" title="CSS tips: 1">
+                
+                <a href="/categories/CSS/" title="CSS: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="CSS tips" style="background-color: #F9EBEA;">CSS tips
+                             chip-default " style="background-color: #F9EBEA;">CSS
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/ES6/" title="ES6: 1">
+                <a href="/categories/JavaScript/" title="JavaScript: 3">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="ES6" style="background-color: #F5EEF8;">ES6
-                        <span class="tag-length">1</span>
+                             chip-default " style="background-color: #F5EEF8;">JavaScript
+                        <span class="tag-length">3</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/async-await/" title="async/await: 1">
+                <a href="/categories/VUE/" title="VUE: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="async/await" style="background-color: #D5F5E3;">async/await
+                             chip-active " style="background-color: #D5F5E3;">VUE
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
-                
-                <a href="/tags/EventLoop/" title="EventLoop: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="EventLoop" style="background-color: #E8F8F5;">EventLoop
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/vue/" title="vue: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="vue" style="background-color: #FEF9E7;">vue
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/diff算法/" title="diff算法: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="diff算法" style="background-color: #F8F9F9;">diff算法
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/VDom/" title="VDom: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="VDom" style="background-color: #82E0AA;">VDom
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/性能优化/" title="性能优化: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="性能优化" style="background-color: #D7BDE2;">性能优化
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
                 
             </div>
         </div>
@@ -344,31 +306,68 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 </div>
 
     
-    <link rel="stylesheet" type="text/css" href="/libs/jqcloud/jqcloud.css">
-<style type="text/css">
-    #tag-wordcloud {
-        width: 100%;
-        height: 300px;
-    }
-</style>
 
-<div class="container" data-aos="fade-up">
-    <div class="card">
-        <div id="tag-wordcloud" class="card-content"></div>
-    </div>
-</div>
+    <article id="articles" class="container articles">
+        <div class="row tags-posts">
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/04/22/vdom/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="virtual DOM及diff算法">
+                            
+                            <span class="card-title">virtual DOM及diff算法</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary">
+                            
+                                什么是virtual dom？从本质上而言，Vdom只是一个用于描述DOM节点的原生JS对象，并且最少包括tag，props，和childr
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-22
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/VUE/" class="post-category" target="_blank">
+                                    VUE
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
 
-<script type="text/javascript" src="/libs/jqcloud/jqcloud-1.0.4.min.js"></script>
-<script type="text/javascript">
-    
-
-    $('#tag-wordcloud').jQCloud([{"text":"CSS tips","weight":1,"link":"http://yoursite.com/tags/CSS-tips/"},{"text":"ES6","weight":1,"link":"http://yoursite.com/tags/ES6/"},{"text":"async/await","weight":1,"link":"http://yoursite.com/tags/async-await/"},{"text":"EventLoop","weight":1,"link":"http://yoursite.com/tags/EventLoop/"},{"text":"vue","weight":1,"link":"http://yoursite.com/tags/vue/"},{"text":"diff算法","weight":1,"link":"http://yoursite.com/tags/diff算法/"},{"text":"VDom","weight":1,"link":"http://yoursite.com/tags/VDom/"},{"text":"性能优化","weight":1,"link":"http://yoursite.com/tags/性能优化/"}], {
-        autoResize: true
-    });
-</script>
-    
-
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/vue/" target="_blank">
+                            <span class="chip bg-color">vue</span>
+                        </a>
+                        
+                        <a href="/tags/diff算法/" target="_blank">
+                            <span class="chip bg-color">diff算法</span>
+                        </a>
+                        
+                        <a href="/tags/VDom/" target="_blank">
+                            <span class="chip bg-color">VDom</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </article>
 </main>
+
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">
