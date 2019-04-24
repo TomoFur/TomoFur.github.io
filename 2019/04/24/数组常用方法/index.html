@@ -5,11 +5,11 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="防抖与节流, TomoFur">
-    <meta name="description" content="防抖当持续触发事件时，一定时间段内没有再触发时间，时间处理函数才会执行一次，如果设定的时间到来之前，有一次触发了事件，就重新开始延时。
-&amp;lt;script&gt;
-    function debounce(fn, wait) {
-      ">
+    <meta name="keywords" content="数组常用方法, TomoFur">
+    <meta name="description" content="Array.isArray(对象)判断这个对象是不是一个数组
+.concat(数组)返回一个拼接的新数组
+.push(值)在原数组的最后面添加上这个值，返回值是新数组的长度
+.unshift(值)在原数组的最前面添加上这个值，返回值是新数组">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>防抖与节流 | TomoFur</title>
+    <title>数组常用方法 | TomoFur</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -243,13 +243,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        防抖与节流
+                        数组常用方法
                     </div>
                 </div>
             </div>
@@ -360,8 +360,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/性能优化/" target="_blank">
-                                <span class="chip bg-color">性能优化</span>
+                            <a href="/tags/ES5基础知识/" target="_blank">
+                                <span class="chip bg-color">ES5基础知识</span>
                             </a>
                         
                     </div>
@@ -384,21 +384,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-04-16
+                    2019-04-24
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        363
+                        799
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        2 分
                     </div>
                     
                 
@@ -409,47 +409,39 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h2><p>当持续触发事件时，一定时间段内没有再触发时间，时间处理函数才会执行一次，如果设定的时间到来之前，有一次触发了事件，就重新开始延时。</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">></span>
-    <span class="token keyword">function</span> <span class="token function">debounce</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> wait<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">var</span> timeout <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>timeout <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            timeout <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> wait<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token comment" spellcheck="true">// 处理函数</span>
-    <span class="token keyword">function</span> <span class="token function">handle</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'我被点击了'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token comment" spellcheck="true">// 滚动事件</span>
-    document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'btn'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token function">debounce</span><span class="token punctuation">(</span>handle<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+                <h3 id="Array-isArray-对象"><a href="#Array-isArray-对象" class="headerlink" title="Array.isArray(对象)"></a>Array.isArray(对象)</h3><p>判断这个对象是不是一个数组</p>
+<h3 id="concat-数组"><a href="#concat-数组" class="headerlink" title=".concat(数组)"></a>.concat(数组)</h3><p>返回一个拼接的新数组</p>
+<h3 id="push-值"><a href="#push-值" class="headerlink" title=".push(值)"></a>.push(值)</h3><p>在原数组的最后面添加上这个值，返回值是新数组的长度</p>
+<h3 id="unshift-值"><a href="#unshift-值" class="headerlink" title=".unshift(值)"></a>.unshift(值)</h3><p>在原数组的最前面添加上这个值，返回值是新数组的长度</p>
+<h3 id="pop"><a href="#pop" class="headerlink" title=".pop"></a>.pop</h3><p>将原数组最后一个值弹出，返回值是弹出的这个值</p>
+<h3 id="shift"><a href="#shift" class="headerlink" title=".shift"></a>.shift</h3><p>将原数组第一个值弹出，返回值是弹出的这个值。</p>
+<h3 id="reverse"><a href="#reverse" class="headerlink" title=".reverse"></a>.reverse</h3><p>将原数组逆序，返回值是经过排序之后的数组（是数组本身）</p>
+<h3 id="sort"><a href="#sort" class="headerlink" title=".sort"></a>.sort</h3><p>将原来数组按一定顺序排列，不稳定，可以在这个方法中传入一个比较函数。返回值是经过排序之后的数组。</p>
+<h3 id="slice-开始的索引，结束的索引"><a href="#slice-开始的索引，结束的索引" class="headerlink" title=".slice(开始的索引，结束的索引)"></a>.slice(开始的索引，结束的索引)</h3><p>将原来数组从开始的索引到结束的索引的中间那一段数组内容截取出来，放在新数组中，这个操作本身不影响原来的数组。</p>
+<h3 id="splice"><a href="#splice" class="headerlink" title=".splice"></a>.splice</h3><p>splice方法传入的参数个数取决于使用这方法所要达到的效果，具体而言，就是：</p>
+<ol>
+<li>删除：传入两个参数，起始位置，删除的个数</li>
+<li>插入：传入三个参数，插入位置，0（表示不删除任何元素），要插入的元素</li>
+<li>替换：传入三个参数，替换位置，要替换的元素的个数，要替换的元素</li>
+</ol>
+<h3 id="find"><a href="#find" class="headerlink" title=".find"></a>.find</h3><p>接收一个方法作为参数，方法内部会返回一个条件，find会遍历数组的所有元素，符合这个条件的元素会被返回，如果遍历完整个数组都没有符合条件的元素，会返回undefined</p>
+<pre class=" language-javascript"><code class="language-javascript">    <span class="token keyword">var</span> arr <span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    arr<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> item <span class="token operator">==</span><span class="token number">20</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    这个函数会返回数组中值是<span class="token number">20</span>数
 </code></pre>
-<p><strong>注</strong>：这个按钮所注册的点击事件只有在1s之内没有再次点击该按钮才会执行弹框，如果点击了按钮之后1s之内再次点击按钮，则会以第二次按钮点击的时间为基准，往后延迟1s后执行。</p>
-<h2 id="函数节流"><a href="#函数节流" class="headerlink" title="函数节流"></a>函数节流</h2><p>当持续触发时间时，保证一定时间段内只调用一次时间处理函数。</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> processor<span class="token operator">=</span><span class="token punctuation">{</span>
-        timeOutId <span class="token punctuation">:</span><span class="token keyword">null</span><span class="token punctuation">,</span>
-        performProcessing<span class="token punctuation">:</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-           <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'我被点击了'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        process<span class="token punctuation">:</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token function">clearTimeout</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>timeOutId<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">var</span> that <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
-            that<span class="token punctuation">.</span>timeOutId <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
-                that<span class="token punctuation">.</span><span class="token function">performProcessing</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">var</span> btn <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'btn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    btn<span class="token punctuation">.</span>onclick <span class="token operator">=</span> processor<span class="token punctuation">.</span>process<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>processor<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<p><strong>注</strong>：这个按钮的点击事件无论点击多少次，1s内只执行一次。</p>
-<h2 id="函数防抖与函数节流的区别"><a href="#函数防抖与函数节流的区别" class="headerlink" title="函数防抖与函数节流的区别"></a>函数防抖与函数节流的区别</h2><p>防抖的函数不保证一段时间内执行一次，如果再该段时间里面该事件持续被触发，那么这个事件永远不会执行。</p>
-<p>函数节流则时一段事件内无论触发多少次事件，都只会响应一次该事件。</p>
+<h3 id="findIndex"><a href="#findIndex" class="headerlink" title=".findIndex"></a>.findIndex</h3><p>作用和find方法类似，但是不同的是，这个方法返回的是数组中符合条件的元素在数组中的索引。</p>
+<h3 id="join-拼接符"><a href="#join-拼接符" class="headerlink" title=".join(拼接符)"></a>.join(拼接符)</h3><p>返回一个将数组中所有元素使用拼接符拼接起来的字符串</p>
+<h3 id="every，filter，forEach，map，some"><a href="#every，filter，forEach，map，some" class="headerlink" title="every，filter，forEach，map，some"></a>every，filter，forEach，map，some</h3><p>这几个方法都会遍历整个数组，但是，就其作用而言，却不尽相同，具体而言：</p>
+<ol>
+<li>every：接收一个函数作为参数，这个函数的第一个参数是元素的值，第二个参数是元素的索引，every会遍历整个数组，只有当数组中的每一个元素都满足参数函数的条件时，才会返回true</li>
+<li>some：作用和every相似，但不需要数组中每一个元素都满足条件，只要存在一个元素满足这个条件就返回true。</li>
+<li>filter：根据传入的参数函数对数组中每一个元素进行过滤判断，返回的值是所有满足条件的元素组成的新数组</li>
+<li>forEach：对数组中每一个元素遍历执行参数函数中的操作。没有返回值</li>
+<li>map:数组中每一个元素都要执行这个函数，并将执行后的结果放在一个新数组中返回。</li>
+</ol>
+<p><strong>上述所有方法均不会改变原来数组中元素的值。</strong></p>
 
             </div>
             <hr>
@@ -597,7 +589,7 @@
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">TomoFur</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/04/16/防抖与节流/" class="b-link-green">防抖与节流</a>
+                    <a href="/2019/04/24/数组常用方法/" class="b-link-green">数组常用方法</a>
                 </p>
             </div>
         </div>
@@ -644,71 +636,25 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/04/16/CSS画三角形/">
+                <a href="/2019/04/24/字符串常用方法/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="原生CSS画三角形">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="字符串常用方法">
                         
-                        <span class="card-title">原生CSS画三角形</span>
+                        <span class="card-title">字符串常用方法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">步骤：先将一个盒子的width和height都设置为0px，这一步是最关键的
-画尖朝上的红色三角形div{
-    width:0px;
-    height:0px;
-    border-left:100px solid #fff;
- </div>
+                    <div class="summary">.length返回字符换长度
+.charAt(索引)返回指定索引位置的字符，如果索引超过了字符串长度会返回空串
+.charCodeAt(索引)返回给定索引位置的字符的字符编码
+var str = 'hello';
+console.log(s</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-16
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-24
                         </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/CSS/" class="post-category" target="_blank">
-                                    CSS
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/CSS-tips/" target="_blank">
-                        <span class="chip bg-color">CSS tips</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/04/11/ES6异步操作/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="ES6异步操作">
-                        
-                        <span class="card-title">ES6异步操作</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">异步操作async/awaitasync函数返回的是一个promise对象，如果在函数中return一个直接量，saync会把这个直接量通过Promise.resolve()封装成一个Promise对象。，如果async函数没有返回值，就会</div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-11
-                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -724,12 +670,54 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ES6/" target="_blank">
-                        <span class="chip bg-color">ES6</span>
+                    <a href="/tags/ES5基础知识/" target="_blank">
+                        <span class="chip bg-color">ES5基础知识</span>
                     </a>
                     
-                    <a href="/tags/async-await/" target="_blank">
-                        <span class="chip bg-color">async/await</span>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/04/22/cssBFC/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="BFC">
+                        
+                        <span class="card-title">BFC</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">什么是BFCBFC(Block Formatting Context)：格式化上下文，是Web页面中盒模型布局的css渲染模式，指一个独立的渲染区域或者说是一个隔离的独立容器。它决定了其子元素如何定位，以及与其他元素的相互作用关系。
+BFC</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/CSS/" class="post-category" target="_blank">
+                                    CSS
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CSS布局/" target="_blank">
+                        <span class="chip bg-color">CSS布局</span>
                     </a>
                     
                 </div>

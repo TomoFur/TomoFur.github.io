@@ -5,11 +5,12 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="防抖与节流, TomoFur">
-    <meta name="description" content="防抖当持续触发事件时，一定时间段内没有再触发时间，时间处理函数才会执行一次，如果设定的时间到来之前，有一次触发了事件，就重新开始延时。
-&amp;lt;script&gt;
-    function debounce(fn, wait) {
-      ">
+    <meta name="keywords" content="字符串常用方法, TomoFur">
+    <meta name="description" content=".length返回字符换长度
+.charAt(索引)返回指定索引位置的字符，如果索引超过了字符串长度会返回空串
+.charCodeAt(索引)返回给定索引位置的字符的字符编码
+var str = &#39;hello&#39;;
+console.log(s">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>防抖与节流 | TomoFur</title>
+    <title>字符串常用方法 | TomoFur</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -243,13 +244,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        防抖与节流
+                        字符串常用方法
                     </div>
                 </div>
             </div>
@@ -360,8 +361,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/性能优化/" target="_blank">
-                                <span class="chip bg-color">性能优化</span>
+                            <a href="/tags/ES5基础知识/" target="_blank">
+                                <span class="chip bg-color">ES5基础知识</span>
                             </a>
                         
                     </div>
@@ -384,21 +385,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-04-16
+                    2019-04-24
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        363
+                        932
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        3 分
                     </div>
                     
                 
@@ -409,47 +410,60 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h2><p>当持续触发事件时，一定时间段内没有再触发时间，时间处理函数才会执行一次，如果设定的时间到来之前，有一次触发了事件，就重新开始延时。</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">></span>
-    <span class="token keyword">function</span> <span class="token function">debounce</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> wait<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">var</span> timeout <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>timeout <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            timeout <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> wait<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <h3 id="length"><a href="#length" class="headerlink" title=".length"></a>.length</h3><p>返回字符换长度</p>
+<h3 id="charAt-索引"><a href="#charAt-索引" class="headerlink" title=".charAt(索引)"></a>.charAt(索引)</h3><p>返回指定索引位置的字符，如果索引超过了字符串长度会返回空串</p>
+<h3 id="charCodeAt-索引"><a href="#charCodeAt-索引" class="headerlink" title=".charCodeAt(索引)"></a>.charCodeAt(索引)</h3><p>返回给定索引位置的字符的字符编码</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">'hello'</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">chaAt</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//返回的是字符‘e’</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//返回的是一个空串</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">charCodeAt</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//返回的是字符‘e’的字符编码101</span>
+</code></pre>
+<h3 id="concat-字符串1，字符串2…"><a href="#concat-字符串1，字符串2…" class="headerlink" title=".concat(字符串1，字符串2…)"></a>.concat(字符串1，字符串2…)</h3><p>返回的是拼接之后的新的字符串</p>
+<h3 id="indexOf-要找的字符，开始的位置（可选项）"><a href="#indexOf-要找的字符，开始的位置（可选项）" class="headerlink" title=".indexOf(要找的字符，开始的位置（可选项）)"></a>.indexOf(要找的字符，开始的位置（可选项）)</h3><p>返回的是从开始的位置之后第一个出现目标字符串的位置，没有找到就返回-1</p>
+<h3 id="lastIndexOf-要找的字符，开始的位置（可选项）"><a href="#lastIndexOf-要找的字符，开始的位置（可选项）" class="headerlink" title=".lastIndexOf(要找的字符，开始的位置（可选项）)"></a>.lastIndexOf(要找的字符，开始的位置（可选项）)</h3><p>返回的是目标字符最后出现的位置，没有就返回-1</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">'hello'</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">,</span><span class="token string">'world'</span><span class="token punctuation">,</span><span class="token string">'!'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//输出字符串‘hello，world！’</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">'l'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出2</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">lastIndexOf</span><span class="token punctuation">(</span><span class="token string">'l'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出3</span>
+</code></pre>
+<h3 id="replace-原来的字符串，新的字符串"><a href="#replace-原来的字符串，新的字符串" class="headerlink" title=".replace(原来的字符串，新的字符串)"></a>.replace(原来的字符串，新的字符串)</h3><p>将原来的字符串用新的字符串代替，<strong>如果原来字符串出现了多次，只会替换第一个出现的，并不会全局替换</strong></p>
+<h3 id="trim"><a href="#trim" class="headerlink" title=".trim"></a>.trim</h3><p>去掉字符串首位两端的空格</p>
+<h3 id="split-分隔符，保留下来的个数（可选）"><a href="#split-分隔符，保留下来的个数（可选）" class="headerlink" title=".split(分隔符，保留下来的个数（可选）)"></a>.split(分隔符，保留下来的个数（可选）)</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">' hello '</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">'l'</span><span class="token punctuation">,</span><span class="token string">'x'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出字符串‘hexlo’</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出首尾没有空格的字符串‘hello’</span>
+<span class="token keyword">var</span> str2 <span class="token operator">=</span> <span class="token string">'h,e,l,l,o'</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str2<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出一个数组['h','e','l','l',''o];</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str2<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出数组['h','e']</span>
+</code></pre>
+<h3 id="toLowerCase"><a href="#toLowerCase" class="headerlink" title=".toLowerCase"></a>.toLowerCase</h3><p>将字符串全部换为小写</p>
+<h3 id="toUpperCase"><a href="#toUpperCase" class="headerlink" title="toUpperCase"></a>toUpperCase</h3><p>将字符串全部换为大写</p>
+<h3 id="localeCompare-要进行比较的字符串"><a href="#localeCompare-要进行比较的字符串" class="headerlink" title=".localeCompare(要进行比较的字符串)"></a>.localeCompare(要进行比较的字符串)</h3><ol>
+<li>如果字符串在字母表中应该排在参数前，则返回一个负数</li>
+<li>如果字符串等于参数，返回0；</li>
+<li>如果字符串应该排在参数之后，返回一个正数</li>
+</ol>
+<h3 id="slice-subString-subStr方法"><a href="#slice-subString-subStr方法" class="headerlink" title="slice,subString subStr方法"></a>slice,subString subStr方法</h3><p>这三个方法都会返回被操作字符串的一个子字符串，而且也都可以接收一个或者两个参数。其中，第一个参数指定子字符串的开始位置，第二个参数是可选的，用于指定子字符串结束的位置。具体而言，<strong>slice和subString的第二个参数指定的是子字符串最后一个字符后面的位置，而substr的第二个参数指定的是返回字符串的长度</strong>。如果没有给这些方法传入第二个参数，则将字符串的末尾作为结束的位置。</p>
+<p>但是，如果在给这三个方法传入的参数是负值的时候，则情况不尽相同，具体而言：</p>
+<ol>
+<li>slice：将传入的负值与字符串长度相加，转为正值</li>
+<li>subStr：将负的第一个参数加上字符串的长度，而将负的第二个参数转为0</li>
+<li>subString：将所有负的参数转为0，但是该方法以参数中较小的数作为开始的位置，较大的那个数作为结束的位置。</li>
+</ol>
+<pre class=" language-javascript"><code class="language-javascript">    <span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">'hello, world!'</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出‘ello, world!’</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出‘ello, world!’</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出‘ello, world!’</span>
 
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token comment" spellcheck="true">// 处理函数</span>
-    <span class="token keyword">function</span> <span class="token function">handle</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'我被点击了'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token comment" spellcheck="true">// 滚动事件</span>
-    document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'btn'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token function">debounce</span><span class="token punctuation">(</span>handle<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出从第二个字符开始，到第六个字符结束的中间的字符串</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出从第二个字符开始，到第六个字符结束的中间的字符串</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出从第二个字符开始往后的长度为6的字符串</span>
+
+
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//等价于str.slice(13-5)=>str.slice(8)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//等价于str.slice(13-5)=>str.slice(8)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//等价于str.substring(5, 0)=>str.substring(0,5)</span>
+
 </code></pre>
-<p><strong>注</strong>：这个按钮所注册的点击事件只有在1s之内没有再次点击该按钮才会执行弹框，如果点击了按钮之后1s之内再次点击按钮，则会以第二次按钮点击的时间为基准，往后延迟1s后执行。</p>
-<h2 id="函数节流"><a href="#函数节流" class="headerlink" title="函数节流"></a>函数节流</h2><p>当持续触发时间时，保证一定时间段内只调用一次时间处理函数。</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> processor<span class="token operator">=</span><span class="token punctuation">{</span>
-        timeOutId <span class="token punctuation">:</span><span class="token keyword">null</span><span class="token punctuation">,</span>
-        performProcessing<span class="token punctuation">:</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-           <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'我被点击了'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        process<span class="token punctuation">:</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token function">clearTimeout</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>timeOutId<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">var</span> that <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
-            that<span class="token punctuation">.</span>timeOutId <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
-                that<span class="token punctuation">.</span><span class="token function">performProcessing</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">var</span> btn <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'btn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    btn<span class="token punctuation">.</span>onclick <span class="token operator">=</span> processor<span class="token punctuation">.</span>process<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>processor<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<p><strong>注</strong>：这个按钮的点击事件无论点击多少次，1s内只执行一次。</p>
-<h2 id="函数防抖与函数节流的区别"><a href="#函数防抖与函数节流的区别" class="headerlink" title="函数防抖与函数节流的区别"></a>函数防抖与函数节流的区别</h2><p>防抖的函数不保证一段时间内执行一次，如果再该段时间里面该事件持续被触发，那么这个事件永远不会执行。</p>
-<p>函数节流则时一段事件内无论触发多少次事件，都只会响应一次该事件。</p>
 
             </div>
             <hr>
@@ -597,7 +611,7 @@
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">TomoFur</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/04/16/防抖与节流/" class="b-link-green">防抖与节流</a>
+                    <a href="/2019/04/24/字符串常用方法/" class="b-link-green">字符串常用方法</a>
                 </p>
             </div>
         </div>
@@ -642,45 +656,46 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/04/16/CSS画三角形/">
+                <a href="/2019/04/24/字符串常用方法/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="原生CSS画三角形">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="字符串常用方法">
                         
-                        <span class="card-title">原生CSS画三角形</span>
+                        <span class="card-title">字符串常用方法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">步骤：先将一个盒子的width和height都设置为0px，这一步是最关键的
-画尖朝上的红色三角形div{
-    width:0px;
-    height:0px;
-    border-left:100px solid #fff;
- </div>
+                    <div class="summary">.length返回字符换长度
+.charAt(索引)返回指定索引位置的字符，如果索引超过了字符串长度会返回空串
+.charCodeAt(索引)返回给定索引位置的字符的字符编码
+var str = 'hello';
+console.log(s</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/CSS/" class="post-category" target="_blank">
-                                    CSS
+                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
+                                    JavaScript
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/CSS-tips/" target="_blank">
-                        <span class="chip bg-color">CSS tips</span>
+                    <a href="/tags/ES5基础知识/" target="_blank">
+                        <span class="chip bg-color">ES5基础知识</span>
                     </a>
                     
                 </div>
@@ -694,20 +709,23 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/04/11/ES6异步操作/">
+                <a href="/2019/04/24/数组常用方法/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="ES6异步操作">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="数组常用方法">
                         
-                        <span class="card-title">ES6异步操作</span>
+                        <span class="card-title">数组常用方法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">异步操作async/awaitasync函数返回的是一个promise对象，如果在函数中return一个直接量，saync会把这个直接量通过Promise.resolve()封装成一个Promise对象。，如果async函数没有返回值，就会</div>
+                    <div class="summary">Array.isArray(对象)判断这个对象是不是一个数组
+.concat(数组)返回一个拼接的新数组
+.push(值)在原数组的最后面添加上这个值，返回值是新数组的长度
+.unshift(值)在原数组的最前面添加上这个值，返回值是新数组</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-11
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-24
                             </span>
                         <span class="publish-author">
                             
@@ -724,12 +742,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ES6/" target="_blank">
-                        <span class="chip bg-color">ES6</span>
-                    </a>
-                    
-                    <a href="/tags/async-await/" target="_blank">
-                        <span class="chip bg-color">async/await</span>
+                    <a href="/tags/ES5基础知识/" target="_blank">
+                        <span class="chip bg-color">ES5基础知识</span>
                     </a>
                     
                 </div>
