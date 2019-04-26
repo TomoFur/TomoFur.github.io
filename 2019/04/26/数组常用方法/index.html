@@ -5,9 +5,11 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="BFC, TomoFur">
-    <meta name="description" content="什么是BFCBFC(Block Formatting Context)：格式化上下文，是Web页面中盒模型布局的css渲染模式，指一个独立的渲染区域或者说是一个隔离的独立容器。它决定了其子元素如何定位，以及与其他元素的相互作用关系。
-BFC">
+    <meta name="keywords" content="数组常用方法, TomoFur">
+    <meta name="description" content="Array.isArray(对象)判断这个对象是不是一个数组
+.concat(数组)返回一个拼接的新数组
+.push(值)在原数组的最后面添加上这个值，返回值是新数组的长度
+.unshift(值)在原数组的最前面添加上这个值，返回值是新数组">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +17,7 @@ BFC">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>BFC | TomoFur</title>
+    <title>数组常用方法 | TomoFur</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -241,13 +243,13 @@ BFC">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        BFC
+                        数组常用方法
                     </div>
                 </div>
             </div>
@@ -358,8 +360,8 @@ BFC">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/CSS布局/" target="_blank">
-                                <span class="chip bg-color">CSS布局</span>
+                            <a href="/tags/ES5基础知识/" target="_blank">
+                                <span class="chip bg-color">ES5基础知识</span>
                             </a>
                         
                     </div>
@@ -370,8 +372,8 @@ BFC">
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/CSS/" class="post-category" target="_blank">
-                                CSS
+                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
+                                JavaScript
                             </a>
                         
                     </div>
@@ -382,21 +384,21 @@ BFC">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-04-22
+                    2019-04-26
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        462
+                        823
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        2 分
                     </div>
                     
                 
@@ -407,25 +409,41 @@ BFC">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="什么是BFC"><a href="#什么是BFC" class="headerlink" title="什么是BFC"></a>什么是BFC</h2><p>BFC(Block Formatting Context)：格式化上下文，是Web页面中盒模型布局的css渲染模式，指一个独立的渲染区域或者说是一个隔离的独立容器。它决定了其子元素如何定位，以及与其他元素的相互作用关系。</p>
-<h2 id="BFC的生成"><a href="#BFC的生成" class="headerlink" title="BFC的生成"></a>BFC的生成</h2><p>满足下列CSS声明之一的元素就会生成BFC</p>
+                <h3 id="Array-isArray-对象"><a href="#Array-isArray-对象" class="headerlink" title="Array.isArray(对象)"></a>Array.isArray(对象)</h3><p>判断这个对象是不是一个数组</p>
+<h3 id="concat-数组"><a href="#concat-数组" class="headerlink" title=".concat(数组)"></a>.concat(数组)</h3><p>返回一个拼接的新数组</p>
+<h3 id="push-值"><a href="#push-值" class="headerlink" title=".push(值)"></a>.push(值)</h3><p>在原数组的最后面添加上这个值，返回值是新数组的长度</p>
+<h3 id="unshift-值"><a href="#unshift-值" class="headerlink" title=".unshift(值)"></a>.unshift(值)</h3><p>在原数组的最前面添加上这个值，返回值是新数组的长度</p>
+<h3 id="pop"><a href="#pop" class="headerlink" title=".pop"></a>.pop</h3><p>将原数组最后一个值弹出，返回值是弹出的这个值</p>
+<h3 id="shift"><a href="#shift" class="headerlink" title=".shift"></a>.shift</h3><p>将原数组第一个值弹出，返回值是弹出的这个值。</p>
+<h3 id="reverse"><a href="#reverse" class="headerlink" title=".reverse"></a>.reverse</h3><p>将原数组逆序，返回值是经过排序之后的数组（是数组本身）</p>
+<h3 id="sort"><a href="#sort" class="headerlink" title=".sort"></a>.sort</h3><p>将原来数组按一定顺序排列，不稳定，可以在这个方法中传入一个比较函数。返回值是经过排序之后的数组。</p>
+<h3 id="slice-开始的索引，结束的索引"><a href="#slice-开始的索引，结束的索引" class="headerlink" title=".slice(开始的索引，结束的索引)"></a>.slice(开始的索引，结束的索引)</h3><p>将原来数组从开始的索引到结束的索引的中间那一段数组内容截取出来，放在新数组中，这个操作本身不影响原来的数组。</p>
+<h3 id="splice"><a href="#splice" class="headerlink" title=".splice"></a>.splice</h3><p>splice方法传入的参数个数取决于使用这方法所要达到的效果，具体而言，就是：</p>
 <ol>
-<li>根元素或者其他包含它的元素</li>
-<li>float的值不为none</li>
-<li>overflow不为visible的值</li>
-<li>position不为static</li>
-<li>display的值为inline-block，table-cell，table-caption</li>
-<li>元素的display为flex或者inline-flex</li>
+<li>删除：传入两个参数，起始位置，删除的个数</li>
+<li>插入：传入三个参数，插入位置，0（表示不删除任何元素），要插入的元素</li>
+<li>替换：传入三个参数，替换位置，要替换的元素的个数，要替换的元素</li>
 </ol>
-<h2 id="BFC的布局规则"><a href="#BFC的布局规则" class="headerlink" title="BFC的布局规则"></a>BFC的布局规则</h2><ol>
-<li>内部的元素会在垂直方向一个接一个的排列，可以理解为是BFC中的一个常规流</li>
-<li>元素垂直方向的距离由margin决定，即同属于一个BFC的两个相邻的盒子的margin可能会发生重叠</li>
-<li>每个元素的左外边距与包含块的左外边距相接触，即使存在浮动的情况下也是如此，这说明BFC的子元素不会超出它的包含块</li>
-<li>BFC区域不会与float元素区域重叠</li>
-<li>计算BFC高度的时候，浮动的子元素也参与计算.</li>
-<li>BFC就是页面上一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之亦然。</li>
+<p><strong>注意</strong>：</p>
+<p>splice方法对于数组的操作会影响原来数组</p>
+<h3 id="find"><a href="#find" class="headerlink" title=".find"></a>.find</h3><p>接收一个方法作为参数，方法内部会返回一个条件，find会遍历数组的所有元素，符合这个条件的元素会被返回，如果遍历完整个数组都没有符合条件的元素，会返回undefined</p>
+<pre class=" language-javascript"><code class="language-javascript">    <span class="token keyword">var</span> arr <span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    arr<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> item <span class="token operator">==</span><span class="token number">20</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    这个函数会返回数组中值是<span class="token number">20</span>数
+</code></pre>
+<h3 id="findIndex"><a href="#findIndex" class="headerlink" title=".findIndex"></a>.findIndex</h3><p>作用和find方法类似，但是不同的是，这个方法返回的是数组中符合条件的元素在数组中的索引。</p>
+<h3 id="join-拼接符"><a href="#join-拼接符" class="headerlink" title=".join(拼接符)"></a>.join(拼接符)</h3><p>返回一个将数组中所有元素使用拼接符拼接起来的字符串</p>
+<h3 id="every，filter，forEach，map，some"><a href="#every，filter，forEach，map，some" class="headerlink" title="every，filter，forEach，map，some"></a>every，filter，forEach，map，some</h3><p>这几个方法都会遍历整个数组，但是，就其作用而言，却不尽相同，具体而言：</p>
+<ol>
+<li>every：接收一个函数作为参数，这个函数的第一个参数是元素的值，第二个参数是元素的索引，every会遍历整个数组，只有当数组中的每一个元素都满足参数函数的条件时，才会返回true</li>
+<li>some：作用和every相似，但不需要数组中每一个元素都满足条件，只要存在一个元素满足这个条件就返回true。</li>
+<li>filter：根据传入的参数函数对数组中每一个元素进行过滤判断，返回的值是所有满足条件的元素组成的新数组</li>
+<li>forEach：对数组中每一个元素遍历执行参数函数中的操作。没有返回值</li>
+<li>map:数组中每一个元素都要执行这个函数，并将执行后的结果放在一个新数组中返回。</li>
 </ol>
-<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><h3 id="解决margin塌陷"><a href="#解决margin塌陷" class="headerlink" title="解决margin塌陷"></a>解决margin塌陷</h3><h3 id="清除浮动问题"><a href="#清除浮动问题" class="headerlink" title="清除浮动问题"></a>清除浮动问题</h3><h3 id="解决侵占浮动元素的问题——-gt-两栏布局"><a href="#解决侵占浮动元素的问题——-gt-两栏布局" class="headerlink" title="解决侵占浮动元素的问题——-&gt;两栏布局"></a>解决侵占浮动元素的问题——-&gt;两栏布局</h3><p>浮动的元素会脱离文档流，然后覆盖在文档流元素上，当一个元素浮动，另外一个不浮动的时候，浮动的元素会因为脱离文档流而盖在不浮动的元素上。所以我们为非浮动元素建立BFC环境，根据BFC的不和float box重叠的规则，就会解决侵占元素问题。</p>
+<p><strong>上述所有遍历数组的方法均不会改变原来数组中元素的值。</strong></p>
 
             </div>
             <hr>
@@ -573,7 +591,7 @@ BFC">
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">TomoFur</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/04/22/cssBFC/" class="b-link-green">BFC</a>
+                    <a href="/2019/04/26/数组常用方法/" class="b-link-green">数组常用方法</a>
                 </p>
             </div>
         </div>
@@ -618,27 +636,27 @@ BFC">
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/04/24/字符串常用方法/">
+                <a href="/2019/04/26/数组常用方法/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="字符串常用方法">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="数组常用方法">
                         
-                        <span class="card-title">字符串常用方法</span>
+                        <span class="card-title">数组常用方法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">.length返回字符换长度
-.charAt(索引)返回指定索引位置的字符，如果索引超过了字符串长度会返回空串
-.charCodeAt(索引)返回给定索引位置的字符的字符编码
-var str = 'hello';
-console.log(s</div>
+                    <div class="summary">Array.isArray(对象)判断这个对象是不是一个数组
+.concat(数组)返回一个拼接的新数组
+.push(值)在原数组的最后面添加上这个值，返回值是新数组的长度
+.unshift(值)在原数组的最前面添加上这个值，返回值是新数组</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -651,6 +669,7 @@ console.log(s</div>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -669,30 +688,31 @@ console.log(s</div>
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/04/22/vdom/">
+                <a href="/2019/04/26/AMD/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="virtual DOM及diff算法">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="AMD/CMD和CommonJS的区别">
                         
-                        <span class="card-title">virtual DOM及diff算法</span>
+                        <span class="card-title">AMD/CMD和CommonJS的区别</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">什么是virtual dom？从本质上而言，Vdom只是一个用于描述DOM节点的原生JS对象，并且最少包括tag，props，和children三个属性，下面是一个经典的Vdom例子：
-{
-    tag: "div",
-    props</div>
+                    <div class="summary">
+commonjs是用在服务器端的，是同步的，如node.js
+amd,cmd是用在浏览器端的，是异步的。其中amd先提出来，cmd是根据commonjs和amd的基础上提出来的。
+
+commonjsCommonjs是服务器端的模块规范，N</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-22
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-26
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/VUE/" class="post-category" target="_blank">
-                                    VUE
+                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
+                                    JavaScript
                                 </a>
                             
                             
@@ -702,16 +722,8 @@ console.log(s</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/vue/" target="_blank">
-                        <span class="chip bg-color">vue</span>
-                    </a>
-                    
-                    <a href="/tags/diff算法/" target="_blank">
-                        <span class="chip bg-color">diff算法</span>
-                    </a>
-                    
-                    <a href="/tags/VDom/" target="_blank">
-                        <span class="chip bg-color">VDom</span>
+                    <a href="/tags/模块化开发/" target="_blank">
+                        <span class="chip bg-color">模块化开发</span>
                     </a>
                     
                 </div>
