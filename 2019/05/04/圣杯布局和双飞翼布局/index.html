@@ -5,11 +5,16 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="防抖与节流, TomoFur">
-    <meta name="description" content="防抖当持续触发事件时，一定时间段内没有再触发时间，时间处理函数才会执行一次，如果设定的时间到来之前，有一次触发了事件，就重新开始延时。
-&amp;lt;script&gt;
-    function debounce(fn, wait) {
-      ">
+    <meta name="keywords" content="圣杯布局和双飞翼布局, TomoFur">
+    <meta name="description" content="圣杯布局圣杯布局是一种常见的CSS布局，它要求：
+
+底部和顶部各自占领屏幕的全部宽度
+上下部之间是一个三栏布局
+三栏布局两侧宽度不变，中间部分自动填充整个区域
+中间部分的高度是三栏中高度最高区域的高度
+
+下面介绍两种实现方式：
+浮动实现  ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +22,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>防抖与节流 | TomoFur</title>
+    <title>圣杯布局和双飞翼布局 | TomoFur</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -243,13 +248,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        防抖与节流
+                        圣杯布局和双飞翼布局
                     </div>
                 </div>
             </div>
@@ -360,8 +365,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/性能优化/" target="_blank">
-                                <span class="chip bg-color">性能优化</span>
+                            <a href="/tags/CSS-tips/" target="_blank">
+                                <span class="chip bg-color">CSS tips</span>
                             </a>
                         
                     </div>
@@ -372,8 +377,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                JavaScript
+                            <a href="/categories/CSS/" class="post-category" target="_blank">
+                                CSS
                             </a>
                         
                     </div>
@@ -384,21 +389,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-04-16
+                    2019-05-04
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        363
+                        583
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        2 分
                     </div>
                     
                 
@@ -409,47 +414,102 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h2><p>当持续触发事件时，一定时间段内没有再触发时间，时间处理函数才会执行一次，如果设定的时间到来之前，有一次触发了事件，就重新开始延时。</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">></span>
-    <span class="token keyword">function</span> <span class="token function">debounce</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> wait<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">var</span> timeout <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>timeout <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            timeout <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> wait<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <h2 id="圣杯布局"><a href="#圣杯布局" class="headerlink" title="圣杯布局"></a>圣杯布局</h2><p>圣杯布局是一种常见的CSS布局，它要求：</p>
+<ol>
+<li>底部和顶部各自占领屏幕的全部宽度</li>
+<li>上下部之间是一个三栏布局</li>
+<li>三栏布局两侧宽度不变，中间部分自动填充整个区域</li>
+<li>中间部分的高度是三栏中高度最高区域的高度</li>
+</ol>
+<p>下面介绍两种实现方式：</p>
+<h3 id="浮动实现"><a href="#浮动实现" class="headerlink" title="浮动实现"></a>浮动实现</h3><pre><code>  &lt;style&gt;
+        .header,.footer{
+            height: 200px;
+            width: 100%;
+            background: #f40;
+        }
+        .footer{
+            clear:both;
+        }
+        .container{
+            padding-left:200px;&#x2F;&#x2F;这个就是左边盒子将来的宽度
+            padding-right:300px;&#x2F;&#x2F;这个就是右边盒子将来的宽度
+        }
+        .container div{
+            float: left;
+            position: relative;&#x2F;&#x2F;将所有的盒子设为相对定位
+        }
+        .mid{
+            width: 100%;
+            background: yellow;
+        }
+        .left{
+            width: 200px;
+            background: skyblue;
+            margin-left: -100%;&#x2F;&#x2F;很关键，margin-left：-100%是按照父盒子的宽度来计算的
+            left:-200px;&#x2F;&#x2F;很关键
+        }
+        .right{
+            width: 300px;
+            background: cyan;
+            margin-right:-300px;&#x2F;&#x2F;很关键
+        }
+&lt;&#x2F;style&gt;
+&lt;div class=&quot;header&quot;&gt;这里是头部&lt;&#x2F;div&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;mid&quot;&gt;中间部分&lt;&#x2F;div&gt;
+        &lt;div class=&quot;left&quot;&gt;左边&lt;&#x2F;div&gt;
+        &lt;div class=&quot;right&quot;&gt;右边&lt;&#x2F;div&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;footer&quot;&gt;这里是底部&lt;&#x2F;div&gt;</code></pre>
+<h3 id="flex弹性布局实现"><a href="#flex弹性布局实现" class="headerlink" title="flex弹性布局实现"></a>flex弹性布局实现</h3><p>弹性布局就是给外面的container盒子设置display：flex；然后左右固定宽度，中间的盒子设置flex：1即可。</p>
+<h2 id="双飞翼布局"><a href="#双飞翼布局" class="headerlink" title="双飞翼布局"></a>双飞翼布局</h2><p>双飞翼布局是在middle的div里又插入一个div，通过调整内部div的margin值，实现中间栏自适应，内容写到内部div中</p>
+<pre><code>&lt;style&gt;
+     .hd{
+            height:50px;
+            background: #666;
+            text-align: center;
+        }
+        .middle{
+            float:left;
+            width:100%;&#x2F;*左栏上去到第一行*&#x2F;
+            height:100px;
+            background:blue;
+        }
+        .left{
+            float:left;
+            width:180px;
+            height:100px;
+            margin-left:-100%;
+            background:#0c9;
+        }
+        .right{
+            float:left;
+            width:200px;
+            height:100px;
+            margin-left:-200px;
+            background:#0c9;
+        }
+        &#x2F;*给内部div添加margin，把内容放到中间栏，其实整个背景还是100%*&#x2F;
+        .inside{
+            margin:0 200px 0 180px;
+            height:100px;
+        }
+        .footer{
+            clear:both; &#x2F;*记得清楚浮动*&#x2F;
+            height:50px;
+            background: #666;
+            text-align: center;
+        }
+&lt;&#x2F;style&gt;
 
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token comment" spellcheck="true">// 处理函数</span>
-    <span class="token keyword">function</span> <span class="token function">handle</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'我被点击了'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token comment" spellcheck="true">// 滚动事件</span>
-    document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'btn'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token function">debounce</span><span class="token punctuation">(</span>handle<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-</code></pre>
-<p><strong>注</strong>：这个按钮所注册的点击事件只有在1s之内没有再次点击该按钮才会执行弹框，如果点击了按钮之后1s之内再次点击按钮，则会以第二次按钮点击的时间为基准，往后延迟1s后执行。</p>
-<h2 id="函数节流"><a href="#函数节流" class="headerlink" title="函数节流"></a>函数节流</h2><p>当持续触发时间时，保证一定时间段内只调用一次时间处理函数。</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> processor<span class="token operator">=</span><span class="token punctuation">{</span>
-        timeOutId <span class="token punctuation">:</span><span class="token keyword">null</span><span class="token punctuation">,</span>
-        performProcessing<span class="token punctuation">:</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-           <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'我被点击了'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        process<span class="token punctuation">:</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token function">clearTimeout</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>timeOutId<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">var</span> that <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
-            that<span class="token punctuation">.</span>timeOutId <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
-                that<span class="token punctuation">.</span><span class="token function">performProcessing</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">var</span> btn <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'btn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    btn<span class="token punctuation">.</span>onclick <span class="token operator">=</span> processor<span class="token punctuation">.</span>process<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>processor<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<p><strong>注</strong>：这个按钮的点击事件无论点击多少次，1s内只执行一次。</p>
-<h2 id="函数防抖与函数节流的区别"><a href="#函数防抖与函数节流的区别" class="headerlink" title="函数防抖与函数节流的区别"></a>函数防抖与函数节流的区别</h2><p>防抖的函数不保证一段时间内执行一次，如果再该段时间里面该事件持续被触发，那么这个事件永远不会执行。</p>
-<p>函数节流则时一段事件内无论触发多少次事件，都只会响应一次该事件。</p>
+ &lt;div class=&quot;hd&quot;&gt;header&lt;&#x2F;div&gt;
+    &lt;div class=&quot;middle&quot;&gt;
+        &lt;div class=&quot;inside&quot;&gt;middle&lt;&#x2F;div&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;left&quot;&gt;left&lt;&#x2F;div&gt;
+    &lt;div class=&quot;right&quot;&gt;right&lt;&#x2F;div&gt;
+    &lt;div class=&quot;footer&quot;&gt;footer&lt;&#x2F;div&gt;</code></pre>
 
             </div>
             <hr>
@@ -597,7 +657,7 @@
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">TomoFur</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/04/16/防抖与节流/" class="b-link-green">防抖与节流</a>
+                    <a href="/2019/05/04/圣杯布局和双飞翼布局/" class="b-link-green">圣杯布局和双飞翼布局</a>
                 </p>
             </div>
         </div>
@@ -642,28 +702,32 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/04/16/CSS画三角形/">
+                <a href="/2019/05/04/圣杯布局和双飞翼布局/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="原生CSS画三角形">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="圣杯布局和双飞翼布局">
                         
-                        <span class="card-title">原生CSS画三角形</span>
+                        <span class="card-title">圣杯布局和双飞翼布局</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">步骤：先将一个盒子的width和height都设置为0px，这一步是最关键的
-画尖朝上的红色三角形div{
-    width:0px;
-    height:0px;
-    border-left:100px solid #fff;
- </div>
+                    <div class="summary">圣杯布局圣杯布局是一种常见的CSS布局，它要求：
+
+底部和顶部各自占领屏幕的全部宽度
+上下部之间是一个三栏布局
+三栏布局两侧宽度不变，中间部分自动填充整个区域
+中间部分的高度是三栏中高度最高区域的高度
+
+下面介绍两种实现方式：
+浮动实现  </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -676,6 +740,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -694,27 +759,29 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/04/11/EventLoop/">
+                <a href="/2019/05/04/CSS控制前端图片HTTP请求的情况/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="JavaScript运行机制">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="CSS控制前端图片HTTP请求的情况">
                         
-                        <span class="card-title">JavaScript运行机制</span>
+                        <span class="card-title">CSS控制前端图片HTTP请求的情况</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">为什么JavaScript是单线程JavaScript的单线程，与它的用途有关，作为浏览器脚本语言，JavaScript的主要用途是为了与用户互动以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如：假定JavaScri</div>
+                    <div class="summary">隐藏图片&lt;img src=&#39;xxx.jpg&#39; style=&#39;display:none&#39;&gt;
+结论：产生HTTP请求，此外使用visiblity：hidden的时候也会产生请求。
+重复图片&lt;im</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-11
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-04
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                    JavaScript
+                            <a href="/categories/CSS/" class="post-category" target="_blank">
+                                    CSS
                                 </a>
                             
                             
@@ -724,8 +791,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/EventLoop/" target="_blank">
-                        <span class="chip bg-color">EventLoop</span>
+                    <a href="/tags/CSS-tips/" target="_blank">
+                        <span class="chip bg-color">CSS tips</span>
                     </a>
                     
                 </div>
