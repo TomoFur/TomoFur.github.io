@@ -5,8 +5,16 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="ES6异步操作, TomoFur">
-    <meta name="description" content="异步操作async/awaitasync函数返回的是一个promise对象，如果在函数中return一个直接量，saync会把这个直接量通过Promise.resolve()封装成一个Promise对象。，如果async函数没有返回值，就会">
+    <meta name="keywords" content="CSS控制前端图片HTTP请求的情况, TomoFur">
+    <meta name="description" content="隐藏图片
+
+结论：产生HTTP请求，此外使用visiblity：hidden的时候也会产生请求。
+重复图片
+
+
+结论：所有浏览器对重复的资源都只发出一次请求。
+重复背景
+    .test1{background:url(xxx.jpg)}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +22,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>ES6异步操作 | TomoFur</title>
+    <title>CSS控制前端图片HTTP请求的情况 | TomoFur</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -240,13 +248,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        ES6异步操作
+                        CSS控制前端图片HTTP请求的情况
                     </div>
                 </div>
             </div>
@@ -357,12 +365,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/ES6/" target="_blank">
-                                <span class="chip bg-color">ES6</span>
-                            </a>
-                        
-                            <a href="/tags/async-await/" target="_blank">
-                                <span class="chip bg-color">async/await</span>
+                            <a href="/tags/CSS-tips/" target="_blank">
+                                <span class="chip bg-color">CSS tips</span>
                             </a>
                         
                     </div>
@@ -373,8 +377,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                JavaScript
+                            <a href="/categories/CSS/" class="post-category" target="_blank">
+                                CSS
                             </a>
                         
                     </div>
@@ -385,14 +389,14 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-04-11
+                    2019-05-04
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        148
+                        304
                     </div>
                     
 
@@ -410,8 +414,62 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="异步操作"><a href="#异步操作" class="headerlink" title="异步操作"></a>异步操作</h1><h2 id="async-await"><a href="#async-await" class="headerlink" title="async/await"></a>async/await</h2><p>async函数返回的是一个promise对象，如果在函数中return一个直接量，saync会把这个直接量通过Promise.resolve()封装成一个Promise对象。，如果async函数没有返回值，就会封装成async(undefined)</p>
-<p><strong>个人理解</strong>：async函数在调用完毕之后，不管函数本身有没有设置返回值，都会自动返回一个Promise对象。如果async函数有设置返回值，则返回的Promise对象是Promise.resolve(返回值)，如果async本身没有设置返回值，则返回的Promise对象是Promise.resolve(undefined).</p>
+                <h2 id="隐藏图片"><a href="#隐藏图片" class="headerlink" title="隐藏图片"></a>隐藏图片</h2><pre class=" language-php+HTML"><code class="language-php+HTML"><img src="/2019/05/04/CSS控制前端图片HTTP请求的情况/xxx.jpg" style="display:none">
+</code></pre>
+<p><strong>结论</strong>：产生HTTP请求，此外使用visiblity：hidden的时候也会产生请求。</p>
+<h2 id="重复图片"><a href="#重复图片" class="headerlink" title="重复图片"></a>重复图片</h2><pre class=" language-php+HTML"><code class="language-php+HTML"><img src="/2019/05/04/CSS控制前端图片HTTP请求的情况/xxx.jpg">
+<img src="/2019/05/04/CSS控制前端图片HTTP请求的情况/xxx.jpg">
+</code></pre>
+<p><strong>结论</strong>：所有浏览器对重复的资源都只发出一次请求。</p>
+<h2 id="重复背景"><a href="#重复背景" class="headerlink" title="重复背景"></a>重复背景</h2><pre class=" language-php+HTML"><code class="language-php+HTML"><style>
+    .test1{background:url(xxx.jpg)}
+    .test2{background:url(xxx.jpg)}
+</style>
+<div class="test1"></div>
+<div class="test2"></div>
+</code></pre>
+<p><strong>结论</strong>：所有浏览器都只发出一次HTTP请求</p>
+<h2 id="不存在的元素的背景"><a href="#不存在的元素的背景" class="headerlink" title="不存在的元素的背景"></a>不存在的元素的背景</h2><pre class=" language-php+HTML"><code class="language-php+HTML"><style>
+    .test1{background:url(xxx.jpg)}
+    .test2{background:url(xxx.png)}
+</style>
+<div class="test1"></div>
+</code></pre>
+<p><strong>结论</strong>：背景仅在应用的元素在页面中存在的时候，才会发出请求。</p>
+<h2 id="隐藏元素的背景"><a href="#隐藏元素的背景" class="headerlink" title="隐藏元素的背景"></a>隐藏元素的背景</h2><pre class=" language-php+HTML"><code class="language-php+HTML"><style>
+    .test1{
+        background:url(xxx.jpg);
+        display:none;
+    }
+    .test2{background:url(xxx.png)}
+</style>
+<div class="test1"></div>
+</code></pre>
+<p><strong>结论</strong>：Chrome会为display：none；的元素发出请求，但是fireFox和opera不会为display：none；的元素发出HTTP请求。</p>
+<h2 id="多重背景"><a href="#多重背景" class="headerlink" title="多重背景"></a>多重背景</h2><pre class=" language-php+HTML"><code class="language-php+HTML"><style>
+    .test1{
+        background:url(xxx.jpg);
+    }
+    .test1{background:url(xxx.png)}
+</style>
+<div class="test1"></div>
+</code></pre>
+<p><strong>结论</strong>：因为下面的样式把上面的掩盖掉，所以只会发出一次HTTP请求。</p>
+<h2 id="hover的背景加载"><a href="#hover的背景加载" class="headerlink" title="hover的背景加载"></a>hover的背景加载</h2><pre class=" language-php+HTML"><code class="language-php+HTML"><style>
+    .test1{
+        background:url(xxx.jpg);
+    }
+    .test1:hover{background:url(xxx.png)}
+</style>
+<div class="test1"></div>
+</code></pre>
+<p><strong>结论</strong>：触发hover时，才会有对应的HTTP请求，如果没有触发，默认只会有请求默认的背景图片</p>
+<h2 id="JS中innerHTML中的图片"><a href="#JS中innerHTML中的图片" class="headerlink" title="JS中innerHTML中的图片"></a>JS中innerHTML中的图片</h2><pre class=" language-php+HTML"><code class="language-php+HTML"><script type="text/javascript">   
+    var el = document.createElement('div');   
+    el.innerHTML = '<img src="haorooms.jpg" />';   
+</script>  
+</code></pre>
+<p><strong>结论</strong>：只有Opera不会立刻发出请求，其余浏览器会发出HTTP请求。</p>
 
             </div>
             <hr>
@@ -559,7 +617,7 @@
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">TomoFur</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/04/11/ES6异步操作/" class="b-link-green">ES6异步操作</a>
+                    <a href="/2019/05/04/CSS控制前端图片HTTP请求的情况/" class="b-link-green">CSS控制前端图片HTTP请求的情况</a>
                 </p>
             </div>
         </div>
@@ -604,43 +662,50 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/04/16/防抖与节流/">
+                <a href="/2019/05/04/CSS控制前端图片HTTP请求的情况/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="防抖与节流">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="CSS控制前端图片HTTP请求的情况">
                         
-                        <span class="card-title">防抖与节流</span>
+                        <span class="card-title">CSS控制前端图片HTTP请求的情况</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">防抖当持续触发事件时，一定时间段内没有再触发时间，时间处理函数才会执行一次，如果设定的时间到来之前，有一次触发了事件，就重新开始延时。
-&lt;script>
-    function debounce(fn, wait) {
-      </div>
+                    <div class="summary">隐藏图片
+
+结论：产生HTTP请求，此外使用visiblity：hidden的时候也会产生请求。
+重复图片
+
+
+结论：所有浏览器对重复的资源都只发出一次请求。
+重复背景
+    .test1{background:url(xxx.jpg)}</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                    JavaScript
+                            <a href="/categories/CSS/" class="post-category" target="_blank">
+                                    CSS
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/性能优化/" target="_blank">
-                        <span class="chip bg-color">性能优化</span>
+                    <a href="/tags/CSS-tips/" target="_blank">
+                        <span class="chip bg-color">CSS tips</span>
                     </a>
                     
                 </div>
@@ -654,20 +719,24 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/04/11/EventLoop/">
+                <a href="/2019/04/30/字符串常用方法/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="JavaScript运行机制">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="字符串常用方法">
                         
-                        <span class="card-title">JavaScript运行机制</span>
+                        <span class="card-title">字符串常用方法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">为什么JavaScript是单线程JavaScript的单线程，与它的用途有关，作为浏览器脚本语言，JavaScript的主要用途是为了与用户互动以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如：假定JavaScri</div>
+                    <div class="summary">.length返回字符换长度
+.charAt(索引)返回指定索引位置的字符，如果索引超过了字符串长度会返回空串
+.charCodeAt(索引)返回给定索引位置的字符的字符编码
+var str = 'hello';
+console.log(s</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-11
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-30
                             </span>
                         <span class="publish-author">
                             
@@ -684,8 +753,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/EventLoop/" target="_blank">
-                        <span class="chip bg-color">EventLoop</span>
+                    <a href="/tags/ES5基础知识/" target="_blank">
+                        <span class="chip bg-color">ES5基础知识</span>
                     </a>
                     
                 </div>
