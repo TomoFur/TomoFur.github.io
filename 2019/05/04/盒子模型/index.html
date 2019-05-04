@@ -5,13 +5,10 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="原生CSS画三角形, TomoFur">
-    <meta name="description" content="步骤：先将一个盒子的width和height都设置为0px，这一步是最关键的
-画尖朝上的红色三角形div{
-    width:0px;
-    height:0px;
-    border-left:100px solid #fff;
- ">
+    <meta name="keywords" content="盒子模型, TomoFur">
+    <meta name="description" content="什么是盒子模型CSS盒子模型也叫框模型，具备内容(content),填充(padding),边框(border),边界(margin)这些属性，在CSS中，每一个元素都被视为一个盒子，且每一个盒子都有三个属性：
+
+border：元素的边框，">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>原生CSS画三角形 | TomoFur</title>
+    <title>盒子模型 | TomoFur</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -245,13 +242,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        原生CSS画三角形
+                        盒子模型
                     </div>
                 </div>
             </div>
@@ -362,8 +359,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/CSS-tips/" target="_blank">
-                                <span class="chip bg-color">CSS tips</span>
+                            <a href="/tags/html布局/" target="_blank">
+                                <span class="chip bg-color">html布局</span>
                             </a>
                         
                     </div>
@@ -374,8 +371,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/CSS/" class="post-category" target="_blank">
-                                CSS
+                            <a href="/categories/HTML/" class="post-category" target="_blank">
+                                HTML
                             </a>
                         
                     </div>
@@ -386,14 +383,14 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-04-16
+                    2019-05-04
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        281
+                        279
                     </div>
                     
 
@@ -411,76 +408,19 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h2><p><strong>先将一个盒子的width和height都设置为0px，这一步是最关键的</strong></p>
-<h3 id="画尖朝上的红色三角形"><a href="#画尖朝上的红色三角形" class="headerlink" title="画尖朝上的红色三角形"></a>画尖朝上的红色三角形</h3><pre class=" language-css"><code class="language-css"><span class="token selector">div</span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>
-    <span class="token property">border-left</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>
-    <span class="token property">border-right</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>
-    <span class="token property">border-top</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>
-    <span class="token property">border-bottom</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#f00</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h3 id="画尖朝下的红色三角形"><a href="#画尖朝下的红色三角形" class="headerlink" title="画尖朝下的红色三角形"></a>画尖朝下的红色三角形</h3><pre class=" language-css"><code class="language-css"><span class="token selector">div</span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>
-    <span class="token property">border-left</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>
-    <span class="token property">border-right</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>
-    <span class="token property">border-bottom</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>
-    <span class="token property">border-top</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#f00</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h3 id="画尖朝左的红色三角形"><a href="#画尖朝左的红色三角形" class="headerlink" title="画尖朝左的红色三角形"></a>画尖朝左的红色三角形</h3><pre class=" language-css"><code class="language-css"><span class="token selector">div</span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>
-    <span class="token property">border-left</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>
-    <span class="token property">border-top</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>
-    <span class="token property">border-bottom</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>
-    <span class="token property">border-right</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#f00</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h3 id="画尖朝右的红色三角形"><a href="#画尖朝右的红色三角形" class="headerlink" title="画尖朝右的红色三角形"></a>画尖朝右的红色三角形</h3><pre class=" language-css"><code class="language-css"><span class="token selector">div</span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>
-    <span class="token property">border-right</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>
-    <span class="token property">border-top</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>
-    <span class="token property">border-bottom</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>
-    <span class="token property">border-left</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#f00</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h3 id="画左上方的直角三角形"><a href="#画左上方的直角三角形" class="headerlink" title="画左上方的直角三角形"></a>画左上方的直角三角形</h3><pre class=" language-css"><code class="language-css"><span class="token selector">div</span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>
-    <span class="token property">border-top</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#f00</span><span class="token punctuation">;</span>
-    <span class="token property">border-right</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>
-    <span class="token property">border-bottom</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h3 id="画左下方的直角三角形"><a href="#画左下方的直角三角形" class="headerlink" title="画左下方的直角三角形"></a>画左下方的直角三角形</h3><pre class=" language-css"><code class="language-css"><span class="token selector">div</span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>
-    <span class="token property">border-top</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>
-    <span class="token property">border-right</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>
-    <span class="token property">border-bottom</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#f00</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h3 id="画右上方直角三角形"><a href="#画右上方直角三角形" class="headerlink" title="画右上方直角三角形"></a>画右上方直角三角形</h3><pre class=" language-css"><code class="language-css"><span class="token selector">div</span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>
-    <span class="token property">border-top</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#f00</span><span class="token punctuation">;</span>
-    <span class="token property">border-left</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>
-    <span class="token property">border-bottom</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-</code></pre>
-<h3 id="画右下方直角三角形"><a href="#画右下方直角三角形" class="headerlink" title="画右下方直角三角形"></a>画右下方直角三角形</h3><pre class=" language-css"><code class="language-css"><span class="token selector">div</span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>
-    <span class="token property">border-top</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>
-    <span class="token property">border-left</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>
-    <span class="token property">border-bottom</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#f00</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
+                <h2 id="什么是盒子模型"><a href="#什么是盒子模型" class="headerlink" title="什么是盒子模型"></a>什么是盒子模型</h2><p>CSS盒子模型也叫框模型，具备内容(content),填充(padding),边框(border),边界(margin)这些属性，在CSS中，每一个元素都被视为一个盒子，且每一个盒子都有三个属性：</p>
+<ol>
+<li>border：元素的边框，用于将盒子的边缘与其他盒子分开。</li>
+<li>margin：外边距，表示盒子的边缘与相邻盒子之间的距离，也称为页边空白。</li>
+<li>padding：内边距，表示盒子内容和边框之间的空间。</li>
+</ol>
+<p>盒子的width和height指的是内容区域的宽度和高度，增加内边距，边框和外边距不会影响内容区域的尺寸，但是会增加盒子的总尺寸。</p>
+<h2 id="盒子模型模式"><a href="#盒子模型模式" class="headerlink" title="盒子模型模式"></a>盒子模型模式</h2><h3 id="标准盒子模型：box-sizing-content-box"><a href="#标准盒子模型：box-sizing-content-box" class="headerlink" title="标准盒子模型：box-sizing:content-box"></a>标准盒子模型：box-sizing:content-box</h3><p>盒子总宽度=width+padding+border+margin</p>
+<p>盒子的总高度=height+padding+border+margin</p>
+<h3 id="IE盒子模型（怪异盒子模型）：box-sizing：border-box"><a href="#IE盒子模型（怪异盒子模型）：box-sizing：border-box" class="headerlink" title="IE盒子模型（怪异盒子模型）：box-sizing：border-box"></a>IE盒子模型（怪异盒子模型）：box-sizing：border-box</h3><p>盒子总宽度=width+margin；</p>
+<p>盒子总高度=height+margin</p>
+<p>用户自己设置的width=内容区域的宽度+border+padding</p>
+<p>用户自己设置的height=内容区域的高度+border+padding</p>
 
             </div>
             <hr>
@@ -628,7 +568,7 @@
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">TomoFur</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/04/16/CSS画三角形/" class="b-link-green">原生CSS画三角形</a>
+                    <a href="/2019/05/04/盒子模型/" class="b-link-green">盒子模型</a>
                 </p>
             </div>
         </div>
@@ -673,51 +613,44 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/04/22/vdom/">
+                <a href="/2019/05/04/盒子模型/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="virtual DOM及diff算法">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="盒子模型">
                         
-                        <span class="card-title">virtual DOM及diff算法</span>
+                        <span class="card-title">盒子模型</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">什么是virtual dom？从本质上而言，Vdom只是一个用于描述DOM节点的原生JS对象，并且最少包括tag，props，和children三个属性，下面是一个经典的Vdom例子：
-{
-    tag: "div",
-    props</div>
+                    <div class="summary">什么是盒子模型CSS盒子模型也叫框模型，具备内容(content),填充(padding),边框(border),边界(margin)这些属性，在CSS中，每一个元素都被视为一个盒子，且每一个盒子都有三个属性：
+
+border：元素的边框，</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/VUE/" class="post-category" target="_blank">
-                                    VUE
+                            <a href="/categories/HTML/" class="post-category" target="_blank">
+                                    HTML
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/vue/" target="_blank">
-                        <span class="chip bg-color">vue</span>
-                    </a>
-                    
-                    <a href="/tags/diff算法/" target="_blank">
-                        <span class="chip bg-color">diff算法</span>
-                    </a>
-                    
-                    <a href="/tags/VDom/" target="_blank">
-                        <span class="chip bg-color">VDom</span>
+                    <a href="/tags/html布局/" target="_blank">
+                        <span class="chip bg-color">html布局</span>
                     </a>
                     
                 </div>
@@ -731,30 +664,35 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/04/16/防抖与节流/">
+                <a href="/2019/05/04/圣杯布局和双飞翼布局/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="防抖与节流">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="圣杯布局和双飞翼布局">
                         
-                        <span class="card-title">防抖与节流</span>
+                        <span class="card-title">圣杯布局和双飞翼布局</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">防抖当持续触发事件时，一定时间段内没有再触发时间，时间处理函数才会执行一次，如果设定的时间到来之前，有一次触发了事件，就重新开始延时。
-&lt;script>
-    function debounce(fn, wait) {
-      </div>
+                    <div class="summary">圣杯布局圣杯布局是一种常见的CSS布局，它要求：
+
+底部和顶部各自占领屏幕的全部宽度
+上下部之间是一个三栏布局
+三栏布局两侧宽度不变，中间部分自动填充整个区域
+中间部分的高度是三栏中高度最高区域的高度
+
+下面介绍两种实现方式：
+浮动实现  </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-16
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-04
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                    JavaScript
+                            <a href="/categories/CSS/" class="post-category" target="_blank">
+                                    CSS
                                 </a>
                             
                             
@@ -764,8 +702,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/性能优化/" target="_blank">
-                        <span class="chip bg-color">性能优化</span>
+                    <a href="/tags/CSS-tips/" target="_blank">
+                        <span class="chip bg-color">CSS tips</span>
                     </a>
                     
                 </div>

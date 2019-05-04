@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>盒子模型</title>
+      <link href="/2019/05/04/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/"/>
+      <url>/2019/05/04/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/</url>
+      
+        <content type="html"><![CDATA[<h2 id="什么是盒子模型"><a href="#什么是盒子模型" class="headerlink" title="什么是盒子模型"></a>什么是盒子模型</h2><p>CSS盒子模型也叫框模型，具备内容(content),填充(padding),边框(border),边界(margin)这些属性，在CSS中，每一个元素都被视为一个盒子，且每一个盒子都有三个属性：</p><ol><li>border：元素的边框，用于将盒子的边缘与其他盒子分开。</li><li>margin：外边距，表示盒子的边缘与相邻盒子之间的距离，也称为页边空白。</li><li>padding：内边距，表示盒子内容和边框之间的空间。</li></ol><p>盒子的width和height指的是内容区域的宽度和高度，增加内边距，边框和外边距不会影响内容区域的尺寸，但是会增加盒子的总尺寸。</p><h2 id="盒子模型模式"><a href="#盒子模型模式" class="headerlink" title="盒子模型模式"></a>盒子模型模式</h2><h3 id="标准盒子模型：box-sizing-content-box"><a href="#标准盒子模型：box-sizing-content-box" class="headerlink" title="标准盒子模型：box-sizing:content-box"></a>标准盒子模型：box-sizing:content-box</h3><p>盒子总宽度=width+padding+border+margin</p><p>盒子的总高度=height+padding+border+margin</p><h3 id="IE盒子模型（怪异盒子模型）：box-sizing：border-box"><a href="#IE盒子模型（怪异盒子模型）：box-sizing：border-box" class="headerlink" title="IE盒子模型（怪异盒子模型）：box-sizing：border-box"></a>IE盒子模型（怪异盒子模型）：box-sizing：border-box</h3><p>盒子总宽度=width+margin；</p><p>盒子总高度=height+margin</p><p>用户自己设置的width=内容区域的宽度+border+padding</p><p>用户自己设置的height=内容区域的高度+border+padding</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> HTML </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> html布局 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>圣杯布局和双飞翼布局</title>
       <link href="/2019/05/04/%E5%9C%A3%E6%9D%AF%E5%B8%83%E5%B1%80%E5%92%8C%E5%8F%8C%E9%A3%9E%E7%BF%BC%E5%B8%83%E5%B1%80/"/>
       <url>/2019/05/04/%E5%9C%A3%E6%9D%AF%E5%B8%83%E5%B1%80%E5%92%8C%E5%8F%8C%E9%A3%9E%E7%BF%BC%E5%B8%83%E5%B1%80/</url>
