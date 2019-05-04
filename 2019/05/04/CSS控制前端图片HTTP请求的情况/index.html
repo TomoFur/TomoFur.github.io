@@ -6,15 +6,9 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="CSS控制前端图片HTTP请求的情况, TomoFur">
-    <meta name="description" content="隐藏图片
-
+    <meta name="description" content="隐藏图片&amp;lt;img src=&amp;#39;xxx.jpg&amp;#39; style=&amp;#39;display:none&amp;#39;&amp;gt;
 结论：产生HTTP请求，此外使用visiblity：hidden的时候也会产生请求。
-重复图片
-
-
-结论：所有浏览器对重复的资源都只发出一次请求。
-重复背景
-    .test1{background:url(xxx.jpg)}">
+重复图片&amp;lt;im">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -396,14 +390,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        304
+                        457
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        2 分
                     </div>
                     
                 
@@ -414,62 +408,54 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="隐藏图片"><a href="#隐藏图片" class="headerlink" title="隐藏图片"></a>隐藏图片</h2><pre class=" language-php+HTML"><code class="language-php+HTML"><img src="/2019/05/04/CSS控制前端图片HTTP请求的情况/xxx.jpg" style="display:none">
-</code></pre>
+                <h2 id="隐藏图片"><a href="#隐藏图片" class="headerlink" title="隐藏图片"></a>隐藏图片</h2><pre><code>&lt;img src=&#39;xxx.jpg&#39; style=&#39;display:none&#39;&gt;</code></pre>
 <p><strong>结论</strong>：产生HTTP请求，此外使用visiblity：hidden的时候也会产生请求。</p>
-<h2 id="重复图片"><a href="#重复图片" class="headerlink" title="重复图片"></a>重复图片</h2><pre class=" language-php+HTML"><code class="language-php+HTML"><img src="/2019/05/04/CSS控制前端图片HTTP请求的情况/xxx.jpg">
-<img src="/2019/05/04/CSS控制前端图片HTTP请求的情况/xxx.jpg">
-</code></pre>
+<h2 id="重复图片"><a href="#重复图片" class="headerlink" title="重复图片"></a>重复图片</h2><pre><code>&lt;img src=&#39;xxx.jpg&#39;&gt;
+&lt;img src=&#39;xxx.jpg&#39;&gt;</code></pre>
 <p><strong>结论</strong>：所有浏览器对重复的资源都只发出一次请求。</p>
-<h2 id="重复背景"><a href="#重复背景" class="headerlink" title="重复背景"></a>重复背景</h2><pre class=" language-php+HTML"><code class="language-php+HTML"><style>
+<h2 id="重复背景"><a href="#重复背景" class="headerlink" title="重复背景"></a>重复背景</h2><pre><code>&lt;style&gt;
     .test1{background:url(xxx.jpg)}
     .test2{background:url(xxx.jpg)}
-</style>
-<div class="test1"></div>
-<div class="test2"></div>
-</code></pre>
+&lt;&#x2F;style&gt;
+&lt;div class=&#39;test1&#39;&gt;&lt;&#x2F;div&gt;
+&lt;div class=&#39;test2&#39;&gt;&lt;&#x2F;div&gt;</code></pre>
 <p><strong>结论</strong>：所有浏览器都只发出一次HTTP请求</p>
-<h2 id="不存在的元素的背景"><a href="#不存在的元素的背景" class="headerlink" title="不存在的元素的背景"></a>不存在的元素的背景</h2><pre class=" language-php+HTML"><code class="language-php+HTML"><style>
+<h2 id="不存在的元素的背景"><a href="#不存在的元素的背景" class="headerlink" title="不存在的元素的背景"></a>不存在的元素的背景</h2><pre><code>&lt;style&gt;
     .test1{background:url(xxx.jpg)}
     .test2{background:url(xxx.png)}
-</style>
-<div class="test1"></div>
-</code></pre>
+&lt;&#x2F;style&gt;
+&lt;div class=&#39;test1&#39;&gt;&lt;&#x2F;div&gt;</code></pre>
 <p><strong>结论</strong>：背景仅在应用的元素在页面中存在的时候，才会发出请求。</p>
-<h2 id="隐藏元素的背景"><a href="#隐藏元素的背景" class="headerlink" title="隐藏元素的背景"></a>隐藏元素的背景</h2><pre class=" language-php+HTML"><code class="language-php+HTML"><style>
+<h2 id="隐藏元素的背景"><a href="#隐藏元素的背景" class="headerlink" title="隐藏元素的背景"></a>隐藏元素的背景</h2><pre><code>&lt;style&gt;
     .test1{
         background:url(xxx.jpg);
         display:none;
     }
     .test2{background:url(xxx.png)}
-</style>
-<div class="test1"></div>
-</code></pre>
+&lt;&#x2F;style&gt;
+&lt;div class=&#39;test1&#39;&gt;&lt;&#x2F;div&gt;</code></pre>
 <p><strong>结论</strong>：Chrome会为display：none；的元素发出请求，但是fireFox和opera不会为display：none；的元素发出HTTP请求。</p>
-<h2 id="多重背景"><a href="#多重背景" class="headerlink" title="多重背景"></a>多重背景</h2><pre class=" language-php+HTML"><code class="language-php+HTML"><style>
+<h2 id="多重背景"><a href="#多重背景" class="headerlink" title="多重背景"></a>多重背景</h2><pre><code>&lt;style&gt;
     .test1{
         background:url(xxx.jpg);
     }
     .test1{background:url(xxx.png)}
-</style>
-<div class="test1"></div>
-</code></pre>
+&lt;&#x2F;style&gt;
+&lt;div class=&#39;test1&#39;&gt;&lt;&#x2F;div&gt;</code></pre>
 <p><strong>结论</strong>：因为下面的样式把上面的掩盖掉，所以只会发出一次HTTP请求。</p>
-<h2 id="hover的背景加载"><a href="#hover的背景加载" class="headerlink" title="hover的背景加载"></a>hover的背景加载</h2><pre class=" language-php+HTML"><code class="language-php+HTML"><style>
+<h2 id="hover的背景加载"><a href="#hover的背景加载" class="headerlink" title="hover的背景加载"></a>hover的背景加载</h2><pre><code>&lt;style&gt;
     .test1{
         background:url(xxx.jpg);
     }
     .test1:hover{background:url(xxx.png)}
-</style>
-<div class="test1"></div>
-</code></pre>
+&lt;&#x2F;style&gt;
+&lt;div class=&#39;test1&#39;&gt;&lt;&#x2F;div&gt;</code></pre>
 <p><strong>结论</strong>：触发hover时，才会有对应的HTTP请求，如果没有触发，默认只会有请求默认的背景图片</p>
-<h2 id="JS中innerHTML中的图片"><a href="#JS中innerHTML中的图片" class="headerlink" title="JS中innerHTML中的图片"></a>JS中innerHTML中的图片</h2><pre class=" language-php+HTML"><code class="language-php+HTML"><script type="text/javascript">   
-    var el = document.createElement('div');   
-    el.innerHTML = '<img src="haorooms.jpg" />';   
-</script>  
-</code></pre>
-<p><strong>结论</strong>：只有Opera不会立刻发出请求，其余浏览器会发出HTTP请求。</p>
+<h2 id="JS中innerHTML中的图片"><a href="#JS中innerHTML中的图片" class="headerlink" title="JS中innerHTML中的图片"></a>JS中innerHTML中的图片</h2><pre><code>&lt;script type=&quot;text/javascript&quot;&gt;   
+    var el = document.createElement(&#39;div&#39;);   
+    el.innerHTML = &#39;&lt;img src=&quot;haorooms.jpg&quot; /&gt;&#39;;   
+&lt;/script&gt;  
+</code></pre><p><strong>结论</strong>：只有Opera不会立刻发出请求，其余浏览器会发出HTTP请求。</p>
 
             </div>
             <hr>
@@ -675,15 +661,9 @@
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">隐藏图片
-
+                    <div class="summary">隐藏图片&lt;img src=&#39;xxx.jpg&#39; style=&#39;display:none&#39;&gt;
 结论：产生HTTP请求，此外使用visiblity：hidden的时候也会产生请求。
-重复图片
-
-
-结论：所有浏览器对重复的资源都只发出一次请求。
-重复背景
-    .test1{background:url(xxx.jpg)}</div>
+重复图片&lt;im</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-04
@@ -909,7 +889,7 @@ console.log(s</div>
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">6.3k</span>
+                <span class="white-color">6.4k</span>
             
 
             
