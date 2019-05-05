@@ -5,9 +5,9 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="垃圾回收机制, TomoFur">
-    <meta name="description" content="原理：找出不再继续使用的变量，然后释放掉其占用的内存。策略1：标记清除当变量进入环境（可以理解为一个函数开始执行了）时，就将这个变量标记为“进入环境”，从逻辑上讲，不能释放掉进入环境的变量，而当变量离开环境的的时候，则将其标记为离开环境。
-">
+    <meta name="keywords" content="JavaScript学习过程中遇到的经典算法题, TomoFur">
+    <meta name="description" content="说明：这个帖子旨在记录在学习JavaScript期间遇到的一些有趣的编程题。
+平衡括号题目描述：在编写代码并且编译时，难免会因为少写了一个’)’和被编译器报错。也就是说，编译器会去匹配括号是否匹配。当你输入了一个’(‘，很自然编译器回去检查">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>垃圾回收机制 | TomoFur</title>
+    <title>JavaScript学习过程中遇到的经典算法题 | TomoFur</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -241,13 +241,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        垃圾回收机制
+                        JavaScript学习过程中遇到的经典算法题
                     </div>
                 </div>
             </div>
@@ -358,8 +358,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/ES5基础知识/" target="_blank">
-                                <span class="chip bg-color">ES5基础知识</span>
+                            <a href="/tags/数据结构与算法/" target="_blank">
+                                <span class="chip bg-color">数据结构与算法</span>
                             </a>
                         
                     </div>
@@ -382,21 +382,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-05-04
+                    2019-05-05
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        383
+                        1.1k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        4 分
                     </div>
                     
                 
@@ -407,15 +407,133 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="原理：找出不再继续使用的变量，然后释放掉其占用的内存。"><a href="#原理：找出不再继续使用的变量，然后释放掉其占用的内存。" class="headerlink" title="原理：找出不再继续使用的变量，然后释放掉其占用的内存。"></a>原理：找出不再继续使用的变量，然后释放掉其占用的内存。</h2><h2 id="策略1：标记清除"><a href="#策略1：标记清除" class="headerlink" title="策略1：标记清除"></a>策略1：标记清除</h2><p>当变量进入环境（可以理解为一个函数开始执行了）时，就将这个变量标记为“进入环境”，从逻辑上讲，不能释放掉进入环境的变量，而当变量离开环境的的时候，则将其标记为离开环境。</p>
+                <p><strong>说明</strong>：这个帖子旨在记录在学习JavaScript期间遇到的一些有趣的编程题。</p>
+<h2 id="平衡括号"><a href="#平衡括号" class="headerlink" title="平衡括号"></a>平衡括号</h2><p><strong>题目描述</strong>：在编写代码并且编译时，难免会因为少写了一个’)’和被编译器报错。也就是说，编译器会去匹配括号是否匹配。当你输入了一个’(‘，很自然编译器回去检查你是否有另一个’)’符号与之匹配。如果所有的括号都能够成对出现，那么编译器是能够通过的。否则编译器会报错。</p>
+<p><strong>算法描述</strong>：创建一个空栈，读取字符给定的字符串序列直到结尾，如果字符是开放符号’(‘,’[‘,’{‘则入栈，如果是’)’,’]’,’}’,首先判断当前栈是否为空，如果为空，则返回false，如果不为空，则判断栈顶元素是否是当前字符匹配的括号，如果不匹配，则返回false，如果匹配，则讲当前栈顶元素弹出。依次循环遍历完字符串，如果此时栈为空，则该字符串是一个括号平衡的字符串。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//定义一个栈</span>
+<span class="token keyword">function</span> <span class="token function">Stack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">let</span> items <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//压栈</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>push<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        items<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//出栈</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>pop<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> items<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//返回栈顶元素</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>peek <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> items<span class="token punctuation">[</span>items<span class="token punctuation">.</span>length<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//判断栈是否为空</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>isEmpty <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> items<span class="token punctuation">.</span>length <span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//判断函数</span>
+<span class="token keyword">function</span> <span class="token function">balanceSigned</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">var</span> stack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Stack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>str<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> flag <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">switch</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">case</span> <span class="token string">'('</span><span class="token punctuation">:</span><span class="token punctuation">{</span>
+                stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">case</span> <span class="token string">'['</span><span class="token punctuation">:</span><span class="token punctuation">{</span>
+                stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">case</span> <span class="token string">'{'</span><span class="token punctuation">:</span><span class="token punctuation">{</span>
+                stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">case</span> <span class="token string">')'</span><span class="token punctuation">:</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>stack<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    flag <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                    <span class="token keyword">return</span> flag<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>stack<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token string">'('</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    flag <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                    <span class="token keyword">return</span> flag<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
+                    stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">case</span> <span class="token string">']'</span><span class="token punctuation">:</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>stack<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    flag <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                    <span class="token keyword">return</span> flag<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>stack<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token string">'['</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    flag <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                    <span class="token keyword">return</span> flag<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
+                    stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">case</span> <span class="token string">'}'</span><span class="token punctuation">:</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>stack<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    flag <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                    <span class="token keyword">return</span> flag<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>stack<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token string">'{'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    flag <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                    <span class="token keyword">return</span> flag<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
+                    stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>        
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    flag <span class="token operator">=</span> stack<span class="token punctuation">.</span>isEmpty<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> flag<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="硬币找零"><a href="#硬币找零" class="headerlink" title="硬币找零"></a>硬币找零</h2><p><strong>问题描述</strong>：给出要找零的钱数，以及可用的硬币面额，找到所需最少的硬币个数。</p>
+<p><strong>算法描述</strong>：采用贪心算法，从面额最大的硬币开始，拿尽可能多的这种硬币找零，当无法再拿更多的这种面值的硬币时，开始拿第二大价值的硬币。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">change</span><span class="token punctuation">(</span>coins<span class="token punctuation">,</span>amount<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//coins是面值数组，排序是为了防止给定的面值集合数组是无序的。</span>
+    <span class="token comment" spellcheck="true">//amount是需要找零的面值</span>
+    coins<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span>b<span class="token operator">-</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//最终结果放在res里面</span>
+    <span class="token keyword">var</span> res <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//count是当前选择完后累计的钱数。</span>
+    <span class="token keyword">var</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>coins<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>count<span class="token operator">+</span>coins<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;=</span>amount<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            res<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>coins<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            count<span class="token operator">+</span><span class="token operator">=</span>coins<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="大数加法"><a href="#大数加法" class="headerlink" title="大数加法"></a>大数加法</h2><p><strong>问题描述</strong>：JavaScript和任何一门语言一样，对其数值的范围有限制。如果我们想要对一个超大的整数进行加法运算，但是又想输出一般形式，那么使用 <code>+</code> 是无法达到的一旦数字超过 <code>Number.MAX_SAFE_INTEGER</code> 数字会被立即转换为科学计数法，并且数字精度相比以前将会有误差。在此时就需要自己实现一套加法算法。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">sumBigNumber</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> res <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">,</span>
+    temp <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  a <span class="token operator">=</span> a<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  b <span class="token operator">=</span> b<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>length <span class="token operator">||</span> b<span class="token punctuation">.</span>length <span class="token operator">||</span> temp<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    temp <span class="token operator">+</span><span class="token operator">=</span> <span class="token operator">~</span><span class="token operator">~</span>a<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token operator">~</span><span class="token operator">~</span>b<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//使用 ~~a 而不是Number(a)来进行格式转换。</span>
+    res <span class="token operator">=</span> <span class="token punctuation">(</span>temp <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">+</span> res<span class="token punctuation">;</span>
+    temp <span class="token operator">=</span> temp <span class="token operator">></span> <span class="token number">9</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> res<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/^0+/</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
+<p><strong>算法解释</strong>：</p>
 <ol>
-<li>垃圾收集器在运行的时候会给存储在内存中的<strong>所有变量都加上标记</strong>。</li>
-<li>去掉<strong>环境中的变量以及被环境中的变量引用的变量</strong>的标记。</li>
-<li>此后<strong>再被加上标记的变量</strong>将被视为准备删除的变量，因为环境中的变量已经无法访问到这些变量了。</li>
+<li>首先我们用字符串来保存大数，就保证了其在数学表示上不会发生变化。</li>
+<li>初始化<code>res, temp</code>变量来保存中间计算的结果，在将两个字符串<code>split</code>为数组，以便我们进行每一位的运算。</li>
+<li>循环的第一次就是进行 “个位” 的运算，将二者最末尾的两个数相加，由于每一位数字是0 - 9，所以需要进行进位，在进过取余数操作后，将结果保留在个位。</li>
+<li>判断 <code>temp</code> 是否大于 10，若是则将 <code>temp</code> 赋值为 <code>true</code>。</li>
+<li>在两个大数中的一个还有数字没有参与运算，或者前一次运算发生进位后，进行下一次循环。</li>
+<li>接着除了对新的两个数字相加还要加上 <code>temp</code>，若上次发生了进位，则此时 <code>temp</code> 为 <code>true</code>，JavaScript因为存在隐式转换，所以 <code>true</code> 转换为 1，我们借用 JavaScript的类型转换，完成了逻辑上的逢10进1操作。</li>
 </ol>
-<h2 id="策略2：引用计数"><a href="#策略2：引用计数" class="headerlink" title="策略2：引用计数"></a>策略2：引用计数</h2><p>跟踪记录每一个值的引用次数，当声明了一个变量并将一个引用类型值赋给该变量的时候，这个引用类型的引用次数就是1，如果同一个值又被赋值给另一个变量，这个值的引用次数加1.如果包含对这个值引用的变量又取得了另一个值，则这个值的引用次数减1，当这个值引用次数为0的时候，就可以将这个引用值所占的内存空间回收回来。</p>
-<p><img src="/2019/05/04/javascript垃圾收集机制/引用计数.png" alt></p>
-<h3 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h3><p>如果存在循环引用的情况，那么这个引用值占的空间就永远不会被回收。</p>
 
             </div>
             <hr>
@@ -563,7 +681,7 @@
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">TomoFur</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/05/04/javascript垃圾收集机制/" class="b-link-green">垃圾回收机制</a>
+                    <a href="/2019/05/05/算法题目集/" class="b-link-green">JavaScript学习过程中遇到的经典算法题</a>
                 </p>
             </div>
         </div>
@@ -608,7 +726,8 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2019/05/05/算法题目集/">
                     <div class="card-image">
@@ -623,9 +742,9 @@
                     <div class="summary">说明：这个帖子旨在记录在学习JavaScript期间遇到的一些有趣的编程题。
 平衡括号题目描述：在编写代码并且编译时，难免会因为少写了一个’)’和被编译器报错。也就是说，编译器会去匹配括号是否匹配。当你输入了一个’(‘，很自然编译器回去检查</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-05
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -638,6 +757,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -656,19 +776,18 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/05/04/盒子模型/">
+                <a href="/2019/05/04/javascript垃圾收集机制/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="盒子模型">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="垃圾回收机制">
                         
-                        <span class="card-title">盒子模型</span>
+                        <span class="card-title">垃圾回收机制</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">什么是盒子模型CSS盒子模型也叫框模型，具备内容(content),填充(padding),边框(border),边界(margin)这些属性，在CSS中，每一个元素都被视为一个盒子，且每一个盒子都有三个属性：
-
-border：元素的边框，</div>
+                    <div class="summary">原理：找出不再继续使用的变量，然后释放掉其占用的内存。策略1：标记清除当变量进入环境（可以理解为一个函数开始执行了）时，就将这个变量标记为“进入环境”，从逻辑上讲，不能释放掉进入环境的变量，而当变量离开环境的的时候，则将其标记为离开环境。
+</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-04
@@ -677,8 +796,8 @@ border：元素的边框，</div>
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/HTML/" class="post-category" target="_blank">
-                                    HTML
+                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
+                                    JavaScript
                                 </a>
                             
                             
@@ -688,8 +807,8 @@ border：元素的边框，</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/html布局/" target="_blank">
-                        <span class="chip bg-color">html布局</span>
+                    <a href="/tags/ES5基础知识/" target="_blank">
+                        <span class="chip bg-color">ES5基础知识</span>
                     </a>
                     
                 </div>
