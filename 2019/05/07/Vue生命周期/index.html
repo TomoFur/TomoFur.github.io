@@ -5,8 +5,10 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="我想说的, TomoFur">
-    <meta name="description" content="我想说的 | TomoFur">
+    <meta name="keywords" content="Vue生命周期, TomoFur">
+    <meta name="description" content="Vue实例有一个完整的生命周期，也就是从开始创建，初始化数据，编译模板，挂载DOM,渲染–&amp;gt;更新–&amp;gt;渲染，销毁等一系列过程，也就是Vue实例从创建到销毁的过程，就是生命周期。
+
+创建阶段1.beforeCreate(){}//这">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>我想说的 | TomoFur</title>
+    <title>Vue生命周期 | TomoFur</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -240,13 +242,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        我想说的
+                        Vue生命周期
                     </div>
                 </div>
             </div>
@@ -355,12 +357,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/vue/" target="_blank">
+                                <span class="chip bg-color">vue</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/VUE/" class="post-category" target="_blank">
+                                VUE
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -368,14 +383,14 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-04-11
+                    2019-05-07
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        16
+                        539
                     </div>
                     
 
@@ -393,7 +408,20 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="这里是用来记录学习前端知识的地方。"><a href="#这里是用来记录学习前端知识的地方。" class="headerlink" title="这里是用来记录学习前端知识的地方。"></a>这里是用来记录学习前端知识的地方。</h2>
+                <p>Vue实例有一个完整的生命周期，也就是从开始创建，初始化数据，编译模板，挂载DOM,渲染–&gt;更新–&gt;渲染，销毁等一系列过程，也就是Vue实例从创建到销毁的过程，就是生命周期。</p>
+<p><img src="/2019/05/07/Vue生命周期/lifecycle.png" alt></p>
+<h3 id="创建阶段"><a href="#创建阶段" class="headerlink" title="创建阶段"></a>创建阶段</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token number">1</span><span class="token punctuation">.</span><span class="token function">beforeCreate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">//这是一个vue实例的第一个生命周期函数，在这个阶段，vue实例上的data中的数据和methods中的方法都不可以使用。</span>
+<span class="token number">2</span><span class="token punctuation">.</span><span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">//这是一个vue实例的第二个生命周期函数，要想使用vue实例上的data中的数落和methods中的方法，最早只能够在此阶段。在这里更改数据不会触发updated函数。</span>
+<span class="token number">3</span><span class="token punctuation">.</span><span class="token function">beforemount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">//这是一个vue实例的第三个生命周期函数，在此阶段，已经在内存中生成了虚拟DOM树，但是尚未挂载到页面上，所以，此时页面上的元素中的数据还没有真正的替换过来，所以里面的内容还是之前写的插值表达式。</span>
+<span class="token number">4</span><span class="token punctuation">.</span><span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">//这是一个vue实例的第四个生命周期函数，也是vue实例创建阶段的最后一个生命函数，在这个阶段，模板已经挂载到了页面上，数据也进行了替换，不再是插值表达式。如果想要操作DOM元素，最早可在该阶段进行。</span>
+</code></pre>
+<h3 id="运行阶段"><a href="#运行阶段" class="headerlink" title="运行阶段"></a>运行阶段</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token number">1</span><span class="token punctuation">.</span><span class="token function">beforeUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">//这是运行阶段的第一个生命周期函数，在vue实例中data中的数据发生改变的时候才会触发，但是，在这个阶段，虽然data中的数据已经改变，页面中的数据还是尚未改变的数据，此时，页面还没有同步新的数据。</span>
+<span class="token number">2</span><span class="token punctuation">.</span><span class="token function">updated</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">//但是，在这个阶段，data中的数据已经改变，页面中的数据已经改变，此时，页面已经同步新的数据。</span>
+</code></pre>
+<h3 id="销毁阶段"><a href="#销毁阶段" class="headerlink" title="销毁阶段"></a>销毁阶段</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token number">1</span><span class="token punctuation">.</span><span class="token function">beforeDestory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">//在这个阶段，vue实例中的data中的数据和methods中的方法尚可以使用。</span>
+<span class="token number">2</span><span class="token punctuation">.</span><span class="token function">destoryed</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">//在这个阶段,vue实例中的data中的数据和methods中的方法已经不可以使用。</span>
+</code></pre>
+
             </div>
             <hr>
 
@@ -540,7 +568,7 @@
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">TomoFur</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/about/index.html" class="b-link-green">我想说的</a>
+                    <a href="/2019/05/07/Vue生命周期/" class="b-link-green">Vue生命周期</a>
                 </p>
             </div>
         </div>
@@ -588,30 +616,44 @@
                 <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/about/index.html">
+                <a href="/2019/05/07/Vue生命周期/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="我想说的">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Vue生命周期">
                         
-                        <span class="card-title">我想说的</span>
+                        <span class="card-title">Vue生命周期</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">这里是用来记录学习前端知识的地方。</div>
+                    <div class="summary">Vue实例有一个完整的生命周期，也就是从开始创建，初始化数据，编译模板，挂载DOM,渲染–&gt;更新–&gt;渲染，销毁等一系列过程，也就是Vue实例从创建到销毁的过程，就是生命周期。
+
+创建阶段1.beforeCreate(){}//这</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-11
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-07
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            刘大为
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/VUE/" class="post-category" target="_blank">
+                                    VUE
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/vue/" target="_blank">
+                        <span class="chip bg-color">vue</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -619,33 +661,45 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/about/index.html">
+                <a href="/2019/05/05/算法题目集/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="我想说的">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="JavaScript学习过程中遇到的经典算法题">
                         
-                        <span class="card-title">我想说的</span>
+                        <span class="card-title">JavaScript学习过程中遇到的经典算法题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">这里是用来记录学习前端知识的地方。</div>
+                    <div class="summary">说明：这个帖子旨在记录在学习JavaScript期间遇到的一些有趣的编程题。
+平衡括号题目描述：在编写代码并且编译时，难免会因为少写了一个’)’和被编译器报错。也就是说，编译器会去匹配括号是否匹配。当你输入了一个’(‘，很自然编译器回去检查</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-11
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-05
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            刘大为
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
+                                    JavaScript
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/数据结构与算法/" target="_blank">
+                        <span class="chip bg-color">数据结构与算法</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
