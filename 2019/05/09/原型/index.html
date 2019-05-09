@@ -5,11 +5,15 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="防抖与节流, TomoFur">
-    <meta name="description" content="防抖当持续触发事件时，一定时间段内没有再触发时间，时间处理函数才会执行一次，如果设定的时间到来之前，有一次触发了事件，就重新开始延时。
-&amp;lt;script&gt;
-    function debounce(fn, wait) {
-      ">
+    <meta name="keywords" content="原型, TomoFur">
+    <meta name="description" content="原型的本质：对象
+
+所有的函数都有原型属性prototype
+默认情况下，prototype是一个对象
+prototype中默认包含一个属性：constructor，该属性指向函数对象本身。
+
+隐式原型
+所有对象都有一个隐式原型属性__pr">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +21,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>防抖与节流 | TomoFur</title>
+    <title>原型 | TomoFur</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -243,13 +247,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        防抖与节流
+                        原型
                     </div>
                 </div>
             </div>
@@ -360,8 +364,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/性能优化/" target="_blank">
-                                <span class="chip bg-color">性能优化</span>
+                            <a href="/tags/ES5基础知识/" target="_blank">
+                                <span class="chip bg-color">ES5基础知识</span>
                             </a>
                         
                     </div>
@@ -384,14 +388,14 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-04-16
+                    2019-05-09
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        363
+                        471
                     </div>
                     
 
@@ -409,47 +413,47 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h2><p>当持续触发事件时，一定时间段内没有再触发时间，时间处理函数才会执行一次，如果设定的时间到来之前，有一次触发了事件，就重新开始延时。</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">></span>
-    <span class="token keyword">function</span> <span class="token function">debounce</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> wait<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">var</span> timeout <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>timeout <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            timeout <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> wait<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token comment" spellcheck="true">// 处理函数</span>
-    <span class="token keyword">function</span> <span class="token function">handle</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'我被点击了'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token comment" spellcheck="true">// 滚动事件</span>
-    document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'btn'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token function">debounce</span><span class="token punctuation">(</span>handle<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+                <p>原型的本质：对象</p>
+<ol>
+<li>所有的<strong>函数</strong>都有原型属性<strong>prototype</strong></li>
+<li>默认情况下，prototype是一个对象</li>
+<li>prototype中默认包含一个属性：constructor，该属性指向函数对象本身。</li>
+</ol>
+<h2 id="隐式原型"><a href="#隐式原型" class="headerlink" title="隐式原型"></a>隐式原型</h2><ol>
+<li>所有对象都有一个隐式原型属性<code>__proto__</code></li>
+<li>隐式原型是一个对象，指向创建该对象的构造函数的原型对象。</li>
+<li>在查找对象成员时，如果在对象身上没有找到，就会去对象的隐式原型中查找。</li>
+</ol>
+<p><strong>所有函数的隐式原型都指向Function的原型</strong></p>
+<p><strong>所有对象的隐式原型都指向Object的原型</strong></p>
+<p><strong>总结</strong>：</p>
+<p>原型对象，实例对象，构造函数之间的关系如图所示：</p>
+<p><img src="/2019/05/09/原型/原型图解.PNG" alt></p>
+<p><strong>特殊情况</strong>：</p>
+<p><strong>Function的原型指向Function的隐式原型</strong>，即<code>Function.prototype===Function.__proto__</code></p>
+<p><strong>Object原型的隐式原型指向null.</strong>即<code>Object.prototype.__proto__ ===null</code></p>
+<p><strong>Tips</strong></p>
+<ol>
+<li><code>Object.__proto__ ===Function.prototype</code>:可以理解为Object这个函数(对象)是由Function函数实例化的的，所以就指向Function函数的原型对象。</li>
+<li><code>Function.prototype.__proto__ ===Object.prototype</code>:可以理解为<code>Function.prototype</code>是一个对象，对而任何对象的隐式原型都指向Object函数的原型对象。</li>
+</ol>
+<p><strong>最后，关于Function，Object，自定义构造函数，实例对象的图解</strong></p>
+<p><img src="/2019/05/09/原型/链条的全貌.jpg" alt></p>
+<p>注释如下：</p>
+<pre class=" language-javascript"><code class="language-javascript">自定义对象<span class="token punctuation">.</span>__proto__ <span class="token operator">===</span>自定义构造函数<span class="token punctuation">.</span>prototype
+自定义构造函数<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>__proto__ <span class="token operator">===</span>Object<span class="token punctuation">.</span>prototype
+Object<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>__proto__ <span class="token operator">===</span><span class="token keyword">null</span>
+自定义构造函数<span class="token punctuation">.</span>__proto__ <span class="token operator">===</span>Function<span class="token punctuation">.</span>prototype
+Function<span class="token punctuation">.</span>__proto__<span class="token operator">===</span>Function<span class="token punctuation">.</span>prototype
+Function<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>__proto__ <span class="token operator">===</span>Object<span class="token punctuation">.</span>prototype
+Object<span class="token punctuation">.</span>__proto__ <span class="token operator">===</span> Function<span class="token punctuation">.</span>prototype
 </code></pre>
-<p><strong>注</strong>：这个按钮所注册的点击事件只有在1s之内没有再次点击该按钮才会执行弹框，如果点击了按钮之后1s之内再次点击按钮，则会以第二次按钮点击的时间为基准，往后延迟1s后执行。</p>
-<h2 id="函数节流"><a href="#函数节流" class="headerlink" title="函数节流"></a>函数节流</h2><p>当持续触发时间时，保证一定时间段内只调用一次时间处理函数。</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> processor<span class="token operator">=</span><span class="token punctuation">{</span>
-        timeOutId <span class="token punctuation">:</span><span class="token keyword">null</span><span class="token punctuation">,</span>
-        performProcessing<span class="token punctuation">:</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-           <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'我被点击了'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        process<span class="token punctuation">:</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token function">clearTimeout</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>timeOutId<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">var</span> that <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
-            that<span class="token punctuation">.</span>timeOutId <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
-                that<span class="token punctuation">.</span><span class="token function">performProcessing</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">var</span> btn <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'btn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    btn<span class="token punctuation">.</span>onclick <span class="token operator">=</span> processor<span class="token punctuation">.</span>process<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>processor<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<p><strong>注</strong>：这个按钮的点击事件无论点击多少次，1s内只执行一次。</p>
-<h2 id="函数防抖与函数节流的区别"><a href="#函数防抖与函数节流的区别" class="headerlink" title="函数防抖与函数节流的区别"></a>函数防抖与函数节流的区别</h2><p>防抖的函数不保证一段时间内执行一次，如果再该段时间里面该事件持续被触发，那么这个事件永远不会执行。</p>
-<p>函数节流则时一段事件内无论触发多少次事件，都只会响应一次该事件。</p>
+<p><strong>我的理解</strong></p>
+<p><img src="/2019/05/09/原型/关系图.PNG" alt></p>
+<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><ol>
+<li>由于原型<code>prototype</code>本身是对象，因此，它也有隐式原型，指向的规则不变；这样一来，从某个对象出发，依次寻找隐式原型的指向，将形成一个链条，该链条叫做原型链。</li>
+<li>在查找对象成员时，若对象本身没有该成员，则会到原型链中查找。</li>
+</ol>
 
             </div>
             <hr>
@@ -597,7 +601,7 @@
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">TomoFur</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/04/16/防抖与节流/" class="b-link-green">防抖与节流</a>
+                    <a href="/2019/05/09/原型/" class="b-link-green">原型</a>
                 </p>
             </div>
         </div>
@@ -642,72 +646,30 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/04/16/CSS画三角形/">
+                <a href="/2019/05/09/原型/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="原生CSS画三角形">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="原型">
                         
-                        <span class="card-title">原生CSS画三角形</span>
+                        <span class="card-title">原型</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">步骤：先将一个盒子的width和height都设置为0px，这一步是最关键的
-画尖朝上的红色三角形div{
-    width:0px;
-    height:0px;
-    border-left:100px solid #fff;
- </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-16
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/CSS/" class="post-category" target="_blank">
-                                    CSS
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/CSS-tips/" target="_blank">
-                        <span class="chip bg-color">CSS tips</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/04/11/EventLoop/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="JavaScript运行机制">
-                        
-                        <span class="card-title">JavaScript运行机制</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">为什么JavaScript是单线程JavaScript的单线程，与它的用途有关，作为浏览器脚本语言，JavaScript的主要用途是为了与用户互动以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如：假定JavaScri</div>
+                    <div class="summary">原型的本质：对象
+
+所有的函数都有原型属性prototype
+默认情况下，prototype是一个对象
+prototype中默认包含一个属性：constructor，该属性指向函数对象本身。
+
+隐式原型
+所有对象都有一个隐式原型属性__pr</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-11
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-09
                             </span>
                         <span class="publish-author">
                             
@@ -721,11 +683,59 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/EventLoop/" target="_blank">
-                        <span class="chip bg-color">EventLoop</span>
+                    <a href="/tags/ES5基础知识/" target="_blank">
+                        <span class="chip bg-color">ES5基础知识</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/05/07/Vue生命周期/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Vue生命周期">
+                        
+                        <span class="card-title">Vue生命周期</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">Vue实例有一个完整的生命周期，也就是从开始创建，初始化数据，编译模板，挂载DOM,渲染–&gt;更新–&gt;渲染，销毁等一系列过程，也就是Vue实例从创建到销毁的过程，就是生命周期。
+
+创建阶段1.beforeCreate(){}//这</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/VUE/" class="post-category" target="_blank">
+                                    VUE
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/vue/" target="_blank">
+                        <span class="chip bg-color">vue</span>
                     </a>
                     
                 </div>
