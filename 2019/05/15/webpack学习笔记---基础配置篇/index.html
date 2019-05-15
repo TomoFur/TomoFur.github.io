@@ -5,12 +5,10 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="TomoFur">
-    <meta name="description" content="
-title: webpack学习—-基础配置篇tags: webpackcategories: webpack​—
-webpack：模块打包机
+    <meta name="keywords" content="webpack学习---基础配置篇, TomoFur">
+    <meta name="description" content="webpack：模块打包机
 webpack安装：推荐在项目内本地安装，不推荐使用全局安装。
-如果配置文件的名字不是webp">
+如果配置文件的名字不是webpack.config.js的话，在使用npx webpack进行打包的时候要npx webpack --config ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +16,7 @@ webpack安装：推荐在项目内本地安装，不推荐使用全局安装。
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>TomoFur</title>
+    <title>webpack学习---基础配置篇 | TomoFur</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -244,13 +242,13 @@ webpack安装：推荐在项目内本地安装，不推荐使用全局安装。
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        
+                        webpack学习---基础配置篇
                     </div>
                 </div>
             </div>
@@ -359,12 +357,25 @@ webpack安装：推荐在项目内本地安装，不推荐使用全局安装。
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/webpack/" target="_blank">
+                                <span class="chip bg-color">webpack</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/webpack/" class="post-category" target="_blank">
+                                webpack
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -372,7 +383,7 @@ webpack安装：推荐在项目内本地安装，不推荐使用全局安装。
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-05-14
+                    2019-05-15
                 </div>
 
                 
@@ -386,7 +397,7 @@ webpack安装：推荐在项目内本地安装，不推荐使用全局安装。
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        12 分
+                        11 分
                     </div>
                     
                 
@@ -397,9 +408,7 @@ webpack安装：推荐在项目内本地安装，不推荐使用全局安装。
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <hr>
-<p>title: webpack学习—-基础配置篇<br>tags: webpack<br>categories: webpack<br>​—</p>
-<p>webpack：模块打包机</p>
+                <p>webpack：模块打包机</p>
 <p>webpack安装：推荐在项目内本地安装，不推荐使用全局安装。</p>
 <p>如果配置文件的名字不是<code>webpack.config.js</code>的话，在使用<code>npx webpack</code>进行打包的时候要<code>npx webpack --config 自定义的配置文件名字</code></p>
 <p>webpack-cli的作用：可以使我们在命令行中运行webpack这个指令，如果不安装webpack-cli，则在命令行中运行webpack指令会报错。</p>
@@ -482,7 +491,6 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <pre class=" language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>test<span class="token punctuation">:</span><span class="token regex">/\.css$/</span><span class="token punctuation">,</span>use<span class="token punctuation">:</span><span class="token punctuation">[</span>MiniCssExtractPlugin<span class="token punctuation">.</span>loader<span class="token punctuation">,</span><span class="token string">'css-loader'</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
 <span class="token punctuation">{</span>test<span class="token punctuation">:</span><span class="token regex">/\.less$/</span><span class="token punctuation">,</span>use<span class="token punctuation">:</span><span class="token punctuation">[</span>MiniCssExtractPlugin<span class="token punctuation">.</span>loader<span class="token punctuation">,</span><span class="token string">'css-loader'</span><span class="token punctuation">,</span><span class="token string">'less-loader'</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
 </code></pre>
-<p>### </p>
 <h3 id="给css3属性加浏览器前缀"><a href="#给css3属性加浏览器前缀" class="headerlink" title="给css3属性加浏览器前缀"></a>给css3属性加浏览器前缀</h3><p>使用的loader是<code>postcss-loader</code>使用的插件是<code>autoprefixer</code></p>
 <p>具体过程如下：</p>
 <ol>
@@ -918,7 +926,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">TomoFur</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/05/14/webpack学习笔记---基础配置篇/" class="b-link-green"></a>
+                    <a href="/2019/05/15/webpack学习笔记---基础配置篇/" class="b-link-green">webpack学习---基础配置篇</a>
                 </p>
             </div>
         </div>
@@ -966,34 +974,44 @@ module<span class="token punctuation">.</span>exports <span class="token operato
                 <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2019/05/14/webpack学习笔记---基础配置篇/">
+                <a href="/2019/05/15/webpack学习笔记---基础配置篇/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt>
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="webpack学习---基础配置篇">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">webpack学习---基础配置篇</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">
-title: webpack学习—-基础配置篇tags: webpackcategories: webpack​—
-webpack：模块打包机
+                    <div class="summary">webpack：模块打包机
 webpack安装：推荐在项目内本地安装，不推荐使用全局安装。
-如果配置文件的名字不是webp</div>
+如果配置文件的名字不是webpack.config.js的话，在使用npx webpack进行打包的时候要npx webpack --config </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-14
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-15
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            刘大为
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/webpack/" class="post-category" target="_blank">
+                                    webpack
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/webpack/" target="_blank">
+                        <span class="chip bg-color">webpack</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
