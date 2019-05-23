@@ -5,12 +5,10 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="AMD/CMD和CommonJS的区别, TomoFur">
-    <meta name="description" content="
-commonjs是用在服务器端的，是同步的，如node.js
-amd,cmd是用在浏览器端的，是异步的。其中amd先提出来，cmd是根据commonjs和amd的基础上提出来的。
-
-commonjsCommonjs是服务器端的模块规范，N">
+    <meta name="keywords" content="axios学习笔记, TomoFur">
+    <meta name="description" content="axios：一个基于promise的ajax类库
+引入axios.js这个文件之后，向外暴露了一个对象axios
+发送get请求axios.get(url,{params：{}}).then(res=&gt;{}).catch(mse=&gt;{})/">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +16,7 @@ commonjsCommonjs是服务器端的模块规范，N">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>AMD/CMD和CommonJS的区别 | TomoFur</title>
+    <title>axios学习笔记 | TomoFur</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -244,13 +242,13 @@ commonjsCommonjs是服务器端的模块规范，N">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        AMD/CMD和CommonJS的区别
+                        axios学习笔记
                     </div>
                 </div>
             </div>
@@ -361,8 +359,8 @@ commonjsCommonjs是服务器端的模块规范，N">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/模块化开发/" target="_blank">
-                                <span class="chip bg-color">模块化开发</span>
+                            <a href="/tags/axios/" target="_blank">
+                                <span class="chip bg-color">axios</span>
                             </a>
                         
                     </div>
@@ -385,14 +383,14 @@ commonjsCommonjs是服务器端的模块规范，N">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-04-26
+                    2019-05-23
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        638
+                        604
                     </div>
                     
 
@@ -410,84 +408,65 @@ commonjsCommonjs是服务器端的模块规范，N">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ol>
-<li>commonjs是用在服务器端的，是同步的，如node.js</li>
-<li>amd,cmd是用在浏览器端的，是异步的。其中amd先提出来，cmd是根据commonjs和amd的基础上提出来的。</li>
-</ol>
-<h2 id="commonjs"><a href="#commonjs" class="headerlink" title="commonjs"></a>commonjs</h2><p>Commonjs是服务器端的模块规范，Node.js采用了这个规范</p>
-<p>根据Commonjs规范，一个单独的文件就是一个模块，加载模块使用require方法，该方法读取文件并执行，最后，返回文件的内部expots对象。</p>
-<p>CommonJS加载模块是同步的，只有加载完成之后才可以执行后面的操作。像Node.js主要用于服务器的编写，加载的模块文件一般都已经存在本地硬盘上了，所以加载起来比较快。不用考虑异步加载的方式。所以，CommonJS规范比较适用。但是如果是在浏览器端，要从服务器加载模块，就必须是异步模式，所以才有了AMD,CMD解决方案。</p>
-<h2 id="AMD-CMD"><a href="#AMD-CMD" class="headerlink" title="AMD/CMD"></a>AMD/CMD</h2><p>AMD是“Asynchronous Module Definition”的缩写，意思就是“异步模块定义”，它采用异步方式加载模块，模块的加载不影响它后面语句的运行，所有依赖的模块的语句，都定义在一个回调函数中，等到加载完之后，这个回调函数才会运行。</p>
-<p>AMD也采用了require语句加载模块，但是不同于CommonJS</p>
-<p>主要由两个JavaScript库实现了AMD规范。require.js和curl.js</p>
-<p><strong>相同点</strong>：都是异步加载</p>
-<p>AMD推崇前置依赖，在定义模块的时候就要声明其依赖的模块。AMD 是 RequireJS 在推广过程中对模块定义的规范化产出。</p>
-<p>CMD推崇后置依赖，只有在用到某个模块的时候才去require。CMD 是 SeaJS 在推广过程中对模块定义的规范化产出。</p>
-<p>对于依赖的模块，AMD是提前执行的，CMD是延迟执行的。</p>
-<p>CMD在AMD基础上改进，可按需加载，预先下载代码，但并没有立即执行，即“就近书写，延迟执行”</p>
-<pre class=" language-javascript"><code class="language-javascript">
-AMD
-<span class="token comment" spellcheck="true">//a.js</span>
-<span class="token function">define</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'a.js'</span>执行<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span>
-        hello<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'This is a.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
+                <p>axios：一个基于promise的ajax类库</p>
+<p>引入axios.js这个文件之后，向外暴露了一个对象axios</p>
+<h2 id="发送get请求"><a href="#发送get请求" class="headerlink" title="发送get请求"></a>发送get请求</h2><pre class=" language-javascript"><code class="language-javascript">axios<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span><span class="token punctuation">{</span>params：<span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>res<span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span>mse<span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//第二个参数是option配置对象。params就是请求传递的参数，发送请求的配置参数也写在这里</span>
+<span class="token comment" spellcheck="true">//请求成功就进入then里面的函数，返回的结果是一个对象res，服务器返回的数据都在res.body里面存着。如果在发起请求的时候传入了参数，那么传入的参数在res.config.params里面。</span>
+<span class="token comment" spellcheck="true">//请求失败就进入catch，返回结果msg是请求失败的原因。</span>
+</code></pre>
+<h2 id="发送post请求"><a href="#发送post请求" class="headerlink" title="发送post请求"></a>发送post请求</h2><pre class=" language-javascript"><code class="language-javascript">axios<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span><span class="token punctuation">{</span><span class="token punctuation">}</span>，<span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//第二个参数就是post请求要传递的参数，第三个参数是配置参数</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>res<span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token comment" spellcheck="true">//请求成功就进入then里面的函数，返回的结果是一个对象res，服务器返回的数据都在res.body里面存着。如果在发起请求的时候传入了参数，那么传入的参数在res.config.data里面。</span>
+<span class="token keyword">catch</span><span class="token punctuation">(</span>mse<span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//请求失败就进入catch，返回结果msg是请求失败的原因。</span>
+</code></pre>
+<h2 id="axios-all"><a href="#axios-all" class="headerlink" title="axios.all"></a>axios.all</h2><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">getUserAccount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> axios<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'xxxx'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">getUserPromission</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> axios<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'xxxx'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+axios<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">[</span>getUserAccount<span class="token punctuation">,</span>getUserPromission<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>res<span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//这里只有当前面数组中的两个请求都成功后才会进入后面的then，这里的res是一个数组，里面的值一次是这两个请求的返回结果。</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//或者这样使用</span>
+axios<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">[</span>getUserAccount（）<span class="token punctuation">,</span>getUserPromission（）<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>axios<span class="token punctuation">.</span><span class="token function">spread</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>acct<span class="token punctuation">,</span> perms<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//acct是第一个请求的返回结果，perms是第二个请求的返回结果</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h2><p>在请求或者相应被<code>then</code>或者<code>catch</code>处理之前拦截他们.在成功之前先执行拦截器的success方法，将成功的方法的返回值传给自己定义的请求成功的方法去处理。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//请求拦截器</span>
+axios<span class="token punctuation">.</span>interceptor<span class="token punctuation">.</span>request<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>config<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//在发送请求之前做什么</span>
+    <span class="token keyword">return</span> config
+<span class="token punctuation">}</span>，<span class="token keyword">function</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//对请求错误做什么</span>
+    <span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
-<span class="token comment" spellcheck="true">//b.js</span>
-<span class="token function">define</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'b.js执行'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span>
-        hello<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hello, b.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//相应拦截器</span>
+axios<span class="token punctuation">.</span>interceptor<span class="token punctuation">.</span>response<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>success<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//对成功的响应做些什么</span>
+    <span class="token keyword">return</span> success<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//对失败的响应做些什么</span>
+    retur Promise<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
 
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">//main.js</span>
-<span class="token function">require</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'main.js执行'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    a<span class="token punctuation">.</span><span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#b'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        b<span class="token punctuation">.</span><span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//移除拦截器</span>
+
+<span class="token keyword">const</span> myInterceptor <span class="token operator">=</span> axios<span class="token punctuation">.</span>interceptor<span class="token punctuation">.</span>response<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+axios<span class="token punctuation">.</span>interceptor<span class="token punctuation">.</span>response<span class="token punctuation">.</span><span class="token function">eject</span><span class="token punctuation">(</span>myInterceptor<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<pre class=" language-javascript"><code class="language-javascript">CMD
-<span class="token comment" spellcheck="true">//a.js</span>
-<span class="token function">define</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'a.js执行'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span><span class="token punctuation">{</span>
-        hello<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'This is a.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">//b.js</span>
-<span class="token function">define</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'b.js执行'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span>
-        hello<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'This is b.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">//main.js</span>
-<span class="token function">define</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'main.js执行'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    a<span class="token punctuation">.</span><span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#b'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'b'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        b<span class="token punctuation">.</span><span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h2 id="在VUE下使用axios"><a href="#在VUE下使用axios" class="headerlink" title="在VUE下使用axios"></a>在VUE下使用axios</h2><p><strong>step1:</strong>在项目中安装axios</p>
+<pre class=" language-javascript"><code class="language-javascript">npm install axios
+</code></pre>
+<p><strong>setp2:</strong>在main.js中引入axios</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">import</span> axios <span class="token keyword">from</span> <span class="token string">'axios'</span>
+</code></pre>
+<p><strong>step3:</strong>在第二步的基础上使用axios</p>
+<pre class=" language-javascript"><code class="language-javascript">Vue<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>$http <span class="token operator">=</span> axios
 </code></pre>
 
             </div>
@@ -636,7 +615,7 @@ AMD
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">TomoFur</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/04/26/AMD/" class="b-link-green">AMD/CMD和CommonJS的区别</a>
+                    <a href="/2019/05/23/axios学习笔记/" class="b-link-green">axios学习笔记</a>
                 </p>
             </div>
         </div>
@@ -683,30 +662,29 @@ AMD
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/04/26/数组常用方法/">
+                <a href="/2019/05/23/vuex学习/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="数组常用方法">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="vuex学习笔记">
                         
-                        <span class="card-title">数组常用方法</span>
+                        <span class="card-title">vuex学习笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Array.isArray(对象)判断这个对象是不是一个数组
-.concat(数组)返回一个拼接的新数组
-.push(值)在原数组的最后面添加上这个值，返回值是新数组的长度
-.unshift(值)在原数组的最前面添加上这个值，返回值是新数组</div>
+                    <div class="summary">是什么？
+vuex是专门为vue.js应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可以预测的方式发生变化。
+​                                      </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-26
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-23
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                    JavaScript
+                            <a href="/categories/VUE/" class="post-category" target="_blank">
+                                    VUE
                                 </a>
                             
                             
@@ -716,8 +694,8 @@ AMD
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ES5基础知识/" target="_blank">
-                        <span class="chip bg-color">ES5基础知识</span>
+                    <a href="/tags/vuex/" target="_blank">
+                        <span class="chip bg-color">vuex</span>
                     </a>
                     
                 </div>
@@ -731,28 +709,30 @@ AMD
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/04/22/cssBFC/">
+                <a href="/2019/05/15/webpack学习笔记---性能优化篇/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="BFC">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="webpack学习笔记---性能优化篇">
                         
-                        <span class="card-title">BFC</span>
+                        <span class="card-title">webpack学习笔记---性能优化篇</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">什么是BFCBFC(Block Formatting Context)：格式化上下文，是Web页面中盒模型布局的css渲染模式，指一个独立的渲染区域或者说是一个隔离的独立容器。它决定了其子元素如何定位，以及与其他元素的相互作用关系。
-BFC</div>
+                    <div class="summary">提高webpack的打包速度
+尽可能在更少的文件中使用loader，比如在使用babel-loader时，通过exclude来排除掉在node_modules里面的js文件，这样可以提高打包速度。
+
+Plugin尽可能精简并且确保可靠（尽可</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-22
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-15
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/CSS/" class="post-category" target="_blank">
-                                    CSS
+                            <a href="/categories/webpack/" class="post-category" target="_blank">
+                                    webpack
                                 </a>
                             
                             
@@ -762,8 +742,8 @@ BFC</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/CSS布局/" target="_blank">
-                        <span class="chip bg-color">CSS布局</span>
+                    <a href="/tags/webpack/" target="_blank">
+                        <span class="chip bg-color">webpack</span>
                     </a>
                     
                 </div>

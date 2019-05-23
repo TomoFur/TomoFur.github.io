@@ -5,12 +5,10 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="AMD/CMD和CommonJS的区别, TomoFur">
-    <meta name="description" content="
-commonjs是用在服务器端的，是同步的，如node.js
-amd,cmd是用在浏览器端的，是异步的。其中amd先提出来，cmd是根据commonjs和amd的基础上提出来的。
-
-commonjsCommonjs是服务器端的模块规范，N">
+    <meta name="keywords" content="vuex学习笔记, TomoFur">
+    <meta name="description" content="是什么？
+vuex是专门为vue.js应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可以预测的方式发生变化。
+​                                      ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +16,7 @@ commonjsCommonjs是服务器端的模块规范，N">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>AMD/CMD和CommonJS的区别 | TomoFur</title>
+    <title>vuex学习笔记 | TomoFur</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -244,13 +242,13 @@ commonjsCommonjs是服务器端的模块规范，N">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        AMD/CMD和CommonJS的区别
+                        vuex学习笔记
                     </div>
                 </div>
             </div>
@@ -361,8 +359,8 @@ commonjsCommonjs是服务器端的模块规范，N">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/模块化开发/" target="_blank">
-                                <span class="chip bg-color">模块化开发</span>
+                            <a href="/tags/vuex/" target="_blank">
+                                <span class="chip bg-color">vuex</span>
                             </a>
                         
                     </div>
@@ -373,8 +371,8 @@ commonjsCommonjs是服务器端的模块规范，N">
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                JavaScript
+                            <a href="/categories/VUE/" class="post-category" target="_blank">
+                                VUE
                             </a>
                         
                     </div>
@@ -385,21 +383,21 @@ commonjsCommonjs是服务器端的模块规范，N">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-04-26
+                    2019-05-23
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        638
+                        1.3k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        5 分
                     </div>
                     
                 
@@ -410,84 +408,157 @@ commonjsCommonjs是服务器端的模块规范，N">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ol>
-<li>commonjs是用在服务器端的，是同步的，如node.js</li>
-<li>amd,cmd是用在浏览器端的，是异步的。其中amd先提出来，cmd是根据commonjs和amd的基础上提出来的。</li>
-</ol>
-<h2 id="commonjs"><a href="#commonjs" class="headerlink" title="commonjs"></a>commonjs</h2><p>Commonjs是服务器端的模块规范，Node.js采用了这个规范</p>
-<p>根据Commonjs规范，一个单独的文件就是一个模块，加载模块使用require方法，该方法读取文件并执行，最后，返回文件的内部expots对象。</p>
-<p>CommonJS加载模块是同步的，只有加载完成之后才可以执行后面的操作。像Node.js主要用于服务器的编写，加载的模块文件一般都已经存在本地硬盘上了，所以加载起来比较快。不用考虑异步加载的方式。所以，CommonJS规范比较适用。但是如果是在浏览器端，要从服务器加载模块，就必须是异步模式，所以才有了AMD,CMD解决方案。</p>
-<h2 id="AMD-CMD"><a href="#AMD-CMD" class="headerlink" title="AMD/CMD"></a>AMD/CMD</h2><p>AMD是“Asynchronous Module Definition”的缩写，意思就是“异步模块定义”，它采用异步方式加载模块，模块的加载不影响它后面语句的运行，所有依赖的模块的语句，都定义在一个回调函数中，等到加载完之后，这个回调函数才会运行。</p>
-<p>AMD也采用了require语句加载模块，但是不同于CommonJS</p>
-<p>主要由两个JavaScript库实现了AMD规范。require.js和curl.js</p>
-<p><strong>相同点</strong>：都是异步加载</p>
-<p>AMD推崇前置依赖，在定义模块的时候就要声明其依赖的模块。AMD 是 RequireJS 在推广过程中对模块定义的规范化产出。</p>
-<p>CMD推崇后置依赖，只有在用到某个模块的时候才去require。CMD 是 SeaJS 在推广过程中对模块定义的规范化产出。</p>
-<p>对于依赖的模块，AMD是提前执行的，CMD是延迟执行的。</p>
-<p>CMD在AMD基础上改进，可按需加载，预先下载代码，但并没有立即执行，即“就近书写，延迟执行”</p>
-<pre class=" language-javascript"><code class="language-javascript">
-AMD
-<span class="token comment" spellcheck="true">//a.js</span>
-<span class="token function">define</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'a.js'</span>执行<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span>
-        hello<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'This is a.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <h2 id="是什么？"><a href="#是什么？" class="headerlink" title="是什么？"></a>是什么？</h2><blockquote>
+<p>vuex是专门为vue.js应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可以预测的方式发生变化。</p>
+<p>​                                                                    ———–引自vuex官网</p>
+</blockquote>
+<p><strong>我的理解</strong>：vuex是为了保存组件之间共享数据而诞生的，如果组件之间有需要共享的数据，可以直接挂载到vuex中，而不必通过组件之间父子传值。<strong>vuex就是一个全局共享数据存储区域，相当于是一个数据的仓库</strong></p>
+<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>一般情况下使用vue-cli创建的项目的vuex是定义在项目src目录下的<code>store.js</code>的文件里的，下面是一个典型的<code>store.js</code>文件的结构:</p>
+<pre class=" language-javascript"><code class="language-javascript"> <span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
+ <span class="token keyword">import</span> Vuex <span class="token keyword">from</span> <span class="token string">'vuex'</span>
+ <span class="token keyword">import</span> axios <span class="token keyword">from</span> <span class="token string">'axios'</span>
+
+ Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Vuex<span class="token punctuation">)</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">new</span> <span class="token class-name">Vue<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    state<span class="token punctuation">:</span><span class="token punctuation">{</span>
+        count<span class="token punctuation">:</span><span class="token number">0</span>
+    <span class="token punctuation">}</span><span class="token comment" spellcheck="true">//全局共享数据存放区，以count为例</span>
+    mutaitions：<span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//mutations里面定义的方法的第一个参数默认是state。第二个参数可以是从外界调取该方法传入的参数    </span>
+        <span class="token function">add</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span>args<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            state<span class="token punctuation">.</span>count <span class="token operator">+</span><span class="token operator">=</span><span class="token number">1</span>
         <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token comment" spellcheck="true">//更改 Vuex 的 store 中的状态的方法区</span>
+    actions<span class="token punctuation">:</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//定义在actions里面的方法都默认接受一个context参数，这个context是一个和store实例具有相同属性和方法的对象</span>
+        <span class="token keyword">async</span> <span class="token function">myadd</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            context<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'add'</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//在这些函数里面就这样调用mutations里面的方法</span>
+            <span class="token keyword">let</span> result <span class="token operator">=</span> <span class="token keyword">await</span> axios<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'xxx'</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token template-string"><span class="token string">`当前count是</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>context<span class="token punctuation">.</span>state<span class="token punctuation">.</span>count<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">>>>>>>></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>result<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token comment" spellcheck="true">//类似于mutation，但是可以有一些异步操作方法在里面。配合async/await食用更佳</span>
+    getters：<span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//getters属性存储的方法默认接受一个参数为state，这些方法只能只读性的去访问state里面的属性，每一个定义在getters方法一般都会return一个东西</span>
+        <span class="token function">getCount</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token template-string"><span class="token string">`count:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>state<span class="token punctuation">.</span>count<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token comment" spellcheck="true">//对state中存放的变量的只读性操作的方法存放区</span>
+    modules：<span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">//</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="state"><a href="#state" class="headerlink" title="state"></a>state</h3><p>这个属性里存放着组件间需要共享的数据，如果在某个组中想要访问state里面的<code>count</code>，只能通过<code>this.$store.state.count</code>来访问。</p>
+<p>在实际操作中，可以使用mapState来简化访问操作，具体而言就是在组件的computed属性中使用mapState</p>
+<pre class=" language-JavaScript"><code class="language-JavaScript">
+    import {mapState} from 'vuex'
+    export default {
+
+        computed:{
+            ...mapState(['count'])//数组中的元素就是你在这个组件中想要访问的state上的数据的名字
+        }
+    }
+
+//通过这样的操作，再在组件中访问这个属性的时候，原来的方法是{{ $store.state.count}},现在是{{count}}
+</code></pre>
+<h3 id="mutations"><a href="#mutations" class="headerlink" title="mutations"></a>mutations</h3><p>如果想要改变state里面存储的变量的状态，只能使用在mutations定义的方法来操作对应的属性,不推荐直接操作state里面的数据，因为万一导致了数据的紊乱，不能快速定位到错误的原因，因为每个组件中都可能有操作数据的方法。</p>
+<p>如果在组件中想调用定义在mutations里面的方法，原始的途径是通过<code>this.$store.commit(&#39;add&#39;,args)</code>。在实际操作中，可以使用mapMutations来简化操作,具体而言就是在组件methods方法中使用mapMutations</p>
+<pre class=" language-JavaScript"><code class="language-JavaScript">
+    import {mapMutations} from 'vuex'
+    export default {
+        methods:{
+            myAdd(){
+                this.add(args)//this.$store.commit('add',agrs)
+            }
+            ...mapMutations(['add'])
+        }
+    }
+
+
+</code></pre>
+<h3 id="getters"><a href="#getters" class="headerlink" title="getters"></a>getters</h3><p>这个属性中的方法类似于计算属性，当state里面的相关数据改变的时候，就会调用这个方法。在实际操作中使用mapGetters来方便我们操作，具体而言就是在组件的computed属性中使用mapGetters</p>
+<pre class=" language-JavaScript"><code class="language-JavaScript">
+    import {mapGetters} from 'vuex'
+    export default {
+        computed:{
+            ...mapGetters(['getCount'])//
+        }
+    }   
+
+原始的使用方式是{{$store.getters.getCount}},在使用完mapGetters之后
+在组件中就可以通过{{getCount}}来调用这个方法。当state里面的count属性值变化的时候，就会调用getCount方法，从而更新视图。
+</code></pre>
+<h3 id="actions"><a href="#actions" class="headerlink" title="actions"></a>actions</h3><p>Action 类似于 mutation，不同在于：</p>
+<ol>
+<li>Action 提交的是 mutation，而不是直接变更状态</li>
+<li>Action 可以包含任意异步操作。</li>
+</ol>
+<p>在组件间使用的actions里面的方法时，最原始的方法是通过<code>this.$store.dispatch()</code>,通过使用mapActions可以简化这个操作,具体而言，就是在组件的methods属性中使用mapActions</p>
+<pre class=" language-JavaScript"><code class="language-JavaScript">
+    import {mapActions} from 'vuex'
+    export default {
+        methods:{
+            async myAdd(){
+                var result = await this.myadd()//this.$store.dispatch('myadd')
+                console.log(result)
+            }
+            ...mapActions(['myadd'])
+        }
+    }
+
+
+</code></pre>
+<h2 id="module"><a href="#module" class="headerlink" title="module"></a>module</h2><p>这个属性只是为了对存储在state里面的数据做模块性分隔，假设此时我们有两个store对象，一个是app，一个是user，里面的内容分别是</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    state<span class="token punctuation">:</span><span class="token punctuation">{</span>
+        count<span class="token punctuation">:</span><span class="token number">0</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    mutations<span class="token punctuation">:</span><span class="token punctuation">{</span>
+        <span class="token function">add</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            state<span class="token punctuation">.</span>count<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    getters<span class="token punctuation">:</span><span class="token punctuation">{</span>
+        <span class="token function">dec</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token template-string"><span class="token string">`current count is{state.count}`</span></span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    actions<span class="token punctuation">:</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
-<span class="token comment" spellcheck="true">//b.js</span>
-<span class="token function">define</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'b.js执行'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span>
-        hello<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hello, b.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">//main.js</span>
-<span class="token function">require</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'main.js执行'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    a<span class="token punctuation">.</span><span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#b'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        b<span class="token punctuation">.</span><span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> app
 </code></pre>
-<pre class=" language-javascript"><code class="language-javascript">CMD
-<span class="token comment" spellcheck="true">//a.js</span>
-<span class="token function">define</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'a.js执行'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span><span class="token punctuation">{</span>
-        hello<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'This is a.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    state<span class="token punctuation">:</span><span class="token punctuation">{</span>
+        userInfo<span class="token punctuation">:</span><span class="token keyword">null</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> user
+</code></pre>
+<p>而在store.js里面就是</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">import</span> app <span class="token keyword">from</span> <span class="token string">'app.js'</span>
+<span class="token keyword">import</span> user <span class="token keyword">from</span> <span class="token string">'user.js'</span>
 
-<span class="token comment" spellcheck="true">//b.js</span>
-<span class="token function">define</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'b.js执行'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span>
-        hello<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'This is b.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+<span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<span class="token keyword">import</span> Vuex <span class="token keyword">from</span> <span class="token string">'vuex'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">new</span> <span class="token class-name">Vue<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    state<span class="token punctuation">:</span><span class="token punctuation">{</span>
+        app<span class="token punctuation">,</span>user
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">//main.js</span>
-<span class="token function">define</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'main.js执行'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    a<span class="token punctuation">.</span><span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#b'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'b'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        b<span class="token punctuation">.</span><span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>这样就完成了状态的模块划分。这样之后，需要在组件中稍加修改</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span>mapState<span class="token punctuation">,</span>mapMutations<span class="token punctuation">,</span>mapGetters<span class="token punctuation">}</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    computed<span class="token punctuation">:</span><span class="token punctuation">{</span>
+        <span class="token operator">...</span><span class="token function">mapState</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">{</span>
+            <span class="token function">count</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">return</span> state<span class="token punctuation">.</span>app<span class="token punctuation">.</span>count<span class="token comment" spellcheck="true">//原来没模块划分的时直接是...mapState(['count]),划分之后要做一层映射，这样就可以以{{count}}的形式来访问app里的state里面state存储的count属性了</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
             </div>
@@ -636,7 +707,7 @@ AMD
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">TomoFur</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/04/26/AMD/" class="b-link-green">AMD/CMD和CommonJS的区别</a>
+                    <a href="/2019/05/23/vuex学习/" class="b-link-green">vuex学习笔记</a>
                 </p>
             </div>
         </div>
@@ -681,26 +752,74 @@ AMD
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/04/26/数组常用方法/">
+                <a href="/2019/05/23/vuex学习/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="数组常用方法">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="vuex学习笔记">
                         
-                        <span class="card-title">数组常用方法</span>
+                        <span class="card-title">vuex学习笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Array.isArray(对象)判断这个对象是不是一个数组
-.concat(数组)返回一个拼接的新数组
-.push(值)在原数组的最后面添加上这个值，返回值是新数组的长度
-.unshift(值)在原数组的最前面添加上这个值，返回值是新数组</div>
+                    <div class="summary">是什么？
+vuex是专门为vue.js应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可以预测的方式发生变化。
+​                                      </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-26
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/VUE/" class="post-category" target="_blank">
+                                    VUE
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/vuex/" target="_blank">
+                        <span class="chip bg-color">vuex</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/05/23/axios学习笔记/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="axios学习笔记">
+                        
+                        <span class="card-title">axios学习笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">axios：一个基于promise的ajax类库
+引入axios.js这个文件之后，向外暴露了一个对象axios
+发送get请求axios.get(url,{params：{}}).then(res=>{}).catch(mse=>{})/</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -716,54 +835,8 @@ AMD
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ES5基础知识/" target="_blank">
-                        <span class="chip bg-color">ES5基础知识</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/04/22/cssBFC/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="BFC">
-                        
-                        <span class="card-title">BFC</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">什么是BFCBFC(Block Formatting Context)：格式化上下文，是Web页面中盒模型布局的css渲染模式，指一个独立的渲染区域或者说是一个隔离的独立容器。它决定了其子元素如何定位，以及与其他元素的相互作用关系。
-BFC</div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-22
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/CSS/" class="post-category" target="_blank">
-                                    CSS
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/CSS布局/" target="_blank">
-                        <span class="chip bg-color">CSS布局</span>
+                    <a href="/tags/axios/" target="_blank">
+                        <span class="chip bg-color">axios</span>
                     </a>
                     
                 </div>
