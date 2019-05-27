@@ -5,9 +5,8 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="BFC, TomoFur">
-    <meta name="description" content="什么是BFCBFC(Block Formatting Context)：格式化上下文，是Web页面中盒模型布局的css渲染模式，指一个独立的渲染区域或者说是一个隔离的独立容器。它决定了其子元素如何定位，以及与其他元素的相互作用关系。
-BFC">
+    <meta name="keywords" content="网络攻击, TomoFur">
+    <meta name="description" content="Cross-Site-Scripting(xss)跨站脚本攻击为了不和层叠样式表的缩写混淆，故将跨站脚本攻击写为XSS.恶意攻击者往Web页面里插入恶意Script代码，当用户浏览该页面时，嵌入Web里面的Script代码会被执行，从而达到">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +14,7 @@ BFC">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>BFC | TomoFur</title>
+    <title>网络攻击 | TomoFur</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -241,13 +240,13 @@ BFC">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        BFC
+                        网络攻击
                     </div>
                 </div>
             </div>
@@ -358,8 +357,8 @@ BFC">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/CSS布局/" target="_blank">
-                                <span class="chip bg-color">CSS布局</span>
+                            <a href="/tags/网络安全相关/" target="_blank">
+                                <span class="chip bg-color">网络安全相关</span>
                             </a>
                         
                     </div>
@@ -370,8 +369,8 @@ BFC">
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/CSS/" class="post-category" target="_blank">
-                                CSS
+                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
+                                JavaScript
                             </a>
                         
                     </div>
@@ -382,21 +381,21 @@ BFC">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-04-22
+                    2019-05-27
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        462
+                        983
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        3 分
                     </div>
                     
                 
@@ -407,25 +406,36 @@ BFC">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="什么是BFC"><a href="#什么是BFC" class="headerlink" title="什么是BFC"></a>什么是BFC</h2><p>BFC(Block Formatting Context)：格式化上下文，是Web页面中盒模型布局的css渲染模式，指一个独立的渲染区域或者说是一个隔离的独立容器。它决定了其子元素如何定位，以及与其他元素的相互作用关系。</p>
-<h2 id="BFC的生成"><a href="#BFC的生成" class="headerlink" title="BFC的生成"></a>BFC的生成</h2><p>满足下列CSS声明之一的元素就会生成BFC</p>
+                <h2 id="Cross-Site-Scripting-xss-跨站脚本攻击"><a href="#Cross-Site-Scripting-xss-跨站脚本攻击" class="headerlink" title="Cross-Site-Scripting(xss)跨站脚本攻击"></a>Cross-Site-Scripting(xss)跨站脚本攻击</h2><p>为了不和层叠样式表的缩写混淆，故将跨站脚本攻击写为XSS.恶意攻击者往Web页面里插入恶意Script代码，当用户浏览该页面时，嵌入Web里面的Script代码会被执行，从而达到恶意攻击用户的目的.</p>
+<h3 id="非持续型xss攻击"><a href="#非持续型xss攻击" class="headerlink" title="非持续型xss攻击"></a>非持续型xss攻击</h3><p>非持久性型xss攻击是一次性的，仅对档次的页面访问产生影响，非持久型xss攻击要求永固访问一个被攻击者篡改后的链接，用户访问该链接时，被植入的攻击脚本被用户浏览器执行，从而达到攻击目的。</p>
+<h3 id="持久型xss攻击"><a href="#持久型xss攻击" class="headerlink" title="持久型xss攻击"></a>持久型xss攻击</h3><p>持久型xss攻击会把攻击者的数据存储在服务端，攻击行为将伴随着攻击数据一直存在。</p>
+<h3 id="DOM-Based-xss-基于dom的跨站脚本攻击"><a href="#DOM-Based-xss-基于dom的跨站脚本攻击" class="headerlink" title="DOM Based xss 基于dom的跨站脚本攻击"></a>DOM Based xss 基于dom的跨站脚本攻击</h3><p>当用户能够通过交互修改浏览器页面中的DOM并显示在浏览器上时，就可能产生这种漏洞，即通过修改页面的DOM节点形成的xss，称之为DOMBasedXSS。在这种攻击下攻击者可以随意创建，删除和更改DOM树节点。</p>
+<h3 id="防御"><a href="#防御" class="headerlink" title="防御"></a>防御</h3><p>主要思路有两点：</p>
 <ol>
-<li>根元素或者其他包含它的元素</li>
-<li>float的值不为none</li>
-<li>overflow不为visible的值</li>
-<li>position不为static</li>
-<li>display的值为inline-block，table-cell，table-caption</li>
-<li>元素的display为flex或者inline-flex</li>
+<li>输入有效性检测<ol>
+<li>检测输入长度，类型，语法等的有效性。</li>
+<li>拒绝无效的恶意的输入数据。</li>
 </ol>
-<h2 id="BFC的布局规则"><a href="#BFC的布局规则" class="headerlink" title="BFC的布局规则"></a>BFC的布局规则</h2><ol>
-<li>内部的元素会在垂直方向一个接一个的排列，可以理解为是BFC中的一个常规流</li>
-<li>元素垂直方向的距离由margin决定，即同属于一个BFC的两个相邻的盒子的margin可能会发生重叠</li>
-<li>每个元素的左外边距与包含块的左外边距相接触，即使存在浮动的情况下也是如此，这说明BFC的子元素不会超出它的包含块</li>
-<li>BFC区域不会与float元素区域重叠</li>
-<li>计算BFC高度的时候，浮动的子元素也参与计算.</li>
-<li>BFC就是页面上一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之亦然。</li>
+</li>
+<li>对输出进行html编码<ol>
+<li>实体在呈现HTML.XML等之前对所有用户的数据进行编码，使其不能作为脚本运行。</li>
 </ol>
-<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><h3 id="解决margin塌陷"><a href="#解决margin塌陷" class="headerlink" title="解决margin塌陷"></a>解决margin塌陷</h3><h3 id="清除浮动问题"><a href="#清除浮动问题" class="headerlink" title="清除浮动问题"></a>清除浮动问题</h3><h3 id="解决侵占浮动元素的问题——-gt-两栏布局"><a href="#解决侵占浮动元素的问题——-gt-两栏布局" class="headerlink" title="解决侵占浮动元素的问题——-&gt;两栏布局"></a>解决侵占浮动元素的问题——-&gt;两栏布局</h3><p>浮动的元素会脱离文档流，然后覆盖在文档流元素上，当一个元素浮动，另外一个不浮动的时候，浮动的元素会因为脱离文档流而盖在不浮动的元素上。所以我们为非浮动元素建立BFC环境，根据BFC的不和float box重叠的规则，就会解决侵占元素问题。</p>
+</li>
+</ol>
+<h2 id="Cross-Site-Requset-Forgey-CSRF-跨站请求伪造"><a href="#Cross-Site-Requset-Forgey-CSRF-跨站请求伪造" class="headerlink" title="Cross-Site Requset Forgey(CSRF)跨站请求伪造"></a>Cross-Site Requset Forgey(CSRF)跨站请求伪造</h2><p>也被称为“one click attack”或者session riding。是一种对网站的恶意利用。下图是一个CSRF攻击的原理图</p>
+<p><img src="/2019/05/27/网络攻击/csrf.png" alt></p>
+<p>从上图可以看出来，要完成一次CSRF攻击，受害者必须依次完成两个步骤：</p>
+<ol>
+<li>登录受信任网站A，并在本地生成Cookie</li>
+<li>在不退出A的情况下，访问危险网站B</li>
+</ol>
+<p>举一个简单的例子：一个网站用户Bob可能在浏览聊天论坛，而同时另一个用户Alice也在此论坛中，并且后者刚刚发布了一个具有Bob银行链接的图片消息，设想一下，Alice编写了一个在Bob的银行站点上进行取款的form提交的链接，并将此链接作为图片tag。如果Bob的银行在cookie中保存他的授权信息，并且此cookie没有过期，那么当Bob的浏览器尝试装载图片时将提交这个取款form和他的cookie，这样在没经Bob同意的情况下便授权了这次事务。</p>
+<h3 id="防御-1"><a href="#防御-1" class="headerlink" title="防御"></a>防御</h3><ol>
+<li>对于敏感数据，例如银行账户信息等，要避免使用GET请求，更多的去使用POST请求。</li>
+<li>CRFS在攻击的时候往往是在用户不知情的情况下提交的请求，我们可以使用验证码来强制跟用户交互。</li>
+<li>在重要的请求中添加Token。CSRF攻击成功在于攻击者能够预测所有的参数从而构造出合法的请求，所以我们可以加大这个预测难度，加入一些黑客不能伪造的信息，在我们提交表单的时候，在保持原有参数不变，另外添加一个参数Token，该值是随机且加密的，当提交表单时，客户端也同时提交这个token，然后由服务端验证，验证通过才是有效的请求</li>
+<li>检测Referer.所谓Referer，就是在一个网络请求头中的键值对，标示着目前的请求是从哪个页面过来的。服务器通过检查Referer的值，如果判断出Referer并非本站页面，而是一个外部站点的页面，那么我们就可以判断出这个请求是非法的。与此同时，我们也就检测到了一次csrf攻击</li>
+</ol>
 
             </div>
             <hr>
@@ -573,7 +583,7 @@ BFC">
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">TomoFur</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/04/22/cssBFC/" class="b-link-green">BFC</a>
+                    <a href="/2019/05/27/网络攻击/" class="b-link-green">网络攻击</a>
                 </p>
             </div>
         </div>
@@ -618,27 +628,80 @@ BFC">
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/04/26/AMD/">
+                <a href="/2019/05/27/网络攻击/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="AMD/CMD和CommonJS的区别">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="网络攻击">
                         
-                        <span class="card-title">AMD/CMD和CommonJS的区别</span>
+                        <span class="card-title">网络攻击</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">Cross-Site-Scripting(xss)跨站脚本攻击为了不和层叠样式表的缩写混淆，故将跨站脚本攻击写为XSS.恶意攻击者往Web页面里插入恶意Script代码，当用户浏览该页面时，嵌入Web里面的Script代码会被执行，从而达到</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/网络安全相关/" target="_blank">
+                        <span class="chip bg-color">网络安全相关</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/05/24/正则表达式/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="正则表达式">
+                        
+                        <span class="card-title">正则表达式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary">
-commonjs是用在服务器端的，是同步的，如node.js
-amd,cmd是用在浏览器端的，是异步的。其中amd先提出来，cmd是根据commonjs和amd的基础上提出来的。
+处理字符串的利器.主要作用是判断字符串中是否含有符合正则表达式匹配规则的片段
 
-commonjsCommonjs是服务器端的模块规范，N</div>
+创建方法1：
+var reg = /abc/
+
+方法2：
+var reg = new RegExp('abc')
+
+正则表达式修饰符g:全局匹配
+var re</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-26
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -654,64 +717,8 @@ commonjsCommonjs是服务器端的模块规范，N</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/模块化开发/" target="_blank">
-                        <span class="chip bg-color">模块化开发</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/04/22/vdom/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="virtual DOM及diff算法">
-                        
-                        <span class="card-title">virtual DOM及diff算法</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">什么是virtual dom？从本质上而言，Vdom只是一个用于描述DOM节点的原生JS对象，并且最少包括tag，props，和children三个属性，下面是一个经典的Vdom例子：
-{
-    tag: "div",
-    props</div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-22
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/VUE/" class="post-category" target="_blank">
-                                    VUE
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/vue/" target="_blank">
-                        <span class="chip bg-color">vue</span>
-                    </a>
-                    
-                    <a href="/tags/diff算法/" target="_blank">
-                        <span class="chip bg-color">diff算法</span>
-                    </a>
-                    
-                    <a href="/tags/VDom/" target="_blank">
-                        <span class="chip bg-color">VDom</span>
+                    <a href="/tags/ES5基础知识/" target="_blank">
+                        <span class="chip bg-color">ES5基础知识</span>
                     </a>
                     
                 </div>
