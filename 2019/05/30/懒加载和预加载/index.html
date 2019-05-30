@@ -5,12 +5,9 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="实现继承的方法, TomoFur">
-    <meta name="description" content="圣杯模式//简易版
-function extend(Target,Origin){
-    function F(){}
-    F.prototype = Origin.prototype;
-    Target.prototype = ">
+    <meta name="keywords" content="图片懒加载和图片预加载, TomoFur">
+    <meta name="description" content="懒加载也叫延迟加载，即延迟加载图片或者符合某种条件时才加载某些图片。牺牲了服务器前端性能，换取更好的用户体验，这样可以使用户的操作得到最快的响应。
+预加载是提前加载图片，当用户需要查看时可以直接从本地缓存中渲染。作为服务器前端的优化，减少请">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +15,7 @@ function extend(Target,Origin){
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>实现继承的方法 | TomoFur</title>
+    <title>图片懒加载和图片预加载 | TomoFur</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -244,13 +241,13 @@ function extend(Target,Origin){
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        实现继承的方法
+                        图片懒加载和图片预加载
                     </div>
                 </div>
             </div>
@@ -361,8 +358,8 @@ function extend(Target,Origin){
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/ES5基础知识/" target="_blank">
-                                <span class="chip bg-color">ES5基础知识</span>
+                            <a href="/tags/性能优化/" target="_blank">
+                                <span class="chip bg-color">性能优化</span>
                             </a>
                         
                     </div>
@@ -385,21 +382,21 @@ function extend(Target,Origin){
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-05-29
+                    2019-05-30
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        379
+                        843
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        3 分
                     </div>
                     
                 
@@ -410,95 +407,112 @@ function extend(Target,Origin){
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="圣杯模式"><a href="#圣杯模式" class="headerlink" title="圣杯模式"></a>圣杯模式</h2><pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//简易版</span>
-<span class="token keyword">function</span> <span class="token function">extend</span><span class="token punctuation">(</span>Target<span class="token punctuation">,</span>Origin<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">function</span> <span class="token function">F</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
-    F<span class="token punctuation">.</span>prototype <span class="token operator">=</span> Origin<span class="token punctuation">.</span>prototype<span class="token punctuation">;</span>
-    Target<span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">F</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    Target<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>constructor <span class="token operator">=</span> Target<span class="token punctuation">;</span>
-    Target<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>uber <span class="token operator">=</span> Origin<span class="token punctuation">;</span>  
-<span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">//YUI库中的写法</span>
-
-<span class="token keyword">var</span> extend <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">function</span> <span class="token function">F</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
-    <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span>Target<span class="token punctuation">,</span>Origin<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        F<span class="token punctuation">.</span>prototype <span class="token operator">=</span> Origin<span class="token punctuation">.</span>prototype<span class="token punctuation">;</span>
-        target<span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">F</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        target<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>constructor <span class="token operator">=</span> Target<span class="token punctuation">;</span>
-        target<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>uber <span class="token operator">=</span> Origin
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-</code></pre>
-<h2 id="借用原型链实现继承"><a href="#借用原型链实现继承" class="headerlink" title="借用原型链实现继承"></a>借用原型链实现继承</h2><p><strong>基本思想</strong>：利用原型让一个引用类型继承另一个引用类型的属性和方法，实现的本质是<strong>重写原型对象，代之以一个新类型的实例。</strong></p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">SuperType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>property <span class="token operator">=</span> <span class="token boolean">true</span>
-<span class="token punctuation">}</span>
-SuperType<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>getSuperValue <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>property<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">function</span> <span class="token function">SubType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>subProperty <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">//继承SuperType</span>
-SubType<span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SuperType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-SubType<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>getSubValue <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>subProperty<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">var</span> instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SubType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-instance<span class="token punctuation">.</span><span class="token function">getSuperValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//true</span>
-instance<span class="token punctuation">.</span><span class="token function">getSubValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//false</span>
-</code></pre>
-<p><strong>缺点</strong>：</p>
+                <p><strong>懒加载</strong>也叫延迟加载，即延迟加载图片或者符合某种条件时才加载某些图片。牺牲了服务器前端性能，换取更好的用户体验，这样可以使用户的操作得到最快的响应。</p>
+<p><strong>预加载</strong>是提前加载图片，当用户需要查看时可以直接从本地缓存中渲染。作为服务器前端的优化，减少请求次数或者延迟请求。</p>
+<p><strong>本质</strong>：两者的行为是相反的，一个是提前加载，一个是迟缓加载甚至是不加载，懒加载对服务器前端有一定的缓解压力作用，预加载则会增加服务器前端的压力。</p>
+<h2 id="懒加载实现"><a href="#懒加载实现" class="headerlink" title="懒加载实现"></a>懒加载实现</h2><p>实现方式:可视区加载。即仅加载用户可以看到的区域，这个主要是由监控滚动条来实现，一般会在距离用户看到某图片前一定距离便开始加载，这样能保证用户拉下时正好能看到图片。</p>
+<p><strong>Tips</strong></p>
 <ol>
-<li>包含引用类型值的原型属性会被所有实例共享。这样，一个实例修改了原型对象中引用类型值的原型属性，会在另外一个实例对象上也体现出来这种修改。</li>
+<li>自定义属性，以<code>data-</code>为前缀，可以通过绑定的DOM对象的dataset来获取自定义属性的值。</li>
+<li>DOM API <code>getBoundingClientRect</code>：这个API会返回一个对象，蓝色区域表示DOM实际所在的地方，top属性表示元素顶端距离视口顶端的位置。</li>
 </ol>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">SuperType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>color <span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'red'</span><span class="token punctuation">,</span><span class="token string">'green'</span><span class="token punctuation">,</span><span class="token string">'blue'</span><span class="token punctuation">]</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">function</span> <span class="token function">SubType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
-
-SubType<span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SuperType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> instance1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SubType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-instance1<span class="token punctuation">.</span>color<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'yellow'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">var</span> instance2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SubType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-instance2<span class="token punctuation">.</span>color<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//['red','green','blue','yellow']</span>
-</code></pre>
-<ol start="2">
-<li>在创建子类的实例时，无法向超类的构造函数中传递参数。</li>
+<p><img src="/2019/05/30/懒加载和预加载/getBoundingClientRect.png" alt></p>
+<ol start="3">
+<li>不能直接给<code>img</code>标签设置<code>src</code>属性</li>
 </ol>
-<h2 id="借用构造函数"><a href="#借用构造函数" class="headerlink" title="借用构造函数"></a>借用构造函数</h2><p><strong>思想</strong>：在子类构造函数的内部调用超类构造函数</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">SuperType</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div <span class="token keyword">class</span> <span class="token operator">=</span> <span class="token string">'container'</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>img src <span class="token operator">=</span> <span class="token string">''</span> alt<span class="token operator">=</span><span class="token string">'lazy-load'</span> data<span class="token operator">-</span>src <span class="token operator">=</span> <span class="token string">'图片实际的url地址'</span><span class="token operator">></span>
+        <span class="token operator">...</span> <span class="token comment" spellcheck="true">//此处略去多个相同的img标签。</span>
+   <span class="token operator">&lt;</span>img src <span class="token operator">=</span> <span class="token string">''</span> alt<span class="token operator">=</span><span class="token string">'lazy-load'</span> data<span class="token operator">-</span>src <span class="token operator">=</span> <span class="token string">'图片实际的url地址'</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
 
-<span class="token keyword">function</span> <span class="token function">SubType</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>age<span class="token punctuation">,</span>gender<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    SuperType<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//就是这一步继承了superType。</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>gender <span class="token operator">=</span> gender<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
+
+<span class="token operator">&lt;</span>script<span class="token operator">></span>
+       <span class="token comment" spellcheck="true">//所有具有data-src属性的图片都需要懒加载。</span>
+       <span class="token keyword">function</span> <span class="token function">lazyLoad</span><span class="token punctuation">(</span>defaultImg<span class="token punctuation">)</span><span class="token punctuation">{</span>
+               <span class="token comment" spellcheck="true">//第0步，先得到所有需要懒加载的图片</span>
+               <span class="token keyword">var</span> imgs <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'img[data-src]'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+               <span class="token comment" spellcheck="true">//将其转化为真正的数组</span>
+               imgs <span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token keyword">from</span><span class="token punctuation">(</span>imgs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+               <span class="token comment" spellcheck="true">//设置默认图片</span>
+               <span class="token function">setDefaultImgs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+               <span class="token comment" spellcheck="true">//懒加载所有图片</span>
+               <span class="token function">loadAllImgs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+               <span class="token comment" spellcheck="true">//监听滚动条</span>
+               <span class="token keyword">var</span> timer <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+               document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>onscroll <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">//函数防抖</span>
+               <span class="token keyword">if</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    <span class="token function">clearTimeOut</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                 <span class="token punctuation">}</span>
+                 timer <span class="token operator">=</span> <span class="token function">setTimeOut</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    <span class="token function">loadAllImgs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token number">500</span><span class="token punctuation">)</span>
+               <span class="token punctuation">}</span>
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>函数区<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>
+           <span class="token function">setDefaultImgs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+               <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>defaultImg<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                   <span class="token keyword">return</span> <span class="token punctuation">;</span>
+               <span class="token punctuation">}</span>
+               imgs<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>item<span class="token operator">=</span><span class="token operator">></span>item<span class="token punctuation">.</span>src <span class="token operator">=</span>defaultImg <span class="token punctuation">)</span>
+           <span class="token punctuation">}</span>
+
+           <span class="token keyword">function</span> <span class="token function">loadAllImgs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+               imgs<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span>index<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+                   <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">loadImg</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                       imgs<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                       index<span class="token operator">--</span><span class="token punctuation">;</span>
+                   <span class="token punctuation">}</span>
+               <span class="token punctuation">}</span><span class="token punctuation">)</span>
+           <span class="token punctuation">}</span>
+
+               <span class="token comment" spellcheck="true">/*
+               *懒加载一张图片，自行判断是否应该加载
+               *img：图片的dom对象
+               */</span>
+           <span class="token keyword">function</span> <span class="token function">loadImg</span><span class="token punctuation">(</span>img<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">//判断该图片是否能够加载。实际上时判断该图片是否在可视区范围内</span>
+               <span class="token keyword">var</span> rect <span class="token operator">=</span> img<span class="token punctuation">.</span><span class="token function">getBoundingClientRect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+               <span class="token keyword">if</span><span class="token punctuation">(</span>rect<span class="token punctuation">.</span>bottom<span class="token operator">&lt;=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                   <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+               <span class="token punctuation">}</span>
+               <span class="token keyword">if</span><span class="token punctuation">(</span>rect<span class="token punctuation">.</span>top<span class="token operator">>=</span>document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>clientHeight<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                   <span class="token keyword">return</span> <span class="token boolean">false</span>
+               <span class="token punctuation">}</span>
+               img<span class="token punctuation">.</span>src <span class="token operator">=</span> img<span class="token punctuation">.</span>dataset<span class="token punctuation">.</span>src<span class="token punctuation">;</span>
+               <span class="token comment" spellcheck="true">//判断是否由原图</span>
+               <span class="token keyword">if</span>（img<span class="token punctuation">.</span>dataset<span class="token punctuation">.</span>original）<span class="token punctuation">{</span>
+                   img<span class="token punctuation">.</span>onload <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                       img<span class="token punctuation">.</span>src <span class="token operator">=</span> img<span class="token punctuation">.</span>dataset<span class="token punctuation">.</span>original<span class="token punctuation">;</span>
+                       img<span class="token punctuation">.</span>onload <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//不写这一步就会导致无限循环。因为小图加载完触发onlod时间后，大图加载完又触发onload事件。</span>
+                   <span class="token punctuation">}</span>
+               <span class="token punctuation">}</span>
+               <span class="token keyword">return</span> <span class="token boolean">true</span>
+           <span class="token punctuation">}</span>
+           <span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>       
+
 </code></pre>
-<h2 id="组合继承"><a href="#组合继承" class="headerlink" title="组合继承"></a>组合继承</h2><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> SuperType <span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+<h2 id="预加载实现"><a href="#预加载实现" class="headerlink" title="预加载实现"></a>预加载实现</h2><p>​    核心原理是浏览器请求过的资源会有缓存，所以使用js创建一个看不见的img标签，浏览器就会发出请求，这个过程用户是看不见的，到了页面上真正要显示这张图片的时候，浏览器一检查之前缓存过，就不会再向服务器发出请求，直接从缓存中获取，给用户的感觉就是秒加载了。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">preloadImg</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> img <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Image</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    img<span class="token punctuation">.</span>src <span class="token operator">=</span> url<span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>img<span class="token punctuation">.</span>complete<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">//如果有缓存</span>
+        <span class="token comment" spellcheck="true">//接下来可以使用图片了</span>
+        <span class="token comment" spellcheck="true">//do something here</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        img<span class="token punctuation">.</span>onload <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            img<span class="token punctuation">.</span>onload <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//接下来可以使用图片了</span>
+            <span class="token comment" spellcheck="true">//do something here</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-
-SuperType<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>sayName <span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">function</span> SubType <span class="token punctuation">(</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    SuperType<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-SubType<span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SuperType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-SubType<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>constructor <span class="token operator">=</span> SubType<span class="token punctuation">;</span>
-
 </code></pre>
 
             </div>
@@ -647,7 +661,7 @@ SubType<span class="token punctuation">.</span>prototype<span class="token punct
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">TomoFur</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/05/29/继承实现的方式/" class="b-link-green">实现继承的方法</a>
+                    <a href="/2019/05/30/懒加载和预加载/" class="b-link-green">图片懒加载和图片预加载</a>
                 </p>
             </div>
         </div>
@@ -692,7 +706,55 @@ SubType<span class="token punctuation">.</span>prototype<span class="token punct
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2019/05/30/懒加载和预加载/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="图片懒加载和图片预加载">
+                        
+                        <span class="card-title">图片懒加载和图片预加载</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">懒加载也叫延迟加载，即延迟加载图片或者符合某种条件时才加载某些图片。牺牲了服务器前端性能，换取更好的用户体验，这样可以使用户的操作得到最快的响应。
+预加载是提前加载图片，当用户需要查看时可以直接从本地缓存中渲染。作为服务器前端的优化，减少请</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/性能优化/" target="_blank">
+                        <span class="chip bg-color">性能优化</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2019/05/29/创建对象/">
                     <div class="card-image">
@@ -710,9 +772,9 @@ SubType<span class="token punctuation">.</span>prototype<span class="token punct
     obj.age = age;
     obj.job </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-29
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -730,51 +792,6 @@ SubType<span class="token punctuation">.</span>prototype<span class="token punct
                     
                     <a href="/tags/ES5基础知识/" target="_blank">
                         <span class="chip bg-color">ES5基础知识</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/05/27/网络攻击/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="网络攻击">
-                        
-                        <span class="card-title">网络攻击</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">Cross-Site-Scripting(xss)跨站脚本攻击为了不和层叠样式表的缩写混淆，故将跨站脚本攻击写为XSS.恶意攻击者往Web页面里插入恶意Script代码，当用户浏览该页面时，嵌入Web里面的Script代码会被执行，从而达到</div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-27
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                    JavaScript
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/网络安全相关/" target="_blank">
-                        <span class="chip bg-color">网络安全相关</span>
                     </a>
                     
                 </div>
