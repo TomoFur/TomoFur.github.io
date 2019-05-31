@@ -5,16 +5,11 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="圣杯布局和双飞翼布局, TomoFur">
-    <meta name="description" content="圣杯布局圣杯布局是一种常见的CSS布局，它要求：
-
-底部和顶部各自占领屏幕的全部宽度
-上下部之间是一个三栏布局
-三栏布局两侧宽度不变，中间部分自动填充整个区域
-中间部分的高度是三栏中高度最高区域的高度
-
-下面介绍两种实现方式：
-浮动实现  ">
+    <meta name="keywords" content="数组常用方法, TomoFur">
+    <meta name="description" content="Array.isArray(对象)判断这个对象是不是一个数组
+.concat(数组)返回一个拼接的新数组
+.push(值)在原数组的最后面添加上这个值，返回值是新数组的长度
+.unshift(值)在原数组的最前面添加上这个值，返回值是新数组">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -22,7 +17,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>圣杯布局和双飞翼布局 | TomoFur</title>
+    <title>数组常用方法 | TomoFur</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -248,13 +243,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        圣杯布局和双飞翼布局
+                        数组常用方法
                     </div>
                 </div>
             </div>
@@ -365,8 +360,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/CSS-tips/" target="_blank">
-                                <span class="chip bg-color">CSS tips</span>
+                            <a href="/tags/ES5基础知识/" target="_blank">
+                                <span class="chip bg-color">ES5基础知识</span>
                             </a>
                         
                     </div>
@@ -377,8 +372,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/CSS/" class="post-category" target="_blank">
-                                CSS
+                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
+                                JavaScript
                             </a>
                         
                     </div>
@@ -389,21 +384,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-05-04
+                    2019-05-31
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        583
+                        974
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        3 分
                     </div>
                     
                 
@@ -414,102 +409,62 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="圣杯布局"><a href="#圣杯布局" class="headerlink" title="圣杯布局"></a>圣杯布局</h2><p>圣杯布局是一种常见的CSS布局，它要求：</p>
+                <h3 id="Array-isArray-对象"><a href="#Array-isArray-对象" class="headerlink" title="Array.isArray(对象)"></a>Array.isArray(对象)</h3><p>判断这个对象是不是一个数组</p>
+<h3 id="concat-数组"><a href="#concat-数组" class="headerlink" title=".concat(数组)"></a>.concat(数组)</h3><p>返回一个拼接的新数组</p>
+<h3 id="push-值"><a href="#push-值" class="headerlink" title=".push(值)"></a>.push(值)</h3><p>在原数组的最后面添加上这个值，返回值是新数组的长度</p>
+<h3 id="unshift-值"><a href="#unshift-值" class="headerlink" title=".unshift(值)"></a>.unshift(值)</h3><p>在原数组的最前面添加上这个值，返回值是新数组的长度</p>
+<h3 id="pop"><a href="#pop" class="headerlink" title=".pop"></a>.pop</h3><p>将原数组最后一个值弹出，返回值是弹出的这个值</p>
+<h3 id="shift"><a href="#shift" class="headerlink" title=".shift"></a>.shift</h3><p>将原数组第一个值弹出，返回值是弹出的这个值。</p>
+<h3 id="reverse"><a href="#reverse" class="headerlink" title=".reverse"></a>.reverse</h3><p>将原数组逆序，返回值是经过排序之后的数组（是数组本身）</p>
+<h3 id="sort"><a href="#sort" class="headerlink" title=".sort"></a>.sort</h3><p>将原来数组按一定顺序排列，不稳定，可以在这个方法中传入一个比较函数。返回值是经过排序之后的数组。</p>
+<h3 id="slice-开始的索引，结束的索引"><a href="#slice-开始的索引，结束的索引" class="headerlink" title=".slice(开始的索引，结束的索引)"></a>.slice(开始的索引，结束的索引)</h3><p>将原来数组从开始的索引到结束的索引的中间那一段数组内容截取出来，放在新数组中，这个操作本身不影响原来的数组。</p>
+<h3 id="splice"><a href="#splice" class="headerlink" title=".splice"></a>.splice</h3><p>splice方法传入的参数个数取决于使用这方法所要达到的效果，具体而言，就是：</p>
 <ol>
-<li>底部和顶部各自占领屏幕的全部宽度</li>
-<li>上下部之间是一个三栏布局</li>
-<li>三栏布局两侧宽度不变，中间部分自动填充整个区域</li>
-<li>中间部分的高度是三栏中高度最高区域的高度</li>
+<li>删除：传入两个参数，起始位置，删除的个数</li>
+<li>插入：传入三个参数，插入位置，0（表示不删除任何元素），要插入的元素</li>
+<li>替换：传入三个参数，替换位置，要替换的元素的个数，要替换的元素</li>
 </ol>
-<p>下面介绍两种实现方式：</p>
-<h3 id="浮动实现"><a href="#浮动实现" class="headerlink" title="浮动实现"></a>浮动实现</h3><pre><code>  &lt;style&gt;
-        .header,.footer{
-            height: 200px;
-            width: 100%;
-            background: #f40;
-        }
-        .footer{
-            clear:both;
-        }
-        .container{
-            padding-left:200px;&#x2F;&#x2F;这个就是左边盒子将来的宽度
-            padding-right:300px;&#x2F;&#x2F;这个就是右边盒子将来的宽度
-        }
-        .container div{
-            float: left;
-            position: relative;&#x2F;&#x2F;将所有的盒子设为相对定位
-        }
-        .mid{
-            width: 100%;
-            background: yellow;
-        }
-        .left{
-            width: 200px;
-            background: skyblue;
-            margin-left: -100%;&#x2F;&#x2F;很关键，margin-left：-100%是按照父盒子的宽度来计算的
-            left:-200px;&#x2F;&#x2F;很关键
-        }
-        .right{
-            width: 300px;
-            background: cyan;
-            margin-right:-300px;&#x2F;&#x2F;很关键
-        }
-&lt;&#x2F;style&gt;
-&lt;div class=&quot;header&quot;&gt;这里是头部&lt;&#x2F;div&gt;
-    &lt;div class=&quot;container&quot;&gt;
-        &lt;div class=&quot;mid&quot;&gt;中间部分&lt;&#x2F;div&gt;
-        &lt;div class=&quot;left&quot;&gt;左边&lt;&#x2F;div&gt;
-        &lt;div class=&quot;right&quot;&gt;右边&lt;&#x2F;div&gt;
-    &lt;&#x2F;div&gt;
-    &lt;div class=&quot;footer&quot;&gt;这里是底部&lt;&#x2F;div&gt;</code></pre>
-<h3 id="flex弹性布局实现"><a href="#flex弹性布局实现" class="headerlink" title="flex弹性布局实现"></a>flex弹性布局实现</h3><p>弹性布局就是给外面的container盒子设置display：flex；然后左右固定宽度，中间的盒子设置flex：1即可。</p>
-<h2 id="双飞翼布局"><a href="#双飞翼布局" class="headerlink" title="双飞翼布局"></a>双飞翼布局</h2><p>双飞翼布局是在middle的div里又插入一个div，通过调整内部div的margin值，实现中间栏自适应，内容写到内部div中</p>
-<pre><code>&lt;style&gt;
-     .hd{
-            height:50px;
-            background: #666;
-            text-align: center;
-        }
-        .middle{
-            float:left;
-            width:100%;&#x2F;*左栏上去到第一行*&#x2F;
-            height:100px;
-            background:blue;
-        }
-        .left{
-            float:left;
-            width:180px;
-            height:100px;
-            margin-left:-100%;
-            background:#0c9;
-        }
-        .right{
-            float:left;
-            width:200px;
-            height:100px;
-            margin-left:-200px;
-            background:#0c9;
-        }
-        &#x2F;*给内部div添加margin，把内容放到中间栏，其实整个背景还是100%*&#x2F;
-        .inside{
-            margin:0 200px 0 180px;
-            height:100px;
-        }
-        .footer{
-            clear:both; &#x2F;*记得清楚浮动*&#x2F;
-            height:50px;
-            background: #666;
-            text-align: center;
-        }
-&lt;&#x2F;style&gt;
-
- &lt;div class=&quot;hd&quot;&gt;header&lt;&#x2F;div&gt;
-    &lt;div class=&quot;middle&quot;&gt;
-        &lt;div class=&quot;inside&quot;&gt;middle&lt;&#x2F;div&gt;
-    &lt;&#x2F;div&gt;
-    &lt;div class=&quot;left&quot;&gt;left&lt;&#x2F;div&gt;
-    &lt;div class=&quot;right&quot;&gt;right&lt;&#x2F;div&gt;
-    &lt;div class=&quot;footer&quot;&gt;footer&lt;&#x2F;div&gt;</code></pre>
+<p><strong>注意</strong>：</p>
+<p>splice方法对于数组的操作会影响原来数组</p>
+<h3 id="find"><a href="#find" class="headerlink" title=".find"></a>.find</h3><p>接收一个方法作为参数，方法内部会返回一个条件，find会遍历数组的所有元素，符合这个条件的元素会被返回，如果遍历完整个数组都没有符合条件的元素，会返回undefined</p>
+<pre class=" language-javascript"><code class="language-javascript">    <span class="token keyword">var</span> arr <span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    arr<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> item <span class="token operator">==</span><span class="token number">20</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    这个函数会返回数组中值是<span class="token number">20</span>数
+</code></pre>
+<h3 id="findIndex"><a href="#findIndex" class="headerlink" title=".findIndex"></a>.findIndex</h3><p>作用和find方法类似，但是不同的是，这个方法返回的是数组中符合条件的元素在数组中的索引。</p>
+<h3 id="join-拼接符"><a href="#join-拼接符" class="headerlink" title=".join(拼接符)"></a>.join(拼接符)</h3><p>返回一个将数组中所有元素使用拼接符拼接起来的字符串</p>
+<h3 id="every，filter，forEach，map，some"><a href="#every，filter，forEach，map，some" class="headerlink" title="every，filter，forEach，map，some"></a>every，filter，forEach，map，some</h3><p>这几个方法都会遍历整个数组，但是，就其作用而言，却不尽相同，具体而言：</p>
+<ol>
+<li>every：接收一个函数作为参数，这个函数的第一个参数是元素的值，第二个参数是元素的索引，every会遍历整个数组，只有当数组中的每一个元素都满足参数函数的条件时，才会返回true</li>
+<li>some：作用和every相似，但不需要数组中每一个元素都满足条件，只要存在一个元素满足这个条件就返回true。</li>
+<li>filter：根据传入的参数函数对数组中每一个元素进行过滤判断，返回的值是所有满足条件的元素组成的新数组</li>
+<li>forEach：对数组中每一个元素遍历执行参数函数中的操作。没有返回值</li>
+<li>map:数组中每一个元素都要执行这个函数，并将执行后的结果放在一个新数组中返回。</li>
+</ol>
+<p><strong>上述所有遍历数组的方法均不会改变原来数组中元素的值。</strong></p>
+<p><strong>tips:</strong>如何中断一个forEach循环<br>forEach一般是无法通过return或者是break进行中断的，在这里，介绍一个通过try/catch的方法进行中断。具体代码示例如下：</p>
+<pre class=" language-javascript"><code class="language-javascript">    <span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//我们的目的是使用forEach遍历数组，在遇到2的时候中断。</span>
+    <span class="token keyword">try</span><span class="token punctuation">{</span>
+        arr<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>item<span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>item <span class="token operator">===</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'遇到2了，可以中断吗？'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                foreach<span class="token punctuation">.</span><span class="token keyword">break</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'Stop'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>message <span class="token operator">===</span> <span class="token string">'foreach is not defined'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'中断成功'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> e<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<p><strong>注意</strong>：遇到这种情况，也可以考虑使用数组的some方法或者是every方法。</p>
 
             </div>
             <hr>
@@ -657,7 +612,7 @@
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">TomoFur</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/05/04/圣杯布局和双飞翼布局/" class="b-link-green">圣杯布局和双飞翼布局</a>
+                    <a href="/2019/05/31/数组常用方法/" class="b-link-green">数组常用方法</a>
                 </p>
             </div>
         </div>
@@ -702,42 +657,45 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/05/04/盒子模型/">
+                <a href="/2019/05/31/数组常用方法/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="盒子模型">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="数组常用方法">
                         
-                        <span class="card-title">盒子模型</span>
+                        <span class="card-title">数组常用方法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">什么是盒子模型CSS盒子模型也叫框模型，具备内容(content),填充(padding),边框(border),边界(margin)这些属性，在CSS中，每一个元素都被视为一个盒子，且每一个盒子都有三个属性：
-
-border：元素的边框，</div>
+                    <div class="summary">Array.isArray(对象)判断这个对象是不是一个数组
+.concat(数组)返回一个拼接的新数组
+.push(值)在原数组的最后面添加上这个值，返回值是新数组的长度
+.unshift(值)在原数组的最前面添加上这个值，返回值是新数组</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-04
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-31
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/HTML/" class="post-category" target="_blank">
-                                    HTML
+                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
+                                    JavaScript
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/html布局/" target="_blank">
-                        <span class="chip bg-color">html布局</span>
+                    <a href="/tags/ES5基础知识/" target="_blank">
+                        <span class="chip bg-color">ES5基础知识</span>
                     </a>
                     
                 </div>
@@ -751,29 +709,28 @@ border：元素的边框，</div>
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/05/04/CSS控制前端图片HTTP请求的情况/">
+                <a href="/2019/05/30/BOM/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="CSS控制前端图片HTTP请求的情况">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="浏览器对象模型(BOM)">
                         
-                        <span class="card-title">CSS控制前端图片HTTP请求的情况</span>
+                        <span class="card-title">浏览器对象模型(BOM)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">隐藏图片&lt;img src=&#39;xxx.jpg&#39; style=&#39;display:none&#39;&gt;
-结论：产生HTTP请求，此外使用visiblity：hidden的时候也会产生请求。
-重复图片&lt;im</div>
+                    <div class="summary">BOM提供了很多对象，用于访问浏览器的功能。
+窗口位置IE,Safari,Opera和Chrome使用screenLeft和screenTop分别用来表示浏览器窗口相对电脑屏幕的左边和上边的距离。而在FireFox中。使用的是screenX</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-04
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-30
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/CSS/" class="post-category" target="_blank">
-                                    CSS
+                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
+                                    JavaScript
                                 </a>
                             
                             
@@ -783,8 +740,8 @@ border：元素的边框，</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/CSS-tips/" target="_blank">
-                        <span class="chip bg-color">CSS tips</span>
+                    <a href="/tags/ES5基础知识/" target="_blank">
+                        <span class="chip bg-color">ES5基础知识</span>
                     </a>
                     
                 </div>
