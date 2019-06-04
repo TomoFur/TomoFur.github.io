@@ -5,12 +5,9 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="AMD/CMD和CommonJS的区别, TomoFur">
-    <meta name="description" content="
-commonjs是用在服务器端的，是同步的，如node.js
-amd,cmd是用在浏览器端的，是异步的。其中amd先提出来，cmd是根据commonjs和amd的基础上提出来的。
-
-commonjsCommonjs是服务器端的模块规范，N">
+    <meta name="keywords" content="长短连接/长短轮询, TomoFur">
+    <meta name="description" content="短轮询定义：就是普通的轮询，指在特定的时间间隔，由浏览器对服务器发出HTTP请求，然后由服务器返回最新的数据给客户端的浏览器。短轮询是服务器立即发送响应，无论数据是否有效。
+应用场景：传统的web通信，后台处理数据需要一定的时间，前端想要知">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +15,7 @@ commonjsCommonjs是服务器端的模块规范，N">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>AMD/CMD和CommonJS的区别 | TomoFur</title>
+    <title>长短连接/长短轮询 | TomoFur</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -244,13 +241,13 @@ commonjsCommonjs是服务器端的模块规范，N">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        AMD/CMD和CommonJS的区别
+                        长短连接/长短轮询
                     </div>
                 </div>
             </div>
@@ -361,8 +358,8 @@ commonjsCommonjs是服务器端的模块规范，N">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/模块化开发/" target="_blank">
-                                <span class="chip bg-color">模块化开发</span>
+                            <a href="/tags/HTTP协议/" target="_blank">
+                                <span class="chip bg-color">HTTP协议</span>
                             </a>
                         
                     </div>
@@ -373,8 +370,8 @@ commonjsCommonjs是服务器端的模块规范，N">
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                JavaScript
+                            <a href="/categories/HTTP协议/" class="post-category" target="_blank">
+                                HTTP协议
                             </a>
                         
                     </div>
@@ -385,14 +382,14 @@ commonjsCommonjs是服务器端的模块规范，N">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-04-26
+                    2019-06-04
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        638
+                        736
                     </div>
                     
 
@@ -410,85 +407,21 @@ commonjsCommonjs是服务器端的模块规范，N">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ol>
-<li>commonjs是用在服务器端的，是同步的，如node.js</li>
-<li>amd,cmd是用在浏览器端的，是异步的。其中amd先提出来，cmd是根据commonjs和amd的基础上提出来的。</li>
-</ol>
-<h2 id="commonjs"><a href="#commonjs" class="headerlink" title="commonjs"></a>commonjs</h2><p>Commonjs是服务器端的模块规范，Node.js采用了这个规范</p>
-<p>根据Commonjs规范，一个单独的文件就是一个模块，加载模块使用require方法，该方法读取文件并执行，最后，返回文件的内部expots对象。</p>
-<p>CommonJS加载模块是同步的，只有加载完成之后才可以执行后面的操作。像Node.js主要用于服务器的编写，加载的模块文件一般都已经存在本地硬盘上了，所以加载起来比较快。不用考虑异步加载的方式。所以，CommonJS规范比较适用。但是如果是在浏览器端，要从服务器加载模块，就必须是异步模式，所以才有了AMD,CMD解决方案。</p>
-<h2 id="AMD-CMD"><a href="#AMD-CMD" class="headerlink" title="AMD/CMD"></a>AMD/CMD</h2><p>AMD是“Asynchronous Module Definition”的缩写，意思就是“异步模块定义”，它采用异步方式加载模块，模块的加载不影响它后面语句的运行，所有依赖的模块的语句，都定义在一个回调函数中，等到加载完之后，这个回调函数才会运行。</p>
-<p>AMD也采用了require语句加载模块，但是不同于CommonJS</p>
-<p>主要由两个JavaScript库实现了AMD规范。require.js和curl.js</p>
-<p><strong>相同点</strong>：都是异步加载</p>
-<p>AMD推崇前置依赖，在定义模块的时候就要声明其依赖的模块。AMD 是 RequireJS 在推广过程中对模块定义的规范化产出。</p>
-<p>CMD推崇后置依赖，只有在用到某个模块的时候才去require。CMD 是 SeaJS 在推广过程中对模块定义的规范化产出。</p>
-<p>对于依赖的模块，AMD是提前执行的，CMD是延迟执行的。</p>
-<p>CMD在AMD基础上改进，可按需加载，预先下载代码，但并没有立即执行，即“就近书写，延迟执行”</p>
-<pre class=" language-javascript"><code class="language-javascript">
-AMD
-<span class="token comment" spellcheck="true">//a.js</span>
-<span class="token function">define</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'a.js'</span>执行<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span>
-        hello<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'This is a.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true">//b.js</span>
-<span class="token function">define</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'b.js执行'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span>
-        hello<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hello, b.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">//main.js</span>
-<span class="token function">require</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'main.js执行'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    a<span class="token punctuation">.</span><span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#b'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        b<span class="token punctuation">.</span><span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<pre class=" language-javascript"><code class="language-javascript">CMD
-<span class="token comment" spellcheck="true">//a.js</span>
-<span class="token function">define</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'a.js执行'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span><span class="token punctuation">{</span>
-        hello<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'This is a.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">//b.js</span>
-<span class="token function">define</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'b.js执行'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span>
-        hello<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'This is b.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">//main.js</span>
-<span class="token function">define</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'main.js执行'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    a<span class="token punctuation">.</span><span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#b'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'b'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        b<span class="token punctuation">.</span><span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
+                <h2 id="短轮询"><a href="#短轮询" class="headerlink" title="短轮询"></a>短轮询</h2><p>定义：就是普通的轮询，指在特定的时间间隔，由浏览器对服务器发出HTTP请求，然后由服务器返回最新的数据给客户端的浏览器。短轮询是服务器立即发送响应，无论数据是否有效。</p>
+<p>应用场景：传统的web通信，后台处理数据需要一定的时间，前端想要知道后端的处理结果，就要不定时向后端发出请求以获得最新情况。</p>
+<p>缺点：请求中有一大半是无用，浪费带宽和服务器资源。而且实时性不高。适合用在对实时性要求不高的地方。</p>
+<p><img src="/2019/06/04/长短连接/短轮询.PNG" alt></p>
+<h2 id="长轮询"><a href="#长轮询" class="headerlink" title="长轮询"></a>长轮询</h2><p>定义：服务器收到请求之后如果有数据，就立刻响应请求，如果没有数据就将请求挂起一段时间，在这个时间里如果有数据就立即响应请求并关闭连接，没有数据就等到连接超时为止。客户端处理完响应信息后再向服务器发送新的请求。</p>
+<p>优点：客户端请求次数将大大减小，节省了网络流量。</p>
+<p>缺点：服务器挂起请求会消耗资源，</p>
+<p>应用场景：长轮询一般用在实时性要求高的场景，因为http长轮询的控制权一直是在服务器端，而数据是在服务器端的，因此实时性高。</p>
+<p><img src="/2019/06/04/长短连接/长轮询.PNG" alt></p>
+<h1 id="长连接和短连接"><a href="#长连接和短连接" class="headerlink" title="长连接和短连接"></a>长连接和短连接</h1><p>HTTP分为长连接和短连接，其本质上是TCP连接。TCP连接是一个双向的通道，它是可以保持一段时间不关闭的，因此TCP连接才有真正的长连接和短连接一说，HTTP协议是应用层的协议，而TCP协议才是真正的传输层协议，只有负责传输的这一层才需要建立连接。</p>
+<h2 id="短连接"><a href="#短连接" class="headerlink" title="短连接"></a>短连接</h2><p>HTTP1.0规定浏览器与服务器只能保持短暂的连接，浏览器的每次请求都需要与服务器建立一个TCP连接，服务器完成请求处理后立即断开TCP连接。</p>
+<p>缺点：使用浏览器浏览一个包含多张图片的HTML页面时，在发送请求访问HTML页面资源的同时，也会请求该HTML页面里面包含的其他资源，因此，每一次请求都会造成无谓的TCP连接建立和断开，增加通信开销。</p>
+<h2 id="长连接"><a href="#长连接" class="headerlink" title="长连接"></a>长连接</h2><p>为了解决上述TCP连接的问题，HTTP/1.1提出了持久连接的方法，持久连接的特点是<strong>只要任意一端没有明确提出断开连接，则保持TCP连接状态。</strong></p>
+<p>在HTTP/1.1中，所有的连接都默认是持节连接，可以通过<code>Connection:keep-alive</code></p>
+<p>优点：减少了TCP连接的重复建立和断开所造成的额外开销，减轻了服务器的负担。</p>
 
             </div>
             <hr>
@@ -636,7 +569,7 @@ AMD
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">TomoFur</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/04/26/AMD/" class="b-link-green">AMD/CMD和CommonJS的区别</a>
+                    <a href="/2019/06/04/长短连接/" class="b-link-green">长短连接/长短轮询</a>
                 </p>
             </div>
         </div>
@@ -681,44 +614,43 @@ AMD
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/04/30/字符串常用方法/">
+                <a href="/2019/06/04/长短连接/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="字符串常用方法">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="长短连接/长短轮询">
                         
-                        <span class="card-title">字符串常用方法</span>
+                        <span class="card-title">长短连接/长短轮询</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">.length返回字符换长度
-.charAt(索引)返回指定索引位置的字符，如果索引超过了字符串长度会返回空串
-.charCodeAt(索引)返回给定索引位置的字符的字符编码
-var str = 'hello';
-console.log(s</div>
+                    <div class="summary">短轮询定义：就是普通的轮询，指在特定的时间间隔，由浏览器对服务器发出HTTP请求，然后由服务器返回最新的数据给客户端的浏览器。短轮询是服务器立即发送响应，无论数据是否有效。
+应用场景：传统的web通信，后台处理数据需要一定的时间，前端想要知</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                    JavaScript
+                            <a href="/categories/HTTP协议/" class="post-category" target="_blank">
+                                    HTTP协议
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ES5基础知识/" target="_blank">
-                        <span class="chip bg-color">ES5基础知识</span>
+                    <a href="/tags/HTTP协议/" target="_blank">
+                        <span class="chip bg-color">HTTP协议</span>
                     </a>
                     
                 </div>
@@ -732,28 +664,29 @@ console.log(s</div>
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/04/22/cssBFC/">
+                <a href="/2019/05/31/webpack学习笔记---基础配置篇/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="BFC">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="webpack学习---基础配置篇">
                         
-                        <span class="card-title">BFC</span>
+                        <span class="card-title">webpack学习---基础配置篇</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">什么是BFCBFC(Block Formatting Context)：格式化上下文，是Web页面中盒模型布局的css渲染模式，指一个独立的渲染区域或者说是一个隔离的独立容器。它决定了其子元素如何定位，以及与其他元素的相互作用关系。
-BFC</div>
+                    <div class="summary">webpack：模块打包机
+webpack安装：推荐在项目内本地安装，不推荐使用全局安装。
+如果配置文件的名字不是webpack.config.js的话，在使用npx webpack进行打包的时候要npx webpack --config </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-22
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-31
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/CSS/" class="post-category" target="_blank">
-                                    CSS
+                            <a href="/categories/webpack/" class="post-category" target="_blank">
+                                    webpack
                                 </a>
                             
                             
@@ -763,8 +696,8 @@ BFC</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/CSS布局/" target="_blank">
-                        <span class="chip bg-color">CSS布局</span>
+                    <a href="/tags/webpack/" target="_blank">
+                        <span class="chip bg-color">webpack</span>
                     </a>
                     
                 </div>
