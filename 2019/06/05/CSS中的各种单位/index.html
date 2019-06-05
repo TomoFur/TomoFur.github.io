@@ -5,9 +5,26 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="浏览器对象模型(BOM), TomoFur">
-    <meta name="description" content="BOM提供了很多对象，用于访问浏览器的功能。
-窗口位置IE,Safari,Opera和Chrome使用screenLeft和screenTop分别用来表示浏览器窗口相对电脑屏幕的左边和上边的距离。而在FireFox中。使用的是screenX">
+    <meta name="keywords" content="CSS中的各种单位, TomoFur">
+    <meta name="description" content="
+
+
+单位
+解释
+
+
+
+
+px
+绝对单位，页面按照精确像素显示。
+
+
+em
+相对单位，基准点为父节点字体的大小，如果自身定义了font-size，则以自身字体大小来计算 。
+
+
+rem
+相对单位，可以理解为root em，根据页面根节点HT">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +32,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>浏览器对象模型(BOM) | TomoFur</title>
+    <title>CSS中的各种单位 | TomoFur</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -241,13 +258,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        浏览器对象模型(BOM)
+                        CSS中的各种单位
                     </div>
                 </div>
             </div>
@@ -358,8 +375,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/ES5基础知识/" target="_blank">
-                                <span class="chip bg-color">ES5基础知识</span>
+                            <a href="/tags/CSS布局/" target="_blank">
+                                <span class="chip bg-color">CSS布局</span>
                             </a>
                         
                     </div>
@@ -370,8 +387,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                JavaScript
+                            <a href="/categories/CSS/" class="post-category" target="_blank">
+                                CSS
                             </a>
                         
                     </div>
@@ -382,21 +399,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-05-30
+                    2019-06-05
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        485
+                        683
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        2 分
                     </div>
                     
                 
@@ -407,49 +424,104 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>BOM提供了很多对象，用于访问浏览器的功能。</p>
-<h2 id="窗口位置"><a href="#窗口位置" class="headerlink" title="窗口位置"></a>窗口位置</h2><p>IE,Safari,Opera和Chrome使用<strong>screenLeft</strong>和<strong>screenTop</strong>分别用来表示浏览器窗口相对电脑屏幕的左边和上边的距离。而在FireFox中。使用的是<strong>screenX</strong>和<strong>screenY</strong>来表示相同的值。</p>
-<pre class=" language-javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>screenLeft<span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>screenTop<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//火狐浏览器这样使用</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>screenX<span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>screenY<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<p><img src="/2019/05/30/BOM/screen.png" alt></p>
-<h2 id="窗口大小"><a href="#窗口大小" class="headerlink" title="窗口大小"></a>窗口大小</h2><p>在IE9+,Safari,Opera和chrome中，<code>outerWidth</code>和<code>outerHeight</code>返回浏览器本生的大小，而innerWidth和innerHeight返回该容器中视图区域的大小(减去浏览器工具栏边框剩下的展示内容的区域)</p>
-<p>在IE,Safari,Opera,Chrome,FireFox中。<code>document.documentElement.clientWidth</code>和<code>document.documentElement.clientHeight</code>保存了页面视口信息。</p>
-<p><strong>ps</strong>:视口就是指浏览器展示内容的区域，不包括浏览器上面工具栏。</p>
-<p><img src="/2019/05/30/BOM/窗口大小.png" alt></p>
-<h2 id="Location对象"><a href="#Location对象" class="headerlink" title="Location对象"></a>Location对象</h2><ol>
-<li><p>hash：返回URL中#后面的内容，没有则返回一个空字符串。</p>
-</li>
-<li><p>host：返回服务器名称和端口号</p>
-</li>
-<li><p>hostname：返回不带端口号的服务器名称</p>
-</li>
-<li><p>href：返回当前加载页面完整的URL</p>
-</li>
-<li><p>pathname：返回URL中的目录和文件名</p>
-</li>
-<li><p>port：返回URL中的端口号</p>
-</li>
-<li><p>protocol：返回页面使用的协议，一般时http或者https</p>
-</li>
-<li><p>search:返回URL中包含的查询字符串，这个字符串以？开头。</p>
-<p><img src="/2019/05/30/BOM/location对象.PNG" alt></p>
-</li>
-</ol>
-<h3 id="位置操作"><a href="#位置操作" class="headerlink" title="位置操作"></a>位置操作</h3><ol>
-<li>assign(url):调用location.assign(url)方法。可以立即打开信的URL并在浏览器历史记录里新生成一条记录。可以回退到前一个url地址。</li>
-<li>replace(url):调用location.replace(url)方法，可以替换到传入信的url地址，但是浏览器历史记录中不会有这条记录，无法通过浏览器后退到前一个url。</li>
-<li>reload():重新加载当前的显示页面。如果传入参数true，则强制从服务器重新加载。</li>
-</ol>
-<h2 id="navigator对象"><a href="#navigator对象" class="headerlink" title="navigator对象"></a>navigator对象</h2><h2 id="screen对象"><a href="#screen对象" class="headerlink" title="screen对象"></a>screen对象</h2><h2 id="history对象"><a href="#history对象" class="headerlink" title="history对象"></a>history对象</h2><pre class=" language-javascript"><code class="language-javascript">history<span class="token punctuation">.</span><span class="token function">go</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//后退一页</span>
-history<span class="token punctuation">.</span><span class="token function">go</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//前进一页</span>
+                <table>
+<thead>
+<tr>
+<th style="text-align:center">单位</th>
+<th style="text-align:center">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">px</td>
+<td style="text-align:center">绝对单位，页面按照精确像素显示。</td>
+</tr>
+<tr>
+<td style="text-align:center">em</td>
+<td style="text-align:center">相对单位，基准点为父节点字体的大小，如果自身定义了font-size，则以自身字体大小来计算 。</td>
+</tr>
+<tr>
+<td style="text-align:center">rem</td>
+<td style="text-align:center">相对单位，可以理解为root em，根据页面根节点HTML的字体大小来计算。</td>
+</tr>
+<tr>
+<td style="text-align:center">vw</td>
+<td style="text-align:center">viewpoint width 视窗宽度，1vw等于视窗宽度的1%。</td>
+</tr>
+<tr>
+<td style="text-align:center">vh</td>
+<td style="text-align:center">viewpoint height 视窗高度，1wh等于视窗高度的1%。</td>
+</tr>
+<tr>
+<td style="text-align:center">vmin</td>
+<td style="text-align:center">vh和vw中较小的一个。</td>
+</tr>
+<tr>
+<td style="text-align:center">vmax</td>
+<td style="text-align:center">vh和vw中较大的一个。</td>
+</tr>
+<tr>
+<td style="text-align:center">%</td>
+<td style="text-align:center">百分比。</td>
+</tr>
+<tr>
+<td style="text-align:center">in</td>
+<td style="text-align:center">寸。</td>
+</tr>
+<tr>
+<td style="text-align:center">cm</td>
+<td style="text-align:center">厘米。</td>
+</tr>
+<tr>
+<td style="text-align:center">mm</td>
+<td style="text-align:center">毫米。</td>
+</tr>
+<tr>
+<td style="text-align:center">pt</td>
+<td style="text-align:center">point 大约1/72寸。</td>
+</tr>
+<tr>
+<td style="text-align:center">ex</td>
+<td style="text-align:center">取当前作用效果的字体的x字符的高度，在无法确定的情况下为0.5em。</td>
+</tr>
+<tr>
+<td style="text-align:center">ch</td>
+<td style="text-align:center">取当前作用效果的字体的0字符的高度，在无法确定的情况下为0.5em。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>em作为font-size的单位时，其代表父元素的字体大小，em作为其他属性单位时，代表自身字体大小</strong></p>
+</blockquote>
+<pre class=" language-javascript"><code class="language-javascript">  <span class="token punctuation">.</span>p1 <span class="token punctuation">{</span>font<span class="token operator">-</span>size<span class="token punctuation">:</span> 16px<span class="token punctuation">;</span> line<span class="token operator">-</span>height<span class="token punctuation">:</span> 32px<span class="token punctuation">;</span><span class="token punctuation">}</span>
+  <span class="token punctuation">.</span>s1 <span class="token punctuation">{</span>font<span class="token operator">-</span>size<span class="token punctuation">:</span> 2em<span class="token punctuation">;</span><span class="token punctuation">}</span>
+  <span class="token punctuation">.</span>s2 <span class="token punctuation">{</span>font<span class="token operator">-</span>size<span class="token punctuation">:</span> 2em<span class="token punctuation">;</span> line<span class="token operator">-</span>height<span class="token punctuation">:</span> 2em<span class="token punctuation">;</span><span class="token punctuation">}</span>
 
-history<span class="token punctuation">.</span><span class="token function">forward</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//前进</span>
-history<span class="token punctuation">.</span><span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//后退。</span>
+  <span class="token punctuation">.</span>p2 <span class="token punctuation">{</span>font<span class="token operator">-</span>size<span class="token punctuation">:</span> 16px<span class="token punctuation">;</span> line<span class="token operator">-</span>height<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+  <span class="token punctuation">.</span>s5 <span class="token punctuation">{</span>font<span class="token operator">-</span>size<span class="token punctuation">:</span> 2em<span class="token punctuation">;</span><span class="token punctuation">}</span>
+  <span class="token punctuation">.</span>s6 <span class="token punctuation">{</span>font<span class="token operator">-</span>size<span class="token punctuation">:</span> 2em<span class="token punctuation">;</span> line<span class="token operator">-</span>height<span class="token punctuation">:</span> 2em<span class="token punctuation">;</span><span class="token punctuation">}</span>
+
+    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"p1"</span><span class="token operator">></span>
+       <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"s1"</span><span class="token operator">></span><span class="token number">1</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+       <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"s2"</span><span class="token operator">></span><span class="token number">1</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"p2"</span><span class="token operator">></span>
+       <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"s5"</span><span class="token operator">></span><span class="token number">1</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+       <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"s6"</span><span class="token operator">></span><span class="token number">1</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+
+<span class="token comment" spellcheck="true">//此时s1的字体大小为32px,行高由于自身没有设置，所以是从父元素继承，所以也是32px</span>
+<span class="token comment" spellcheck="true">//s2的字体大小为32px，行高设置为2em，因为自身有设置字体，所以行高是针对自身的字体高度，所以行高是64px</span>
+
+<span class="token comment" spellcheck="true">//s5的字体是32px，因为行高是继承而来的，即line-height:2;所以实际行高是32*2 = 64px</span>
+<span class="token comment" spellcheck="true">//s6的字体是32px,行高是2em，所以是2*32 = 64px。</span>
 </code></pre>
+<h2 id="rem布局原理"><a href="#rem布局原理" class="headerlink" title="rem布局原理"></a>rem布局原理</h2><p>rem布局的本质是等比缩放，一般是基于宽度的。假设我们将屏幕宽度平均分成100份，每一份的宽度用x表示,即x=屏幕宽度/100，如果将x作为单位，x前面的数值就代表屏幕宽度的百分比。</p>
+<p>如果想要页面元素随着屏幕宽度等比例变化，我们需要上面所讲的x单位，通过css中的rem，可以实现这个x。</p>
+<p>如何让html字体大小一直等于屏幕宽度的百分之一呢？可以通过js来设置，一般需要在dom ready，resize和屏幕旋转中设置。</p>
+<pre class=" language-javascript"><code class="language-javascript">document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>style<span class="token punctuation">.</span>fontSize <span class="token operator">=</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>clientWidth <span class="token operator">/</span> <span class="token number">100</span> <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span> 
+</code></pre>
+<p>那么如何把UE图中获取的像素单位转化为以rem为单位的值？公式是<code>（元素宽度/UE图宽度）*100</code>.假设UE图尺寸是640px,UE图中的一个元素宽度是100px,根据公式（100/640）*100=15.625。</p>
 
             </div>
             <hr>
@@ -597,7 +669,7 @@ history<span class="token punctuation">.</span><span class="token function">back
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">TomoFur</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/05/30/BOM/" class="b-link-green">浏览器对象模型(BOM)</a>
+                    <a href="/2019/06/05/CSS中的各种单位/" class="b-link-green">CSS中的各种单位</a>
                 </p>
             </div>
         </div>
@@ -642,43 +714,60 @@ history<span class="token punctuation">.</span><span class="token function">back
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/05/31/数组常用方法/">
+                <a href="/2019/06/05/CSS中的各种单位/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="数组常用方法">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="CSS中的各种单位">
                         
-                        <span class="card-title">数组常用方法</span>
+                        <span class="card-title">CSS中的各种单位</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Array.isArray(对象)判断这个对象是不是一个数组
-.concat(数组)返回一个拼接的新数组
-.push(值)在原数组的最后面添加上这个值，返回值是新数组的长度
-.unshift(值)在原数组的最前面添加上这个值，返回值是新数组</div>
+                    <div class="summary">
+
+
+单位
+解释
+
+
+
+
+px
+绝对单位，页面按照精确像素显示。
+
+
+em
+相对单位，基准点为父节点字体的大小，如果自身定义了font-size，则以自身字体大小来计算 。
+
+
+rem
+相对单位，可以理解为root em，根据页面根节点HT</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-31
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                    JavaScript
+                            <a href="/categories/CSS/" class="post-category" target="_blank">
+                                    CSS
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ES5基础知识/" target="_blank">
-                        <span class="chip bg-color">ES5基础知识</span>
+                    <a href="/tags/CSS布局/" target="_blank">
+                        <span class="chip bg-color">CSS布局</span>
                     </a>
                     
                 </div>
@@ -692,28 +781,28 @@ history<span class="token punctuation">.</span><span class="token function">back
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/05/30/懒加载和预加载/">
+                <a href="/2019/06/04/长短连接/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="图片懒加载和图片预加载">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="长短连接/长短轮询">
                         
-                        <span class="card-title">图片懒加载和图片预加载</span>
+                        <span class="card-title">长短连接/长短轮询</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">懒加载也叫延迟加载，即延迟加载图片或者符合某种条件时才加载某些图片。牺牲了服务器前端性能，换取更好的用户体验，这样可以使用户的操作得到最快的响应。
-预加载是提前加载图片，当用户需要查看时可以直接从本地缓存中渲染。作为服务器前端的优化，减少请</div>
+                    <div class="summary">短轮询定义：就是普通的轮询，指在特定的时间间隔，由浏览器对服务器发出HTTP请求，然后由服务器返回最新的数据给客户端的浏览器。短轮询是服务器立即发送响应，无论数据是否有效。
+应用场景：传统的web通信，后台处理数据需要一定的时间，前端想要知</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-30
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-04
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                    JavaScript
+                            <a href="/categories/HTTP协议/" class="post-category" target="_blank">
+                                    HTTP协议
                                 </a>
                             
                             
@@ -723,8 +812,8 @@ history<span class="token punctuation">.</span><span class="token function">back
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/性能优化/" target="_blank">
-                        <span class="chip bg-color">性能优化</span>
+                    <a href="/tags/HTTP协议/" target="_blank">
+                        <span class="chip bg-color">HTTP协议</span>
                     </a>
                     
                 </div>
