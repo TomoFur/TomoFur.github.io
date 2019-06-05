@@ -5,10 +5,26 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Vue生命周期, TomoFur">
-    <meta name="description" content="Vue实例有一个完整的生命周期，也就是从开始创建，初始化数据，编译模板，挂载DOM,渲染–&amp;gt;更新–&amp;gt;渲染，销毁等一系列过程，也就是Vue实例从创建到销毁的过程，就是生命周期。
+    <meta name="keywords" content="css中的百分比计算方法, TomoFur">
+    <meta name="description" content="这一份笔记主要是来梳理一下css中涉及到的%计算。下面进入正题：
+css当中常用的属性百分比
 
-创建阶段1.beforeCreate(){}//这">
+
+属性
+解析
+
+
+
+
+width
+基于父元素的width
+
+
+height
+基于父元素的height
+
+
+margin(top,bottom,l">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +32,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Vue生命周期 | TomoFur</title>
+    <title>css中的百分比计算方法 | TomoFur</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -242,13 +258,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Vue生命周期
+                        css中的百分比计算方法
                     </div>
                 </div>
             </div>
@@ -359,8 +375,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/vue/" target="_blank">
-                                <span class="chip bg-color">vue</span>
+                            <a href="/tags/CSS布局/" target="_blank">
+                                <span class="chip bg-color">CSS布局</span>
                             </a>
                         
                     </div>
@@ -371,8 +387,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/VUE/" class="post-category" target="_blank">
-                                VUE
+                            <a href="/categories/CSS/" class="post-category" target="_blank">
+                                CSS
                             </a>
                         
                     </div>
@@ -383,14 +399,14 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-05-07
+                    2019-06-05
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        539
+                        216
                     </div>
                     
 
@@ -408,19 +424,51 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Vue实例有一个完整的生命周期，也就是从开始创建，初始化数据，编译模板，挂载DOM,渲染–&gt;更新–&gt;渲染，销毁等一系列过程，也就是Vue实例从创建到销毁的过程，就是生命周期。</p>
-<p><img src="/2019/05/07/Vue生命周期/lifecycle.png" alt></p>
-<h3 id="创建阶段"><a href="#创建阶段" class="headerlink" title="创建阶段"></a>创建阶段</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token number">1</span><span class="token punctuation">.</span><span class="token function">beforeCreate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">//这是一个vue实例的第一个生命周期函数，在这个阶段，vue实例上的data中的数据和methods中的方法都不可以使用。</span>
-<span class="token number">2</span><span class="token punctuation">.</span><span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">//这是一个vue实例的第二个生命周期函数，要想使用vue实例上的data中的数落和methods中的方法，最早只能够在此阶段。在这里更改数据不会触发updated函数。</span>
-<span class="token number">3</span><span class="token punctuation">.</span><span class="token function">beforemount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">//这是一个vue实例的第三个生命周期函数，在此阶段，已经在内存中生成了虚拟DOM树，但是尚未挂载到页面上，所以，此时页面上的元素中的数据还没有真正的替换过来，所以里面的内容还是之前写的插值表达式。</span>
-<span class="token number">4</span><span class="token punctuation">.</span><span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">//这是一个vue实例的第四个生命周期函数，也是vue实例创建阶段的最后一个生命函数，在这个阶段，模板已经挂载到了页面上，数据也进行了替换，不再是插值表达式。如果想要操作DOM元素，最早可在该阶段进行。</span>
-</code></pre>
-<h3 id="运行阶段"><a href="#运行阶段" class="headerlink" title="运行阶段"></a>运行阶段</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token number">1</span><span class="token punctuation">.</span><span class="token function">beforeUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">//这是运行阶段的第一个生命周期函数，在vue实例中data中的数据发生改变的时候才会触发，但是，在这个阶段，虽然data中的数据已经改变，页面中的数据还是尚未改变的数据，此时，页面还没有同步新的数据。</span>
-<span class="token number">2</span><span class="token punctuation">.</span><span class="token function">updated</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">//但是，在这个阶段，data中的数据已经改变，页面中的数据已经改变，此时，页面已经同步新的数据。</span>
-</code></pre>
-<h3 id="销毁阶段"><a href="#销毁阶段" class="headerlink" title="销毁阶段"></a>销毁阶段</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token number">1</span><span class="token punctuation">.</span><span class="token function">beforeDestory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">//在这个阶段，vue实例中的data中的数据和methods中的方法尚可以使用。</span>
-<span class="token number">2</span><span class="token punctuation">.</span><span class="token function">destoryed</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">//在这个阶段,vue实例中的data中的数据和methods中的方法已经不可以使用。</span>
-</code></pre>
+                <p>这一份笔记主要是来梳理一下css中涉及到的%计算。下面进入正题：</p>
+<h2 id="css当中常用的属性百分比"><a href="#css当中常用的属性百分比" class="headerlink" title="css当中常用的属性百分比"></a>css当中常用的属性百分比</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">解析</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">width</td>
+<td style="text-align:center">基于父元素的width</td>
+</tr>
+<tr>
+<td style="text-align:center">height</td>
+<td style="text-align:center">基于父元素的height</td>
+</tr>
+<tr>
+<td style="text-align:center">margin(top,bottom,left,right)</td>
+<td style="text-align:center">基于父元素的width</td>
+</tr>
+<tr>
+<td style="text-align:center">padding(top,bottom,left,right)</td>
+<td style="text-align:center">基于父元素的width</td>
+</tr>
+<tr>
+<td style="text-align:center">left,bottom,right,top</td>
+<td style="text-align:center">left/right基于父元素的width，top/bottom基于父元素的height</td>
+</tr>
+<tr>
+<td style="text-align:center">font-size</td>
+<td style="text-align:center">基于继承得到的font-size</td>
+</tr>
+<tr>
+<td style="text-align:center">line-height</td>
+<td style="text-align:center">基于自身的font-size</td>
+</tr>
+<tr>
+<td style="text-align:center">translate(x,y)</td>
+<td style="text-align:center">基于自身的width和height</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意</strong>：</p>
+<p>给子元素设置<code>height:50%;</code>,会基于父元素的height来计算，但是这种情况必须是父元素显示的在css上面写上height等于多少，如果没有写，那么父元素div1的高度就是自动撑开的，那么子元素里的<code>height:50%</code>将不会有任何效果。</p>
 
             </div>
             <hr>
@@ -568,7 +616,7 @@
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">TomoFur</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/05/07/Vue生命周期/" class="b-link-green">Vue生命周期</a>
+                    <a href="/2019/06/05/css中的百分比的计算/" class="b-link-green">css中的百分比计算方法</a>
                 </p>
             </div>
         </div>
@@ -613,47 +661,60 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/05/09/原型/">
+                <a href="/2019/06/05/css中的百分比的计算/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="原型">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="css中的百分比计算方法">
                         
-                        <span class="card-title">原型</span>
+                        <span class="card-title">css中的百分比计算方法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">原型原型的本质：对象
+                    <div class="summary">这一份笔记主要是来梳理一下css中涉及到的%计算。下面进入正题：
+css当中常用的属性百分比
 
-所有的函数都有原型属性prototype
-默认情况下，prototype是一个对象
-prototype中默认包含一个属性：constructor，该属性指向函数对象本身。
 
-隐式原型
-所有对象都有一个隐式原型属性__</div>
+属性
+解析
+
+
+
+
+width
+基于父元素的width
+
+
+height
+基于父元素的height
+
+
+margin(top,bottom,l</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                    JavaScript
+                            <a href="/categories/CSS/" class="post-category" target="_blank">
+                                    CSS
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ES5基础知识/" target="_blank">
-                        <span class="chip bg-color">ES5基础知识</span>
+                    <a href="/tags/CSS布局/" target="_blank">
+                        <span class="chip bg-color">CSS布局</span>
                     </a>
                     
                 </div>
@@ -667,28 +728,45 @@ prototype中默认包含一个属性：constructor，该属性指向函数对象
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/05/05/算法题目集/">
+                <a href="/2019/06/05/CSS中的各种单位/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="JavaScript学习过程中遇到的经典算法题">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="CSS中的各种单位">
                         
-                        <span class="card-title">JavaScript学习过程中遇到的经典算法题</span>
+                        <span class="card-title">CSS中的各种单位</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">说明：这个帖子旨在记录在学习JavaScript期间遇到的一些有趣的编程题。
-平衡括号题目描述：在编写代码并且编译时，难免会因为少写了一个’)’和被编译器报错。也就是说，编译器会去匹配括号是否匹配。当你输入了一个’(‘，很自然编译器回去检查</div>
+                    <div class="summary">
+
+
+单位
+解释
+
+
+
+
+px
+绝对单位，页面按照精确像素显示。
+
+
+em
+相对单位，基准点为父节点字体的大小，如果自身定义了font-size，则以自身字体大小来计算 。
+
+
+rem
+相对单位，可以理解为root em，根据页面根节点HT</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-05
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-05
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                    JavaScript
+                            <a href="/categories/CSS/" class="post-category" target="_blank">
+                                    CSS
                                 </a>
                             
                             
@@ -698,8 +776,8 @@ prototype中默认包含一个属性：constructor，该属性指向函数对象
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/数据结构与算法/" target="_blank">
-                        <span class="chip bg-color">数据结构与算法</span>
+                    <a href="/tags/CSS布局/" target="_blank">
+                        <span class="chip bg-color">CSS布局</span>
                     </a>
                     
                 </div>
