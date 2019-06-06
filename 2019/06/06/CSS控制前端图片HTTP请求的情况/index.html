@@ -5,12 +5,10 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="字符串常用方法, TomoFur">
-    <meta name="description" content=".length返回字符换长度
-.charAt(索引)返回指定索引位置的字符，如果索引超过了字符串长度会返回空串
-.charCodeAt(索引)返回给定索引位置的字符的字符编码
-var str = &#39;hello&#39;;
-console.log(s">
+    <meta name="keywords" content="CSS控制前端图片HTTP请求的情况, TomoFur">
+    <meta name="description" content="隐藏图片&amp;lt;img src=&amp;#39;xxx.jpg&amp;#39; style=&amp;#39;display:none&amp;#39;&amp;gt;
+结论：产生HTTP请求，此外使用visiblity：hidden的时候也会产生请求。
+重复图片&amp;lt;im">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +16,7 @@ console.log(s">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>字符串常用方法 | TomoFur</title>
+    <title>CSS控制前端图片HTTP请求的情况 | TomoFur</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -244,13 +242,13 @@ console.log(s">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        字符串常用方法
+                        CSS控制前端图片HTTP请求的情况
                     </div>
                 </div>
             </div>
@@ -361,8 +359,8 @@ console.log(s">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/ES5基础知识/" target="_blank">
-                                <span class="chip bg-color">ES5基础知识</span>
+                            <a href="/tags/css布局/" target="_blank">
+                                <span class="chip bg-color">css布局</span>
                             </a>
                         
                     </div>
@@ -373,8 +371,8 @@ console.log(s">
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                JavaScript
+                            <a href="/categories/css/" class="post-category" target="_blank">
+                                css
                             </a>
                         
                     </div>
@@ -385,21 +383,21 @@ console.log(s">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-04-30
+                    2019-06-06
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        932
+                        457
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        3 分
+                        2 分
                     </div>
                     
                 
@@ -410,60 +408,54 @@ console.log(s">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="length"><a href="#length" class="headerlink" title=".length"></a>.length</h3><p>返回字符换长度</p>
-<h3 id="charAt-索引"><a href="#charAt-索引" class="headerlink" title=".charAt(索引)"></a>.charAt(索引)</h3><p>返回指定索引位置的字符，如果索引超过了字符串长度会返回空串</p>
-<h3 id="charCodeAt-索引"><a href="#charCodeAt-索引" class="headerlink" title=".charCodeAt(索引)"></a>.charCodeAt(索引)</h3><p>返回给定索引位置的字符的字符编码</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">'hello'</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">chaAt</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//返回的是字符‘e’</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//返回的是一个空串</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">charCodeAt</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//返回的是字符‘e’的字符编码101</span>
-</code></pre>
-<h3 id="concat-字符串1，字符串2…"><a href="#concat-字符串1，字符串2…" class="headerlink" title=".concat(字符串1，字符串2…)"></a>.concat(字符串1，字符串2…)</h3><p>返回的是拼接之后的新的字符串</p>
-<h3 id="indexOf-要找的字符，开始的位置（可选项）"><a href="#indexOf-要找的字符，开始的位置（可选项）" class="headerlink" title=".indexOf(要找的字符，开始的位置（可选项）)"></a>.indexOf(要找的字符，开始的位置（可选项）)</h3><p>返回的是从开始的位置之后第一个出现目标字符串的位置，没有找到就返回-1</p>
-<h3 id="lastIndexOf-要找的字符，开始的位置（可选项）"><a href="#lastIndexOf-要找的字符，开始的位置（可选项）" class="headerlink" title=".lastIndexOf(要找的字符，开始的位置（可选项）)"></a>.lastIndexOf(要找的字符，开始的位置（可选项）)</h3><p>返回的是目标字符最后出现的位置，没有就返回-1</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">'hello'</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">,</span><span class="token string">'world'</span><span class="token punctuation">,</span><span class="token string">'!'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//输出字符串‘hello，world！’</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">'l'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出2</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">lastIndexOf</span><span class="token punctuation">(</span><span class="token string">'l'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出3</span>
-</code></pre>
-<h3 id="replace-原来的字符串，新的字符串"><a href="#replace-原来的字符串，新的字符串" class="headerlink" title=".replace(原来的字符串，新的字符串)"></a>.replace(原来的字符串，新的字符串)</h3><p>将原来的字符串用新的字符串代替，<strong>如果原来字符串出现了多次，只会替换第一个出现的，并不会全局替换</strong></p>
-<h3 id="trim"><a href="#trim" class="headerlink" title=".trim"></a>.trim</h3><p>去掉字符串首位两端的空格</p>
-<h3 id="split-分隔符，保留下来的个数（可选）"><a href="#split-分隔符，保留下来的个数（可选）" class="headerlink" title=".split(分隔符，保留下来的个数（可选）)"></a>.split(分隔符，保留下来的个数（可选）)</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">' hello '</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">'l'</span><span class="token punctuation">,</span><span class="token string">'x'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出字符串‘hexlo’</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出首尾没有空格的字符串‘hello’</span>
-<span class="token keyword">var</span> str2 <span class="token operator">=</span> <span class="token string">'h,e,l,l,o'</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str2<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出一个数组['h','e','l','l',''o];</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str2<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出数组['h','e']</span>
-</code></pre>
-<h3 id="toLowerCase"><a href="#toLowerCase" class="headerlink" title=".toLowerCase"></a>.toLowerCase</h3><p>将字符串全部换为小写</p>
-<h3 id="toUpperCase"><a href="#toUpperCase" class="headerlink" title="toUpperCase"></a>toUpperCase</h3><p>将字符串全部换为大写</p>
-<h3 id="localeCompare-要进行比较的字符串"><a href="#localeCompare-要进行比较的字符串" class="headerlink" title=".localeCompare(要进行比较的字符串)"></a>.localeCompare(要进行比较的字符串)</h3><ol>
-<li>如果字符串在字母表中应该排在参数前，则返回一个负数</li>
-<li>如果字符串等于参数，返回0；</li>
-<li>如果字符串应该排在参数之后，返回一个正数</li>
-</ol>
-<h3 id="slice-substring-substr方法"><a href="#slice-substring-substr方法" class="headerlink" title="slice,substring substr方法"></a>slice,substring substr方法</h3><p>这三个方法都会返回被操作字符串的一个子字符串，而且也都可以接收一个或者两个参数。其中，第一个参数指定子字符串的开始位置，第二个参数是可选的，用于指定子字符串结束的位置。具体而言，<strong>slice和subString的第二个参数指定的是子字符串最后一个字符后面的位置，而substr的第二个参数指定的是返回字符串的长度</strong>。如果没有给这些方法传入第二个参数，则将字符串的末尾作为结束的位置。</p>
-<p>但是，如果在给这三个方法传入的参数是负值的时候，则情况不尽相同，具体而言：</p>
-<ol>
-<li>slice：将传入的负值与字符串长度相加，转为正值</li>
-<li>substr：将负的第一个参数加上字符串的长度，而将负的第二个参数转为0</li>
-<li>substring：将所有负的参数转为0，但是该方法以参数中较小的数作为开始的位置，较大的那个数作为结束的位置。</li>
-</ol>
-<pre class=" language-javascript"><code class="language-javascript">    <span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">'hello, world!'</span><span class="token punctuation">;</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出‘ello, world!’</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出‘ello, world!’</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出‘ello, world!’</span>
-
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出从第二个字符开始，到第六个字符结束的中间的字符串</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出从第二个字符开始，到第六个字符结束的中间的字符串</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出从第二个字符开始往后的长度为6的字符串</span>
-
-
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//等价于str.slice(13-5)=>str.slice(8)</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//等价于str.slice(13-5)=>str.slice(8)</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//等价于str.substring(5, 0)=>str.substring(0,5)</span>
-
-</code></pre>
+                <h2 id="隐藏图片"><a href="#隐藏图片" class="headerlink" title="隐藏图片"></a>隐藏图片</h2><pre><code>&lt;img src=&#39;xxx.jpg&#39; style=&#39;display:none&#39;&gt;</code></pre>
+<p><strong>结论</strong>：产生HTTP请求，此外使用visiblity：hidden的时候也会产生请求。</p>
+<h2 id="重复图片"><a href="#重复图片" class="headerlink" title="重复图片"></a>重复图片</h2><pre><code>&lt;img src=&#39;xxx.jpg&#39;&gt;
+&lt;img src=&#39;xxx.jpg&#39;&gt;</code></pre>
+<p><strong>结论</strong>：所有浏览器对重复的资源都只发出一次请求。</p>
+<h2 id="重复背景"><a href="#重复背景" class="headerlink" title="重复背景"></a>重复背景</h2><pre><code>&lt;style&gt;
+    .test1{background:url(xxx.jpg)}
+    .test2{background:url(xxx.jpg)}
+&lt;&#x2F;style&gt;
+&lt;div class=&#39;test1&#39;&gt;&lt;&#x2F;div&gt;
+&lt;div class=&#39;test2&#39;&gt;&lt;&#x2F;div&gt;</code></pre>
+<p><strong>结论</strong>：所有浏览器都只发出一次HTTP请求</p>
+<h2 id="不存在的元素的背景"><a href="#不存在的元素的背景" class="headerlink" title="不存在的元素的背景"></a>不存在的元素的背景</h2><pre><code>&lt;style&gt;
+    .test1{background:url(xxx.jpg)}
+    .test2{background:url(xxx.png)}
+&lt;&#x2F;style&gt;
+&lt;div class=&#39;test1&#39;&gt;&lt;&#x2F;div&gt;</code></pre>
+<p><strong>结论</strong>：背景仅在应用的元素在页面中存在的时候，才会发出请求。</p>
+<h2 id="隐藏元素的背景"><a href="#隐藏元素的背景" class="headerlink" title="隐藏元素的背景"></a>隐藏元素的背景</h2><pre><code>&lt;style&gt;
+    .test1{
+        background:url(xxx.jpg);
+        display:none;
+    }
+    .test2{background:url(xxx.png)}
+&lt;&#x2F;style&gt;
+&lt;div class=&#39;test1&#39;&gt;&lt;&#x2F;div&gt;</code></pre>
+<p><strong>结论</strong>：Chrome会为display：none；的元素发出请求，但是fireFox和opera不会为display：none；的元素发出HTTP请求。</p>
+<h2 id="多重背景"><a href="#多重背景" class="headerlink" title="多重背景"></a>多重背景</h2><pre><code>&lt;style&gt;
+    .test1{
+        background:url(xxx.jpg);
+    }
+    .test1{background:url(xxx.png)}
+&lt;&#x2F;style&gt;
+&lt;div class=&#39;test1&#39;&gt;&lt;&#x2F;div&gt;</code></pre>
+<p><strong>结论</strong>：因为下面的样式把上面的掩盖掉，所以只会发出一次HTTP请求。</p>
+<h2 id="hover的背景加载"><a href="#hover的背景加载" class="headerlink" title="hover的背景加载"></a>hover的背景加载</h2><pre><code>&lt;style&gt;
+    .test1{
+        background:url(xxx.jpg);
+    }
+    .test1:hover{background:url(xxx.png)}
+&lt;&#x2F;style&gt;
+&lt;div class=&#39;test1&#39;&gt;&lt;&#x2F;div&gt;</code></pre>
+<p><strong>结论</strong>：触发hover时，才会有对应的HTTP请求，如果没有触发，默认只会有请求默认的背景图片</p>
+<h2 id="JS中innerHTML中的图片"><a href="#JS中innerHTML中的图片" class="headerlink" title="JS中innerHTML中的图片"></a>JS中innerHTML中的图片</h2><pre><code>&lt;script type=&quot;text/javascript&quot;&gt;   
+    var el = document.createElement(&#39;div&#39;);   
+    el.innerHTML = &#39;&lt;img src=&quot;haorooms.jpg&quot; /&gt;&#39;;   
+&lt;/script&gt;  
+</code></pre><p><strong>结论</strong>：只有Opera不会立刻发出请求，其余浏览器会发出HTTP请求。</p>
 
             </div>
             <hr>
@@ -611,7 +603,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">TomoFur</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/04/30/字符串常用方法/" class="b-link-green">字符串常用方法</a>
+                    <a href="/2019/06/06/CSS控制前端图片HTTP请求的情况/" class="b-link-green">CSS控制前端图片HTTP请求的情况</a>
                 </p>
             </div>
         </div>
@@ -656,41 +648,44 @@ console<span class="token punctuation">.</span><span class="token function">log<
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/05/04/javascript垃圾收集机制/">
+                <a href="/2019/06/06/CSS控制前端图片HTTP请求的情况/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="垃圾回收机制">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="CSS控制前端图片HTTP请求的情况">
                         
-                        <span class="card-title">垃圾回收机制</span>
+                        <span class="card-title">CSS控制前端图片HTTP请求的情况</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">原理：找出不再继续使用的变量，然后释放掉其占用的内存。策略1：标记清除当变量进入环境（可以理解为一个函数开始执行了）时，就将这个变量标记为“进入环境”，从逻辑上讲，不能释放掉进入环境的变量，而当变量离开环境的的时候，则将其标记为离开环境。
-</div>
+                    <div class="summary">隐藏图片&lt;img src=&#39;xxx.jpg&#39; style=&#39;display:none&#39;&gt;
+结论：产生HTTP请求，此外使用visiblity：hidden的时候也会产生请求。
+重复图片&lt;im</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-04
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-06
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                    JavaScript
+                            <a href="/categories/css/" class="post-category" target="_blank">
+                                    css
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ES5基础知识/" target="_blank">
-                        <span class="chip bg-color">ES5基础知识</span>
+                    <a href="/tags/css布局/" target="_blank">
+                        <span class="chip bg-color">css布局</span>
                     </a>
                     
                 </div>
@@ -704,31 +699,30 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/04/26/AMD/">
+                <a href="/2019/06/06/消除浮动/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="AMD/CMD和CommonJS的区别">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="消除浮动">
                         
-                        <span class="card-title">AMD/CMD和CommonJS的区别</span>
+                        <span class="card-title">消除浮动</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">
-commonjs是用在服务器端的，是同步的，如node.js
-amd,cmd是用在浏览器端的，是异步的。其中amd先提出来，cmd是根据commonjs和amd的基础上提出来的。
-
-commonjsCommonjs是服务器端的模块规范，N</div>
+                    <div class="summary">当父盒子没有定义高度，嵌套的盒子浮动之后，下边的元素的位置会发生错误。因此要消除由于浮动而产生的不利影响。
+额外标签法在最后一个浮动元素后面添加标签
+&lt;div class='content'>
+    &lt;div class='c</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-26
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-06
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                    JavaScript
+                            <a href="/categories/css/" class="post-category" target="_blank">
+                                    css
                                 </a>
                             
                             
@@ -738,8 +732,8 @@ commonjsCommonjs是服务器端的模块规范，N</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/模块化开发/" target="_blank">
-                        <span class="chip bg-color">模块化开发</span>
+                    <a href="/tags/css布局/" target="_blank">
+                        <span class="chip bg-color">css布局</span>
                     </a>
                     
                 </div>
