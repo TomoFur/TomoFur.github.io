@@ -4,6 +4,206 @@
   
     
     <entry>
+      <title>消除浮动</title>
+      <link href="/2019/06/06/%E6%B6%88%E9%99%A4%E6%B5%AE%E5%8A%A8/"/>
+      <url>/2019/06/06/%E6%B6%88%E9%99%A4%E6%B5%AE%E5%8A%A8/</url>
+      
+        <content type="html"><![CDATA[<p>当父盒子没有定义高度，嵌套的盒子浮动之后，下边的元素的位置会发生错误。因此要消除由于浮动而产生的不利影响。</p><h2 id="额外标签法"><a href="#额外标签法" class="headerlink" title="额外标签法"></a>额外标签法</h2><p>在最后一个浮动元素后面添加标签</p><pre class=" language-css"><code class="language-css">&lt;div class=<span class="token string">'content'</span>>    &lt;div class=<span class="token string">'content'</span>>&lt;/div>    &lt;div class=<span class="token string">'siderbar'</span>>&lt;/div>    &lt;div style=<span class="token string">'claer:both'</span>>&lt;/div>//这个就是额外的标签&lt;/div></code></pre><h2 id="给父盒子使用overflo：hidden"><a href="#给父盒子使用overflo：hidden" class="headerlink" title="给父盒子使用overflo：hidden"></a>给父盒子使用overflo：hidden</h2><p><strong>注意</strong>：如果父盒子包裹的内容出了盒子，则不能使用这个方法，因为出了范围的内容会消失不见。</p><h2 id="伪元素清除浮动"><a href="#伪元素清除浮动" class="headerlink" title="伪元素清除浮动"></a>伪元素清除浮动</h2><pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.clear</span> <span class="token pseudo-element">::after</span></span><span class="token punctuation">{</span>    <span class="token property">content</span><span class="token punctuation">:</span><span class="token string">''</span><span class="token punctuation">;</span>    <span class="token property">display</span><span class="token punctuation">:</span><span class="token string">''</span><span class="token punctuation">;</span>    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span>    <span class="token property">line-height</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span>    <span class="token property">visiblity</span><span class="token punctuation">:</span>hidden<span class="token punctuation">;</span>    <span class="token property">clear</span><span class="token punctuation">:</span>both<span class="token punctuation">;</span><span class="token punctuation">}</span>//想要使得<span class="token property">clear</span><span class="token punctuation">:</span>both生效的元素必须时块级元素，conten属性必须要有，有了之后为元素才可以生效。//引用的时候给父元素添加clear这个类即可。&lt;div class=<span class="token string">'father clear'</span>>&lt;/div></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> css </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> css布局 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>CSS中的各种单位</title>
+      <link href="/2019/06/06/CSS%E4%B8%AD%E7%9A%84%E5%90%84%E7%A7%8D%E5%8D%95%E4%BD%8D/"/>
+      <url>/2019/06/06/CSS%E4%B8%AD%E7%9A%84%E5%90%84%E7%A7%8D%E5%8D%95%E4%BD%8D/</url>
+      
+        <content type="html"><![CDATA[<table><thead><tr><th style="text-align:center">单位</th><th style="text-align:center">解释</th></tr></thead><tbody><tr><td style="text-align:center">px</td><td style="text-align:center">绝对单位，页面按照精确像素显示。</td></tr><tr><td style="text-align:center">em</td><td style="text-align:center">相对单位，基准点为父节点字体的大小，如果自身定义了font-size，则以自身字体大小来计算 。</td></tr><tr><td style="text-align:center">rem</td><td style="text-align:center">相对单位，可以理解为root em，根据页面根节点HTML的字体大小来计算。</td></tr><tr><td style="text-align:center">vw</td><td style="text-align:center">viewpoint width 视窗宽度，1vw等于视窗宽度的1%。</td></tr><tr><td style="text-align:center">vh</td><td style="text-align:center">viewpoint height 视窗高度，1wh等于视窗高度的1%。</td></tr><tr><td style="text-align:center">vmin</td><td style="text-align:center">vh和vw中较小的一个。</td></tr><tr><td style="text-align:center">vmax</td><td style="text-align:center">vh和vw中较大的一个。</td></tr><tr><td style="text-align:center">%</td><td style="text-align:center">百分比。</td></tr><tr><td style="text-align:center">in</td><td style="text-align:center">寸。</td></tr><tr><td style="text-align:center">cm</td><td style="text-align:center">厘米。</td></tr><tr><td style="text-align:center">mm</td><td style="text-align:center">毫米。</td></tr><tr><td style="text-align:center">pt</td><td style="text-align:center">point 大约1/72寸。</td></tr><tr><td style="text-align:center">ex</td><td style="text-align:center">取当前作用效果的字体的x字符的高度，在无法确定的情况下为0.5em。</td></tr><tr><td style="text-align:center">ch</td><td style="text-align:center">取当前作用效果的字体的0字符的高度，在无法确定的情况下为0.5em。</td></tr></tbody></table><blockquote><p><strong>em作为font-size的单位时，其代表父元素的字体大小，em作为其他属性单位时，代表自身字体大小</strong></p></blockquote><pre class=" language-javascript"><code class="language-javascript">  <span class="token punctuation">.</span>p1 <span class="token punctuation">{</span>font<span class="token operator">-</span>size<span class="token punctuation">:</span> 16px<span class="token punctuation">;</span> line<span class="token operator">-</span>height<span class="token punctuation">:</span> 32px<span class="token punctuation">;</span><span class="token punctuation">}</span>  <span class="token punctuation">.</span>s1 <span class="token punctuation">{</span>font<span class="token operator">-</span>size<span class="token punctuation">:</span> 2em<span class="token punctuation">;</span><span class="token punctuation">}</span>  <span class="token punctuation">.</span>s2 <span class="token punctuation">{</span>font<span class="token operator">-</span>size<span class="token punctuation">:</span> 2em<span class="token punctuation">;</span> line<span class="token operator">-</span>height<span class="token punctuation">:</span> 2em<span class="token punctuation">;</span><span class="token punctuation">}</span>  <span class="token punctuation">.</span>p2 <span class="token punctuation">{</span>font<span class="token operator">-</span>size<span class="token punctuation">:</span> 16px<span class="token punctuation">;</span> line<span class="token operator">-</span>height<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">;</span><span class="token punctuation">}</span>  <span class="token punctuation">.</span>s5 <span class="token punctuation">{</span>font<span class="token operator">-</span>size<span class="token punctuation">:</span> 2em<span class="token punctuation">;</span><span class="token punctuation">}</span>  <span class="token punctuation">.</span>s6 <span class="token punctuation">{</span>font<span class="token operator">-</span>size<span class="token punctuation">:</span> 2em<span class="token punctuation">;</span> line<span class="token operator">-</span>height<span class="token punctuation">:</span> 2em<span class="token punctuation">;</span><span class="token punctuation">}</span>    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"p1"</span><span class="token operator">></span>       <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"s1"</span><span class="token operator">></span><span class="token number">1</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>       <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"s2"</span><span class="token operator">></span><span class="token number">1</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"p2"</span><span class="token operator">></span>       <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"s5"</span><span class="token operator">></span><span class="token number">1</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>       <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"s6"</span><span class="token operator">></span><span class="token number">1</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><span class="token comment" spellcheck="true">//此时s1的字体大小为32px,行高由于自身没有设置，所以是从父元素继承，所以也是32px</span><span class="token comment" spellcheck="true">//s2的字体大小为32px，行高设置为2em，因为自身有设置字体，所以行高是针对自身的字体高度，所以行高是64px</span><span class="token comment" spellcheck="true">//s5的字体是32px，因为行高是继承而来的，即line-height:2;所以实际行高是32*2 = 64px</span><span class="token comment" spellcheck="true">//s6的字体是32px,行高是2em，所以是2*32 = 64px。</span></code></pre><h2 id="rem布局原理"><a href="#rem布局原理" class="headerlink" title="rem布局原理"></a>rem布局原理</h2><p>rem布局的本质是等比缩放，一般是基于宽度的。假设我们将屏幕宽度平均分成100份，每一份的宽度用x表示,即x=屏幕宽度/100，如果将x作为单位，x前面的数值就代表屏幕宽度的百分比。</p><p>如果想要页面元素随着屏幕宽度等比例变化，我们需要上面所讲的x单位，通过css中的rem，可以实现这个x。</p><p>如何让html字体大小一直等于屏幕宽度的百分之一呢？可以通过js来设置，一般需要在dom ready，resize和屏幕旋转中设置。</p><pre class=" language-javascript"><code class="language-javascript">document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>style<span class="token punctuation">.</span>fontSize <span class="token operator">=</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>clientWidth <span class="token operator">/</span> <span class="token number">100</span> <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span> </code></pre><p>那么如何把UE图中获取的像素单位转化为以rem为单位的值？公式是<code>（元素宽度/UE图宽度）*100</code>.假设UE图尺寸是640px,UE图中的一个元素宽度是100px,根据公式（100/640）*100=15.625。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> css </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> css布局 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>原生CSS画三角形</title>
+      <link href="/2019/06/06/CSS%E7%94%BB%E4%B8%89%E8%A7%92%E5%BD%A2/"/>
+      <url>/2019/06/06/CSS%E7%94%BB%E4%B8%89%E8%A7%92%E5%BD%A2/</url>
+      
+        <content type="html"><![CDATA[<h2 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h2><p><strong>先将一个盒子的width和height都设置为0px，这一步是最关键的</strong></p><h3 id="画尖朝上的红色三角形"><a href="#画尖朝上的红色三角形" class="headerlink" title="画尖朝上的红色三角形"></a>画尖朝上的红色三角形</h3><pre class=" language-css"><code class="language-css"><span class="token selector">div</span><span class="token punctuation">{</span>    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>    <span class="token property">border-left</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-right</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-top</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-bottom</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#f00</span><span class="token punctuation">}</span></code></pre><h3 id="画尖朝下的红色三角形"><a href="#画尖朝下的红色三角形" class="headerlink" title="画尖朝下的红色三角形"></a>画尖朝下的红色三角形</h3><pre class=" language-css"><code class="language-css"><span class="token selector">div</span><span class="token punctuation">{</span>    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>    <span class="token property">border-left</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-right</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-bottom</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-top</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#f00</span><span class="token punctuation">}</span></code></pre><h3 id="画尖朝左的红色三角形"><a href="#画尖朝左的红色三角形" class="headerlink" title="画尖朝左的红色三角形"></a>画尖朝左的红色三角形</h3><pre class=" language-css"><code class="language-css"><span class="token selector">div</span><span class="token punctuation">{</span>    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>    <span class="token property">border-left</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-top</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-bottom</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-right</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#f00</span><span class="token punctuation">}</span></code></pre><h3 id="画尖朝右的红色三角形"><a href="#画尖朝右的红色三角形" class="headerlink" title="画尖朝右的红色三角形"></a>画尖朝右的红色三角形</h3><pre class=" language-css"><code class="language-css"><span class="token selector">div</span><span class="token punctuation">{</span>    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>    <span class="token property">border-right</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-top</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-bottom</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-left</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#f00</span><span class="token punctuation">}</span></code></pre><h3 id="画左上方的直角三角形"><a href="#画左上方的直角三角形" class="headerlink" title="画左上方的直角三角形"></a>画左上方的直角三角形</h3><pre class=" language-css"><code class="language-css"><span class="token selector">div</span><span class="token punctuation">{</span>    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>    <span class="token property">border-top</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#f00</span><span class="token punctuation">;</span>    <span class="token property">border-right</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-bottom</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">}</span></code></pre><h3 id="画左下方的直角三角形"><a href="#画左下方的直角三角形" class="headerlink" title="画左下方的直角三角形"></a>画左下方的直角三角形</h3><pre class=" language-css"><code class="language-css"><span class="token selector">div</span><span class="token punctuation">{</span>    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>    <span class="token property">border-top</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-right</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-bottom</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#f00</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><h3 id="画右上方直角三角形"><a href="#画右上方直角三角形" class="headerlink" title="画右上方直角三角形"></a>画右上方直角三角形</h3><pre class=" language-css"><code class="language-css"><span class="token selector">div</span><span class="token punctuation">{</span>    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>    <span class="token property">border-top</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#f00</span><span class="token punctuation">;</span>    <span class="token property">border-left</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-bottom</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><h3 id="画右下方直角三角形"><a href="#画右下方直角三角形" class="headerlink" title="画右下方直角三角形"></a>画右下方直角三角形</h3><pre class=" language-css"><code class="language-css"><span class="token selector">div</span><span class="token punctuation">{</span>    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>    <span class="token property">border-top</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-left</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-bottom</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#f00</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> css </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> css布局 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>盒子模型</title>
+      <link href="/2019/06/06/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/"/>
+      <url>/2019/06/06/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/</url>
+      
+        <content type="html"><![CDATA[<h2 id="什么是盒子模型"><a href="#什么是盒子模型" class="headerlink" title="什么是盒子模型"></a>什么是盒子模型</h2><p>CSS盒子模型也叫框模型，具备内容(content),填充(padding),边框(border),边界(margin)这些属性，在CSS中，每一个元素都被视为一个盒子，且每一个盒子都有三个属性：</p><ol><li>border：元素的边框，用于将盒子的边缘与其他盒子分开。</li><li>margin：外边距，表示盒子的边缘与相邻盒子之间的距离，也称为页边空白。</li><li>padding：内边距，表示盒子内容和边框之间的空间。</li></ol><p>盒子的width和height指的是内容区域的宽度和高度，增加内边距，边框和外边距不会影响内容区域的尺寸，但是会增加盒子的总尺寸。</p><h2 id="盒子模型模式"><a href="#盒子模型模式" class="headerlink" title="盒子模型模式"></a>盒子模型模式</h2><h3 id="标准盒子模型：box-sizing-content-box"><a href="#标准盒子模型：box-sizing-content-box" class="headerlink" title="标准盒子模型：box-sizing:content-box"></a>标准盒子模型：box-sizing:content-box</h3><p>盒子总宽度=width+padding+border+margin</p><p>盒子的总高度=height+padding+border+margin</p><h3 id="IE盒子模型（怪异盒子模型）：box-sizing：border-box"><a href="#IE盒子模型（怪异盒子模型）：box-sizing：border-box" class="headerlink" title="IE盒子模型（怪异盒子模型）：box-sizing：border-box"></a>IE盒子模型（怪异盒子模型）：box-sizing：border-box</h3><p>盒子总宽度=width+margin；</p><p>盒子总高度=height+margin</p><p>用户自己设置的width=内容区域的宽度+border+padding</p><p>用户自己设置的height=内容区域的高度+border+padding</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> css </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> css布局 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>圣杯布局和双飞翼布局</title>
+      <link href="/2019/06/06/%E5%9C%A3%E6%9D%AF%E5%B8%83%E5%B1%80%E5%92%8C%E5%8F%8C%E9%A3%9E%E7%BF%BC%E5%B8%83%E5%B1%80/"/>
+      <url>/2019/06/06/%E5%9C%A3%E6%9D%AF%E5%B8%83%E5%B1%80%E5%92%8C%E5%8F%8C%E9%A3%9E%E7%BF%BC%E5%B8%83%E5%B1%80/</url>
+      
+        <content type="html"><![CDATA[<h2 id="圣杯布局"><a href="#圣杯布局" class="headerlink" title="圣杯布局"></a>圣杯布局</h2><p>圣杯布局是一种常见的CSS布局，它要求：</p><ol><li>底部和顶部各自占领屏幕的全部宽度</li><li>上下部之间是一个三栏布局</li><li>三栏布局两侧宽度不变，中间部分自动填充整个区域</li><li>中间部分的高度是三栏中高度最高区域的高度</li></ol><p>下面介绍两种实现方式：</p><h3 id="浮动实现"><a href="#浮动实现" class="headerlink" title="浮动实现"></a>浮动实现</h3><pre><code>  &lt;style&gt;        .header,.footer{            height: 200px;            width: 100%;            background: #f40;        }        .footer{            clear:both;        }        .container{            padding-left:200px;&#x2F;&#x2F;这个就是左边盒子将来的宽度            padding-right:300px;&#x2F;&#x2F;这个就是右边盒子将来的宽度        }        .container div{            float: left;            position: relative;&#x2F;&#x2F;将所有的盒子设为相对定位        }        .mid{            width: 100%;            background: yellow;        }        .left{            width: 200px;            background: skyblue;            margin-left: -100%;&#x2F;&#x2F;很关键，margin-left：-100%是按照父盒子的宽度来计算的            left:-200px;&#x2F;&#x2F;很关键        }        .right{            width: 300px;            background: cyan;            margin-right:-300px;&#x2F;&#x2F;很关键        }&lt;&#x2F;style&gt;&lt;div class=&quot;header&quot;&gt;这里是头部&lt;&#x2F;div&gt;    &lt;div class=&quot;container&quot;&gt;        &lt;div class=&quot;mid&quot;&gt;中间部分&lt;&#x2F;div&gt;        &lt;div class=&quot;left&quot;&gt;左边&lt;&#x2F;div&gt;        &lt;div class=&quot;right&quot;&gt;右边&lt;&#x2F;div&gt;    &lt;&#x2F;div&gt;    &lt;div class=&quot;footer&quot;&gt;这里是底部&lt;&#x2F;div&gt;</code></pre><h3 id="flex弹性布局实现"><a href="#flex弹性布局实现" class="headerlink" title="flex弹性布局实现"></a>flex弹性布局实现</h3><p>弹性布局就是给外面的container盒子设置display：flex；然后左右固定宽度，中间的盒子设置flex：1即可。</p><h2 id="双飞翼布局"><a href="#双飞翼布局" class="headerlink" title="双飞翼布局"></a>双飞翼布局</h2><p>双飞翼布局是在middle的div里又插入一个div，通过调整内部div的margin值，实现中间栏自适应，内容写到内部div中</p><pre><code>&lt;style&gt;     .hd{            height:50px;            background: #666;            text-align: center;        }        .middle{            float:left;            width:100%;&#x2F;*左栏上去到第一行*&#x2F;            height:100px;            background:blue;        }        .left{            float:left;            width:180px;            height:100px;            margin-left:-100%;            background:#0c9;        }        .right{            float:left;            width:200px;            height:100px;            margin-left:-200px;            background:#0c9;        }        &#x2F;*给内部div添加margin，把内容放到中间栏，其实整个背景还是100%*&#x2F;        .inside{            margin:0 200px 0 180px;            height:100px;        }        .footer{            clear:both; &#x2F;*记得清楚浮动*&#x2F;            height:50px;            background: #666;            text-align: center;        }&lt;&#x2F;style&gt; &lt;div class=&quot;hd&quot;&gt;header&lt;&#x2F;div&gt;    &lt;div class=&quot;middle&quot;&gt;        &lt;div class=&quot;inside&quot;&gt;middle&lt;&#x2F;div&gt;    &lt;&#x2F;div&gt;    &lt;div class=&quot;left&quot;&gt;left&lt;&#x2F;div&gt;    &lt;div class=&quot;right&quot;&gt;right&lt;&#x2F;div&gt;    &lt;div class=&quot;footer&quot;&gt;footer&lt;&#x2F;div&gt;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> css </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> css布局 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>BFC</title>
+      <link href="/2019/06/06/cssBFC/"/>
+      <url>/2019/06/06/cssBFC/</url>
+      
+        <content type="html"><![CDATA[<h2 id="什么是BFC"><a href="#什么是BFC" class="headerlink" title="什么是BFC"></a>什么是BFC</h2><p>BFC(Block Formatting Context)：格式化上下文，是Web页面中盒模型布局的css渲染模式，指一个独立的渲染区域或者说是一个隔离的独立容器。它决定了其子元素如何定位，以及与其他元素的相互作用关系。</p><h2 id="BFC的生成"><a href="#BFC的生成" class="headerlink" title="BFC的生成"></a>BFC的生成</h2><p>满足下列CSS声明之一的元素就会生成BFC</p><ol><li>根元素或者其他包含它的元素</li><li>float的值不为none</li><li>overflow不为visible的值</li><li>position不为static</li><li>display的值为inline-block，table-cell，table-caption</li><li>元素的display为flex或者inline-flex</li></ol><h2 id="BFC的布局规则"><a href="#BFC的布局规则" class="headerlink" title="BFC的布局规则"></a>BFC的布局规则</h2><ol><li>内部的元素会在垂直方向一个接一个的排列，可以理解为是BFC中的一个常规流</li><li>元素垂直方向的距离由margin决定，即同属于一个BFC的两个相邻的盒子的margin可能会发生重叠</li><li>每个元素的左外边距与包含块的左外边距相接触，即使存在浮动的情况下也是如此，这说明BFC的子元素不会超出它的包含块</li><li>BFC区域不会与float元素区域重叠</li><li>计算BFC高度的时候，浮动的子元素也参与计算.</li><li>BFC就是页面上一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之亦然。</li></ol><h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><h3 id="解决margin塌陷"><a href="#解决margin塌陷" class="headerlink" title="解决margin塌陷"></a>解决margin塌陷</h3><h3 id="清除浮动问题"><a href="#清除浮动问题" class="headerlink" title="清除浮动问题"></a>清除浮动问题</h3><h3 id="解决侵占浮动元素的问题——-gt-两栏布局"><a href="#解决侵占浮动元素的问题——-gt-两栏布局" class="headerlink" title="解决侵占浮动元素的问题——-&gt;两栏布局"></a>解决侵占浮动元素的问题——-&gt;两栏布局</h3><p>浮动的元素会脱离文档流，然后覆盖在文档流元素上，当一个元素浮动，另外一个不浮动的时候，浮动的元素会因为脱离文档流而盖在不浮动的元素上。所以我们为非浮动元素建立BFC环境，根据BFC的不和float box重叠的规则，就会解决侵占元素问题。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> css </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> css布局 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>css中的百分比计算方法</title>
+      <link href="/2019/06/06/css%E4%B8%AD%E7%9A%84%E7%99%BE%E5%88%86%E6%AF%94%E7%9A%84%E8%AE%A1%E7%AE%97/"/>
+      <url>/2019/06/06/css%E4%B8%AD%E7%9A%84%E7%99%BE%E5%88%86%E6%AF%94%E7%9A%84%E8%AE%A1%E7%AE%97/</url>
+      
+        <content type="html"><![CDATA[<p>这一份笔记主要是来梳理一下css中涉及到的%计算。下面进入正题：</p><h2 id="css当中常用的属性百分比"><a href="#css当中常用的属性百分比" class="headerlink" title="css当中常用的属性百分比"></a>css当中常用的属性百分比</h2><table><thead><tr><th style="text-align:center">属性</th><th style="text-align:center">解析</th></tr></thead><tbody><tr><td style="text-align:center">width</td><td style="text-align:center">基于父元素的width</td></tr><tr><td style="text-align:center">height</td><td style="text-align:center">基于父元素的height</td></tr><tr><td style="text-align:center">margin(top,bottom,left,right)</td><td style="text-align:center">基于父元素的width</td></tr><tr><td style="text-align:center">padding(top,bottom,left,right)</td><td style="text-align:center">基于父元素的width</td></tr><tr><td style="text-align:center">left,bottom,right,top</td><td style="text-align:center">left/right基于父元素的width，top/bottom基于父元素的height</td></tr><tr><td style="text-align:center">font-size</td><td style="text-align:center">基于继承得到的font-size</td></tr><tr><td style="text-align:center">line-height</td><td style="text-align:center">基于自身的font-size</td></tr><tr><td style="text-align:center">translate(x,y)</td><td style="text-align:center">基于自身的width和height</td></tr></tbody></table><p><strong>注意</strong>：</p><p>给子元素设置<code>height:50%;</code>,会基于父元素的height来计算，但是这种情况必须是父元素显示的在css上面写上height等于多少，如果没有写，那么父元素div1的高度就是自动撑开的，那么子元素里的<code>height:50%</code>将不会有任何效果。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> css </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> css布局 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>盒子居中方法</title>
+      <link href="/2019/06/06/%E7%9B%92%E5%AD%90%E5%B1%85%E4%B8%AD/"/>
+      <url>/2019/06/06/%E7%9B%92%E5%AD%90%E5%B1%85%E4%B8%AD/</url>
+      
+        <content type="html"><![CDATA[<h2 id="盒子没有固定的宽和高"><a href="#盒子没有固定的宽和高" class="headerlink" title="盒子没有固定的宽和高"></a>盒子没有固定的宽和高</h2><h2 id="利用transform"><a href="#利用transform" class="headerlink" title="利用transform"></a>利用transform</h2><p>在需要居中对齐的块中首先采用绝对定位，其父盒子采用相对定位。然后<code>transform:translate(-50%,-50%);left:50%;top:50%</code></p><h2 id="采用flex布局"><a href="#采用flex布局" class="headerlink" title="采用flex布局"></a>采用flex布局</h2><p>父盒子采用flex布局。给父盒子加上<code>display:flex;justify-content:center;align-items:center</code></p><h2 id="盒子有固定的宽和高"><a href="#盒子有固定的宽和高" class="headerlink" title="盒子有固定的宽和高"></a>盒子有固定的宽和高</h2><h3 id="经典做法"><a href="#经典做法" class="headerlink" title="经典做法"></a>经典做法</h3><p>给需要居中的盒子加上<code>left:50%;top:50%; margin-left:-自身宽度的一半；margin-top:-自身高度的一半</code></p><h3 id="非常规的做法"><a href="#非常规的做法" class="headerlink" title="非常规的做法"></a>非常规的做法</h3><p>将需要居中的盒子绝对定位，其父盒子采用相对定位。然后<code>left:0;top:0;top:0;bottom:0;margin:auto;</code></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> css </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> css布局 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>长短连接/长短轮询</title>
       <link href="/2019/06/05/%E9%95%BF%E7%9F%AD%E8%BF%9E%E6%8E%A5/"/>
       <url>/2019/06/05/%E9%95%BF%E7%9F%AD%E8%BF%9E%E6%8E%A5/</url>
@@ -46,56 +246,6 @@
         <tags>
             
             <tag> TCP协议 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>css中的百分比计算方法</title>
-      <link href="/2019/06/05/css%E4%B8%AD%E7%9A%84%E7%99%BE%E5%88%86%E6%AF%94%E7%9A%84%E8%AE%A1%E7%AE%97/"/>
-      <url>/2019/06/05/css%E4%B8%AD%E7%9A%84%E7%99%BE%E5%88%86%E6%AF%94%E7%9A%84%E8%AE%A1%E7%AE%97/</url>
-      
-        <content type="html"><![CDATA[<p>这一份笔记主要是来梳理一下css中涉及到的%计算。下面进入正题：</p><h2 id="css当中常用的属性百分比"><a href="#css当中常用的属性百分比" class="headerlink" title="css当中常用的属性百分比"></a>css当中常用的属性百分比</h2><table><thead><tr><th style="text-align:center">属性</th><th style="text-align:center">解析</th></tr></thead><tbody><tr><td style="text-align:center">width</td><td style="text-align:center">基于父元素的width</td></tr><tr><td style="text-align:center">height</td><td style="text-align:center">基于父元素的height</td></tr><tr><td style="text-align:center">margin(top,bottom,left,right)</td><td style="text-align:center">基于父元素的width</td></tr><tr><td style="text-align:center">padding(top,bottom,left,right)</td><td style="text-align:center">基于父元素的width</td></tr><tr><td style="text-align:center">left,bottom,right,top</td><td style="text-align:center">left/right基于父元素的width，top/bottom基于父元素的height</td></tr><tr><td style="text-align:center">font-size</td><td style="text-align:center">基于继承得到的font-size</td></tr><tr><td style="text-align:center">line-height</td><td style="text-align:center">基于自身的font-size</td></tr><tr><td style="text-align:center">translate(x,y)</td><td style="text-align:center">基于自身的width和height</td></tr></tbody></table><p><strong>注意</strong>：</p><p>给子元素设置<code>height:50%;</code>,会基于父元素的height来计算，但是这种情况必须是父元素显示的在css上面写上height等于多少，如果没有写，那么父元素div1的高度就是自动撑开的，那么子元素里的<code>height:50%</code>将不会有任何效果。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> CSS </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> CSS布局 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>CSS中的各种单位</title>
-      <link href="/2019/06/05/CSS%E4%B8%AD%E7%9A%84%E5%90%84%E7%A7%8D%E5%8D%95%E4%BD%8D/"/>
-      <url>/2019/06/05/CSS%E4%B8%AD%E7%9A%84%E5%90%84%E7%A7%8D%E5%8D%95%E4%BD%8D/</url>
-      
-        <content type="html"><![CDATA[<table><thead><tr><th style="text-align:center">单位</th><th style="text-align:center">解释</th></tr></thead><tbody><tr><td style="text-align:center">px</td><td style="text-align:center">绝对单位，页面按照精确像素显示。</td></tr><tr><td style="text-align:center">em</td><td style="text-align:center">相对单位，基准点为父节点字体的大小，如果自身定义了font-size，则以自身字体大小来计算 。</td></tr><tr><td style="text-align:center">rem</td><td style="text-align:center">相对单位，可以理解为root em，根据页面根节点HTML的字体大小来计算。</td></tr><tr><td style="text-align:center">vw</td><td style="text-align:center">viewpoint width 视窗宽度，1vw等于视窗宽度的1%。</td></tr><tr><td style="text-align:center">vh</td><td style="text-align:center">viewpoint height 视窗高度，1wh等于视窗高度的1%。</td></tr><tr><td style="text-align:center">vmin</td><td style="text-align:center">vh和vw中较小的一个。</td></tr><tr><td style="text-align:center">vmax</td><td style="text-align:center">vh和vw中较大的一个。</td></tr><tr><td style="text-align:center">%</td><td style="text-align:center">百分比。</td></tr><tr><td style="text-align:center">in</td><td style="text-align:center">寸。</td></tr><tr><td style="text-align:center">cm</td><td style="text-align:center">厘米。</td></tr><tr><td style="text-align:center">mm</td><td style="text-align:center">毫米。</td></tr><tr><td style="text-align:center">pt</td><td style="text-align:center">point 大约1/72寸。</td></tr><tr><td style="text-align:center">ex</td><td style="text-align:center">取当前作用效果的字体的x字符的高度，在无法确定的情况下为0.5em。</td></tr><tr><td style="text-align:center">ch</td><td style="text-align:center">取当前作用效果的字体的0字符的高度，在无法确定的情况下为0.5em。</td></tr></tbody></table><blockquote><p><strong>em作为font-size的单位时，其代表父元素的字体大小，em作为其他属性单位时，代表自身字体大小</strong></p></blockquote><pre class=" language-javascript"><code class="language-javascript">  <span class="token punctuation">.</span>p1 <span class="token punctuation">{</span>font<span class="token operator">-</span>size<span class="token punctuation">:</span> 16px<span class="token punctuation">;</span> line<span class="token operator">-</span>height<span class="token punctuation">:</span> 32px<span class="token punctuation">;</span><span class="token punctuation">}</span>  <span class="token punctuation">.</span>s1 <span class="token punctuation">{</span>font<span class="token operator">-</span>size<span class="token punctuation">:</span> 2em<span class="token punctuation">;</span><span class="token punctuation">}</span>  <span class="token punctuation">.</span>s2 <span class="token punctuation">{</span>font<span class="token operator">-</span>size<span class="token punctuation">:</span> 2em<span class="token punctuation">;</span> line<span class="token operator">-</span>height<span class="token punctuation">:</span> 2em<span class="token punctuation">;</span><span class="token punctuation">}</span>  <span class="token punctuation">.</span>p2 <span class="token punctuation">{</span>font<span class="token operator">-</span>size<span class="token punctuation">:</span> 16px<span class="token punctuation">;</span> line<span class="token operator">-</span>height<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">;</span><span class="token punctuation">}</span>  <span class="token punctuation">.</span>s5 <span class="token punctuation">{</span>font<span class="token operator">-</span>size<span class="token punctuation">:</span> 2em<span class="token punctuation">;</span><span class="token punctuation">}</span>  <span class="token punctuation">.</span>s6 <span class="token punctuation">{</span>font<span class="token operator">-</span>size<span class="token punctuation">:</span> 2em<span class="token punctuation">;</span> line<span class="token operator">-</span>height<span class="token punctuation">:</span> 2em<span class="token punctuation">;</span><span class="token punctuation">}</span>    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"p1"</span><span class="token operator">></span>       <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"s1"</span><span class="token operator">></span><span class="token number">1</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>       <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"s2"</span><span class="token operator">></span><span class="token number">1</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"p2"</span><span class="token operator">></span>       <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"s5"</span><span class="token operator">></span><span class="token number">1</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>       <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"s6"</span><span class="token operator">></span><span class="token number">1</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><span class="token comment" spellcheck="true">//此时s1的字体大小为32px,行高由于自身没有设置，所以是从父元素继承，所以也是32px</span><span class="token comment" spellcheck="true">//s2的字体大小为32px，行高设置为2em，因为自身有设置字体，所以行高是针对自身的字体高度，所以行高是64px</span><span class="token comment" spellcheck="true">//s5的字体是32px，因为行高是继承而来的，即line-height:2;所以实际行高是32*2 = 64px</span><span class="token comment" spellcheck="true">//s6的字体是32px,行高是2em，所以是2*32 = 64px。</span></code></pre><h2 id="rem布局原理"><a href="#rem布局原理" class="headerlink" title="rem布局原理"></a>rem布局原理</h2><p>rem布局的本质是等比缩放，一般是基于宽度的。假设我们将屏幕宽度平均分成100份，每一份的宽度用x表示,即x=屏幕宽度/100，如果将x作为单位，x前面的数值就代表屏幕宽度的百分比。</p><p>如果想要页面元素随着屏幕宽度等比例变化，我们需要上面所讲的x单位，通过css中的rem，可以实现这个x。</p><p>如何让html字体大小一直等于屏幕宽度的百分之一呢？可以通过js来设置，一般需要在dom ready，resize和屏幕旋转中设置。</p><pre class=" language-javascript"><code class="language-javascript">document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>style<span class="token punctuation">.</span>fontSize <span class="token operator">=</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>clientWidth <span class="token operator">/</span> <span class="token number">100</span> <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span> </code></pre><p>那么如何把UE图中获取的像素单位转化为以rem为单位的值？公式是<code>（元素宽度/UE图宽度）*100</code>.假设UE图尺寸是640px,UE图中的一个元素宽度是100px,根据公式（100/640）*100=15.625。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> CSS </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> CSS布局 </tag>
             
         </tags>
       
@@ -479,56 +629,6 @@
     
     
     <entry>
-      <title>盒子模型</title>
-      <link href="/2019/05/04/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/"/>
-      <url>/2019/05/04/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/</url>
-      
-        <content type="html"><![CDATA[<h2 id="什么是盒子模型"><a href="#什么是盒子模型" class="headerlink" title="什么是盒子模型"></a>什么是盒子模型</h2><p>CSS盒子模型也叫框模型，具备内容(content),填充(padding),边框(border),边界(margin)这些属性，在CSS中，每一个元素都被视为一个盒子，且每一个盒子都有三个属性：</p><ol><li>border：元素的边框，用于将盒子的边缘与其他盒子分开。</li><li>margin：外边距，表示盒子的边缘与相邻盒子之间的距离，也称为页边空白。</li><li>padding：内边距，表示盒子内容和边框之间的空间。</li></ol><p>盒子的width和height指的是内容区域的宽度和高度，增加内边距，边框和外边距不会影响内容区域的尺寸，但是会增加盒子的总尺寸。</p><h2 id="盒子模型模式"><a href="#盒子模型模式" class="headerlink" title="盒子模型模式"></a>盒子模型模式</h2><h3 id="标准盒子模型：box-sizing-content-box"><a href="#标准盒子模型：box-sizing-content-box" class="headerlink" title="标准盒子模型：box-sizing:content-box"></a>标准盒子模型：box-sizing:content-box</h3><p>盒子总宽度=width+padding+border+margin</p><p>盒子的总高度=height+padding+border+margin</p><h3 id="IE盒子模型（怪异盒子模型）：box-sizing：border-box"><a href="#IE盒子模型（怪异盒子模型）：box-sizing：border-box" class="headerlink" title="IE盒子模型（怪异盒子模型）：box-sizing：border-box"></a>IE盒子模型（怪异盒子模型）：box-sizing：border-box</h3><p>盒子总宽度=width+margin；</p><p>盒子总高度=height+margin</p><p>用户自己设置的width=内容区域的宽度+border+padding</p><p>用户自己设置的height=内容区域的高度+border+padding</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> HTML </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> html布局 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>圣杯布局和双飞翼布局</title>
-      <link href="/2019/05/04/%E5%9C%A3%E6%9D%AF%E5%B8%83%E5%B1%80%E5%92%8C%E5%8F%8C%E9%A3%9E%E7%BF%BC%E5%B8%83%E5%B1%80/"/>
-      <url>/2019/05/04/%E5%9C%A3%E6%9D%AF%E5%B8%83%E5%B1%80%E5%92%8C%E5%8F%8C%E9%A3%9E%E7%BF%BC%E5%B8%83%E5%B1%80/</url>
-      
-        <content type="html"><![CDATA[<h2 id="圣杯布局"><a href="#圣杯布局" class="headerlink" title="圣杯布局"></a>圣杯布局</h2><p>圣杯布局是一种常见的CSS布局，它要求：</p><ol><li>底部和顶部各自占领屏幕的全部宽度</li><li>上下部之间是一个三栏布局</li><li>三栏布局两侧宽度不变，中间部分自动填充整个区域</li><li>中间部分的高度是三栏中高度最高区域的高度</li></ol><p>下面介绍两种实现方式：</p><h3 id="浮动实现"><a href="#浮动实现" class="headerlink" title="浮动实现"></a>浮动实现</h3><pre><code>  &lt;style&gt;        .header,.footer{            height: 200px;            width: 100%;            background: #f40;        }        .footer{            clear:both;        }        .container{            padding-left:200px;&#x2F;&#x2F;这个就是左边盒子将来的宽度            padding-right:300px;&#x2F;&#x2F;这个就是右边盒子将来的宽度        }        .container div{            float: left;            position: relative;&#x2F;&#x2F;将所有的盒子设为相对定位        }        .mid{            width: 100%;            background: yellow;        }        .left{            width: 200px;            background: skyblue;            margin-left: -100%;&#x2F;&#x2F;很关键，margin-left：-100%是按照父盒子的宽度来计算的            left:-200px;&#x2F;&#x2F;很关键        }        .right{            width: 300px;            background: cyan;            margin-right:-300px;&#x2F;&#x2F;很关键        }&lt;&#x2F;style&gt;&lt;div class=&quot;header&quot;&gt;这里是头部&lt;&#x2F;div&gt;    &lt;div class=&quot;container&quot;&gt;        &lt;div class=&quot;mid&quot;&gt;中间部分&lt;&#x2F;div&gt;        &lt;div class=&quot;left&quot;&gt;左边&lt;&#x2F;div&gt;        &lt;div class=&quot;right&quot;&gt;右边&lt;&#x2F;div&gt;    &lt;&#x2F;div&gt;    &lt;div class=&quot;footer&quot;&gt;这里是底部&lt;&#x2F;div&gt;</code></pre><h3 id="flex弹性布局实现"><a href="#flex弹性布局实现" class="headerlink" title="flex弹性布局实现"></a>flex弹性布局实现</h3><p>弹性布局就是给外面的container盒子设置display：flex；然后左右固定宽度，中间的盒子设置flex：1即可。</p><h2 id="双飞翼布局"><a href="#双飞翼布局" class="headerlink" title="双飞翼布局"></a>双飞翼布局</h2><p>双飞翼布局是在middle的div里又插入一个div，通过调整内部div的margin值，实现中间栏自适应，内容写到内部div中</p><pre><code>&lt;style&gt;     .hd{            height:50px;            background: #666;            text-align: center;        }        .middle{            float:left;            width:100%;&#x2F;*左栏上去到第一行*&#x2F;            height:100px;            background:blue;        }        .left{            float:left;            width:180px;            height:100px;            margin-left:-100%;            background:#0c9;        }        .right{            float:left;            width:200px;            height:100px;            margin-left:-200px;            background:#0c9;        }        &#x2F;*给内部div添加margin，把内容放到中间栏，其实整个背景还是100%*&#x2F;        .inside{            margin:0 200px 0 180px;            height:100px;        }        .footer{            clear:both; &#x2F;*记得清楚浮动*&#x2F;            height:50px;            background: #666;            text-align: center;        }&lt;&#x2F;style&gt; &lt;div class=&quot;hd&quot;&gt;header&lt;&#x2F;div&gt;    &lt;div class=&quot;middle&quot;&gt;        &lt;div class=&quot;inside&quot;&gt;middle&lt;&#x2F;div&gt;    &lt;&#x2F;div&gt;    &lt;div class=&quot;left&quot;&gt;left&lt;&#x2F;div&gt;    &lt;div class=&quot;right&quot;&gt;right&lt;&#x2F;div&gt;    &lt;div class=&quot;footer&quot;&gt;footer&lt;&#x2F;div&gt;</code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> CSS </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> CSS tips </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>CSS控制前端图片HTTP请求的情况</title>
       <link href="/2019/05/04/CSS%E6%8E%A7%E5%88%B6%E5%89%8D%E7%AB%AF%E5%9B%BE%E7%89%87HTTP%E8%AF%B7%E6%B1%82%E7%9A%84%E6%83%85%E5%86%B5/"/>
       <url>/2019/05/04/CSS%E6%8E%A7%E5%88%B6%E5%89%8D%E7%AB%AF%E5%9B%BE%E7%89%87HTTP%E8%AF%B7%E6%B1%82%E7%9A%84%E6%83%85%E5%86%B5/</url>
@@ -604,31 +704,6 @@
     
     
     <entry>
-      <title>BFC</title>
-      <link href="/2019/04/22/cssBFC/"/>
-      <url>/2019/04/22/cssBFC/</url>
-      
-        <content type="html"><![CDATA[<h2 id="什么是BFC"><a href="#什么是BFC" class="headerlink" title="什么是BFC"></a>什么是BFC</h2><p>BFC(Block Formatting Context)：格式化上下文，是Web页面中盒模型布局的css渲染模式，指一个独立的渲染区域或者说是一个隔离的独立容器。它决定了其子元素如何定位，以及与其他元素的相互作用关系。</p><h2 id="BFC的生成"><a href="#BFC的生成" class="headerlink" title="BFC的生成"></a>BFC的生成</h2><p>满足下列CSS声明之一的元素就会生成BFC</p><ol><li>根元素或者其他包含它的元素</li><li>float的值不为none</li><li>overflow不为visible的值</li><li>position不为static</li><li>display的值为inline-block，table-cell，table-caption</li><li>元素的display为flex或者inline-flex</li></ol><h2 id="BFC的布局规则"><a href="#BFC的布局规则" class="headerlink" title="BFC的布局规则"></a>BFC的布局规则</h2><ol><li>内部的元素会在垂直方向一个接一个的排列，可以理解为是BFC中的一个常规流</li><li>元素垂直方向的距离由margin决定，即同属于一个BFC的两个相邻的盒子的margin可能会发生重叠</li><li>每个元素的左外边距与包含块的左外边距相接触，即使存在浮动的情况下也是如此，这说明BFC的子元素不会超出它的包含块</li><li>BFC区域不会与float元素区域重叠</li><li>计算BFC高度的时候，浮动的子元素也参与计算.</li><li>BFC就是页面上一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之亦然。</li></ol><h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><h3 id="解决margin塌陷"><a href="#解决margin塌陷" class="headerlink" title="解决margin塌陷"></a>解决margin塌陷</h3><h3 id="清除浮动问题"><a href="#清除浮动问题" class="headerlink" title="清除浮动问题"></a>清除浮动问题</h3><h3 id="解决侵占浮动元素的问题——-gt-两栏布局"><a href="#解决侵占浮动元素的问题——-gt-两栏布局" class="headerlink" title="解决侵占浮动元素的问题——-&gt;两栏布局"></a>解决侵占浮动元素的问题——-&gt;两栏布局</h3><p>浮动的元素会脱离文档流，然后覆盖在文档流元素上，当一个元素浮动，另外一个不浮动的时候，浮动的元素会因为脱离文档流而盖在不浮动的元素上。所以我们为非浮动元素建立BFC环境，根据BFC的不和float box重叠的规则，就会解决侵占元素问题。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> CSS </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> CSS布局 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>virtual DOM及diff算法</title>
       <link href="/2019/04/22/vdom/"/>
       <url>/2019/04/22/vdom/</url>
@@ -650,31 +725,6 @@
             <tag> diff算法 </tag>
             
             <tag> VDom </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>原生CSS画三角形</title>
-      <link href="/2019/04/16/CSS%E7%94%BB%E4%B8%89%E8%A7%92%E5%BD%A2/"/>
-      <url>/2019/04/16/CSS%E7%94%BB%E4%B8%89%E8%A7%92%E5%BD%A2/</url>
-      
-        <content type="html"><![CDATA[<h2 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h2><p><strong>先将一个盒子的width和height都设置为0px，这一步是最关键的</strong></p><h3 id="画尖朝上的红色三角形"><a href="#画尖朝上的红色三角形" class="headerlink" title="画尖朝上的红色三角形"></a>画尖朝上的红色三角形</h3><pre class=" language-css"><code class="language-css"><span class="token selector">div</span><span class="token punctuation">{</span>    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>    <span class="token property">border-left</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-right</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-top</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-bottom</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#f00</span><span class="token punctuation">}</span></code></pre><h3 id="画尖朝下的红色三角形"><a href="#画尖朝下的红色三角形" class="headerlink" title="画尖朝下的红色三角形"></a>画尖朝下的红色三角形</h3><pre class=" language-css"><code class="language-css"><span class="token selector">div</span><span class="token punctuation">{</span>    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>    <span class="token property">border-left</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-right</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-bottom</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-top</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#f00</span><span class="token punctuation">}</span></code></pre><h3 id="画尖朝左的红色三角形"><a href="#画尖朝左的红色三角形" class="headerlink" title="画尖朝左的红色三角形"></a>画尖朝左的红色三角形</h3><pre class=" language-css"><code class="language-css"><span class="token selector">div</span><span class="token punctuation">{</span>    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>    <span class="token property">border-left</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-top</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-bottom</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-right</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#f00</span><span class="token punctuation">}</span></code></pre><h3 id="画尖朝右的红色三角形"><a href="#画尖朝右的红色三角形" class="headerlink" title="画尖朝右的红色三角形"></a>画尖朝右的红色三角形</h3><pre class=" language-css"><code class="language-css"><span class="token selector">div</span><span class="token punctuation">{</span>    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>    <span class="token property">border-right</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-top</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-bottom</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-left</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#f00</span><span class="token punctuation">}</span></code></pre><h3 id="画左上方的直角三角形"><a href="#画左上方的直角三角形" class="headerlink" title="画左上方的直角三角形"></a>画左上方的直角三角形</h3><pre class=" language-css"><code class="language-css"><span class="token selector">div</span><span class="token punctuation">{</span>    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>    <span class="token property">border-top</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#f00</span><span class="token punctuation">;</span>    <span class="token property">border-right</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-bottom</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">}</span></code></pre><h3 id="画左下方的直角三角形"><a href="#画左下方的直角三角形" class="headerlink" title="画左下方的直角三角形"></a>画左下方的直角三角形</h3><pre class=" language-css"><code class="language-css"><span class="token selector">div</span><span class="token punctuation">{</span>    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>    <span class="token property">border-top</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-right</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-bottom</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#f00</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><h3 id="画右上方直角三角形"><a href="#画右上方直角三角形" class="headerlink" title="画右上方直角三角形"></a>画右上方直角三角形</h3><pre class=" language-css"><code class="language-css"><span class="token selector">div</span><span class="token punctuation">{</span>    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>    <span class="token property">border-top</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#f00</span><span class="token punctuation">;</span>    <span class="token property">border-left</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-bottom</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><h3 id="画右下方直角三角形"><a href="#画右下方直角三角形" class="headerlink" title="画右下方直角三角形"></a>画右下方直角三角形</h3><pre class=" language-css"><code class="language-css"><span class="token selector">div</span><span class="token punctuation">{</span>    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span>    <span class="token property">border-top</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-left</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#fff</span><span class="token punctuation">;</span>    <span class="token property">border-bottom</span><span class="token punctuation">:</span><span class="token number">100</span>px solid <span class="token hexcode">#f00</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> CSS </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> CSS tips </tag>
             
         </tags>
       
