@@ -5,9 +5,8 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="长短连接/长短轮询, TomoFur">
-    <meta name="description" content="短轮询定义：就是普通的轮询，指在特定的时间间隔，由浏览器对服务器发出HTTP请求，然后由服务器返回最新的数据给客户端的浏览器。短轮询是服务器立即发送响应，无论数据是否有效。
-应用场景：传统的web通信，后台处理数据需要一定的时间，前端想要知">
+    <meta name="keywords" content="Flex布局, TomoFur">
+    <meta name="description" content="概念flex布局是css3中新增加的一种布局方式，也叫做弹性盒子模型。用来为盒状模型提供最大的灵活性。Flex布局有两层，采用flex布局的元素称为flex容器，其子元素则自动成为flex item 即项目。flex内部的元素具有伸缩性,可">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>长短连接/长短轮询 | TomoFur</title>
+    <title>Flex布局 | TomoFur</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -241,13 +240,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        长短连接/长短轮询
+                        Flex布局
                     </div>
                 </div>
             </div>
@@ -358,8 +357,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/HTTP协议/" target="_blank">
-                                <span class="chip bg-color">HTTP协议</span>
+                            <a href="/tags/css布局/" target="_blank">
+                                <span class="chip bg-color">css布局</span>
                             </a>
                         
                     </div>
@@ -370,8 +369,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/网络协议/" class="post-category" target="_blank">
-                                网络协议
+                            <a href="/categories/css/" class="post-category" target="_blank">
+                                css
                             </a>
                         
                     </div>
@@ -382,14 +381,14 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-06-05
+                    2019-06-08
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        736
+                        741
                     </div>
                     
 
@@ -407,21 +406,46 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="短轮询"><a href="#短轮询" class="headerlink" title="短轮询"></a>短轮询</h2><p>定义：就是普通的轮询，指在特定的时间间隔，由浏览器对服务器发出HTTP请求，然后由服务器返回最新的数据给客户端的浏览器。短轮询是服务器立即发送响应，无论数据是否有效。</p>
-<p>应用场景：传统的web通信，后台处理数据需要一定的时间，前端想要知道后端的处理结果，就要不定时向后端发出请求以获得最新情况。</p>
-<p>缺点：请求中有一大半是无用，浪费带宽和服务器资源。而且实时性不高。适合用在对实时性要求不高的地方。</p>
-<p><img src="/2019/06/05/长短连接/短轮询.PNG" alt></p>
-<h2 id="长轮询"><a href="#长轮询" class="headerlink" title="长轮询"></a>长轮询</h2><p>定义：服务器收到请求之后如果有数据，就立刻响应请求，如果没有数据就将请求挂起一段时间，在这个时间里如果有数据就立即响应请求并关闭连接，没有数据就等到连接超时为止。客户端处理完响应信息后再向服务器发送新的请求。</p>
-<p>优点：客户端请求次数将大大减小，节省了网络流量。</p>
-<p>缺点：服务器挂起请求会消耗资源，</p>
-<p>应用场景：长轮询一般用在实时性要求高的场景，因为http长轮询的控制权一直是在服务器端，而数据是在服务器端的，因此实时性高。</p>
-<p><img src="/2019/06/05/长短连接/长轮询.PNG" alt></p>
-<h1 id="长连接和短连接"><a href="#长连接和短连接" class="headerlink" title="长连接和短连接"></a>长连接和短连接</h1><p>HTTP分为长连接和短连接，其本质上是TCP连接。TCP连接是一个双向的通道，它是可以保持一段时间不关闭的，因此TCP连接才有真正的长连接和短连接一说，HTTP协议是应用层的协议，而TCP协议才是真正的传输层协议，只有负责传输的这一层才需要建立连接。</p>
-<h2 id="短连接"><a href="#短连接" class="headerlink" title="短连接"></a>短连接</h2><p>HTTP1.0规定浏览器与服务器只能保持短暂的连接，浏览器的每次请求都需要与服务器建立一个TCP连接，服务器完成请求处理后立即断开TCP连接。</p>
-<p>缺点：使用浏览器浏览一个包含多张图片的HTML页面时，在发送请求访问HTML页面资源的同时，也会请求该HTML页面里面包含的其他资源，因此，每一次请求都会造成无谓的TCP连接建立和断开，增加通信开销。</p>
-<h2 id="长连接"><a href="#长连接" class="headerlink" title="长连接"></a>长连接</h2><p>为了解决上述TCP连接的问题，HTTP/1.1提出了持久连接的方法，持久连接的特点是<strong>只要任意一端没有明确提出断开连接，则保持TCP连接状态。</strong></p>
-<p>在HTTP/1.1中，所有的连接都默认是持节连接，可以通过<code>Connection:keep-alive</code></p>
-<p>优点：减少了TCP连接的重复建立和断开所造成的额外开销，减轻了服务器的负担。</p>
+                <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>flex布局是css3中新增加的一种布局方式，也叫做弹性盒子模型。用来为盒状模型提供最大的灵活性。Flex布局有两层，采用flex布局的元素称为<strong>flex容器</strong>，其子元素则自动成为flex item 即<strong>项目</strong>。flex内部的元素具有伸缩性,可按照设置的比例决定元素的宽高。flex最大的特点就是布局方便，简单，而且有较好的自适应能力。</p>
+<h2 id="容器的属性"><a href="#容器的属性" class="headerlink" title="容器的属性"></a>容器的属性</h2><h3 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h3><p><strong>作用</strong>：决定主轴的方向。</p>
+<p><strong>取值</strong>：</p>
+<ol>
+<li><code>row(默认值)</code>：主轴为水平方向，起点在容器的左端</li>
+<li><code>row-reverse</code>:主轴为水平方向，起点在容器的右端</li>
+<li><code>column</code>:主轴为垂直方向，起点为容器的顶端</li>
+<li><code>column-reverse</code>:主轴为垂直方向，起点为容器的底端</li>
+</ol>
+<h3 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h3><p><strong>作用</strong>：如果一条轴线排不下所有内容该如何换行</p>
+<p><strong>取值</strong>：</p>
+<ol>
+<li><code>nowrap(默认值)</code>：不换行</li>
+<li><code>wrap</code> :换行，和书写方式一样，第一行在第二行的上方</li>
+<li><code>wrap-reverse</code>:换行，第一行在第二行的下方</li>
+</ol>
+<h3 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h3><p><strong>作用</strong>：定义了项目在主轴上的对齐方式</p>
+<p><strong>取值</strong>：</p>
+<ol>
+<li><code>flex-start(默认值)</code>:从主轴开始的地方</li>
+<li><code>flex-end</code>:从主轴结束的地方</li>
+<li><code>center</code>:居中对齐</li>
+<li><code>space-between</code>:两端对齐，项目之间的间隔相等</li>
+<li><code>space-round</code>:每个项目之间的距离相等</li>
+</ol>
+<h3 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h3><p><strong>作用</strong>：定义了项目在侧轴上的对齐方式</p>
+<p><strong>取值</strong>：</p>
+<ol>
+<li><code>flex-start</code>:从侧轴开始的地方，一半是容器的顶部</li>
+<li><code>flex-end</code>:从侧轴结束的地方</li>
+<li><code>center</code>:居中对齐</li>
+<li><code>baseline</code>:沿着项目第一行文字的基线对齐</li>
+<li><code>stretch</code>(默认取值):如果项目没有设置高度，则占满整个容器的高度</li>
+</ol>
+<h2 id="项目的属性"><a href="#项目的属性" class="headerlink" title="项目的属性"></a>项目的属性</h2><h3 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h3><p><strong>作用</strong>：定义项目的放大比例，默认值是0，表示即使存在剩余空间，也不会放大</p>
+<p><strong>注意</strong>：如果所有项目的<code>flex-grow</code>属性都为1，则他们将均分剩余的空间，如果有一个项目的<code>flex-grow</code>为2，其他项目为1，则前者的所占的剩余空间是其余项的一倍</p>
+<h3 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h3><p><strong>作用</strong>：定义项目的缩小比例，默认值是1，表示即使空间不够，也不去缩放</p>
+<p><strong>注意</strong>：如果所有项目的<code>flex-shrink</code>都为1，当空间不足时，他们将等比例缩放，如果一个项目的<code>flex-shrink</code>为0，而其余的为1时，如果空间不够，前者不缩放。<strong>负值对该属性无效</strong></p>
+<h3 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h3><p><strong>作用</strong>：定义了在分配多余空间之前，项目所占据的主轴空间。浏览器根据这个属性，计算是否还有剩余空间。它可以设置为和width一样的具体的值，表示一个固定的值。</p>
+<h3 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h3><p><strong>作用</strong>:这个属性是<code>flex-grow</code>，<code>flex-shrink</code>,<code>flex-basis</code>的简写，默认值是<code>0 1 auto</code>,其中后两个属性是可选的。    </p>
 
             </div>
             <hr>
@@ -569,7 +593,7 @@
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">TomoFur</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/06/05/长短连接/" class="b-link-green">长短连接/长短轮询</a>
+                    <a href="/2019/06/08/flex布局/" class="b-link-green">Flex布局</a>
                 </p>
             </div>
         </div>
@@ -614,24 +638,24 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/06/06/盒子居中/">
+                <a href="/2019/06/08/flex布局/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="盒子居中方法">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Flex布局">
                         
-                        <span class="card-title">盒子居中方法</span>
+                        <span class="card-title">Flex布局</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">盒子没有固定的宽和高利用transform在需要居中对齐的块中首先采用绝对定位，其父盒子采用相对定位。然后transform:translate(-50%,-50%);left:50%;top:50%
-采用flex布局父盒子采用flex布局</div>
+                    <div class="summary">概念flex布局是css3中新增加的一种布局方式，也叫做弹性盒子模型。用来为盒状模型提供最大的灵活性。Flex布局有两层，采用flex布局的元素称为flex容器，其子元素则自动成为flex item 即项目。flex内部的元素具有伸缩性,可</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-06
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -644,6 +668,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -662,28 +687,28 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/06/05/TCP协议/">
+                <a href="/2019/06/08/cssBFC/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="TCP协议">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="BFC">
                         
-                        <span class="card-title">TCP协议</span>
+                        <span class="card-title">BFC</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">TCP报文的若干首部关键字段确认ACK:仅当ACK=1时确认号字段才有效，当ACK=0时，确认号无效。TCP规定，在连接建立之后所有传送的报文字段都必须要把ACK置为1
-同步SYN：在连接建立时用来同步序号，当SYN=1而ACK=0时，表明</div>
+                    <div class="summary">什么是BFCBFC(Block Formatting Context)：格式化上下文，是Web页面中盒模型布局的css渲染模式，指一个独立的渲染区域或者说是一个隔离的独立容器。它决定了其子元素如何定位，以及与其他元素的相互作用关系。
+BFC</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-05
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-08
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/网络协议/" class="post-category" target="_blank">
-                                    网络协议
+                            <a href="/categories/css/" class="post-category" target="_blank">
+                                    css
                                 </a>
                             
                             
@@ -693,8 +718,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/TCP协议/" target="_blank">
-                        <span class="chip bg-color">TCP协议</span>
+                    <a href="/tags/css布局/" target="_blank">
+                        <span class="chip bg-color">css布局</span>
                     </a>
                     
                 </div>

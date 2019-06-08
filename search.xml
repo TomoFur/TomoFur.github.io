@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Flex布局</title>
+      <link href="/2019/06/08/flex%E5%B8%83%E5%B1%80/"/>
+      <url>/2019/06/08/flex%E5%B8%83%E5%B1%80/</url>
+      
+        <content type="html"><![CDATA[<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>flex布局是css3中新增加的一种布局方式，也叫做弹性盒子模型。用来为盒状模型提供最大的灵活性。Flex布局有两层，采用flex布局的元素称为<strong>flex容器</strong>，其子元素则自动成为flex item 即<strong>项目</strong>。flex内部的元素具有伸缩性,可按照设置的比例决定元素的宽高。flex最大的特点就是布局方便，简单，而且有较好的自适应能力。</p><h2 id="容器的属性"><a href="#容器的属性" class="headerlink" title="容器的属性"></a>容器的属性</h2><h3 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h3><p><strong>作用</strong>：决定主轴的方向。</p><p><strong>取值</strong>：</p><ol><li><code>row(默认值)</code>：主轴为水平方向，起点在容器的左端</li><li><code>row-reverse</code>:主轴为水平方向，起点在容器的右端</li><li><code>column</code>:主轴为垂直方向，起点为容器的顶端</li><li><code>column-reverse</code>:主轴为垂直方向，起点为容器的底端</li></ol><h3 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h3><p><strong>作用</strong>：如果一条轴线排不下所有内容该如何换行</p><p><strong>取值</strong>：</p><ol><li><code>nowrap(默认值)</code>：不换行</li><li><code>wrap</code> :换行，和书写方式一样，第一行在第二行的上方</li><li><code>wrap-reverse</code>:换行，第一行在第二行的下方</li></ol><h3 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h3><p><strong>作用</strong>：定义了项目在主轴上的对齐方式</p><p><strong>取值</strong>：</p><ol><li><code>flex-start(默认值)</code>:从主轴开始的地方</li><li><code>flex-end</code>:从主轴结束的地方</li><li><code>center</code>:居中对齐</li><li><code>space-between</code>:两端对齐，项目之间的间隔相等</li><li><code>space-round</code>:每个项目之间的距离相等</li></ol><h3 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h3><p><strong>作用</strong>：定义了项目在侧轴上的对齐方式</p><p><strong>取值</strong>：</p><ol><li><code>flex-start</code>:从侧轴开始的地方，一半是容器的顶部</li><li><code>flex-end</code>:从侧轴结束的地方</li><li><code>center</code>:居中对齐</li><li><code>baseline</code>:沿着项目第一行文字的基线对齐</li><li><code>stretch</code>(默认取值):如果项目没有设置高度，则占满整个容器的高度</li></ol><h2 id="项目的属性"><a href="#项目的属性" class="headerlink" title="项目的属性"></a>项目的属性</h2><h3 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h3><p><strong>作用</strong>：定义项目的放大比例，默认值是0，表示即使存在剩余空间，也不会放大</p><p><strong>注意</strong>：如果所有项目的<code>flex-grow</code>属性都为1，则他们将均分剩余的空间，如果有一个项目的<code>flex-grow</code>为2，其他项目为1，则前者的所占的剩余空间是其余项的一倍</p><h3 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h3><p><strong>作用</strong>：定义项目的缩小比例，默认值是1，表示即使空间不够，也不去缩放</p><p><strong>注意</strong>：如果所有项目的<code>flex-shrink</code>都为1，当空间不足时，他们将等比例缩放，如果一个项目的<code>flex-shrink</code>为0，而其余的为1时，如果空间不够，前者不缩放。<strong>负值对该属性无效</strong></p><h3 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h3><p><strong>作用</strong>：定义了在分配多余空间之前，项目所占据的主轴空间。浏览器根据这个属性，计算是否还有剩余空间。它可以设置为和width一样的具体的值，表示一个固定的值。</p><h3 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h3><p><strong>作用</strong>:这个属性是<code>flex-grow</code>，<code>flex-shrink</code>,<code>flex-basis</code>的简写，默认值是<code>0 1 auto</code>,其中后两个属性是可选的。    </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> css </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> css布局 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>BFC</title>
       <link href="/2019/06/08/cssBFC/"/>
       <url>/2019/06/08/cssBFC/</url>
