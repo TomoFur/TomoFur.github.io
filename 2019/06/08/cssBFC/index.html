@@ -5,10 +5,9 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="CSS控制前端图片HTTP请求的情况, TomoFur">
-    <meta name="description" content="隐藏图片&amp;lt;img src=&amp;#39;xxx.jpg&amp;#39; style=&amp;#39;display:none&amp;#39;&amp;gt;
-结论：产生HTTP请求，此外使用visiblity：hidden的时候也会产生请求。
-重复图片&amp;lt;im">
+    <meta name="keywords" content="BFC, TomoFur">
+    <meta name="description" content="什么是BFCBFC(Block Formatting Context)：格式化上下文，是Web页面中盒模型布局的css渲染模式，指一个独立的渲染区域或者说是一个隔离的独立容器。它决定了其子元素如何定位，以及与其他元素的相互作用关系。
+BFC">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>CSS控制前端图片HTTP请求的情况 | TomoFur</title>
+    <title>BFC | TomoFur</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -242,13 +241,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        CSS控制前端图片HTTP请求的情况
+                        BFC
                     </div>
                 </div>
             </div>
@@ -383,21 +382,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-06-06
+                    2019-06-08
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        457
+                        464
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        1 分
                     </div>
                     
                 
@@ -408,54 +407,25 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="隐藏图片"><a href="#隐藏图片" class="headerlink" title="隐藏图片"></a>隐藏图片</h2><pre><code>&lt;img src=&#39;xxx.jpg&#39; style=&#39;display:none&#39;&gt;</code></pre>
-<p><strong>结论</strong>：产生HTTP请求，此外使用visiblity：hidden的时候也会产生请求。</p>
-<h2 id="重复图片"><a href="#重复图片" class="headerlink" title="重复图片"></a>重复图片</h2><pre><code>&lt;img src=&#39;xxx.jpg&#39;&gt;
-&lt;img src=&#39;xxx.jpg&#39;&gt;</code></pre>
-<p><strong>结论</strong>：所有浏览器对重复的资源都只发出一次请求。</p>
-<h2 id="重复背景"><a href="#重复背景" class="headerlink" title="重复背景"></a>重复背景</h2><pre><code>&lt;style&gt;
-    .test1{background:url(xxx.jpg)}
-    .test2{background:url(xxx.jpg)}
-&lt;&#x2F;style&gt;
-&lt;div class=&#39;test1&#39;&gt;&lt;&#x2F;div&gt;
-&lt;div class=&#39;test2&#39;&gt;&lt;&#x2F;div&gt;</code></pre>
-<p><strong>结论</strong>：所有浏览器都只发出一次HTTP请求</p>
-<h2 id="不存在的元素的背景"><a href="#不存在的元素的背景" class="headerlink" title="不存在的元素的背景"></a>不存在的元素的背景</h2><pre><code>&lt;style&gt;
-    .test1{background:url(xxx.jpg)}
-    .test2{background:url(xxx.png)}
-&lt;&#x2F;style&gt;
-&lt;div class=&#39;test1&#39;&gt;&lt;&#x2F;div&gt;</code></pre>
-<p><strong>结论</strong>：背景仅在应用的元素在页面中存在的时候，才会发出请求。</p>
-<h2 id="隐藏元素的背景"><a href="#隐藏元素的背景" class="headerlink" title="隐藏元素的背景"></a>隐藏元素的背景</h2><pre><code>&lt;style&gt;
-    .test1{
-        background:url(xxx.jpg);
-        display:none;
-    }
-    .test2{background:url(xxx.png)}
-&lt;&#x2F;style&gt;
-&lt;div class=&#39;test1&#39;&gt;&lt;&#x2F;div&gt;</code></pre>
-<p><strong>结论</strong>：Chrome会为display：none；的元素发出请求，但是fireFox和opera不会为display：none；的元素发出HTTP请求。</p>
-<h2 id="多重背景"><a href="#多重背景" class="headerlink" title="多重背景"></a>多重背景</h2><pre><code>&lt;style&gt;
-    .test1{
-        background:url(xxx.jpg);
-    }
-    .test1{background:url(xxx.png)}
-&lt;&#x2F;style&gt;
-&lt;div class=&#39;test1&#39;&gt;&lt;&#x2F;div&gt;</code></pre>
-<p><strong>结论</strong>：因为下面的样式把上面的掩盖掉，所以只会发出一次HTTP请求。</p>
-<h2 id="hover的背景加载"><a href="#hover的背景加载" class="headerlink" title="hover的背景加载"></a>hover的背景加载</h2><pre><code>&lt;style&gt;
-    .test1{
-        background:url(xxx.jpg);
-    }
-    .test1:hover{background:url(xxx.png)}
-&lt;&#x2F;style&gt;
-&lt;div class=&#39;test1&#39;&gt;&lt;&#x2F;div&gt;</code></pre>
-<p><strong>结论</strong>：触发hover时，才会有对应的HTTP请求，如果没有触发，默认只会有请求默认的背景图片</p>
-<h2 id="JS中innerHTML中的图片"><a href="#JS中innerHTML中的图片" class="headerlink" title="JS中innerHTML中的图片"></a>JS中innerHTML中的图片</h2><pre><code>&lt;script type=&quot;text/javascript&quot;&gt;   
-    var el = document.createElement(&#39;div&#39;);   
-    el.innerHTML = &#39;&lt;img src=&quot;haorooms.jpg&quot; /&gt;&#39;;   
-&lt;/script&gt;  
-</code></pre><p><strong>结论</strong>：只有Opera不会立刻发出请求，其余浏览器会发出HTTP请求。</p>
+                <h2 id="什么是BFC"><a href="#什么是BFC" class="headerlink" title="什么是BFC"></a>什么是BFC</h2><p>BFC(Block Formatting Context)：格式化上下文，是Web页面中盒模型布局的css渲染模式，指一个独立的渲染区域或者说是一个隔离的独立容器。它决定了其子元素如何定位，以及与其他元素的相互作用关系。</p>
+<h2 id="BFC的生成"><a href="#BFC的生成" class="headerlink" title="BFC的生成"></a>BFC的生成</h2><p>满足下列CSS声明之一的元素就会生成BFC</p>
+<ol>
+<li>根元素或者其他包含它的元素</li>
+<li>float的值不为none</li>
+<li>overflow不为visible的值</li>
+<li>position为absolute或者fixed的</li>
+<li>display的值为inline-block，table-cell，table-caption</li>
+<li>元素的display为flex或者inline-flex</li>
+</ol>
+<h2 id="BFC的布局规则"><a href="#BFC的布局规则" class="headerlink" title="BFC的布局规则"></a>BFC的布局规则</h2><ol>
+<li>内部的元素会在垂直方向一个接一个的排列，可以理解为是BFC中的一个常规流</li>
+<li>元素垂直方向的距离由margin决定，即同属于一个BFC的两个相邻的盒子的margin可能会发生重叠</li>
+<li>每个元素的左外边距与包含块的左外边距相接触，即使存在浮动的情况下也是如此，这说明BFC的子元素不会超出它的包含块</li>
+<li>BFC区域不会与float元素区域重叠</li>
+<li>计算BFC高度的时候，浮动的子元素也参与计算.</li>
+<li>BFC就是页面上一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之亦然。</li>
+</ol>
+<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><h3 id="解决margin塌陷"><a href="#解决margin塌陷" class="headerlink" title="解决margin塌陷"></a>解决margin塌陷</h3><h3 id="清除浮动问题"><a href="#清除浮动问题" class="headerlink" title="清除浮动问题"></a>清除浮动问题</h3><h3 id="解决侵占浮动元素的问题——-gt-两栏布局"><a href="#解决侵占浮动元素的问题——-gt-两栏布局" class="headerlink" title="解决侵占浮动元素的问题——-&gt;两栏布局"></a>解决侵占浮动元素的问题——-&gt;两栏布局</h3><p>浮动的元素会脱离文档流，然后覆盖在文档流元素上，当一个元素浮动，另外一个不浮动的时候，浮动的元素会因为脱离文档流而盖在不浮动的元素上。所以我们为非浮动元素建立BFC环境，根据BFC的不和float box重叠的规则，就会解决侵占元素问题。</p>
 
             </div>
             <hr>
@@ -603,7 +573,7 @@
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">TomoFur</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/06/06/CSS控制前端图片HTTP请求的情况/" class="b-link-green">CSS控制前端图片HTTP请求的情况</a>
+                    <a href="/2019/06/08/cssBFC/" class="b-link-green">BFC</a>
                 </p>
             </div>
         </div>
@@ -648,7 +618,8 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2019/06/08/cssBFC/">
                     <div class="card-image">
@@ -663,9 +634,9 @@
                     <div class="summary">什么是BFCBFC(Block Formatting Context)：格式化上下文，是Web页面中盒模型布局的css渲染模式，指一个独立的渲染区域或者说是一个隔离的独立容器。它决定了其子元素如何定位，以及与其他元素的相互作用关系。
 BFC</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -678,6 +649,7 @@ BFC</div>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -696,20 +668,19 @@ BFC</div>
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/06/06/消除浮动/">
+                <a href="/2019/06/06/CSS控制前端图片HTTP请求的情况/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="消除浮动">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="CSS控制前端图片HTTP请求的情况">
                         
-                        <span class="card-title">消除浮动</span>
+                        <span class="card-title">CSS控制前端图片HTTP请求的情况</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">当父盒子没有定义高度，嵌套的盒子浮动之后，下边的元素的位置会发生错误。因此要消除由于浮动而产生的不利影响。
-额外标签法在最后一个浮动元素后面添加标签
-&lt;div class='content'>
-    &lt;div class='c</div>
+                    <div class="summary">隐藏图片&lt;img src=&#39;xxx.jpg&#39; style=&#39;display:none&#39;&gt;
+结论：产生HTTP请求，此外使用visiblity：hidden的时候也会产生请求。
+重复图片&lt;im</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-06
