@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>浏览器渲染过程</title>
+      <link href="/2019/06/09/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B/"/>
+      <url>/2019/06/09/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B/</url>
+      
+        <content type="html"><![CDATA[<h2 id="关键路径渲染"><a href="#关键路径渲染" class="headerlink" title="关键路径渲染"></a>关键路径渲染</h2><p><strong>浏览器接收到服务器返回的HTML、CSS和JavaScript字节数据并对其进行解析和转变成像素的渲染过程被称为关键渲染路径</strong></p><p><strong>浏览器在渲染页面前需要先构建出DOM树与CSSOM树</strong>（如果没有<code>DOM</code>树和<code>CSSOM</code>树就无法确定页面的结构与样式，所以这两项是必须先构建出来的）。</p><p><strong>DOM树全称为Document Object Model文档对象模型，它是HTML和XML文档的编程接口，提供了对文档的结构化表示，并定义了一种可以使程序对该结构进行访问的方式</strong>（比如<code>JavaScript</code>就是通过<code>DOM</code>来操作结构、样式和内容）。<code>DOM</code>将文档解析为一个由节点和对象组成的集合，可以说一个<code>WEB</code>页面其实就是一个<code>DOM</code>。</p><p><code>CSSOM</code>树全称为<code>Cascading Style Sheets Object Model</code>层叠样式表对象模型，它与<code>DOM</code>树的含义相差不大，只不过它是<code>CSS</code>的对象集合。</p><h2 id="构建DOM树和CSSOM树"><a href="#构建DOM树和CSSOM树" class="headerlink" title="构建DOM树和CSSOM树"></a>构建DOM树和CSSOM树</h2><p>浏览器从网络或硬盘中获得<code>HTML</code>字节数据后会经过一个流程将字节解析为<code>DOM</code>树：</p><ol><li>编码： <strong>先将HTML的原始字节数据转换为文件指定编码的字符。</strong></li><li>令牌化： 然后<strong>浏览器会根据HTML规范来将字符串转换成各种令牌</strong>（如<code>&lt;html&gt;</code>、<code>&lt;body&gt;</code>这样的标签以及标签中的字符串和属性等都会被转化为令牌，每个令牌具有特殊含义和一组规则）。令牌记录了标签的开始与结束，通过这个特性可以轻松判断一个标签是否为子标签（假设有<code>&lt;html&gt;</code>与<code>&lt;body&gt;</code>两个标签，当<code>&lt;html&gt;</code>标签的令牌还未遇到它的结束令牌<code>&lt;/html&gt;</code>就遇见了<code>&lt;body&gt;</code>标签令牌，那么<code>&lt;body&gt;</code>就是<code>&lt;html&gt;</code>的子标签）。</li><li>生成对象： <strong>接下来每个令牌都会被转换成定义其属性和规则的对象（这个对象就是节点对象）。</strong></li><li>构建完毕： <strong>DOM树构建完成，整个对象集合就像是一棵树形结构</strong>。</li></ol><p>整个<code>DOM</code>树的构建过程其实就是： <strong>字节 -&gt; 字符 -&gt; 令牌 -&gt; 节点对象 -&gt; 对象模型</strong></p><h2 id="构建渲染树"><a href="#构建渲染树" class="headerlink" title="构建渲染树"></a>构建渲染树</h2><p>在构建了<code>DOM</code>树和<code>CSSOM</code>树之后，浏览器只是拥有了两个互相独立的对象集合，<code>DOM</code>树描述了文档的结构与内容，<code>CSSOM</code>树则描述了对文档应用的样式规则，<strong>想要渲染出页面，就需要将DOM树与CSSOM树结合在一起</strong>，这就是渲染树。</p><ol><li>浏览器会先从<code>DOM</code>树的根节点开始遍历每个可见节点</li><li>对每个可见节点，找到其适配的<code>CSS</code>样式规则并应用。</li><li>渲染树构建完成，每个节点都是可见节点并且都含有其内容和对应规则的样式</li></ol><p>渲染树构建完毕后，浏览器得到了每个可见节点的内容与其样式，下一步工作则<strong>需要计算每个节点在窗口内的确切位置与大小，也就是布局阶段。</strong></p><p><strong>布局阶段会从渲染树的根节点开始遍历，然后确定每个节点对象在页面上的确切大小与位置</strong>，布局阶段的输出是一个盒子模型，它会精确地捕获每个元素在屏幕内的确切位置与大小，所有相对的测量值也都会被转换为屏幕内的绝对像素值。</p><p><strong>总结</strong>：</p><p>总结一下浏览器关键渲染路径的整个过程：</p><ol><li>处理<code>HTML</code>标记数据并生成<code>DOM</code>树。</li><li>处理<code>CSS</code>标记数据并生成<code>CSSOM</code>树。</li><li>将<code>DOM</code>树与<code>CSSOM</code>树合并在一起生成渲染树</li><li>遍历渲染树开始布局，计算每个节点的位置信息。</li><li>将每个节点绘制到屏幕。</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> css </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> css布局 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>前端性能优化常用总结</title>
+      <link href="/2019/06/09/%E5%89%8D%E7%AB%AF%E9%A1%B5%E9%9D%A2%E4%BC%98%E5%8C%96/"/>
+      <url>/2019/06/09/%E5%89%8D%E7%AB%AF%E9%A1%B5%E9%9D%A2%E4%BC%98%E5%8C%96/</url>
+      
+        <content type="html"><![CDATA[<h2 id="网络方面"><a href="#网络方面" class="headerlink" title="网络方面"></a>网络方面</h2><p>web应用，总有一部分时间浪费在网络连接和资源下载上。往往建立一次网络连接是需要花费时间成本的，而浏览器同一时间发送的网络请求的数目总是有限的，所以，这个层面上的优化可以从<strong>减少请求数目</strong>开始</p><h3 id="减少请求数目"><a href="#减少请求数目" class="headerlink" title="减少请求数目"></a>减少请求数目</h3><ol><li>合并js文件</li><li>合并css文件</li><li>使用css sprite </li><li>对于一些小的图片使用base64来表示</li></ol><p>前两个可以通过webpack这种打包工具来进行打包，精灵图有专门的制作工具。webpack也有将图片转为base64的插件。</p><h3 id="减少资源体积"><a href="#减少资源体积" class="headerlink" title="减少资源体积"></a>减少资源体积</h3><ol><li>html文件压缩</li><li>js文件压缩</li><li>css文件压缩</li><li>图片压缩</li></ol><h3 id="优化缓存"><a href="#优化缓存" class="headerlink" title="优化缓存"></a>优化缓存</h3><ol><li>DNS缓存</li><li>CDN部署和缓存</li><li>http缓存</li></ol><p>由于浏览器会在DNS解析步骤中消耗一定的时间，所以对于一些高访问量都网站来说，做好DNS的缓存工作，会一定程度上提高网站效率。</p><p>CDN作为静态资源文件分发的网络，本身就已经提升了网站静态资源获取的速度，加快了网站的加载速度。</p><p>http缓存：给资源设定缓存时间，防止在有效的缓存时间内对资源进行重复下载，从而提升</p><h2 id="渲染和DOM操作方面"><a href="#渲染和DOM操作方面" class="headerlink" title="渲染和DOM操作方面"></a>渲染和DOM操作方面</h2><h3 id="优化网页渲染"><a href="#优化网页渲染" class="headerlink" title="优化网页渲染"></a>优化网页渲染</h3><ol><li>css文件放在头部，js文件放在尾部或者是异步加载</li><li>尽量避免内联样式。</li></ol><p>css文件放在头部加载，可以保证在解析DOM的同时，解析css文件。因为CSS会阻塞整个DOM的渲染，但是不会阻塞DOM的解析。所以将css文件放在头部进行解析，可以加快网页的构建速度。假设将其放在尾部，那时DOM树几乎构建，这时就得等到CSSOM树构建完成，才能够继续下面的步骤。</p><p>js放在尾部：js文件不同，将js文件放在尾部或者异步加载的原因是JS（外链或内联）会阻塞后续DOM的解析，后续DOM的渲染也将被阻塞，而且一旦js中遇到DOM元素的操作，很可能会影响。</p><h3 id="DOM操作的优化"><a href="#DOM操作的优化" class="headerlink" title="DOM操作的优化"></a>DOM操作的优化</h3><ol><li>尽量避免重排和重绘。</li><li>使用事件代理</li><li>函数防抖和函数节流</li></ol><h2 id="数据方面"><a href="#数据方面" class="headerlink" title="数据方面"></a>数据方面</h2><h3 id="图片加载处理"><a href="#图片加载处理" class="headerlink" title="图片加载处理"></a>图片加载处理</h3><ol><li>图片懒加载</li><li>图片预加载</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> JavaScript </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 性能优化 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Flex布局</title>
       <link href="/2019/06/08/flex%E5%B8%83%E5%B1%80/"/>
       <url>/2019/06/08/flex%E5%B8%83%E5%B1%80/</url>
@@ -783,31 +833,6 @@
     
     
     <entry>
-      <title>JavaScript运行机制</title>
-      <link href="/2019/04/11/EventLoop/"/>
-      <url>/2019/04/11/EventLoop/</url>
-      
-        <content type="html"><![CDATA[<h2 id="为什么JavaScript是单线程"><a href="#为什么JavaScript是单线程" class="headerlink" title="为什么JavaScript是单线程"></a>为什么JavaScript是单线程</h2><p>JavaScript的单线程，与它的用途有关，作为浏览器脚本语言，JavaScript的主要用途是为了与用户互动以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如：假定JavaScript同时又两个线程，一个线程在某个DOM节点上添加内容，一个线程要删除这个节点，这时，浏览器就不知道该以哪个线程为准。</p><h2 id="同步任务和异步任务"><a href="#同步任务和异步任务" class="headerlink" title="同步任务和异步任务"></a>同步任务和异步任务</h2><p>同步任务：在主线程上排队执行额任务，只有前一个任务执行完毕之后才能执行下一个任务。</p><p>异步任务：不进入主线程，而是进入任务队列的任务。</p><p><strong>注</strong>：除了放置异步任务的事件，任务队列还可以放置定时器任务。</p><h2 id="EventLoop"><a href="#EventLoop" class="headerlink" title="EventLoop"></a>EventLoop</h2><p>任务队列是一个事件的队列，主线程读取任务队列，就是读取里面的事件。</p><p>主线程从“任务队列”中读取事件，这种过程是循环不断的，所以整个过程的运行机制又称为EventLoop</p><p>不同的任务源会被分配到不同的Task队列中去，任务源又可以分为微任务(miscrotask)和宏任务(mascrotask)</p><p><img src="/2019/04/11/EventLoop/宏任务和微任务.PNG" alt></p><p>EventLoop循环过程如下：</p><ol><li>执行完同步代码，当所有同步代码均被执行完毕之后，执行栈清空，查询是否有异步代码</li><li>在macrotask队列中选择最早的那一个，如果没有可选的任务，就跳到下面的microtask队列中</li><li>将上面选中的macrotask设置为正在运行的task</li><li>运行被选中的task</li><li>运行完毕之后，将eventloop中的current running task设置为null</li><li>从task队列中移除前面运行的macrotask</li><li>执行所有在microtask队列里的任务。</li><li>更新渲染</li><li>返回到开始</li></ol><h3 id="另一理解"><a href="#另一理解" class="headerlink" title="另一理解"></a>另一理解</h3><ol><li>一段代码执行时先执行宏任务中的同步代码</li><li>如果遇到像setTimeOut这种宏任务就会把代码放置在宏任务队列中去</li><li>如果遇到promise.then这类任务会放置在微任务队列中。</li><li>在本轮宏任务执行完之后会依此执行本轮微任务队列中的所有代码，然后开始下一轮的宏任务代码。</li></ol><p><strong>注</strong>：await后面无论接的是同步代码还是异步代码都必须等他们执行完毕之后才能执行await结果后面的代码。</p><p><strong>注释</strong>：在遇见定时器后，会将定时器内的函数进行注册，也就是放在Event Table。然后在定时器设定的事件后将Event Table内注册的函数放入Event queue。如果主线程中的call stack为空就将Event queue按顺序放入call stack中进行执行，如果call stack并不为空，Event queue内的事件并不会进入call stack，也就不会执行。</p><p>在call stack中的内容执行完毕后清空，会在Event queue检查一下哪些任务时宏任务，哪些是微任务，然后执行所有的微任务，然后执行下一个宏任务，之后再次执行所有的微任务。也就是说在主线程任务执行完毕后会把任务队列里的微任务全部执行，然后再执行下一个宏任务，这个宏任务执行完再次检查队列内部的微任务，有就全部执行，没有就再执行一个宏任务。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> JavaScript </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> EventLoop </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>ES6异步操作</title>
       <link href="/2019/04/11/ES6%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C/"/>
       <url>/2019/04/11/ES6%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C/</url>
@@ -827,6 +852,31 @@
             <tag> ES6 </tag>
             
             <tag> async/await </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JavaScript运行机制</title>
+      <link href="/2019/04/11/EventLoop/"/>
+      <url>/2019/04/11/EventLoop/</url>
+      
+        <content type="html"><![CDATA[<h2 id="为什么JavaScript是单线程"><a href="#为什么JavaScript是单线程" class="headerlink" title="为什么JavaScript是单线程"></a>为什么JavaScript是单线程</h2><p>JavaScript的单线程，与它的用途有关，作为浏览器脚本语言，JavaScript的主要用途是为了与用户互动以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如：假定JavaScript同时又两个线程，一个线程在某个DOM节点上添加内容，一个线程要删除这个节点，这时，浏览器就不知道该以哪个线程为准。</p><h2 id="同步任务和异步任务"><a href="#同步任务和异步任务" class="headerlink" title="同步任务和异步任务"></a>同步任务和异步任务</h2><p>同步任务：在主线程上排队执行额任务，只有前一个任务执行完毕之后才能执行下一个任务。</p><p>异步任务：不进入主线程，而是进入任务队列的任务。</p><p><strong>注</strong>：除了放置异步任务的事件，任务队列还可以放置定时器任务。</p><h2 id="EventLoop"><a href="#EventLoop" class="headerlink" title="EventLoop"></a>EventLoop</h2><p>任务队列是一个事件的队列，主线程读取任务队列，就是读取里面的事件。</p><p>主线程从“任务队列”中读取事件，这种过程是循环不断的，所以整个过程的运行机制又称为EventLoop</p><p>不同的任务源会被分配到不同的Task队列中去，任务源又可以分为微任务(miscrotask)和宏任务(mascrotask)</p><p><img src="/2019/04/11/EventLoop/宏任务和微任务.PNG" alt></p><p>EventLoop循环过程如下：</p><ol><li>执行完同步代码，当所有同步代码均被执行完毕之后，执行栈清空，查询是否有异步代码</li><li>在macrotask队列中选择最早的那一个，如果没有可选的任务，就跳到下面的microtask队列中</li><li>将上面选中的macrotask设置为正在运行的task</li><li>运行被选中的task</li><li>运行完毕之后，将eventloop中的current running task设置为null</li><li>从task队列中移除前面运行的macrotask</li><li>执行所有在microtask队列里的任务。</li><li>更新渲染</li><li>返回到开始</li></ol><h3 id="另一理解"><a href="#另一理解" class="headerlink" title="另一理解"></a>另一理解</h3><ol><li>一段代码执行时先执行宏任务中的同步代码</li><li>如果遇到像setTimeOut这种宏任务就会把代码放置在宏任务队列中去</li><li>如果遇到promise.then这类任务会放置在微任务队列中。</li><li>在本轮宏任务执行完之后会依此执行本轮微任务队列中的所有代码，然后开始下一轮的宏任务代码。</li></ol><p><strong>注</strong>：await后面无论接的是同步代码还是异步代码都必须等他们执行完毕之后才能执行await结果后面的代码。</p><p><strong>注释</strong>：在遇见定时器后，会将定时器内的函数进行注册，也就是放在Event Table。然后在定时器设定的事件后将Event Table内注册的函数放入Event queue。如果主线程中的call stack为空就将Event queue按顺序放入call stack中进行执行，如果call stack并不为空，Event queue内的事件并不会进入call stack，也就不会执行。</p><p>在call stack中的内容执行完毕后清空，会在Event queue检查一下哪些任务时宏任务，哪些是微任务，然后执行所有的微任务，然后执行下一个宏任务，之后再次执行所有的微任务。也就是说在主线程任务执行完毕后会把任务队列里的微任务全部执行，然后再执行下一个宏任务，这个宏任务执行完再次检查队列内部的微任务，有就全部执行，没有就再执行一个宏任务。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> JavaScript </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> EventLoop </tag>
             
         </tags>
       
