@@ -5,9 +5,9 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="BFC, TomoFur">
-    <meta name="description" content="什么是BFCBFC(Block Formatting Context)：格式化上下文，是Web页面中盒模型布局的css渲染模式，指一个独立的渲染区域或者说是一个隔离的独立容器。它决定了其子元素如何定位，以及与其他元素的相互作用关系。
-BFC">
+    <meta name="keywords" content="DNS, TomoFur">
+    <meta name="description" content="域名系统(Domain Name System)是互联网使用的命名系统，用来把便于人们使用的机器名字转换为IP地址。
+域名服务器根域名服务器根域名服务器是最高层次的域名服务器，也是最重要的域名服务器。所有的根域名服务器都知道所有的顶级域名服">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +15,7 @@ BFC">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>BFC | TomoFur</title>
+    <title>DNS | TomoFur</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -241,13 +241,13 @@ BFC">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        BFC
+                        DNS
                     </div>
                 </div>
             </div>
@@ -358,8 +358,8 @@ BFC">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/css布局/" target="_blank">
-                                <span class="chip bg-color">css布局</span>
+                            <a href="/tags/DNS/" target="_blank">
+                                <span class="chip bg-color">DNS</span>
                             </a>
                         
                     </div>
@@ -370,8 +370,8 @@ BFC">
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/css/" class="post-category" target="_blank">
-                                css
+                            <a href="/categories/网络协议/" class="post-category" target="_blank">
+                                网络协议
                             </a>
                         
                     </div>
@@ -382,21 +382,21 @@ BFC">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-06-08
+                    2019-06-21
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        464
+                        1.3k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        4 分
                     </div>
                     
                 
@@ -407,25 +407,36 @@ BFC">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="什么是BFC"><a href="#什么是BFC" class="headerlink" title="什么是BFC"></a>什么是BFC</h2><p>BFC(Block Formatting Context)：格式化上下文，是Web页面中盒模型布局的css渲染模式，指一个独立的渲染区域或者说是一个隔离的独立容器。它决定了其子元素如何定位，以及与其他元素的相互作用关系。</p>
-<h2 id="BFC的生成"><a href="#BFC的生成" class="headerlink" title="BFC的生成"></a>BFC的生成</h2><p>满足下列CSS声明之一的元素就会生成BFC</p>
-<ol>
-<li>根元素或者其他包含它的元素</li>
-<li>float的值不为none</li>
-<li>overflow不为visible的值</li>
-<li>position为absolute或者fixed的</li>
-<li>display的值为inline-block，table-cell，table-caption</li>
-<li>元素的display为flex或者inline-flex</li>
+                <p><strong>域名系统(Domain Name System)</strong>是互联网使用的命名系统，用来把便于人们使用的机器名字转换为IP地址。</p>
+<h2 id="域名服务器"><a href="#域名服务器" class="headerlink" title="域名服务器"></a>域名服务器</h2><h3 id="根域名服务器"><a href="#根域名服务器" class="headerlink" title="根域名服务器"></a>根域名服务器</h3><p>根域名服务器是最高层次的域名服务器，也是最重要的域名服务器。所有的根域名服务器都知道所有的顶级域名服务器的域名和IP地址。<strong>不管哪个本地域名服务器，如果要对互联网上任何一个域名进行解析，只要自己无法解析，就首先要求助根域名服务器。</strong></p>
+<p>根域名服务器并不直接把待查询的域名直接转换成IP地址。而是告诉本地域名服务器下一步应当找哪一个顶级域名服务器进行查询。</p>
+<h3 id="顶级域名服务器"><a href="#顶级域名服务器" class="headerlink" title="顶级域名服务器"></a>顶级域名服务器</h3><p>这些域名服务器负责管理在该顶级域名服务器注册的所有二级域名。当收到DNS查询请求时，就给出相应的回答。(可能是最后的结果，也可能是下一步应当找的域名服务器的IP地址)。</p>
+<h3 id="本地域名服务器"><a href="#本地域名服务器" class="headerlink" title="本地域名服务器"></a>本地域名服务器</h3><p>当一台主机发出DNS查询请求时，这个查询请求报文就发送给本地域名服务器。</p>
+<p>主机向本地域名服务器查询一般都采用<strong>递归查询</strong>。所谓递归查询就是:如果主机所查询的本地域名服务器不知道被查询的域名的IP地址，那么本地域名服务器就以DNS客户的身份。向其他根域名服务器继续发出查询请求报文。而不是让该主机进行下一步查询。</p>
+<p>本地域名服务器向根域名服务器的查询一般时采用<strong>迭代查询</strong>。迭代查询的特点是：当根域名服务器收到本地域名服务器发出的迭代查询请求报文时，要么给出所查询的IP地址，要么告诉本地域名服务器下一步应当向哪一个域名服务器进行查询。然后让本地域名服务器进行后续查询。根域名服务器通常是把自己知道的顶级域名服务器的IP地址告诉本地域名服务器，让本地域名服务器再去向顶级域名服务器查询。顶级域名服务器在收到本地域名服务器的查询请求后，要么给出所有查询的IP地址，要么告诉本地域名服务器下一步应当向哪一个权限域名服务器进行查询。本地域名服务器就这样迭代查询。</p>
+<h3 id="浏览器解析DNS的过程"><a href="#浏览器解析DNS的过程" class="headerlink" title="浏览器解析DNS的过程"></a>浏览器解析DNS的过程</h3><ol>
+<li>浏览器首先会搜索自身的DNS缓存，(缓存时间较短，默认只有1min，而且只能存1000条缓存)</li>
+<li>如果浏览器自身缓存没有找到对应的条目，就会搜索操作系统自身的DNS缓存。</li>
+<li>如果在系统的DNS缓存也没有找到，就尝试读取<code>host</code>文件。看看这里面有没有该域名对应的IP地址。</li>
+<li>如果<code>host</code>文件也没有找到对应的条目，浏览器就发起一个DNS调用，请求本地域名服务器来解析这个域名。</li>
+<li>如果本地域名服务器没有命中，就直接向根域名服务器请求解析。</li>
+<li>根域名服务器返回给本地域名服务器一个所查询的顶级域名服务器。</li>
+<li>本地域名服务器再向上一步返回的顶级域名服务器发送请求。</li>
+<li>接收请求的顶级域名服务器查找并返回此域名对应的<code>Name Server</code>域名服务器的地址。这个<code>Name Server</code>通常就是用户注册的域名服务器。</li>
+<li><code>Name Server</code>域名服务器会查询存储的域名和IP的映射关系表。</li>
+<li>返回该域名对应的IP</li>
+<li>把解析结果返回给用户。</li>
 </ol>
-<h2 id="BFC的布局规则"><a href="#BFC的布局规则" class="headerlink" title="BFC的布局规则"></a>BFC的布局规则</h2><ol>
-<li>内部的元素会在垂直方向一个接一个的排列，可以理解为是BFC中的一个常规流</li>
-<li>元素垂直方向的距离由margin决定，即同属于一个BFC的两个相邻的盒子的margin可能会发生重叠</li>
-<li>每个元素的左外边距与包含块的左外边距相接触，即使存在浮动的情况下也是如此，这说明BFC的子元素不会超出它的包含块</li>
-<li>BFC区域不会与float元素区域重叠</li>
-<li>计算BFC高度的时候，浮动的子元素也参与计算.</li>
-<li>BFC就是页面上一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之亦然。</li>
+<h3 id="CDN解析过程"><a href="#CDN解析过程" class="headerlink" title="CDN解析过程"></a>CDN解析过程</h3><ol>
+<li>用户向本地域名服务器发起查询请求。</li>
+<li>本地域名服务器迭代向根域名服务器查询，逐级迭代。rootDNS–&gt;顶级DNS–&gt;权限DNS</li>
+<li>获得权限DNS之后，本地域名服务器向权限DNS发起域名解析请求。</li>
+<li>权限DNS通常会将域名CNAME到另一个域名，这个域名最终会被指向CDN网络中的智能DNS负载均衡系统。</li>
+<li>DNS负载均衡系统通过一些智能算法，将最合适的CDN节点IP返回给本地域名服务器。</li>
+<li>本地域名服务器将获得都IP地址返回给用户。</li>
+<li>用户得到节点都IP地址后，向该节点发起访问请求。</li>
+<li>CDN节点返回请求文件，如果该节点中请求的文件不存在，就会再回到源站获取这个文件，然后返回给用户。</li>
 </ol>
-<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><h3 id="解决margin塌陷"><a href="#解决margin塌陷" class="headerlink" title="解决margin塌陷"></a>解决margin塌陷</h3><h3 id="清除浮动问题"><a href="#清除浮动问题" class="headerlink" title="清除浮动问题"></a>清除浮动问题</h3><h3 id="解决侵占浮动元素的问题——-gt-两栏布局"><a href="#解决侵占浮动元素的问题——-gt-两栏布局" class="headerlink" title="解决侵占浮动元素的问题——-&gt;两栏布局"></a>解决侵占浮动元素的问题——-&gt;两栏布局</h3><p>浮动的元素会脱离文档流，然后覆盖在文档流元素上，当一个元素浮动，另外一个不浮动的时候，浮动的元素会因为脱离文档流而盖在不浮动的元素上。所以我们为非浮动元素建立BFC环境，根据BFC的不和float box重叠的规则，就会解决侵占元素问题。</p>
 
             </div>
             <hr>
@@ -573,7 +584,7 @@ BFC">
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">TomoFur</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/06/08/cssBFC/" class="b-link-green">BFC</a>
+                    <a href="/2019/06/21/DNS协议/" class="b-link-green">DNS</a>
                 </p>
             </div>
         </div>
@@ -618,40 +629,43 @@ BFC">
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/06/08/flex布局/">
+                <a href="/2019/06/21/DNS协议/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Flex布局">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="DNS">
                         
-                        <span class="card-title">Flex布局</span>
+                        <span class="card-title">DNS</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">概念flex布局是css3中新增加的一种布局方式，也叫做弹性盒子模型。用来为盒状模型提供最大的灵活性。Flex布局有两层，采用flex布局的元素称为flex容器，其子元素则自动成为flex item 即项目。flex内部的元素具有伸缩性,可</div>
+                    <div class="summary">域名系统(Domain Name System)是互联网使用的命名系统，用来把便于人们使用的机器名字转换为IP地址。
+域名服务器根域名服务器根域名服务器是最高层次的域名服务器，也是最重要的域名服务器。所有的根域名服务器都知道所有的顶级域名服</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/css/" class="post-category" target="_blank">
-                                    css
+                            <a href="/categories/网络协议/" class="post-category" target="_blank">
+                                    网络协议
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/css布局/" target="_blank">
-                        <span class="chip bg-color">css布局</span>
+                    <a href="/tags/DNS/" target="_blank">
+                        <span class="chip bg-color">DNS</span>
                     </a>
                     
                 </div>
@@ -665,29 +679,28 @@ BFC">
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/06/06/CSS控制前端图片HTTP请求的情况/">
+                <a href="/2019/06/12/当promise遇到Event Loop/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="CSS控制前端图片HTTP请求的情况">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="当promise遇到Event Loop">
                         
-                        <span class="card-title">CSS控制前端图片HTTP请求的情况</span>
+                        <span class="card-title">当promise遇到Event Loop</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">隐藏图片&lt;img src=&#39;xxx.jpg&#39; style=&#39;display:none&#39;&gt;
-结论：产生HTTP请求，此外使用visiblity：hidden的时候也会产生请求。
-重复图片&lt;im</div>
+                    <div class="summary">
+最近一段时间再复习Event loop的时候，遇到promise，以及混合着async/await！！！简直是要了我的小命。正当我一筹莫展之际，有幸读到一篇掘金社区上此类问题的文章：Eventloop不可怕，可怕的是遇上Promise顿时</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-06
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-12
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/css/" class="post-category" target="_blank">
-                                    css
+                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
+                                    JavaScript
                                 </a>
                             
                             
@@ -697,8 +710,8 @@ BFC">
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/css布局/" target="_blank">
-                        <span class="chip bg-color">css布局</span>
+                    <a href="/tags/EventLoop/" target="_blank">
+                        <span class="chip bg-color">EventLoop</span>
                     </a>
                     
                 </div>
