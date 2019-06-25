@@ -5,11 +5,10 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="virtual DOM及diff算法, TomoFur">
-    <meta name="description" content="什么是virtual dom？从本质上而言，Vdom只是一个用于描述DOM节点的原生JS对象，并且最少包括tag，props，和children三个属性，下面是一个经典的Vdom例子：
-{
-    tag: &#34;div&#34;,
-    props">
+    <meta name="keywords" content="Vue生命周期, TomoFur">
+    <meta name="description" content="Vue实例有一个完整的生命周期，也就是从开始创建，初始化数据，编译模板，挂载DOM,渲染–&amp;gt;更新–&amp;gt;渲染，销毁等一系列过程，也就是Vue实例从创建到销毁的过程，就是生命周期。
+
+创建阶段1.beforeCreate(){}//这">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>virtual DOM及diff算法 | TomoFur</title>
+    <title>Vue生命周期 | TomoFur</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -243,13 +242,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        virtual DOM及diff算法
+                        Vue生命周期
                     </div>
                 </div>
             </div>
@@ -364,14 +363,6 @@
                                 <span class="chip bg-color">vue</span>
                             </a>
                         
-                            <a href="/tags/diff算法/" target="_blank">
-                                <span class="chip bg-color">diff算法</span>
-                            </a>
-                        
-                            <a href="/tags/VDom/" target="_blank">
-                                <span class="chip bg-color">VDom</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -392,21 +383,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-04-22
+                    2019-06-25
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.4k
+                        554
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        5 分
+                        1 分
                     </div>
                     
                 
@@ -417,102 +408,19 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="什么是virtual-dom？"><a href="#什么是virtual-dom？" class="headerlink" title="什么是virtual dom？"></a>什么是virtual dom？</h2><p>从本质上而言，Vdom只是一个用于描述DOM节点的原生JS对象，并且最少包括tag，props，和children三个属性，下面是一个经典的Vdom例子：</p>
-<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
-    tag<span class="token operator">:</span> <span class="token string">"div"</span><span class="token punctuation">,</span>
-    props<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-    children<span class="token operator">:</span> <span class="token punctuation">[</span>
-        <span class="token string">"Hello World"</span><span class="token punctuation">,</span> 
-        <span class="token punctuation">{</span>
-            tag<span class="token operator">:</span> <span class="token string">"ul"</span><span class="token punctuation">,</span>
-            props<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-            children<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
-                tag<span class="token operator">:</span> <span class="token string">"li"</span><span class="token punctuation">,</span>
-                props<span class="token operator">:</span> <span class="token punctuation">{</span>
-                    id<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
-                    class<span class="token operator">:</span> <span class="token string">"li-1"</span>
-                <span class="token punctuation">}</span><span class="token punctuation">,</span>
-                children<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"第"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span>
-            <span class="token punctuation">}</span><span class="token punctuation">]</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">]</span>
-<span class="token punctuation">}</span>
+                <p>Vue实例有一个完整的生命周期，也就是从开始创建，初始化数据，编译模板，挂载DOM,渲染–&gt;更新–&gt;渲染，销毁等一系列过程，也就是Vue实例从创建到销毁的过程，就是生命周期。</p>
+<p><img src="/2019/06/25/Vue生命周期/lifecycle.png" alt></p>
+<h3 id="创建阶段"><a href="#创建阶段" class="headerlink" title="创建阶段"></a>创建阶段</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token number">1</span><span class="token punctuation">.</span><span class="token function">beforeCreate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">//这是一个vue实例的第一个生命周期函数，在这个阶段，vue实例上的data中的数据和methods中的方法都不可以使用。</span>
+<span class="token number">2</span><span class="token punctuation">.</span><span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">//这是一个vue实例的第二个生命周期函数，要想使用vue实例上的data中的数落和methods中的方法，最早只能够在此阶段。在这里更改数据不会触发updated函数。</span>
+<span class="token number">3</span><span class="token punctuation">.</span><span class="token function">beforemount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">//这是一个vue实例的第三个生命周期函数，在此阶段，已经在内存中生成了虚拟DOM树，但是尚未挂载到页面上，所以，此时页面上的元素中的数据还没有真正的替换过来，所以里面的内容还是之前写的插值表达式。</span>
+<span class="token number">4</span><span class="token punctuation">.</span><span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">//这是一个vue实例的第四个生命周期函数，也是vue实例创建阶段的最后一个生命函数，在这个阶段，模板已经挂载到了页面上，数据也进行了替换，不再是插值表达式。如果想要操作DOM元素，最早可在该阶段进行。</span>
 </code></pre>
-<p>Vdom和实际的dom对象有着意一一对应的关系，上述的Vdom就是由以下HTML生成的</p>
-<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
-    Hello World
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>li-1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-            第1
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
+<h3 id="运行阶段"><a href="#运行阶段" class="headerlink" title="运行阶段"></a>运行阶段</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token number">1</span><span class="token punctuation">.</span><span class="token function">beforeUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">//这是运行阶段的第一个生命周期函数，在vue实例中data中的数据发生改变的时候才会触发，但是，在这个阶段，虽然data中的数据已经改变，页面中的数据还是尚未改变的数据，此时，页面还没有同步新的数据。</span>
+<span class="token number">2</span><span class="token punctuation">.</span><span class="token function">updated</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">//但是，在这个阶段，data中的数据已经改变，页面中的数据已经改变，此时，页面已经同步新的数据。</span>
 </code></pre>
-<h2 id="当数据发生变化时，Vue如何更新节点？"><a href="#当数据发生变化时，Vue如何更新节点？" class="headerlink" title="当数据发生变化时，Vue如何更新节点？"></a>当数据发生变化时，Vue如何更新节点？</h2><p>渲染真实的DOM的开销是很庞大的，如果直接渲染到真实的DOM上会引起整个DOM树的重排重绘，通过diff算法来实现只更新一小块DOM而不更新整个DOM。首先，根据真实的DOM生成一颗Virtual DOM。当vitrual DOM的某个节点的数据发生变化的时候会生成一个新的VNode。(vue.js中采用createElement方法来创建Vnode)。然后Vnode和old vnode做对比，发现有不一样的地方就修改在真实的DOM上，然后使old Vnode的值为Vnode。</p>
-<p>diff算法的过程就是调用名为patch的函数，比较新旧节点，一边比较，一边给真实的节点打补丁。</p>
-<p><strong>注意</strong></p>
-<ol>
-<li>Vnode和old vnode都是对象</li>
-<li>在采用diff算法进行新旧节点比较的时候，比较只会在同一层级上比较，不会跨层级去比较。</li>
-</ol>
-<p>patch函数有两个参数，Vnode和old Vnode也就是新旧俩个虚拟节点，具体而言有两个步骤：</p>
-<ol>
-<li>判断两个节点是否值得比较，值得比较就调用patch vnode算法（此处调用的是sameVnode函数）</li>
-</ol>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> sameVnode <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token punctuation">(</span>
-        a<span class="token punctuation">.</span>key <span class="token operator">===</span> b<span class="token punctuation">.</span>key <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>
-            <span class="token punctuation">(</span>
-                a<span class="token punctuation">.</span>tag <span class="token operator">===</span> b<span class="token punctuation">.</span>tag <span class="token operator">&amp;&amp;</span>
-                a<span class="token punctuation">.</span>isComment <span class="token operator">===</span> b<span class="token punctuation">.</span>isComment <span class="token operator">&amp;&amp;</span>
-                <span class="token function">isDef</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>data<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token function">isDef</span><span class="token punctuation">(</span>b<span class="token punctuation">.</span>data<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
-                <span class="token function">sameInputType</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span>
-            <span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">(</span>
-                <span class="token function">isTrue</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>isAsyncPlaceholder<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
-                a<span class="token punctuation">.</span>asyncFactory <span class="token operator">===</span> b<span class="token punctuation">.</span>asyncFactory <span class="token operator">&amp;&amp;</span>
-                <span class="token function">isUndef</span><span class="token punctuation">(</span>b<span class="token punctuation">.</span>asyncFactory<span class="token punctuation">.</span>error<span class="token punctuation">)</span>
-            <span class="token punctuation">)</span>
-        <span class="token punctuation">)</span>
-    <span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-sameVnode的逻辑比较简单，如果两个vnode的key不相等，则是不等的，否则继续判断tag值，data等类型是否相等
+<h3 id="销毁阶段"><a href="#销毁阶段" class="headerlink" title="销毁阶段"></a>销毁阶段</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token number">1</span><span class="token punctuation">.</span><span class="token function">beforeDestory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">//在这个阶段，vue实例中的data中的数据和methods中的方法尚可以使用。</span>
+<span class="token number">2</span><span class="token punctuation">.</span><span class="token function">destoryed</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">//在这个阶段,vue实例已经被销毁了。解绑它的全部指令及事件监听器，并不会清除data的数据或者清除dom。</span>
 </code></pre>
-<ol>
-<li>不值得比较就直接用VNode替换掉old Vnode</li>
-</ol>
-<p>patchVnode做的事情：</p>
-<ol>
-<li>找到old vnode对应的真实Vdom，称为el</li>
-<li>如果oldVnode===vnode，他们的引用一致，可以认为没有变化，则直接return</li>
-<li>如果两者都有文本节点，且文本节点不相等，则将el的文本节点设置为vnode的文本节点</li>
-<li>如果新节点有子节点而oldnode没有子节点，则将vnode的子节点真实化后添加到el上</li>
-<li>如果新节点没有子节点而oldnode有子节点，则将el的子节点删除掉</li>
-<li>如果两者都有子节点，则调用updatechildren函数比较子节点。</li>
-</ol>
-<p>updateChildren函数的作用</p>
-<ol>
-<li>处理头部的同类型节点：即oldStart和newStart指向同类节点的情况。—-&gt;将oldStart和newStart向后移动一位</li>
-<li>处理尾部的同类型节点：即oldEnd和newEnd指向同类节点的情况。—-&gt;将oldEnd和newEnd向前移动一位。</li>
-<li>处理头尾/尾头的同类型节点：即oldStart和newEnd以及oldEnd和newStart指向同类节点的情况。</li>
-</ol>
-<p><img src="/2019/04/22/vdom/0.png" alt></p>
-<p>节点2后移到oldEnd指向的节点（节点9）的后面，移动后标记该节点，并将oldstart后移一位，newEnd前移一位，变为：</p>
-<p><img src="/2019/04/22/vdom/1.png" alt></p>
-<p>同样地，节点9也是类似的处理，处理完之后成了下面这样</p>
-<p><img src="/2019/04/22/vdom/3.png" alt></p>
-<p>newStart来到了节点11的位置，在oldVdom中找不到节点11，说明它是新增的。那么就创建一个新的节点，插入DOM树，插到什么位置？插到oldStart指向的节点（即节点3）前面，然后将newStart后移1位标记为已处理（注意oldVdom中没有节点11，所以标记过程中它的指针不需要移动），处理之后如下图</p>
-<p><img src="/2019/04/22/vdom/4.png" alt></p>
-<p>处理更新的节点：</p>
-<p>经过第（4）步之后，newStart来到了节点7的位置，在oldVdom中能找到它而且不在指针位置（<strong>查找oldVdom中oldStart到oldEnd区间内的节点</strong>），说明它的位置移动了，那么需要在DOM树中移动它，移到哪里？移到oldStart指向的节点（即节点3）前面。<strong>与此同时将节点标记为已处理</strong>    </p>
-<p><img src="/2019/04/22/vdom/6.png" alt></p>
-<p>处理之后就成了下面这样：</p>
-<p><img src="/2019/04/22/vdom/7.png" alt></p>
-<p>处理需要删除的节点：</p>
-<p>经过前面处理之后，newStart跨过了newEnd，它们相遇啦！而这个时候，oldStart和oldEnd还没有相遇，说明这2个指针之间的节点（包括它们指向的节点，即上图中的节点7、节点8）是此次更新中被删掉的节点。</p>
-<p>OK，那我们在DOM树中将它们删除，<strong>再回到前面我们对节点7做了标记，为什么标记是必需的？标记的目的是告诉Vue它已经处理过了，是需要出现在新DOM中的节点，不要删除它，所以在这里只需删除节点8。</strong></p>
-<p><strong>在应用中也可能会遇到oldVdom的起止点相遇了，但是newVdom的起止点没有相遇的情况，这个时候需要对newVdom中的未处理节点进行处理，这类节点属于更新中被加入的节点，需要将他们插入到DOM树中。</strong></p>
-<p><img src="/2019/04/22/vdom/10.png" alt></p>
-<h2 id="key的作用"><a href="#key的作用" class="headerlink" title="key的作用"></a>key的作用</h2><p>key的作用是给每个节点做一个唯一标识，从而在diff算法执行时更快的找到对应的节点，提高diff速度。</p>
-<p>在交叉对比的时候，当新节点跟旧节点头尾交叉对比没有结果的时候，会根据新节点的key去对比旧节点数组中的key，从而找到相应的旧节点，如果没找到就认为是新增加一个节点，而如果没有key，就会采用遍历查找的方式去找对应的旧节点。</p>
 
             </div>
             <hr>
@@ -660,7 +568,7 @@ sameVnode的逻辑比较简单，如果两个vnode的key不相等，则是不等
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">TomoFur</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/04/22/vdom/" class="b-link-green">virtual DOM及diff算法</a>
+                    <a href="/2019/06/25/Vue生命周期/" class="b-link-green">Vue生命周期</a>
                 </p>
             </div>
         </div>
@@ -705,44 +613,44 @@ sameVnode的逻辑比较简单，如果两个vnode的key不相等，则是不等
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/04/26/AMD/">
+                <a href="/2019/06/25/Vue生命周期/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="AMD/CMD和CommonJS的区别">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Vue生命周期">
                         
-                        <span class="card-title">AMD/CMD和CommonJS的区别</span>
+                        <span class="card-title">Vue生命周期</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">
-commonjs是用在服务器端的，是同步的，如node.js
-amd,cmd是用在浏览器端的，是异步的。其中amd先提出来，cmd是根据commonjs和amd的基础上提出来的。
+                    <div class="summary">Vue实例有一个完整的生命周期，也就是从开始创建，初始化数据，编译模板，挂载DOM,渲染–&gt;更新–&gt;渲染，销毁等一系列过程，也就是Vue实例从创建到销毁的过程，就是生命周期。
 
-commonjsCommonjs是服务器端的模块规范，N</div>
+创建阶段1.beforeCreate(){}//这</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-26
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                    JavaScript
+                            <a href="/categories/VUE/" class="post-category" target="_blank">
+                                    VUE
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/模块化开发/" target="_blank">
-                        <span class="chip bg-color">模块化开发</span>
+                    <a href="/tags/vue/" target="_blank">
+                        <span class="chip bg-color">vue</span>
                     </a>
                     
                 </div>
@@ -756,27 +664,30 @@ commonjsCommonjs是服务器端的模块规范，N</div>
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/04/11/ES6异步操作/">
+                <a href="/2019/06/24/消除浮动/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="ES6异步操作">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="消除浮动">
                         
-                        <span class="card-title">ES6异步操作</span>
+                        <span class="card-title">消除浮动</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">异步操作async/awaitasync函数返回的是一个promise对象，如果在函数中return一个直接量，saync会把这个直接量通过Promise.resolve()封装成一个Promise对象。，如果async函数没有返回值，就会</div>
+                    <div class="summary">当父盒子没有定义高度，嵌套的盒子浮动之后，下边的元素的位置会发生错误。因此要消除由于浮动而产生的不利影响。
+额外标签法在最后一个浮动元素后面添加标签
+&lt;div class='content'>
+    &lt;div class='c</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-11
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-24
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                    JavaScript
+                            <a href="/categories/css/" class="post-category" target="_blank">
+                                    css
                                 </a>
                             
                             
@@ -786,12 +697,8 @@ commonjsCommonjs是服务器端的模块规范，N</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ES6/" target="_blank">
-                        <span class="chip bg-color">ES6</span>
-                    </a>
-                    
-                    <a href="/tags/async-await/" target="_blank">
-                        <span class="chip bg-color">async/await</span>
+                    <a href="/tags/css布局/" target="_blank">
+                        <span class="chip bg-color">css布局</span>
                     </a>
                     
                 </div>
