@@ -390,7 +390,7 @@ webpack安装：推荐在项目内本地安装，不推荐使用全局安装。
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        3.5k
+                        3.6k
                     </div>
                     
 
@@ -593,6 +593,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <li>安装相应的插件<code>npm install clean-webpack-plugin -D</code></li>
 <li>修改配置文件，添加相应的plugin</li>
 </ol>
+<p><strong>注意</strong>：<br>每一次打包的结果中的hash值是随着打包源文件变化而变化的。如果要打包的源文件没有发生变化，那么打包结果的hash值也就不会有变化。但是实际上确实每一次都是删除了dist目录下的文件重新生成新的一份打包文件的。</p>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> <span class="token punctuation">{</span>CleanWebpackPlugin<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'clean-webpack-plugin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
     plugins<span class="token punctuation">:</span><span class="token punctuation">[</span>
