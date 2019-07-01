@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>类型转换</title>
+      <link href="/2019/07/01/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/"/>
+      <url>/2019/07/01/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>这个知识点还是有一些繁琐。需要认真理解并记忆</p></blockquote><h2 id="ToString"><a href="#ToString" class="headerlink" title="ToString"></a>ToString</h2><p>ToString负责处理非字符串到字符串啊的强制类型转换</p><ol><li><p><strong>基本类型的值转换为字符串</strong></p><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">null</span> 转化为<span class="token string">'null'</span>undefined 转化为<span class="token string">'undefined'</span><span class="token boolean">true</span> 转化为<span class="token string">'true'</span>数字的字符串转化规则遵守通用规则</code></pre></li><li><p>对于普通对象来说，如果没有自定义toString()方法，则返回<code>[object Object]</code>,如果有自己的toSting方法，就会调用该方法并返回值</p></li><li><p>数组的toString()返回所有单元字符串化后用’,’连接起来。</p><pre class=" language-javascript"><code class="language-javascript"><span class="token punctuation">[</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//结果为'a,b,c'</span></code></pre></li></ol><h2 id="ToNumber"><a href="#ToNumber" class="headerlink" title="ToNumber"></a>ToNumber</h2><ol><li><p>基本类型的值转化为数字</p><pre class=" language-JavaScript"><code class="language-JavaScript">null 转化为0undefined 转化为 NaNtrue 转化为1，false转化为 0字符串的处理遵循通用规则</code></pre></li><li><p>对象或数组首先会被转化为响应的基本类型，如果返回的是非数字的基本类型，再按照以上规则进行转换，其中对象转换为基本类型时会使用ToPrimitive操作。</p></li></ol><h2 id="ToPrimitive"><a href="#ToPrimitive" class="headerlink" title="ToPrimitive"></a>ToPrimitive</h2><p>ToPrimitive操作会首先检查对象是否有valueOf()方法，如果有并且<strong>返回基本类型的值</strong>，就调用该方法进行类型转换，如果没有就使用toSting类型的返回的值。</p><p>如果valueOf()和toString均不返回基本类型的值，就会产生TypeError错误</p><p>如果没有对对象的valueOf()和toString()方法重写，那么：</p><p>对象的valueOf()返回对象本身，toString()返回<code>[object Object]</code></p><p>数组的valueOf()返回数组本身，toSring()返回所有单元字符串化以后再用’,’连接。</p><h2 id="ToBoolean"><a href="#ToBoolean" class="headerlink" title="ToBoolean"></a>ToBoolean</h2><ol><li><code>null</code>转为<code>false</code></li><li><code>undefined</code>转为<code>false</code></li><li>除了<code>&#39;&#39;</code>以外都转为<code>true</code></li><li>除了<code>0</code>和<code>NaN</code>以外都转为<code>true</code></li><li>所有对象都转为<code>true</code></li></ol><h2 id="隐式类型转换"><a href="#隐式类型转换" class="headerlink" title="隐式类型转换"></a>隐式类型转换</h2><h3 id="字符串和数字之间的隐式类型转换"><a href="#字符串和数字之间的隐式类型转换" class="headerlink" title="字符串和数字之间的隐式类型转换"></a>字符串和数字之间的隐式类型转换</h3><h4 id="数字转为字符串"><a href="#数字转为字符串" class="headerlink" title="数字转为字符串"></a>数字转为字符串</h4><p><code>+</code>运算符即能够用于数字相加，也可以用于字符串拼接，简单理解应当是<strong>如果<code>+</code>运算符的操作数其中一个是字符串或者可以通过ToPrimitive(针对对象，也包括数组)转为字符串的则执行字符串的拼接，负责执行数字相加</strong></p><h4 id="字符串转化为数字"><a href="#字符串转化为数字" class="headerlink" title="字符串转化为数字"></a>字符串转化为数字</h4><p><code>-</code>,<code>*</code>,<code>/</code>都可以用来将字符串转化为数字，其规则和+相似。</p><h3 id="隐式类型转化为布尔值"><a href="#隐式类型转化为布尔值" class="headerlink" title="隐式类型转化为布尔值"></a>隐式类型转化为布尔值</h3><p>以下几种情况会发生隐式类型转换为布尔值</p><ol><li><code>if()</code>条件判断语句</li><li><code>for()</code>中的条件判断语句</li><li><code>while()</code>和<code>do...while()</code>中的条件判断语句</li><li><code>?:</code>三目运算符中的条件判断语句</li><li>逻辑运算符<code>||</code>和<code>&amp;&amp;</code>左边的操作数</li></ol><h3 id="和-amp-amp"><a href="#和-amp-amp" class="headerlink" title="||和&amp;&amp;"></a>||和&amp;&amp;</h3><p><code>&amp;&amp;</code>和<code>||</code>运算符并不一定返回布尔值，他实际返回的是两个操作数中的一个的值</p><p><code>&amp;&amp;</code>和<code>||</code>首先对第一个操作数进行条件判断，如果第一个操作数不是布尔类型的值，则会被转为布尔类型的值，再进行下面的判断</p><p>对于<code>||</code>而言，如果第一个操作数条件判断结果为true，则返回第一个操作数，否则，返回第二个操作数</p><p>对于<code>&amp;&amp;</code>而言，如果第一个操作数条件判断结果为false，则反返回第一个操作数，否则，返回第二个操作数。</p><h2 id="强制类型转换：-和"><a href="#强制类型转换：-和" class="headerlink" title="强制类型转换：==和==="></a>强制类型转换：<code>==</code>和<code>===</code></h2><p>正确理解：<code>==</code>允许在相等比较中进行强制类型转换，而<code>===</code>不允许</p><ol><li><strong>字符串和数字之间的相等比较：将字符串转换为数字进行相等比较</strong></li><li><strong>其他类型与布尔值之间的相等比较：将布尔值转换为数字进行比较</strong></li><li>对象和非对象之间的相等比较：<ol><li>如果x是数字或者字符串，y是对象，则返回 <code>x==ToPrimitive(y)</code></li><li>如果x是对象，y是字符串或者数字，则返回<code>ToPrimitive(x)==y</code></li></ol></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> JavaScript </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ES5基础知识 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>webpack学习---基础配置篇</title>
       <link href="/2019/06/27/webpack%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0---%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%E7%AF%87/"/>
       <url>/2019/06/27/webpack%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0---%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%E7%AF%87/</url>
@@ -883,31 +908,6 @@
     
     
     <entry>
-      <title>JavaScript运行机制</title>
-      <link href="/2019/04/11/EventLoop/"/>
-      <url>/2019/04/11/EventLoop/</url>
-      
-        <content type="html"><![CDATA[<h2 id="为什么JavaScript是单线程"><a href="#为什么JavaScript是单线程" class="headerlink" title="为什么JavaScript是单线程"></a>为什么JavaScript是单线程</h2><p>JavaScript的单线程，与它的用途有关，作为浏览器脚本语言，JavaScript的主要用途是为了与用户互动以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如：假定JavaScript同时又两个线程，一个线程在某个DOM节点上添加内容，一个线程要删除这个节点，这时，浏览器就不知道该以哪个线程为准。</p><h2 id="同步任务和异步任务"><a href="#同步任务和异步任务" class="headerlink" title="同步任务和异步任务"></a>同步任务和异步任务</h2><p>同步任务：在主线程上排队执行额任务，只有前一个任务执行完毕之后才能执行下一个任务。</p><p>异步任务：不进入主线程，而是进入任务队列的任务。</p><p><strong>注</strong>：除了放置异步任务的事件，任务队列还可以放置定时器任务。</p><h2 id="EventLoop"><a href="#EventLoop" class="headerlink" title="EventLoop"></a>EventLoop</h2><p>任务队列是一个事件的队列，主线程读取任务队列，就是读取里面的事件。</p><p>主线程从“任务队列”中读取事件，这种过程是循环不断的，所以整个过程的运行机制又称为EventLoop</p><p>不同的任务源会被分配到不同的Task队列中去，任务源又可以分为微任务(miscrotask)和宏任务(mascrotask)</p><p><img src="/2019/04/11/EventLoop/宏任务和微任务.PNG" alt></p><p>EventLoop循环过程如下：</p><ol><li>执行完同步代码，当所有同步代码均被执行完毕之后，执行栈清空，查询是否有异步代码</li><li>在macrotask队列中选择最早的那一个，如果没有可选的任务，就跳到下面的microtask队列中</li><li>将上面选中的macrotask设置为正在运行的task</li><li>运行被选中的task</li><li>运行完毕之后，将eventloop中的current running task设置为null</li><li>从task队列中移除前面运行的macrotask</li><li>执行所有在microtask队列里的任务。</li><li>更新渲染</li><li>返回到开始</li></ol><h3 id="另一理解"><a href="#另一理解" class="headerlink" title="另一理解"></a>另一理解</h3><ol><li>一段代码执行时先执行宏任务中的同步代码</li><li>如果遇到像setTimeOut这种宏任务就会把代码放置在宏任务队列中去</li><li>如果遇到promise.then这类任务会放置在微任务队列中。</li><li>在本轮宏任务执行完之后会依此执行本轮微任务队列中的所有代码，然后开始下一轮的宏任务代码。</li></ol><p><strong>注</strong>：await后面无论接的是同步代码还是异步代码都必须等他们执行完毕之后才能执行await结果后面的代码。</p><p><strong>注释</strong>：在遇见定时器后，会将定时器内的函数进行注册，也就是放在Event Table。然后在定时器设定的事件后将Event Table内注册的函数放入Event queue。如果主线程中的call stack为空就将Event queue按顺序放入call stack中进行执行，如果call stack并不为空，Event queue内的事件并不会进入call stack，也就不会执行。</p><p>在call stack中的内容执行完毕后清空，会在Event queue检查一下哪些任务时宏任务，哪些是微任务，然后执行所有的微任务，然后执行下一个宏任务，之后再次执行所有的微任务。也就是说在主线程任务执行完毕后会把任务队列里的微任务全部执行，然后再执行下一个宏任务，这个宏任务执行完再次检查队列内部的微任务，有就全部执行，没有就再执行一个宏任务。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> JavaScript </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> EventLoop </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>ES6异步操作</title>
       <link href="/2019/04/11/ES6%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C/"/>
       <url>/2019/04/11/ES6%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C/</url>
@@ -927,6 +927,31 @@
             <tag> ES6 </tag>
             
             <tag> async/await </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JavaScript运行机制</title>
+      <link href="/2019/04/11/EventLoop/"/>
+      <url>/2019/04/11/EventLoop/</url>
+      
+        <content type="html"><![CDATA[<h2 id="为什么JavaScript是单线程"><a href="#为什么JavaScript是单线程" class="headerlink" title="为什么JavaScript是单线程"></a>为什么JavaScript是单线程</h2><p>JavaScript的单线程，与它的用途有关，作为浏览器脚本语言，JavaScript的主要用途是为了与用户互动以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如：假定JavaScript同时又两个线程，一个线程在某个DOM节点上添加内容，一个线程要删除这个节点，这时，浏览器就不知道该以哪个线程为准。</p><h2 id="同步任务和异步任务"><a href="#同步任务和异步任务" class="headerlink" title="同步任务和异步任务"></a>同步任务和异步任务</h2><p>同步任务：在主线程上排队执行额任务，只有前一个任务执行完毕之后才能执行下一个任务。</p><p>异步任务：不进入主线程，而是进入任务队列的任务。</p><p><strong>注</strong>：除了放置异步任务的事件，任务队列还可以放置定时器任务。</p><h2 id="EventLoop"><a href="#EventLoop" class="headerlink" title="EventLoop"></a>EventLoop</h2><p>任务队列是一个事件的队列，主线程读取任务队列，就是读取里面的事件。</p><p>主线程从“任务队列”中读取事件，这种过程是循环不断的，所以整个过程的运行机制又称为EventLoop</p><p>不同的任务源会被分配到不同的Task队列中去，任务源又可以分为微任务(miscrotask)和宏任务(mascrotask)</p><p><img src="/2019/04/11/EventLoop/宏任务和微任务.PNG" alt></p><p>EventLoop循环过程如下：</p><ol><li>执行完同步代码，当所有同步代码均被执行完毕之后，执行栈清空，查询是否有异步代码</li><li>在macrotask队列中选择最早的那一个，如果没有可选的任务，就跳到下面的microtask队列中</li><li>将上面选中的macrotask设置为正在运行的task</li><li>运行被选中的task</li><li>运行完毕之后，将eventloop中的current running task设置为null</li><li>从task队列中移除前面运行的macrotask</li><li>执行所有在microtask队列里的任务。</li><li>更新渲染</li><li>返回到开始</li></ol><h3 id="另一理解"><a href="#另一理解" class="headerlink" title="另一理解"></a>另一理解</h3><ol><li>一段代码执行时先执行宏任务中的同步代码</li><li>如果遇到像setTimeOut这种宏任务就会把代码放置在宏任务队列中去</li><li>如果遇到promise.then这类任务会放置在微任务队列中。</li><li>在本轮宏任务执行完之后会依此执行本轮微任务队列中的所有代码，然后开始下一轮的宏任务代码。</li></ol><p><strong>注</strong>：await后面无论接的是同步代码还是异步代码都必须等他们执行完毕之后才能执行await结果后面的代码。</p><p><strong>注释</strong>：在遇见定时器后，会将定时器内的函数进行注册，也就是放在Event Table。然后在定时器设定的事件后将Event Table内注册的函数放入Event queue。如果主线程中的call stack为空就将Event queue按顺序放入call stack中进行执行，如果call stack并不为空，Event queue内的事件并不会进入call stack，也就不会执行。</p><p>在call stack中的内容执行完毕后清空，会在Event queue检查一下哪些任务时宏任务，哪些是微任务，然后执行所有的微任务，然后执行下一个宏任务，之后再次执行所有的微任务。也就是说在主线程任务执行完毕后会把任务队列里的微任务全部执行，然后再执行下一个宏任务，这个宏任务执行完再次检查队列内部的微任务，有就全部执行，没有就再执行一个宏任务。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> JavaScript </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> EventLoop </tag>
             
         </tags>
       

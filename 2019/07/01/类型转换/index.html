@@ -5,26 +5,16 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="CSS中的各种单位, TomoFur">
+    <meta name="keywords" content="类型转换, TomoFur">
     <meta name="description" content="
+这个知识点还是有一些繁琐。需要认真理解并记忆
 
+ToStringToString负责处理非字符串到字符串啊的强制类型转换
 
-单位
-解释
-
-
-
-
-px
-绝对单位，页面按照精确像素显示。
-
-
-em
-相对单位，基准点为父节点字体的大小，如果自身定义了font-size，则以自身字体大小来计算 。
-
-
-rem
-相对单位，可以理解为root em，根据页面根节点HT">
+基本类型的值转换为字符串
+null 转化为&#39;null&#39;
+undefined 转化为&#39;undefined&#39;
+true">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -32,7 +22,7 @@ rem
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>CSS中的各种单位 | TomoFur</title>
+    <title>类型转换 | TomoFur</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -258,13 +248,13 @@ rem
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        CSS中的各种单位
+                        类型转换
                     </div>
                 </div>
             </div>
@@ -375,8 +365,8 @@ rem
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/css布局/" target="_blank">
-                                <span class="chip bg-color">css布局</span>
+                            <a href="/tags/ES5基础知识/" target="_blank">
+                                <span class="chip bg-color">ES5基础知识</span>
                             </a>
                         
                     </div>
@@ -387,8 +377,8 @@ rem
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/css/" class="post-category" target="_blank">
-                                css
+                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
+                                JavaScript
                             </a>
                         
                     </div>
@@ -399,21 +389,21 @@ rem
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-06-06
+                    2019-07-01
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        683
+                        971
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        3 分
                     </div>
                     
                 
@@ -424,104 +414,72 @@ rem
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <table>
-<thead>
-<tr>
-<th style="text-align:center">单位</th>
-<th style="text-align:center">解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">px</td>
-<td style="text-align:center">绝对单位，页面按照精确像素显示。</td>
-</tr>
-<tr>
-<td style="text-align:center">em</td>
-<td style="text-align:center">相对单位，基准点为父节点字体的大小，如果自身定义了font-size，则以自身字体大小来计算 。</td>
-</tr>
-<tr>
-<td style="text-align:center">rem</td>
-<td style="text-align:center">相对单位，可以理解为root em，根据页面根节点HTML的字体大小来计算。</td>
-</tr>
-<tr>
-<td style="text-align:center">vw</td>
-<td style="text-align:center">viewpoint width 视窗宽度，1vw等于视窗宽度的1%。</td>
-</tr>
-<tr>
-<td style="text-align:center">vh</td>
-<td style="text-align:center">viewpoint height 视窗高度，1wh等于视窗高度的1%。</td>
-</tr>
-<tr>
-<td style="text-align:center">vmin</td>
-<td style="text-align:center">vh和vw中较小的一个。</td>
-</tr>
-<tr>
-<td style="text-align:center">vmax</td>
-<td style="text-align:center">vh和vw中较大的一个。</td>
-</tr>
-<tr>
-<td style="text-align:center">%</td>
-<td style="text-align:center">百分比。</td>
-</tr>
-<tr>
-<td style="text-align:center">in</td>
-<td style="text-align:center">寸。</td>
-</tr>
-<tr>
-<td style="text-align:center">cm</td>
-<td style="text-align:center">厘米。</td>
-</tr>
-<tr>
-<td style="text-align:center">mm</td>
-<td style="text-align:center">毫米。</td>
-</tr>
-<tr>
-<td style="text-align:center">pt</td>
-<td style="text-align:center">point 大约1/72寸。</td>
-</tr>
-<tr>
-<td style="text-align:center">ex</td>
-<td style="text-align:center">取当前作用效果的字体的x字符的高度，在无法确定的情况下为0.5em。</td>
-</tr>
-<tr>
-<td style="text-align:center">ch</td>
-<td style="text-align:center">取当前作用效果的字体的0字符的高度，在无法确定的情况下为0.5em。</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><strong>em作为font-size的单位时，其代表父元素的字体大小，em作为其他属性单位时，代表自身字体大小</strong></p>
+                <blockquote>
+<p>这个知识点还是有一些繁琐。需要认真理解并记忆</p>
 </blockquote>
-<pre class=" language-javascript"><code class="language-javascript">  <span class="token punctuation">.</span>p1 <span class="token punctuation">{</span>font<span class="token operator">-</span>size<span class="token punctuation">:</span> 16px<span class="token punctuation">;</span> line<span class="token operator">-</span>height<span class="token punctuation">:</span> 32px<span class="token punctuation">;</span><span class="token punctuation">}</span>
-  <span class="token punctuation">.</span>s1 <span class="token punctuation">{</span>font<span class="token operator">-</span>size<span class="token punctuation">:</span> 2em<span class="token punctuation">;</span><span class="token punctuation">}</span>
-  <span class="token punctuation">.</span>s2 <span class="token punctuation">{</span>font<span class="token operator">-</span>size<span class="token punctuation">:</span> 2em<span class="token punctuation">;</span> line<span class="token operator">-</span>height<span class="token punctuation">:</span> 2em<span class="token punctuation">;</span><span class="token punctuation">}</span>
-
-  <span class="token punctuation">.</span>p2 <span class="token punctuation">{</span>font<span class="token operator">-</span>size<span class="token punctuation">:</span> 16px<span class="token punctuation">;</span> line<span class="token operator">-</span>height<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
-  <span class="token punctuation">.</span>s5 <span class="token punctuation">{</span>font<span class="token operator">-</span>size<span class="token punctuation">:</span> 2em<span class="token punctuation">;</span><span class="token punctuation">}</span>
-  <span class="token punctuation">.</span>s6 <span class="token punctuation">{</span>font<span class="token operator">-</span>size<span class="token punctuation">:</span> 2em<span class="token punctuation">;</span> line<span class="token operator">-</span>height<span class="token punctuation">:</span> 2em<span class="token punctuation">;</span><span class="token punctuation">}</span>
-
-    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"p1"</span><span class="token operator">></span>
-       <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"s1"</span><span class="token operator">></span><span class="token number">1</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-       <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"s2"</span><span class="token operator">></span><span class="token number">1</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"p2"</span><span class="token operator">></span>
-       <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"s5"</span><span class="token operator">></span><span class="token number">1</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-       <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"s6"</span><span class="token operator">></span><span class="token number">1</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-
-<span class="token comment" spellcheck="true">//此时s1的字体大小为32px,行高由于自身没有设置，所以是从父元素继承，所以也是32px</span>
-<span class="token comment" spellcheck="true">//s2的字体大小为32px，行高设置为2em，因为自身有设置字体，所以行高是针对自身的字体高度，所以行高是64px</span>
-
-<span class="token comment" spellcheck="true">//s5的字体是32px，因为行高是继承而来的，即line-height:2;所以实际行高是32*2 = 64px</span>
-<span class="token comment" spellcheck="true">//s6的字体是32px,行高是2em，所以是2*32 = 64px。</span>
+<h2 id="ToString"><a href="#ToString" class="headerlink" title="ToString"></a>ToString</h2><p>ToString负责处理非字符串到字符串啊的强制类型转换</p>
+<ol>
+<li><p><strong>基本类型的值转换为字符串</strong></p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">null</span> 转化为<span class="token string">'null'</span>
+undefined 转化为<span class="token string">'undefined'</span>
+<span class="token boolean">true</span> 转化为<span class="token string">'true'</span>
+数字的字符串转化规则遵守通用规则
 </code></pre>
-<h2 id="rem布局原理"><a href="#rem布局原理" class="headerlink" title="rem布局原理"></a>rem布局原理</h2><p>rem布局的本质是等比缩放，一般是基于宽度的。假设我们将屏幕宽度平均分成100份，每一份的宽度用x表示,即x=屏幕宽度/100，如果将x作为单位，x前面的数值就代表屏幕宽度的百分比。</p>
-<p>如果想要页面元素随着屏幕宽度等比例变化，我们需要上面所讲的x单位，通过css中的rem，可以实现这个x。</p>
-<p>如何让html字体大小一直等于屏幕宽度的百分之一呢？可以通过js来设置，一般需要在dom ready，resize和屏幕旋转中设置。</p>
-<pre class=" language-javascript"><code class="language-javascript">document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>style<span class="token punctuation">.</span>fontSize <span class="token operator">=</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>clientWidth <span class="token operator">/</span> <span class="token number">100</span> <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span> 
+</li>
+<li><p>对于普通对象来说，如果没有自定义toString()方法，则返回<code>[object Object]</code>,如果有自己的toSting方法，就会调用该方法并返回值</p>
+</li>
+<li><p>数组的toString()返回所有单元字符串化后用’,’连接起来。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token punctuation">[</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//结果为'a,b,c'</span>
 </code></pre>
-<p>那么如何把UE图中获取的像素单位转化为以rem为单位的值？公式是<code>（元素宽度/UE图宽度）*100</code>.假设UE图尺寸是640px,UE图中的一个元素宽度是100px,根据公式（100/640）*100=15.625。</p>
+</li>
+</ol>
+<h2 id="ToNumber"><a href="#ToNumber" class="headerlink" title="ToNumber"></a>ToNumber</h2><ol>
+<li><p>基本类型的值转化为数字</p>
+<pre class=" language-JavaScript"><code class="language-JavaScript">null 转化为0
+undefined 转化为 NaN
+true 转化为1，false转化为 0
+字符串的处理遵循通用规则
+</code></pre>
+</li>
+<li><p>对象或数组首先会被转化为响应的基本类型，如果返回的是非数字的基本类型，再按照以上规则进行转换，其中对象转换为基本类型时会使用ToPrimitive操作。</p>
+</li>
+</ol>
+<h2 id="ToPrimitive"><a href="#ToPrimitive" class="headerlink" title="ToPrimitive"></a>ToPrimitive</h2><p>ToPrimitive操作会首先检查对象是否有valueOf()方法，如果有并且<strong>返回基本类型的值</strong>，就调用该方法进行类型转换，如果没有就使用toSting类型的返回的值。</p>
+<p>如果valueOf()和toString均不返回基本类型的值，就会产生TypeError错误</p>
+<p>如果没有对对象的valueOf()和toString()方法重写，那么：</p>
+<p>对象的valueOf()返回对象本身，toString()返回<code>[object Object]</code></p>
+<p>数组的valueOf()返回数组本身，toSring()返回所有单元字符串化以后再用’,’连接。</p>
+<h2 id="ToBoolean"><a href="#ToBoolean" class="headerlink" title="ToBoolean"></a>ToBoolean</h2><ol>
+<li><code>null</code>转为<code>false</code></li>
+<li><code>undefined</code>转为<code>false</code></li>
+<li>除了<code>&#39;&#39;</code>以外都转为<code>true</code></li>
+<li>除了<code>0</code>和<code>NaN</code>以外都转为<code>true</code></li>
+<li>所有对象都转为<code>true</code></li>
+</ol>
+<h2 id="隐式类型转换"><a href="#隐式类型转换" class="headerlink" title="隐式类型转换"></a>隐式类型转换</h2><h3 id="字符串和数字之间的隐式类型转换"><a href="#字符串和数字之间的隐式类型转换" class="headerlink" title="字符串和数字之间的隐式类型转换"></a>字符串和数字之间的隐式类型转换</h3><h4 id="数字转为字符串"><a href="#数字转为字符串" class="headerlink" title="数字转为字符串"></a>数字转为字符串</h4><p><code>+</code>运算符即能够用于数字相加，也可以用于字符串拼接，简单理解应当是<strong>如果<code>+</code>运算符的操作数其中一个是字符串或者可以通过ToPrimitive(针对对象，也包括数组)转为字符串的则执行字符串的拼接，负责执行数字相加</strong></p>
+<h4 id="字符串转化为数字"><a href="#字符串转化为数字" class="headerlink" title="字符串转化为数字"></a>字符串转化为数字</h4><p><code>-</code>,<code>*</code>,<code>/</code>都可以用来将字符串转化为数字，其规则和+相似。</p>
+<h3 id="隐式类型转化为布尔值"><a href="#隐式类型转化为布尔值" class="headerlink" title="隐式类型转化为布尔值"></a>隐式类型转化为布尔值</h3><p>以下几种情况会发生隐式类型转换为布尔值</p>
+<ol>
+<li><code>if()</code>条件判断语句</li>
+<li><code>for()</code>中的条件判断语句</li>
+<li><code>while()</code>和<code>do...while()</code>中的条件判断语句</li>
+<li><code>?:</code>三目运算符中的条件判断语句</li>
+<li>逻辑运算符<code>||</code>和<code>&amp;&amp;</code>左边的操作数</li>
+</ol>
+<h3 id="和-amp-amp"><a href="#和-amp-amp" class="headerlink" title="||和&amp;&amp;"></a>||和&amp;&amp;</h3><p><code>&amp;&amp;</code>和<code>||</code>运算符并不一定返回布尔值，他实际返回的是两个操作数中的一个的值</p>
+<p><code>&amp;&amp;</code>和<code>||</code>首先对第一个操作数进行条件判断，如果第一个操作数不是布尔类型的值，则会被转为布尔类型的值，再进行下面的判断</p>
+<p>对于<code>||</code>而言，如果第一个操作数条件判断结果为true，则返回第一个操作数，否则，返回第二个操作数</p>
+<p>对于<code>&amp;&amp;</code>而言，如果第一个操作数条件判断结果为false，则反返回第一个操作数，否则，返回第二个操作数。</p>
+<h2 id="强制类型转换：-和"><a href="#强制类型转换：-和" class="headerlink" title="强制类型转换：==和==="></a>强制类型转换：<code>==</code>和<code>===</code></h2><p>正确理解：<code>==</code>允许在相等比较中进行强制类型转换，而<code>===</code>不允许</p>
+<ol>
+<li><strong>字符串和数字之间的相等比较：将字符串转换为数字进行相等比较</strong></li>
+<li><strong>其他类型与布尔值之间的相等比较：将布尔值转换为数字进行比较</strong></li>
+<li>对象和非对象之间的相等比较：<ol>
+<li>如果x是数字或者字符串，y是对象，则返回 <code>x==ToPrimitive(y)</code></li>
+<li>如果x是对象，y是字符串或者数字，则返回<code>ToPrimitive(x)==y</code></li>
+</ol>
+</li>
+</ol>
 
             </div>
             <hr>
@@ -669,7 +627,7 @@ rem
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">TomoFur</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/06/06/CSS中的各种单位/" class="b-link-green">CSS中的各种单位</a>
+                    <a href="/2019/07/01/类型转换/" class="b-link-green">类型转换</a>
                 </p>
             </div>
         </div>
@@ -714,42 +672,50 @@ rem
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/06/06/CSS控制前端图片HTTP请求的情况/">
+                <a href="/2019/07/01/类型转换/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="CSS控制前端图片HTTP请求的情况">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="类型转换">
                         
-                        <span class="card-title">CSS控制前端图片HTTP请求的情况</span>
+                        <span class="card-title">类型转换</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">隐藏图片&lt;img src=&#39;xxx.jpg&#39; style=&#39;display:none&#39;&gt;
-结论：产生HTTP请求，此外使用visiblity：hidden的时候也会产生请求。
-重复图片&lt;im</div>
+                    <div class="summary">
+这个知识点还是有一些繁琐。需要认真理解并记忆
+
+ToStringToString负责处理非字符串到字符串啊的强制类型转换
+
+基本类型的值转换为字符串
+null 转化为'null'
+undefined 转化为'undefined'
+true</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-06
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-01
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/css/" class="post-category" target="_blank">
-                                    css
+                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
+                                    JavaScript
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/css布局/" target="_blank">
-                        <span class="chip bg-color">css布局</span>
+                    <a href="/tags/ES5基础知识/" target="_blank">
+                        <span class="chip bg-color">ES5基础知识</span>
                     </a>
                     
                 </div>
@@ -763,32 +729,29 @@ rem
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/06/06/CSS画三角形/">
+                <a href="/2019/06/27/webpack学习笔记---基础配置篇/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="原生CSS画三角形">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="webpack学习---基础配置篇">
                         
-                        <span class="card-title">原生CSS画三角形</span>
+                        <span class="card-title">webpack学习---基础配置篇</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">步骤：先将一个盒子的width和height都设置为0px，这一步是最关键的
-画尖朝上的红色三角形div{
-    width:0px;
-    height:0px;
-    border-left:100px solid #fff;
- </div>
+                    <div class="summary">webpack：模块打包机
+webpack安装：推荐在项目内本地安装，不推荐使用全局安装。
+如果配置文件的名字不是webpack.config.js的话，在使用npx webpack进行打包的时候要npx webpack --config </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-06
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-27
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/css/" class="post-category" target="_blank">
-                                    css
+                            <a href="/categories/webpack/" class="post-category" target="_blank">
+                                    webpack
                                 </a>
                             
                             
@@ -798,8 +761,8 @@ rem
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/css布局/" target="_blank">
-                        <span class="chip bg-color">css布局</span>
+                    <a href="/tags/webpack/" target="_blank">
+                        <span class="chip bg-color">webpack</span>
                     </a>
                     
                 </div>
