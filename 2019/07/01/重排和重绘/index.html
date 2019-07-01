@@ -5,9 +5,11 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="图片懒加载和图片预加载, TomoFur">
-    <meta name="description" content="懒加载也叫延迟加载，即延迟加载图片或者符合某种条件时才加载某些图片。牺牲了服务器前端性能，换取更好的用户体验，这样可以使用户的操作得到最快的响应。
-预加载是提前加载图片，当用户需要查看时可以直接从本地缓存中渲染。作为服务器前端的优化，减少请">
+    <meta name="keywords" content="重排和重绘, TomoFur">
+    <meta name="description" content="浏览器的运行机制：
+构建DOM树：渲染引擎解析HTML文档，首先将标签转换为DOM树中的DOM节点（包括js生成的标签），生成DOM树
+构建渲染树：解析对应的CSS样式文件信息（包括js生成的样式和外部CSS文件），构建渲染树。
+布局渲染树">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +17,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>图片懒加载和图片预加载 | TomoFur</title>
+    <title>重排和重绘 | TomoFur</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -241,13 +243,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        图片懒加载和图片预加载
+                        重排和重绘
                     </div>
                 </div>
             </div>
@@ -358,8 +360,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/性能优化/" target="_blank">
-                                <span class="chip bg-color">性能优化</span>
+                            <a href="/tags/css布局/" target="_blank">
+                                <span class="chip bg-color">css布局</span>
                             </a>
                         
                     </div>
@@ -370,8 +372,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                JavaScript
+                            <a href="/categories/css/" class="post-category" target="_blank">
+                                css
                             </a>
                         
                     </div>
@@ -382,21 +384,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-05-30
+                    2019-07-01
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        843
+                        693
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        3 分
+                        2 分
                     </div>
                     
                 
@@ -407,113 +409,31 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><strong>懒加载</strong>也叫延迟加载，即延迟加载图片或者符合某种条件时才加载某些图片。牺牲了服务器前端性能，换取更好的用户体验，这样可以使用户的操作得到最快的响应。</p>
-<p><strong>预加载</strong>是提前加载图片，当用户需要查看时可以直接从本地缓存中渲染。作为服务器前端的优化，减少请求次数或者延迟请求。</p>
-<p><strong>本质</strong>：两者的行为是相反的，一个是提前加载，一个是迟缓加载甚至是不加载，懒加载对服务器前端有一定的缓解压力作用，预加载则会增加服务器前端的压力。</p>
-<h2 id="懒加载实现"><a href="#懒加载实现" class="headerlink" title="懒加载实现"></a>懒加载实现</h2><p>实现方式:可视区加载。即仅加载用户可以看到的区域，这个主要是由监控滚动条来实现，一般会在距离用户看到某图片前一定距离便开始加载，这样能保证用户拉下时正好能看到图片。</p>
-<p><strong>Tips</strong></p>
+                <h2 id="浏览器的运行机制："><a href="#浏览器的运行机制：" class="headerlink" title="浏览器的运行机制："></a>浏览器的运行机制：</h2><ol>
+<li>构建DOM树：渲染引擎解析HTML文档，首先将标签转换为DOM树中的DOM节点（包括js生成的标签），生成DOM树</li>
+<li>构建渲染树：解析对应的CSS样式文件信息（包括js生成的样式和外部CSS文件），构建渲染树。</li>
+<li>布局渲染树：计算每一个元素的大小，位置等，给出每一个元素应该在屏幕上出现的精确坐标。</li>
+<li>绘制渲染树：遍历渲染树，使用UI后端来绘制每一个节点。</li>
+</ol>
+<h2 id="重绘："><a href="#重绘：" class="headerlink" title="重绘："></a>重绘：</h2><p>当盒子的位置，大小以及其他属性例如颜色，字体等大小等都确定下来之后，浏览器便把这些元素都按照各自的特性绘制一遍，将内容呈现在页面上。<strong>重绘</strong>是指一个元素的外观的改变所触发的浏览器行为，浏览器会根据元素的新属性重新绘制，使得元素呈现出新的外观。</p>
+<p><strong>触发条件</strong>：改变元素的外观属性，如：color，background-color等。</p>
+<h2 id="重排："><a href="#重排：" class="headerlink" title="重排："></a>重排：</h2><p>当渲染树中的一部分因为元素的规模尺寸，布局，隐藏等改变而需要重新构建，这就称为重排，每个页面最少需要一次重排，就是在页面第一次加载的时候。</p>
+<p><strong>触发条件</strong>：任何页面布局和几何属性的改变都会触发重排，例如：</p>
 <ol>
-<li>自定义属性，以<code>data-</code>为前缀，可以通过绑定的DOM对象的dataset来获取自定义属性的值。</li>
-<li>DOM API <code>getBoundingClientRect</code>：这个API会返回一个对象，蓝色区域表示DOM实际所在的地方，top属性表示元素顶端距离视口顶端的位置。</li>
+<li>页面初始化渲染</li>
+<li>添加或者删除可见的DOM元素</li>
+<li>元素的位置的改变</li>
+<li>元素的尺寸发生改变，如大小，外边距，边框等</li>
+<li>浏览器窗口尺寸发生改变</li>
+<li>填充内容的改变，如文本的改变或者图片大小的改变而引起的计算高度和宽度的变化</li>
+<li>读取某些元素属性：(offsetLeft/Top/Height/Width,clientTop/Height/Width/Left,scrollTop/Left/Width/Height,width/height,　getComputedStyle(),　currentStyle(IE))</li>
 </ol>
-<p><img src="/2019/05/30/懒加载和预加载/getBoundingClientRect.png" alt></p>
-<ol start="3">
-<li>不能直接给<code>img</code>标签设置<code>src</code>属性</li>
+<h2 id="重排和重绘的关系："><a href="#重排和重绘的关系：" class="headerlink" title="重排和重绘的关系："></a>重排和重绘的关系：</h2><p>在重排的时候，浏览器会使得渲染树中受到影响的部分失效，并重新构建这部分渲染树，完成重排之后，浏览器会重新绘制受影响的部分到页面上。所以<strong>重排必定引起重绘，但是重绘不一定会导致重排</strong></p>
+<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><ol>
+<li>浏览器自己的优化：浏览器会维护一个队列，把所有会引起重排重绘的操作放到这个队列里面，等队列中的操作到了一定数量或者一定时间间隔的时候，浏览器就会flush队列，进行一个批处理，将多次的重排重绘变为执行一次重排重绘。</li>
+<li>样式集中改变，可以通过添加类名来进行样式修改</li>
+<li>等等…..</li>
 </ol>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div <span class="token keyword">class</span> <span class="token operator">=</span> <span class="token string">'container'</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span>img src <span class="token operator">=</span> <span class="token string">''</span> alt<span class="token operator">=</span><span class="token string">'lazy-load'</span> data<span class="token operator">-</span>src <span class="token operator">=</span> <span class="token string">'图片实际的url地址'</span><span class="token operator">></span>
-        <span class="token operator">...</span> <span class="token comment" spellcheck="true">//此处略去多个相同的img标签。</span>
-   <span class="token operator">&lt;</span>img src <span class="token operator">=</span> <span class="token string">''</span> alt<span class="token operator">=</span><span class="token string">'lazy-load'</span> data<span class="token operator">-</span>src <span class="token operator">=</span> <span class="token string">'图片实际的url地址'</span><span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-
-<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
-
-<span class="token operator">&lt;</span>script<span class="token operator">></span>
-       <span class="token comment" spellcheck="true">//所有具有data-src属性的图片都需要懒加载。</span>
-       <span class="token keyword">function</span> <span class="token function">lazyLoad</span><span class="token punctuation">(</span>defaultImg<span class="token punctuation">)</span><span class="token punctuation">{</span>
-               <span class="token comment" spellcheck="true">//第0步，先得到所有需要懒加载的图片</span>
-               <span class="token keyword">var</span> imgs <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'img[data-src]'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-               <span class="token comment" spellcheck="true">//将其转化为真正的数组</span>
-               imgs <span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token keyword">from</span><span class="token punctuation">(</span>imgs<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-               <span class="token comment" spellcheck="true">//设置默认图片</span>
-               <span class="token function">setDefaultImgs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-               <span class="token comment" spellcheck="true">//懒加载所有图片</span>
-               <span class="token function">loadAllImgs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-               <span class="token comment" spellcheck="true">//监听滚动条</span>
-               <span class="token keyword">var</span> timer <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-               document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>onscroll <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                <span class="token comment" spellcheck="true">//函数防抖</span>
-               <span class="token keyword">if</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                    <span class="token function">clearTimeOut</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                 <span class="token punctuation">}</span>
-                 timer <span class="token operator">=</span> <span class="token function">setTimeOut</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                    <span class="token function">loadAllImgs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token number">500</span><span class="token punctuation">)</span>
-               <span class="token punctuation">}</span>
-<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>函数区<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>
-           <span class="token function">setDefaultImgs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-               <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>defaultImg<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                   <span class="token keyword">return</span> <span class="token punctuation">;</span>
-               <span class="token punctuation">}</span>
-               imgs<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>item<span class="token operator">=</span><span class="token operator">></span>item<span class="token punctuation">.</span>src <span class="token operator">=</span>defaultImg <span class="token punctuation">)</span>
-           <span class="token punctuation">}</span>
-
-           <span class="token keyword">function</span> <span class="token function">loadAllImgs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-               imgs<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span>index<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
-                   <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">loadImg</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                       imgs<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                       index<span class="token operator">--</span><span class="token punctuation">;</span>
-                   <span class="token punctuation">}</span>
-               <span class="token punctuation">}</span><span class="token punctuation">)</span>
-           <span class="token punctuation">}</span>
-
-               <span class="token comment" spellcheck="true">/*
-               *懒加载一张图片，自行判断是否应该加载
-               *img：图片的dom对象
-               */</span>
-           <span class="token keyword">function</span> <span class="token function">loadImg</span><span class="token punctuation">(</span>img<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                <span class="token comment" spellcheck="true">//判断该图片是否能够加载。实际上时判断该图片是否在可视区范围内</span>
-               <span class="token keyword">var</span> rect <span class="token operator">=</span> img<span class="token punctuation">.</span><span class="token function">getBoundingClientRect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-               <span class="token keyword">if</span><span class="token punctuation">(</span>rect<span class="token punctuation">.</span>bottom<span class="token operator">&lt;=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                   <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-               <span class="token punctuation">}</span>
-               <span class="token keyword">if</span><span class="token punctuation">(</span>rect<span class="token punctuation">.</span>top<span class="token operator">>=</span>document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>clientHeight<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                   <span class="token keyword">return</span> <span class="token boolean">false</span>
-               <span class="token punctuation">}</span>
-               img<span class="token punctuation">.</span>src <span class="token operator">=</span> img<span class="token punctuation">.</span>dataset<span class="token punctuation">.</span>src<span class="token punctuation">;</span>
-               <span class="token comment" spellcheck="true">//判断是否由原图</span>
-               <span class="token keyword">if</span>（img<span class="token punctuation">.</span>dataset<span class="token punctuation">.</span>original）<span class="token punctuation">{</span>
-                   img<span class="token punctuation">.</span>onload <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                       img<span class="token punctuation">.</span>src <span class="token operator">=</span> img<span class="token punctuation">.</span>dataset<span class="token punctuation">.</span>original<span class="token punctuation">;</span>
-                       img<span class="token punctuation">.</span>onload <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//不写这一步就会导致无限循环。因为小图加载完触发onlod时间后，大图加载完又触发onload事件。</span>
-                   <span class="token punctuation">}</span>
-               <span class="token punctuation">}</span>
-               <span class="token keyword">return</span> <span class="token boolean">true</span>
-           <span class="token punctuation">}</span>
-           <span class="token punctuation">}</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>       
-
-</code></pre>
-<h2 id="预加载实现"><a href="#预加载实现" class="headerlink" title="预加载实现"></a>预加载实现</h2><p>​    核心原理是浏览器请求过的资源会有缓存，所以使用js创建一个看不见的img标签，浏览器就会发出请求，这个过程用户是看不见的，到了页面上真正要显示这张图片的时候，浏览器一检查之前缓存过，就不会再向服务器发出请求，直接从缓存中获取，给用户的感觉就是秒加载了。</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">preloadImg</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> img <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Image</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    img<span class="token punctuation">.</span>src <span class="token operator">=</span> url<span class="token punctuation">;</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>img<span class="token punctuation">.</span>complete<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">//如果有缓存</span>
-        <span class="token comment" spellcheck="true">//接下来可以使用图片了</span>
-        <span class="token comment" spellcheck="true">//do something here</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">else</span> <span class="token punctuation">{</span>
-        img<span class="token punctuation">.</span>onload <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            img<span class="token punctuation">.</span>onload <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-            <span class="token comment" spellcheck="true">//接下来可以使用图片了</span>
-            <span class="token comment" spellcheck="true">//do something here</span>
-        <span class="token punctuation">}</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
 
             </div>
             <hr>
@@ -661,7 +581,7 @@
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">TomoFur</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/05/30/懒加载和预加载/" class="b-link-green">图片懒加载和图片预加载</a>
+                    <a href="/2019/07/01/重排和重绘/" class="b-link-green">重排和重绘</a>
                 </p>
             </div>
         </div>
@@ -706,41 +626,45 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/05/30/BOM/">
+                <a href="/2019/07/01/重排和重绘/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="浏览器对象模型(BOM)">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="重排和重绘">
                         
-                        <span class="card-title">浏览器对象模型(BOM)</span>
+                        <span class="card-title">重排和重绘</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">BOM提供了很多对象，用于访问浏览器的功能。
-窗口位置IE,Safari,Opera和Chrome使用screenLeft和screenTop分别用来表示浏览器窗口相对电脑屏幕的左边和上边的距离。而在FireFox中。使用的是screenX</div>
+                    <div class="summary">浏览器的运行机制：
+构建DOM树：渲染引擎解析HTML文档，首先将标签转换为DOM树中的DOM节点（包括js生成的标签），生成DOM树
+构建渲染树：解析对应的CSS样式文件信息（包括js生成的样式和外部CSS文件），构建渲染树。
+布局渲染树</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-01
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                    JavaScript
+                            <a href="/categories/css/" class="post-category" target="_blank">
+                                    css
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ES5基础知识/" target="_blank">
-                        <span class="chip bg-color">ES5基础知识</span>
+                    <a href="/tags/css布局/" target="_blank">
+                        <span class="chip bg-color">css布局</span>
                     </a>
                     
                 </div>
@@ -754,24 +678,28 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/05/29/创建对象/">
+                <a href="/2019/07/01/类型转换/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="创建对象的方法">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="类型转换">
                         
-                        <span class="card-title">创建对象的方法</span>
+                        <span class="card-title">类型转换</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">工厂模式function createObject(name,age,job){
-    var obj = new Object();
-    obj.name =name;
-    obj.age = age;
-    obj.job </div>
+                    <div class="summary">
+这个知识点还是有一些繁琐。需要认真理解并记忆
+
+ToStringToString负责处理非字符串到字符串啊的强制类型转换
+
+基本类型的值转换为字符串
+null 转化为'null'
+undefined 转化为'undefined'
+true</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-29
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-01
                             </span>
                         <span class="publish-author">
                             

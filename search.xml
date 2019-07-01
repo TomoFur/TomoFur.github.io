@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>重排和重绘</title>
+      <link href="/2019/07/01/%E9%87%8D%E6%8E%92%E5%92%8C%E9%87%8D%E7%BB%98/"/>
+      <url>/2019/07/01/%E9%87%8D%E6%8E%92%E5%92%8C%E9%87%8D%E7%BB%98/</url>
+      
+        <content type="html"><![CDATA[<h2 id="浏览器的运行机制："><a href="#浏览器的运行机制：" class="headerlink" title="浏览器的运行机制："></a>浏览器的运行机制：</h2><ol><li>构建DOM树：渲染引擎解析HTML文档，首先将标签转换为DOM树中的DOM节点（包括js生成的标签），生成DOM树</li><li>构建渲染树：解析对应的CSS样式文件信息（包括js生成的样式和外部CSS文件），构建渲染树。</li><li>布局渲染树：计算每一个元素的大小，位置等，给出每一个元素应该在屏幕上出现的精确坐标。</li><li>绘制渲染树：遍历渲染树，使用UI后端来绘制每一个节点。</li></ol><h2 id="重绘："><a href="#重绘：" class="headerlink" title="重绘："></a>重绘：</h2><p>当盒子的位置，大小以及其他属性例如颜色，字体等大小等都确定下来之后，浏览器便把这些元素都按照各自的特性绘制一遍，将内容呈现在页面上。<strong>重绘</strong>是指一个元素的外观的改变所触发的浏览器行为，浏览器会根据元素的新属性重新绘制，使得元素呈现出新的外观。</p><p><strong>触发条件</strong>：改变元素的外观属性，如：color，background-color等。</p><h2 id="重排："><a href="#重排：" class="headerlink" title="重排："></a>重排：</h2><p>当渲染树中的一部分因为元素的规模尺寸，布局，隐藏等改变而需要重新构建，这就称为重排，每个页面最少需要一次重排，就是在页面第一次加载的时候。</p><p><strong>触发条件</strong>：任何页面布局和几何属性的改变都会触发重排，例如：</p><ol><li>页面初始化渲染</li><li>添加或者删除可见的DOM元素</li><li>元素的位置的改变</li><li>元素的尺寸发生改变，如大小，外边距，边框等</li><li>浏览器窗口尺寸发生改变</li><li>填充内容的改变，如文本的改变或者图片大小的改变而引起的计算高度和宽度的变化</li><li>读取某些元素属性：(offsetLeft/Top/Height/Width,clientTop/Height/Width/Left,scrollTop/Left/Width/Height,width/height,　getComputedStyle(),　currentStyle(IE))</li></ol><h2 id="重排和重绘的关系："><a href="#重排和重绘的关系：" class="headerlink" title="重排和重绘的关系："></a>重排和重绘的关系：</h2><p>在重排的时候，浏览器会使得渲染树中受到影响的部分失效，并重新构建这部分渲染树，完成重排之后，浏览器会重新绘制受影响的部分到页面上。所以<strong>重排必定引起重绘，但是重绘不一定会导致重排</strong></p><h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><ol><li>浏览器自己的优化：浏览器会维护一个队列，把所有会引起重排重绘的操作放到这个队列里面，等队列中的操作到了一定数量或者一定时间间隔的时候，浏览器就会flush队列，进行一个批处理，将多次的重排重绘变为执行一次重排重绘。</li><li>样式集中改变，可以通过添加类名来进行样式修改</li><li>等等…..</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> css </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> css布局 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>类型转换</title>
       <link href="/2019/07/01/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/"/>
       <url>/2019/07/01/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</url>
