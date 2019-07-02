@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>移动端1px适配</title>
+      <link href="/2019/07/02/%E7%A7%BB%E5%8A%A8%E7%AB%AF1px%E9%80%82%E9%85%8D/"/>
+      <url>/2019/07/02/%E7%A7%BB%E5%8A%A8%E7%AB%AF1px%E9%80%82%E9%85%8D/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>明明设置了边框是1px，你为什么在移动端上看起来像2px？</p></blockquote><h2 id="方法1："><a href="#方法1：" class="headerlink" title="方法1："></a>方法1：</h2><p>采用<code>box-shadow</code></p><pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.box</span></span><span class="token punctuation">{</span>    <span class="token property">box-shadow</span><span class="token punctuation">:</span><span class="token number">0</span>px <span class="token number">1</span>px <span class="token number">1</span>px -<span class="token number">1</span>px <span class="token hexcode">#000</span><span class="token punctuation">;</span>//下边线    <span class="token property">box-shadow</span><span class="token punctuation">:</span><span class="token number">0</span>px -<span class="token number">1</span>px <span class="token number">1</span>px -<span class="token number">1</span>px <span class="token hexcode">#000</span><span class="token punctuation">;</span>//上边线    <span class="token property">box-shadow</span><span class="token punctuation">:</span><span class="token number">1</span>px <span class="token number">0</span>px <span class="token number">1</span>px -<span class="token number">1</span>px <span class="token hexcode">#000</span><span class="token punctuation">;</span>//右边线    <span class="token property">box-shadow</span><span class="token punctuation">:</span>-<span class="token number">1</span>px <span class="token number">0</span>px <span class="token number">1</span>px -<span class="token number">1</span>px <span class="token hexcode">#000</span><span class="token punctuation">;</span>//左边线<span class="token punctuation">}</span></code></pre><h2 id="方法2："><a href="#方法2：" class="headerlink" title="方法2："></a>方法2：</h2><p>采用伪元素和<code>transform:scale();</code>来实现</p><pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.box</span></span><span class="token punctuation">{</span>    <span class="token property">position</span><span class="token punctuation">:</span>relative<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token selector">//左边线<span class="token class">.box</span><span class="token pseudo-element">::after</span></span><span class="token punctuation">{</span>    <span class="token property">content</span><span class="token punctuation">:</span><span class="token string">''</span><span class="token punctuation">;</span>    <span class="token property">position</span><span class="token punctuation">:</span>absolute<span class="token punctuation">;</span>    <span class="token property">display</span><span class="token punctuation">:</span>block<span class="token punctuation">;</span>    <span class="token property">left</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span>    <span class="token property">top</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span>    <span class="token property">background-color</span><span class="token punctuation">:</span><span class="token hexcode">#000</span><span class="token punctuation">;</span>    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">1</span>px<span class="token punctuation">;</span>    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">100%</span><span class="token punctuation">;</span>    <span class="token property">transform</span><span class="token punctuation">:</span><span class="token function">scale</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token property">transform-origin</span><span class="token punctuation">:</span>left top<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token selector">//右边线<span class="token class">.box</span><span class="token pseudo-element">::after</span></span><span class="token punctuation">{</span>    <span class="token property">content</span><span class="token punctuation">:</span><span class="token string">''</span><span class="token punctuation">;</span>    <span class="token property">position</span><span class="token punctuation">:</span>absolute<span class="token punctuation">;</span>    <span class="token property">display</span><span class="token punctuation">:</span>block<span class="token punctuation">;</span>    <span class="token property">right</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span>    <span class="token property">top</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span>    <span class="token property">background-color</span><span class="token punctuation">:</span><span class="token hexcode">#000</span><span class="token punctuation">;</span>    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">1</span>px<span class="token punctuation">;</span>    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">100%</span><span class="token punctuation">;</span>    <span class="token property">transform</span><span class="token punctuation">:</span><span class="token function">scale</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token property">transform-origin</span><span class="token punctuation">:</span>right top<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token selector">//上边线<span class="token class">.box</span><span class="token pseudo-element">::after</span></span><span class="token punctuation">{</span>    <span class="token property">content</span><span class="token punctuation">:</span><span class="token string">''</span><span class="token punctuation">;</span>    <span class="token property">display</span><span class="token punctuation">:</span>block<span class="token punctuation">;</span>    <span class="token property">position</span><span class="token punctuation">:</span>absolute<span class="token punctuation">;</span>    <span class="token property">left</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span>    <span class="token property">top</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span>    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">100%</span><span class="token punctuation">;</span>    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">1</span>px<span class="token punctuation">;</span>    <span class="token property">background-color</span><span class="token punctuation">:</span><span class="token hexcode">#000</span><span class="token punctuation">;</span>    <span class="token property">transform</span><span class="token punctuation">:</span><span class="token function">scale</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token property">transform-origin</span><span class="token punctuation">:</span>left top<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token selector">//下边线<span class="token class">.box</span><span class="token pseudo-element">::after</span></span><span class="token punctuation">{</span>    <span class="token property">content</span><span class="token punctuation">:</span><span class="token string">""</span><span class="token punctuation">;</span>    <span class="token property">display</span><span class="token punctuation">:</span>block<span class="token punctuation">;</span>    <span class="token property">position</span><span class="token punctuation">:</span>absolute<span class="token punctuation">;</span>    <span class="token property">left</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span>    <span class="token property">bottom</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span>    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">100%</span><span class="token punctuation">;</span>    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">1</span>px<span class="token punctuation">;</span>    <span class="token property">background-color</span><span class="token punctuation">:</span><span class="token hexcode">#000</span><span class="token punctuation">;</span>    <span class="token property">transform</span><span class="token punctuation">:</span><span class="token function">scale</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token property">transform-origin</span><span class="token punctuation">:</span>left bottom<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token selector">//四边都有<span class="token class">.box</span><span class="token pseudo-element">::after</span></span><span class="token punctuation">{</span>    <span class="token property">content</span><span class="token punctuation">:</span><span class="token string">''</span><span class="token punctuation">;</span>    <span class="token property">position</span><span class="token punctuation">:</span>absolute<span class="token punctuation">;</span>    <span class="token property">display</span><span class="token punctuation">:</span>block<span class="token punctuation">;</span>    <span class="token property">box-sizing</span><span class="token punctuation">:</span>border-box<span class="token punctuation">;</span>    <span class="token property">left</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span>    <span class="token property">top</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span>    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">200%</span><span class="token punctuation">;</span>    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">200%</span><span class="token punctuation">;</span>    <span class="token property">border</span><span class="token punctuation">:</span><span class="token number">1</span>px solid <span class="token hexcode">#000</span><span class="token punctuation">;</span>    <span class="token property">transform</span><span class="token punctuation">:</span><span class="token function">scale</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token property">transform-origin</span><span class="token punctuation">:</span>left top<span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><p><strong>Tips</strong>:</p><p>​    水平的边<code>width:100%;height:1px;</code></p><p>​    垂直的边:<code>height:100%,width:1px</code>;    </p><h2 id="方法3"><a href="#方法3" class="headerlink" title="方法3"></a>方法3</h2><p>通过设置viewport的scale值。还没有理解这种方法，先贴上链接，以后再去慢慢研究</p><p><a href="https://juejin.im/post/5c8ba122e51d4574cf120378#heading-7" target="_blank" rel="noopener">移动端1px解决方案</a> </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> css </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> css布局 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>手动实现call，apply和bind</title>
       <link href="/2019/07/02/%E6%89%8B%E5%8A%A8%E5%86%99%E6%BA%90%E7%A0%81/"/>
       <url>/2019/07/02/%E6%89%8B%E5%8A%A8%E5%86%99%E6%BA%90%E7%A0%81/</url>
@@ -958,6 +983,31 @@
     
     
     <entry>
+      <title>JavaScript运行机制</title>
+      <link href="/2019/04/11/EventLoop/"/>
+      <url>/2019/04/11/EventLoop/</url>
+      
+        <content type="html"><![CDATA[<h2 id="为什么JavaScript是单线程"><a href="#为什么JavaScript是单线程" class="headerlink" title="为什么JavaScript是单线程"></a>为什么JavaScript是单线程</h2><p>JavaScript的单线程，与它的用途有关，作为浏览器脚本语言，JavaScript的主要用途是为了与用户互动以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如：假定JavaScript同时又两个线程，一个线程在某个DOM节点上添加内容，一个线程要删除这个节点，这时，浏览器就不知道该以哪个线程为准。</p><h2 id="同步任务和异步任务"><a href="#同步任务和异步任务" class="headerlink" title="同步任务和异步任务"></a>同步任务和异步任务</h2><p>同步任务：在主线程上排队执行额任务，只有前一个任务执行完毕之后才能执行下一个任务。</p><p>异步任务：不进入主线程，而是进入任务队列的任务。</p><p><strong>注</strong>：除了放置异步任务的事件，任务队列还可以放置定时器任务。</p><h2 id="EventLoop"><a href="#EventLoop" class="headerlink" title="EventLoop"></a>EventLoop</h2><p>任务队列是一个事件的队列，主线程读取任务队列，就是读取里面的事件。</p><p>主线程从“任务队列”中读取事件，这种过程是循环不断的，所以整个过程的运行机制又称为EventLoop</p><p>不同的任务源会被分配到不同的Task队列中去，任务源又可以分为微任务(miscrotask)和宏任务(mascrotask)</p><p><img src="/2019/04/11/EventLoop/宏任务和微任务.PNG" alt></p><p>EventLoop循环过程如下：</p><ol><li>执行完同步代码，当所有同步代码均被执行完毕之后，执行栈清空，查询是否有异步代码</li><li>在macrotask队列中选择最早的那一个，如果没有可选的任务，就跳到下面的microtask队列中</li><li>将上面选中的macrotask设置为正在运行的task</li><li>运行被选中的task</li><li>运行完毕之后，将eventloop中的current running task设置为null</li><li>从task队列中移除前面运行的macrotask</li><li>执行所有在microtask队列里的任务。</li><li>更新渲染</li><li>返回到开始</li></ol><h3 id="另一理解"><a href="#另一理解" class="headerlink" title="另一理解"></a>另一理解</h3><ol><li>一段代码执行时先执行宏任务中的同步代码</li><li>如果遇到像setTimeOut这种宏任务就会把代码放置在宏任务队列中去</li><li>如果遇到promise.then这类任务会放置在微任务队列中。</li><li>在本轮宏任务执行完之后会依此执行本轮微任务队列中的所有代码，然后开始下一轮的宏任务代码。</li></ol><p><strong>注</strong>：await后面无论接的是同步代码还是异步代码都必须等他们执行完毕之后才能执行await结果后面的代码。</p><p><strong>注释</strong>：在遇见定时器后，会将定时器内的函数进行注册，也就是放在Event Table。然后在定时器设定的事件后将Event Table内注册的函数放入Event queue。如果主线程中的call stack为空就将Event queue按顺序放入call stack中进行执行，如果call stack并不为空，Event queue内的事件并不会进入call stack，也就不会执行。</p><p>在call stack中的内容执行完毕后清空，会在Event queue检查一下哪些任务时宏任务，哪些是微任务，然后执行所有的微任务，然后执行下一个宏任务，之后再次执行所有的微任务。也就是说在主线程任务执行完毕后会把任务队列里的微任务全部执行，然后再执行下一个宏任务，这个宏任务执行完再次检查队列内部的微任务，有就全部执行，没有就再执行一个宏任务。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> JavaScript </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> EventLoop </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ES6异步操作</title>
       <link href="/2019/04/11/ES6%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C/"/>
       <url>/2019/04/11/ES6%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C/</url>
@@ -977,31 +1027,6 @@
             <tag> ES6 </tag>
             
             <tag> async/await </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>JavaScript运行机制</title>
-      <link href="/2019/04/11/EventLoop/"/>
-      <url>/2019/04/11/EventLoop/</url>
-      
-        <content type="html"><![CDATA[<h2 id="为什么JavaScript是单线程"><a href="#为什么JavaScript是单线程" class="headerlink" title="为什么JavaScript是单线程"></a>为什么JavaScript是单线程</h2><p>JavaScript的单线程，与它的用途有关，作为浏览器脚本语言，JavaScript的主要用途是为了与用户互动以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如：假定JavaScript同时又两个线程，一个线程在某个DOM节点上添加内容，一个线程要删除这个节点，这时，浏览器就不知道该以哪个线程为准。</p><h2 id="同步任务和异步任务"><a href="#同步任务和异步任务" class="headerlink" title="同步任务和异步任务"></a>同步任务和异步任务</h2><p>同步任务：在主线程上排队执行额任务，只有前一个任务执行完毕之后才能执行下一个任务。</p><p>异步任务：不进入主线程，而是进入任务队列的任务。</p><p><strong>注</strong>：除了放置异步任务的事件，任务队列还可以放置定时器任务。</p><h2 id="EventLoop"><a href="#EventLoop" class="headerlink" title="EventLoop"></a>EventLoop</h2><p>任务队列是一个事件的队列，主线程读取任务队列，就是读取里面的事件。</p><p>主线程从“任务队列”中读取事件，这种过程是循环不断的，所以整个过程的运行机制又称为EventLoop</p><p>不同的任务源会被分配到不同的Task队列中去，任务源又可以分为微任务(miscrotask)和宏任务(mascrotask)</p><p><img src="/2019/04/11/EventLoop/宏任务和微任务.PNG" alt></p><p>EventLoop循环过程如下：</p><ol><li>执行完同步代码，当所有同步代码均被执行完毕之后，执行栈清空，查询是否有异步代码</li><li>在macrotask队列中选择最早的那一个，如果没有可选的任务，就跳到下面的microtask队列中</li><li>将上面选中的macrotask设置为正在运行的task</li><li>运行被选中的task</li><li>运行完毕之后，将eventloop中的current running task设置为null</li><li>从task队列中移除前面运行的macrotask</li><li>执行所有在microtask队列里的任务。</li><li>更新渲染</li><li>返回到开始</li></ol><h3 id="另一理解"><a href="#另一理解" class="headerlink" title="另一理解"></a>另一理解</h3><ol><li>一段代码执行时先执行宏任务中的同步代码</li><li>如果遇到像setTimeOut这种宏任务就会把代码放置在宏任务队列中去</li><li>如果遇到promise.then这类任务会放置在微任务队列中。</li><li>在本轮宏任务执行完之后会依此执行本轮微任务队列中的所有代码，然后开始下一轮的宏任务代码。</li></ol><p><strong>注</strong>：await后面无论接的是同步代码还是异步代码都必须等他们执行完毕之后才能执行await结果后面的代码。</p><p><strong>注释</strong>：在遇见定时器后，会将定时器内的函数进行注册，也就是放在Event Table。然后在定时器设定的事件后将Event Table内注册的函数放入Event queue。如果主线程中的call stack为空就将Event queue按顺序放入call stack中进行执行，如果call stack并不为空，Event queue内的事件并不会进入call stack，也就不会执行。</p><p>在call stack中的内容执行完毕后清空，会在Event queue检查一下哪些任务时宏任务，哪些是微任务，然后执行所有的微任务，然后执行下一个宏任务，之后再次执行所有的微任务。也就是说在主线程任务执行完毕后会把任务队列里的微任务全部执行，然后再执行下一个宏任务，这个宏任务执行完再次检查队列内部的微任务，有就全部执行，没有就再执行一个宏任务。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> JavaScript </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> EventLoop </tag>
             
         </tags>
       
