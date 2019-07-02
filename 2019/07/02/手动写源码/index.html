@@ -5,9 +5,13 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="浏览器渲染过程, TomoFur">
-    <meta name="description" content="关键路径渲染浏览器接收到服务器返回的HTML、CSS和JavaScript字节数据并对其进行解析和转变成像素的渲染过程被称为关键渲染路径
-浏览器在渲染页面前需要先构建出DOM树与CSSOM树（如果没有DOM树和CSSOM树就无法确定页面的结">
+    <meta name="keywords" content="手动实现call，apply和bind, TomoFur">
+    <meta name="description" content="
+还是有点东西的呦！
+
+手动实现call预备知识：如果一个函数作为一个对象的属性，那么通过对象的.运算符调用此函数，this就是此对象
+Function.prototype.myCall = function(context){
+    i">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +19,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>浏览器渲染过程 | TomoFur</title>
+    <title>手动实现call，apply和bind | TomoFur</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -241,13 +245,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        浏览器渲染过程
+                        手动实现call，apply和bind
                     </div>
                 </div>
             </div>
@@ -358,8 +362,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/css布局/" target="_blank">
-                                <span class="chip bg-color">css布局</span>
+                            <a href="/tags/ES5基础知识/" target="_blank">
+                                <span class="chip bg-color">ES5基础知识</span>
                             </a>
                         
                     </div>
@@ -370,8 +374,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/css/" class="post-category" target="_blank">
-                                css
+                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
+                                JavaScript
                             </a>
                         
                     </div>
@@ -382,21 +386,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-06-09
+                    2019-07-02
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        992
+                        402
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        3 分
+                        1 分
                     </div>
                     
                 
@@ -407,35 +411,77 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="关键路径渲染"><a href="#关键路径渲染" class="headerlink" title="关键路径渲染"></a>关键路径渲染</h2><p><strong>浏览器接收到服务器返回的HTML、CSS和JavaScript字节数据并对其进行解析和转变成像素的渲染过程被称为关键渲染路径</strong></p>
-<p><strong>浏览器在渲染页面前需要先构建出DOM树与CSSOM树</strong>（如果没有<code>DOM</code>树和<code>CSSOM</code>树就无法确定页面的结构与样式，所以这两项是必须先构建出来的）。</p>
-<p><strong>DOM树全称为Document Object Model文档对象模型，它是HTML和XML文档的编程接口，提供了对文档的结构化表示，并定义了一种可以使程序对该结构进行访问的方式</strong>（比如<code>JavaScript</code>就是通过<code>DOM</code>来操作结构、样式和内容）。<code>DOM</code>将文档解析为一个由节点和对象组成的集合，可以说一个<code>WEB</code>页面其实就是一个<code>DOM</code>。</p>
-<p><code>CSSOM</code>树全称为<code>Cascading Style Sheets Object Model</code>层叠样式表对象模型，它与<code>DOM</code>树的含义相差不大，只不过它是<code>CSS</code>的对象集合。</p>
-<h2 id="构建DOM树和CSSOM树"><a href="#构建DOM树和CSSOM树" class="headerlink" title="构建DOM树和CSSOM树"></a>构建DOM树和CSSOM树</h2><p>浏览器从网络或硬盘中获得<code>HTML</code>字节数据后会经过一个流程将字节解析为<code>DOM</code>树：</p>
-<ol>
-<li>编码： <strong>先将HTML的原始字节数据转换为文件指定编码的字符。</strong></li>
-<li>令牌化： 然后<strong>浏览器会根据HTML规范来将字符串转换成各种令牌</strong>（如<code>&lt;html&gt;</code>、<code>&lt;body&gt;</code>这样的标签以及标签中的字符串和属性等都会被转化为令牌，每个令牌具有特殊含义和一组规则）。令牌记录了标签的开始与结束，通过这个特性可以轻松判断一个标签是否为子标签（假设有<code>&lt;html&gt;</code>与<code>&lt;body&gt;</code>两个标签，当<code>&lt;html&gt;</code>标签的令牌还未遇到它的结束令牌<code>&lt;/html&gt;</code>就遇见了<code>&lt;body&gt;</code>标签令牌，那么<code>&lt;body&gt;</code>就是<code>&lt;html&gt;</code>的子标签）。</li>
-<li>生成对象： <strong>接下来每个令牌都会被转换成定义其属性和规则的对象（这个对象就是节点对象）。</strong></li>
-<li>构建完毕： <strong>DOM树构建完成，整个对象集合就像是一棵树形结构</strong>。</li>
-</ol>
-<p>整个<code>DOM</code>树的构建过程其实就是： <strong>字节 -&gt; 字符 -&gt; 令牌 -&gt; 节点对象 -&gt; 对象模型</strong></p>
-<h2 id="构建渲染树"><a href="#构建渲染树" class="headerlink" title="构建渲染树"></a>构建渲染树</h2><p>在构建了<code>DOM</code>树和<code>CSSOM</code>树之后，浏览器只是拥有了两个互相独立的对象集合，<code>DOM</code>树描述了文档的结构与内容，<code>CSSOM</code>树则描述了对文档应用的样式规则，<strong>想要渲染出页面，就需要将DOM树与CSSOM树结合在一起</strong>，这就是渲染树。</p>
-<ol>
-<li>浏览器会先从<code>DOM</code>树的根节点开始遍历每个可见节点</li>
-<li>对每个可见节点，找到其适配的<code>CSS</code>样式规则并应用。</li>
-<li>渲染树构建完成，每个节点都是可见节点并且都含有其内容和对应规则的样式</li>
-</ol>
-<p>渲染树构建完毕后，浏览器得到了每个可见节点的内容与其样式，下一步工作则<strong>需要计算每个节点在窗口内的确切位置与大小，也就是布局阶段。</strong></p>
-<p><strong>布局阶段会从渲染树的根节点开始遍历，然后确定每个节点对象在页面上的确切大小与位置</strong>，布局阶段的输出是一个盒子模型，它会精确地捕获每个元素在屏幕内的确切位置与大小，所有相对的测量值也都会被转换为屏幕内的绝对像素值。</p>
-<p><strong>总结</strong>：</p>
-<p>总结一下浏览器关键渲染路径的整个过程：</p>
-<ol>
-<li>处理<code>HTML</code>标记数据并生成<code>DOM</code>树。</li>
-<li>处理<code>CSS</code>标记数据并生成<code>CSSOM</code>树。</li>
-<li>将<code>DOM</code>树与<code>CSSOM</code>树合并在一起生成渲染树</li>
-<li>遍历渲染树开始布局，计算每个节点的位置信息。</li>
-<li>将每个节点绘制到屏幕。</li>
-</ol>
+                <blockquote>
+<p>还是有点东西的呦！</p>
+</blockquote>
+<h2 id="手动实现call"><a href="#手动实现call" class="headerlink" title="手动实现call"></a>手动实现call</h2><p><strong>预备知识</strong>：<strong>如果一个函数作为一个对象的属性，那么通过对象的.运算符调用此函数，this就是此对象</strong></p>
+<pre class=" language-javascript"><code class="language-javascript">Function<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>myCall <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token keyword">this</span> <span class="token operator">!==</span> <span class="token string">'function'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">TypeError</span><span class="token punctuation">(</span><span class="token string">'Error'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    context <span class="token operator">=</span> context <span class="token operator">||</span> window<span class="token punctuation">;</span>
+    <span class="token keyword">let</span> args <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>arguments<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//这里的这个this就是使用call的那个函数。因为是写在函数的原型上的，所以当一个具体的函数调用这个方法的时候，this就指向这个函数本身。本质上是给传入的这个对象先添加一个属性fn，这个属性的值就是调用call的那个函数。</span>
+    context<span class="token punctuation">.</span>fn <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> result <span class="token operator">=</span> context<span class="token punctuation">.</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//在调用完毕之后将这个fn属性删除掉。</span>
+    <span class="token keyword">delete</span> context<span class="token punctuation">.</span>fn<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>测试<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
+    <span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+        name<span class="token punctuation">:</span><span class="token string">'张三'</span><span class="token punctuation">,</span>
+        age<span class="token punctuation">:</span><span class="token number">10</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">getInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+getInfo<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="手动实现apply"><a href="#手动实现apply" class="headerlink" title="手动实现apply"></a>手动实现apply</h2><p>在实现了call之后，实现apply相对来说就简单了，无非是传入参数不同而已。</p>
+<pre class=" language-javascript"><code class="language-javascript">Function<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>apply <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token keyword">this</span> <span class="token operator">!==</span> <span class="token string">'function'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">TypeError</span><span class="token punctuation">(</span><span class="token string">'Error'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    context <span class="token operator">=</span> context <span class="token operator">||</span> window<span class="token punctuation">;</span>
+    context<span class="token punctuation">.</span>fn <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> result<span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>arguments<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        context<span class="token punctuation">.</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token operator">...</span>arguments<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+        context<span class="token punctuation">.</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">delete</span> context<span class="token punctuation">.</span>fn<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span><span class="token string">'李四'</span><span class="token punctuation">,</span>
+    age<span class="token punctuation">:</span><span class="token number">18</span>
+<span class="token punctuation">}</span>
+test<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="实现bind"><a href="#实现bind" class="headerlink" title="实现bind"></a>实现bind</h2><pre class=" language-javascript"><code class="language-javascript">Fucntion<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>myBind <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token keyword">this</span> <span class="token operator">!==</span> <span class="token string">'function'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">TypeError</span><span class="token punctuation">(</span><span class="token string">'Error'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">const</span> that <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> args <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>arguments<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token function">F</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//这里的判断是为了处理绑定的函数被用于new操作来创建新的对象，此时的this是指向新new出来的对象。不再是调用bind的那个函数了。</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token keyword">instanceof</span> <span class="token class-name">F</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">that</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">,</span><span class="token operator">...</span>arguments<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> that<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span>args<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token operator">...</span>arguments<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
 
             </div>
             <hr>
@@ -583,7 +629,7 @@
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">TomoFur</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/06/09/浏览器渲染过程/" class="b-link-green">浏览器渲染过程</a>
+                    <a href="/2019/07/02/手动写源码/" class="b-link-green">手动实现call，apply和bind</a>
                 </p>
             </div>
         </div>
@@ -628,73 +674,28 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/06/09/防抖与节流/">
+                <a href="/2019/07/02/手动写源码/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="防抖与节流">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="手动实现call，apply和bind">
                         
-                        <span class="card-title">防抖与节流</span>
+                        <span class="card-title">手动实现call，apply和bind</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">防抖当持续触发事件时，一定时间段内没有再触发时间，时间处理函数才会执行一次，如果设定的时间到来之前，有一次触发了事件，就重新开始延时。
-&lt;script>
-    function debounce(fn, wait) {
-      </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-09
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                    JavaScript
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/性能优化/" target="_blank">
-                        <span class="chip bg-color">性能优化</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/06/09/前端页面优化/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="前端性能优化常用总结">
-                        
-                        <span class="card-title">前端性能优化常用总结</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">网络方面web应用，总有一部分时间浪费在网络连接和资源下载上。往往建立一次网络连接是需要花费时间成本的，而浏览器同一时间发送的网络请求的数目总是有限的，所以，这个层面上的优化可以从减少请求数目开始
-减少请求数目
-合并js文件
-合并css文件</div>
+                    <div class="summary">
+还是有点东西的呦！
+
+手动实现call预备知识：如果一个函数作为一个对象的属性，那么通过对象的.运算符调用此函数，this就是此对象
+Function.prototype.myCall = function(context){
+    i</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-09
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-02
                             </span>
                         <span class="publish-author">
                             
@@ -708,11 +709,60 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/性能优化/" target="_blank">
-                        <span class="chip bg-color">性能优化</span>
+                    <a href="/tags/ES5基础知识/" target="_blank">
+                        <span class="chip bg-color">ES5基础知识</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/07/01/重排和重绘/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="重排和重绘">
+                        
+                        <span class="card-title">重排和重绘</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">浏览器的运行机制：
+构建DOM树：渲染引擎解析HTML文档，首先将标签转换为DOM树中的DOM节点（包括js生成的标签），生成DOM树
+构建渲染树：解析对应的CSS样式文件信息（包括js生成的样式和外部CSS文件），构建渲染树。
+布局渲染树</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/css/" class="post-category" target="_blank">
+                                    css
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/css布局/" target="_blank">
+                        <span class="chip bg-color">css布局</span>
                     </a>
                     
                 </div>
