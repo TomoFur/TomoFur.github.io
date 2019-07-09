@@ -479,12 +479,19 @@ DOM2级对DO">
         width<span class="token punctuation">:</span>500px<span class="token punctuation">;</span>
         height<span class="token punctuation">:</span>500px<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
+    #app<span class="token punctuation">:</span><span class="token punctuation">:</span>after<span class="token punctuation">{</span>
+        content<span class="token punctuation">:</span><span class="token string">'hello'</span><span class="token punctuation">;</span>
+        display<span class="token punctuation">:</span>inlien<span class="token operator">-</span>block<span class="token punctuation">;</span>
+        width<span class="token punctuation">:</span>20px<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span>
 <span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">'app'</span> style <span class="token operator">=</span> <span class="token string">'background-color:red'</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
 <span class="token operator">&lt;</span>script<span class="token operator">></span>
     <span class="token keyword">var</span> app <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'app'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     app<span class="token punctuation">.</span>style<span class="token punctuation">.</span>width<span class="token comment" spellcheck="true">//无法获取到500px</span>
-    window<span class="token punctuation">.</span><span class="token function">getComputedStlye</span><span class="token punctuation">(</span>box<span class="token punctuation">,</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">.</span>width<span class="token comment" spellcheck="true">//500px;第二个参数时可选的，可以是一个表示伪元素的字符串</span>
+    window<span class="token punctuation">.</span><span class="token function">getComputedStlye</span><span class="token punctuation">(</span>app<span class="token punctuation">,</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">.</span>width<span class="token comment" spellcheck="true">//500px;第二个参数是可选的，可以是一个表示伪元素的字符串</span>
+    <span class="token comment" spellcheck="true">//要想获得这个after伪元素的样式可以通过以下方式来获取到：</span>
+    window<span class="token punctuation">.</span><span class="token function">getComputedStyle</span><span class="token punctuation">(</span>app<span class="token punctuation">,</span><span class="token string">':after'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>width<span class="token punctuation">;</span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
 </code></pre>
 <p><strong>注意</strong>：<strong>getComputedStyle()方法FF支持，IE不支持，IE支持的是currentStyle,即要在IE上获取到width，通过<code>app.currentStyle.width</code>。这个方法Edge不支持，只有IE支持。</strong>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     </p>
@@ -971,7 +978,7 @@ Promise对象代表着一个异步操作，有三种状态，Pending（进行</d
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">34.9k</span>
+                <span class="white-color">35k</span>
             
 
             
