@@ -390,14 +390,14 @@ DOM2级对DO">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        2.1k
+                        2.3k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        7 分
+                        8 分
                     </div>
                     
                 
@@ -467,8 +467,20 @@ DOM2级对DO">
 <h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p><code>parent.removeChild()</code>;//传入的参数是被选中的要删除的节点。</p>
 <h3 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h3><p><code>parent.replaceChild</code>(新节点，旧节点)//将旧节点替换成新节点。</p>
 <h3 id="节点拷贝"><a href="#节点拷贝" class="headerlink" title="节点拷贝"></a>节点拷贝</h3><p><code>cloneNode()</code>//<strong>不传参数的时候是浅拷贝</strong>，只是拷贝当前元素，<strong>如果传入参数true时，表示深拷贝</strong>，会将当前节点以及其包含的子节点都拷贝一份。</p>
+<p><strong>注意</strong>：拷贝只是拷贝元素，并不拷贝元素身上绑定的事件。</p>
 <h3 id="操作属性："><a href="#操作属性：" class="headerlink" title="操作属性："></a>操作属性：</h3><h4 id="获取属性"><a href="#获取属性" class="headerlink" title="获取属性"></a>获取属性</h4><p><code>getAttribute(&#39;属性名&#39;)</code></p>
 <h4 id="设置属性"><a href="#设置属性" class="headerlink" title="设置属性"></a>设置属性</h4><p><code>setAttribute(&#39;属性名&#39;,&#39;属性值&#39;)</code></p>
+<p><strong>注意</strong>：</p>
+<p>这里如果该DOM元素已经有了这个属性，通过上述方式设置属性就会把元素原来有的那个属性给覆盖掉。</p>
+<pre class=" language-javascript"><code class="language-javascript">    情景：假设divObj是一个DOM节点，它此时有一个类样式为base<span class="token punctuation">,</span>而我们想给它在base这个类样式的基础上再添加一个active的样式
+    ❌<span class="token punctuation">:</span>
+    divObj<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'class'</span><span class="token punctuation">,</span><span class="token string">'active'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    当这行代码执行结束之后，divObj的类样式只有active<span class="token punctuation">,</span>没有base，因为base被覆盖掉了
+    ✔：
+    <span class="token keyword">let</span> array<span class="token operator">=</span>divObj<span class="token punctuation">.</span>className<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//获取到所有的类样式组成的数组</span>
+    array<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'active'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//将active添加到这个数组里面，</span>
+    divObj<span class="token punctuation">.</span>className <span class="token operator">=</span> array<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//再将这个数组转为字符串赋值给divObj的className</span>
+</code></pre>
 <h4 id="移除属性"><a href="#移除属性" class="headerlink" title="移除属性"></a>移除属性</h4><p><code>removeAttribute(&#39;属性名&#39;)</code></p>
 <h3 id="innerHTML属性"><a href="#innerHTML属性" class="headerlink" title="innerHTML属性"></a>innerHTML属性</h3><p>在读模式下，innerHTML属性返回与调用元素的所有子节点对应的HTML标记，在写模式下，innerHTML会根据指定的值创建新的DOM树，然后用这个DOM树完全替换调用元素先前的所有子节点。（读模式下会返回带html标签的字符串，写模式下会将传入的字符串解析成为html标签，然后覆盖掉这个DOM元素之前的所有子元素。）</p>
 <h3 id="innerText"><a href="#innerText" class="headerlink" title="innerText"></a>innerText</h3><p>通过innerText属性可以操作元素中包含的所有文本内容，包括子文档树中的文本，在通过innerText读取值的时候，它会按照由浅入深的顺序，将子文档中所有文本拼接起来；再通过innerText写入值时，会覆盖。如果写入的字符串中有html标签元素，也不会解析成html标签渲染到页面上，会当成普通的字符串输出。</p>
@@ -978,7 +990,7 @@ Promise对象代表着一个异步操作，有三种状态，Pending（进行</d
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">35k</span>
+                <span class="white-color">35.2k</span>
             
 
             
