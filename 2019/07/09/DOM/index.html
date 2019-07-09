@@ -5,8 +5,10 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="JavaScript运行机制, TomoFur">
-    <meta name="description" content="为什么JavaScript是单线程JavaScript的单线程，与它的用途有关，作为浏览器脚本语言，JavaScript的主要用途是为了与用户互动以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如：假定JavaScri">
+    <meta name="keywords" content="文档对象模型(DOM), TomoFur">
+    <meta name="description" content="文档对象模型(DOM)针对HTML和XML文档的一个API,DOM描绘了一个层次化的节点树，允许开发人员添加，移除和修改页面的一部分。
+分级DOM1级定义了HTML和XML文档的底层结构，为基本的文档结构和查询提供了接口。
+DOM2级对DO">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>JavaScript运行机制 | TomoFur</title>
+    <title>文档对象模型(DOM) | TomoFur</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -240,13 +242,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        JavaScript运行机制
+                        文档对象模型(DOM)
                     </div>
                 </div>
             </div>
@@ -357,8 +359,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/EventLoop/" target="_blank">
-                                <span class="chip bg-color">EventLoop</span>
+                            <a href="/tags/ES5基础知识/" target="_blank">
+                                <span class="chip bg-color">ES5基础知识</span>
                             </a>
                         
                     </div>
@@ -381,21 +383,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-04-11
+                    2019-07-09
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        872
+                        2.1k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        3 分
+                        7 分
                     </div>
                     
                 
@@ -406,35 +408,140 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="为什么JavaScript是单线程"><a href="#为什么JavaScript是单线程" class="headerlink" title="为什么JavaScript是单线程"></a>为什么JavaScript是单线程</h2><p>JavaScript的单线程，与它的用途有关，作为浏览器脚本语言，JavaScript的主要用途是为了与用户互动以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如：假定JavaScript同时又两个线程，一个线程在某个DOM节点上添加内容，一个线程要删除这个节点，这时，浏览器就不知道该以哪个线程为准。</p>
-<h2 id="同步任务和异步任务"><a href="#同步任务和异步任务" class="headerlink" title="同步任务和异步任务"></a>同步任务和异步任务</h2><p>同步任务：在主线程上排队执行额任务，只有前一个任务执行完毕之后才能执行下一个任务。</p>
-<p>异步任务：不进入主线程，而是进入任务队列的任务。</p>
-<p><strong>注</strong>：除了放置异步任务的事件，任务队列还可以放置定时器任务。</p>
-<h2 id="EventLoop"><a href="#EventLoop" class="headerlink" title="EventLoop"></a>EventLoop</h2><p>任务队列是一个事件的队列，主线程读取任务队列，就是读取里面的事件。</p>
-<p>主线程从“任务队列”中读取事件，这种过程是循环不断的，所以整个过程的运行机制又称为EventLoop</p>
-<p>不同的任务源会被分配到不同的Task队列中去，任务源又可以分为微任务(miscrotask)和宏任务(mascrotask)</p>
-<p><img src="/2019/04/11/EventLoop/宏任务和微任务.PNG" alt></p>
-<p>EventLoop循环过程如下：</p>
+                <h1 id="文档对象模型-DOM"><a href="#文档对象模型-DOM" class="headerlink" title="文档对象模型(DOM)"></a>文档对象模型(DOM)</h1><p>针对HTML和XML文档的一个API,DOM描绘了一个层次化的节点树，允许开发人员添加，移除和修改页面的一部分。</p>
+<h3 id="分级"><a href="#分级" class="headerlink" title="分级"></a>分级</h3><h4 id="DOM1级"><a href="#DOM1级" class="headerlink" title="DOM1级"></a>DOM1级</h4><p>定义了HTML和XML文档的底层结构，为基本的文档结构和查询提供了接口。</p>
+<h4 id="DOM2级"><a href="#DOM2级" class="headerlink" title="DOM2级"></a>DOM2级</h4><p>对DOM1级进行扩展。</p>
 <ol>
-<li>执行完同步代码，当所有同步代码均被执行完毕之后，执行栈清空，查询是否有异步代码</li>
-<li>在macrotask队列中选择最早的那一个，如果没有可选的任务，就跳到下面的microtask队列中</li>
-<li>将上面选中的macrotask设置为正在运行的task</li>
-<li>运行被选中的task</li>
-<li>运行完毕之后，将eventloop中的current running task设置为null</li>
-<li>从task队列中移除前面运行的macrotask</li>
-<li>执行所有在microtask队列里的任务。</li>
-<li>更新渲染</li>
-<li>返回到开始</li>
+<li><strong>DOM2级核心</strong>：在1级核心基础上构建，为节点添加了更多方法和属性。</li>
+<li><strong>DOM2级视图</strong>：为文档定义了基于样式信息的不同视图。</li>
+<li><strong>DOM2级事件</strong>：说明了如何使用事件与DOM文档交互</li>
+<li><strong>DOM2级样式</strong>：定义了如何以编程的方式来访问和改变css样式信息。</li>
+<li><strong>DOM2级遍历和范围</strong>：引入了遍历DOM文档和选择其特定部分的接口</li>
+<li><strong>DOM2级HTML</strong>:在1级HTML基础上构建，添加了更多属性，方法和新街口</li>
 </ol>
-<h3 id="另一理解"><a href="#另一理解" class="headerlink" title="另一理解"></a>另一理解</h3><ol>
-<li>一段代码执行时先执行宏任务中的同步代码</li>
-<li>如果遇到像setTimeOut这种宏任务就会把代码放置在宏任务队列中去</li>
-<li>如果遇到promise.then这类任务会放置在微任务队列中。</li>
-<li>在本轮宏任务执行完之后会依此执行本轮微任务队列中的所有代码，然后开始下一轮的宏任务代码。</li>
+<h4 id="DOM3级"><a href="#DOM3级" class="headerlink" title="DOM3级"></a>DOM3级</h4><p>3级DOM通过引入统一方式载入和保存文档和文档验证方法对DOM进行进一步扩展。</p>
+<h2 id="节点与元素节点"><a href="#节点与元素节点" class="headerlink" title="节点与元素节点"></a>节点与元素节点</h2><ol>
+<li>节点包括有：元素节点，文本节点，属性节点，注释节点等</li>
+<li>每一个节点对象有三个重要的属性：<ol>
+<li>nodeType:节点的类型，其中1表示元素节点，2表示属性节点，3表示文本节点</li>
+<li>nodeName：节点的名字。标签节点就是大写的标签名字，属性节点就是小写的属性名字，文本节点就是#text</li>
+<li>nodeValue:节点的值。标签节点的值时null，属性节点的值是属性值，文本节点的值是文本。</li>
 </ol>
-<p><strong>注</strong>：await后面无论接的是同步代码还是异步代码都必须等他们执行完毕之后才能执行await结果后面的代码。</p>
-<p><strong>注释</strong>：在遇见定时器后，会将定时器内的函数进行注册，也就是放在Event Table。然后在定时器设定的事件后将Event Table内注册的函数放入Event queue。如果主线程中的call stack为空就将Event queue按顺序放入call stack中进行执行，如果call stack并不为空，Event queue内的事件并不会进入call stack，也就不会执行。</p>
-<p>在call stack中的内容执行完毕后清空，会在Event queue检查一下哪些任务时宏任务，哪些是微任务，然后执行所有的微任务，然后执行下一个宏任务，之后再次执行所有的微任务。也就是说在主线程任务执行完毕后会把任务队列里的微任务全部执行，然后再执行下一个宏任务，这个宏任务执行完再次检查队列内部的微任务，有就全部执行，没有就再执行一个宏任务。</p>
+</li>
+</ol>
+<p><strong>注意</strong>：一个元素的父元素和父节点都指的是包含该元素的父元素，是一个标签。但是一个元素的子元素和子节点不是同一个东西。元素的子元素特指包含在这个元素内部的所有标签。而元素的子节点则是包含在这个元素内部的所有节点，包括文本节点，属性节点，元素节点和注释节点等。</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>name<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>这是第1个li<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>这是第2个li<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>这是第3个li<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>这是第4个li<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>这是第5个li<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>在上述例子中，ul标签的子节点有11个，而子元素只有5个。</p>
+<h2 id="获取子节点的方法"><a href="#获取子节点的方法" class="headerlink" title="获取子节点的方法"></a>获取子节点的方法</h2><ol>
+<li>parentNode.获取父节点。最顶端是#document</li>
+<li>childNodes:获取所有的子节点。</li>
+<li>firstChild:获取第一个子节点。</li>
+<li>lastChild:获取最后一个子节点。</li>
+<li>nextSiblings：获取后一个兄弟节点</li>
+<li>perviousSiblings:获取前一个兄弟节点。</li>
+<li>hasChildNodes：判断该元素是否有子节点。</li>
+</ol>
+<h2 id="获取子元素的方法"><a href="#获取子元素的方法" class="headerlink" title="获取子元素的方法"></a>获取子元素的方法</h2><ol>
+<li>parentElement:获取当前元素的父元素。</li>
+<li>children：获取当前元素的所有子元素。</li>
+<li>childElementCount:当前元素的所有子元素的个数。</li>
+<li>firstElementChild:返回第一个子元素节点</li>
+<li>lastElementChild:返回最后一个子元素节点</li>
+<li>nextElementsibling：返回下一个兄弟元素节点。</li>
+<li>previousElementSibling:返回前一个兄弟元素节点。</li>
+<li>attributes：获取元素的属性节点。(标签内部添加的类似于name，class，id之类的)</li>
+</ol>
+<p><strong>注意</strong>：获取子元素节点的方法除了children之外，其余的方法IE9以下都不兼容。</p>
+<h2 id="DOM的其他操作"><a href="#DOM的其他操作" class="headerlink" title="DOM的其他操作"></a>DOM的其他操作</h2><h3 id="增加"><a href="#增加" class="headerlink" title="增加"></a>增加</h3><p><code>document.createElement()</code>//参数传递的是标签名字</p>
+<p>###插入</p>
+<ol>
+<li><code>parentNode.appendChild()</code>;//在父级元素的后面增加一个子元素</li>
+<li><code>parentNode.insertBefore(a,b)</code>;//第一个参数是新节点，第二个参数是老节点。表示将新节点插入到老的节点之前。</li>
+</ol>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p><code>parent.removeChild()</code>;//传入的参数是被选中的要删除的节点。</p>
+<h3 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h3><p><code>parent.replaceChild</code>(新节点，旧节点)//将旧节点替换成新节点。</p>
+<h3 id="节点拷贝"><a href="#节点拷贝" class="headerlink" title="节点拷贝"></a>节点拷贝</h3><p><code>cloneNode()</code>//<strong>不传参数的时候是浅拷贝</strong>，只是拷贝当前元素，<strong>如果传入参数true时，表示深拷贝</strong>，会将当前节点以及其包含的子节点都拷贝一份。</p>
+<h3 id="操作属性："><a href="#操作属性：" class="headerlink" title="操作属性："></a>操作属性：</h3><h4 id="获取属性"><a href="#获取属性" class="headerlink" title="获取属性"></a>获取属性</h4><p><code>getAttribute(&#39;属性名&#39;)</code></p>
+<h4 id="设置属性"><a href="#设置属性" class="headerlink" title="设置属性"></a>设置属性</h4><p><code>setAttribute(&#39;属性名&#39;,&#39;属性值&#39;)</code></p>
+<h4 id="移除属性"><a href="#移除属性" class="headerlink" title="移除属性"></a>移除属性</h4><p><code>removeAttribute(&#39;属性名&#39;)</code></p>
+<h3 id="innerHTML属性"><a href="#innerHTML属性" class="headerlink" title="innerHTML属性"></a>innerHTML属性</h3><p>在读模式下，innerHTML属性返回与调用元素的所有子节点对应的HTML标记，在写模式下，innerHTML会根据指定的值创建新的DOM树，然后用这个DOM树完全替换调用元素先前的所有子节点。（读模式下会返回带html标签的字符串，写模式下会将传入的字符串解析成为html标签，然后覆盖掉这个DOM元素之前的所有子元素。）</p>
+<h3 id="innerText"><a href="#innerText" class="headerlink" title="innerText"></a>innerText</h3><p>通过innerText属性可以操作元素中包含的所有文本内容，包括子文档树中的文本，在通过innerText读取值的时候，它会按照由浅入深的顺序，将子文档中所有文本拼接起来；再通过innerText写入值时，会覆盖。如果写入的字符串中有html标签元素，也不会解析成html标签渲染到页面上，会当成普通的字符串输出。</p>
+<p><strong>注意</strong>：<strong>这个方法IE支持，FF不支持，FF中有一个类似方法textContent</strong>。</p>
+<h3 id="计算的属性"><a href="#计算的属性" class="headerlink" title="计算的属性"></a>计算的属性</h3><p>虽然可以通过<code>DOM对象.style.属性名称</code>的方式获取到元素的属性样式，但是，这种方式仅限于<strong>通过内联的形式写在元素标签的<code>style</code>属性里的样式信息</strong>，如果时通过外链或者写在<code>&lt;style&gt;&lt;/style&gt;</code>标签的样式信息，这种方法就无能为力了。这时候，要是想要获取相关的信息，需要通过<code>getComputedStyle()</code>方法来获取。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>style<span class="token operator">></span>
+    #app<span class="token punctuation">{</span>
+        width<span class="token punctuation">:</span>500px<span class="token punctuation">;</span>
+        height<span class="token punctuation">:</span>500px<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span>
+<span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">'app'</span> style <span class="token operator">=</span> <span class="token string">'background-color:red'</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span>script<span class="token operator">></span>
+    <span class="token keyword">var</span> app <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'app'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    app<span class="token punctuation">.</span>style<span class="token punctuation">.</span>width<span class="token comment" spellcheck="true">//无法获取到500px</span>
+    window<span class="token punctuation">.</span><span class="token function">getComputedStlye</span><span class="token punctuation">(</span>box<span class="token punctuation">,</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">.</span>width<span class="token comment" spellcheck="true">//500px;第二个参数时可选的，可以是一个表示伪元素的字符串</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<p><strong>注意</strong>：<strong>getComputedStyle()方法FF支持，IE不支持，IE支持的是currentStyle,即要在IE上获取到width，通过<code>app.currentStyle.width</code>。这个方法Edge不支持，只有IE支持。</strong>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     </p>
+<h3 id="元素大小"><a href="#元素大小" class="headerlink" title="元素大小"></a>元素大小</h3><h4 id="offset系列"><a href="#offset系列" class="headerlink" title="offset系列"></a>offset系列</h4><ol>
+<li><p><strong>offsetWidth</strong>：元素在水平方向上占的空间大小，包括元素宽度，边框宽度等。</p>
+</li>
+<li><p><strong>offsetHeight</strong>:元素在垂直方向上占的空间大小。</p>
+</li>
+<li><p><strong>offsetLeft</strong>：元素的外左边框与父元素内左边框的距离。</p>
+</li>
+<li><p><strong>offsetTop</strong>:元素的外上边框与父元素的内上边框之间的距离。</p>
+<p><img src="/2019/07/09/DOM/offset.PNG" alt></p>
+</li>
+</ol>
+<h3 id="client系列"><a href="#client系列" class="headerlink" title="client系列"></a>client系列</h3><ol>
+<li><strong>clientHeight</strong>：元素内容区域加上上下的内边距</li>
+<li><strong>clientTop</strong>：元素内容区域加上左右的内边距。</li>
+<li><strong>clientLeft</strong>：元素左边框的宽度</li>
+<li><strong>clientTop</strong>: 元素上边框的宽度</li>
+</ol>
+<p><strong>注意</strong>：clientX和clientY是在注册鼠标移动事件的时候显示鼠标在屏幕上的位置用的。<code>e.clientX;e是事件源对象</code></p>
+<p><img src="/2019/07/09/DOM/client.PNG" alt></p>
+<h3 id="scroll系列"><a href="#scroll系列" class="headerlink" title="scroll系列"></a>scroll系列</h3><ol>
+<li><strong>scrollHeight</strong>:在内容超过包裹元素的情况下，是内容的总高度，在没有超过情况下，是包裹内容的元素的高度</li>
+<li><strong>scrollWidth</strong>：在内容超过包裹元素的情况下，是内容的宽度，在没有超过情况下，是包裹内容的元素的宽度</li>
+<li><strong>scrollTop</strong>：卷曲上去的高度</li>
+<li><strong>scrollLeft</strong>:向右卷曲出去的宽度。</li>
+</ol>
+<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><h4 id="事件流：从页面中接受事件的顺序。IE是事件冒泡流，FF事件捕获流。"><a href="#事件流：从页面中接受事件的顺序。IE是事件冒泡流，FF事件捕获流。" class="headerlink" title="事件流：从页面中接受事件的顺序。IE是事件冒泡流，FF事件捕获流。"></a><strong>事件流</strong>：从页面中接受事件的顺序。IE是事件冒泡流，FF事件捕获流。</h4><h4 id="DOM事件流：事件捕获阶段——-gt-处于目标阶段——-gt-事件冒泡阶段"><a href="#DOM事件流：事件捕获阶段——-gt-处于目标阶段——-gt-事件冒泡阶段" class="headerlink" title="DOM事件流：事件捕获阶段——&gt;处于目标阶段——&gt;事件冒泡阶段"></a><strong>DOM事件流</strong>：<strong>事件捕获阶段——&gt;处于目标阶段——&gt;事件冒泡阶段</strong></h4><h4 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a><strong>事件处理</strong></h4><ol>
+<li><strong>DOM0级事件处理</strong>：<ol>
+<li>绑定事件：<code>元素.on事件 = 事件处理函数</code></li>
+<li>解绑事件：<code>元素.on事件 = null</code></li>
+</ol>
+</li>
+<li><strong>DOM2级事件处理</strong>：<ol>
+<li>绑定事件：<code>元素.addEventListener(事件名称(不带on)，事件处理函数，true/false（在捕获阶段执行/在冒泡阶段执行）)</code></li>
+<li>解绑事件:<code>元素.removeEventListener(事件名称)</code></li>
+</ol>
+</li>
+</ol>
+<p><strong>IE事件处理</strong>：</p>
+<p><strong>绑定事件</strong>：<code>元素.attachEvent(带on的事件名，事件处理函数)</code></p>
+<p><strong>解绑事件</strong>：元素.detachEvent(带on的事件名)</p>
+<h4 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h4><p><strong>除了IE之外</strong>：事件处理函数中传入的形参e就是事件对象</p>
+<ol>
+<li>e.preventDefault();//阻止默认事件</li>
+<li>e.stopPropergation()//阻止事件冒泡</li>
+<li>e.target//事件源对象</li>
+<li>e.eventPhase//事件目前所处的阶段</li>
+</ol>
+<p><strong>IE</strong>：<strong>window.event</strong></p>
+<ol>
+<li>window.event.cancleBubble = true//取消事件冒泡</li>
+<li>window.event.srcElement = e.target</li>
+</ol>
+<p><strong>TIPS:</strong>不会冒泡的事件有<strong>abort</strong> <strong>blur</strong> <strong>error</strong> <strong>focus</strong> <strong>load</strong> <strong>mouseenter/mouseleave</strong> <strong>resize</strong> <strong>unload</strong>  <strong>submit</strong></p>
 
             </div>
             <hr>
@@ -582,7 +689,7 @@
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">TomoFur</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/04/11/EventLoop/" class="b-link-green">JavaScript运行机制</a>
+                    <a href="/2019/07/09/DOM/" class="b-link-green">文档对象模型(DOM)</a>
                 </p>
             </div>
         </div>
@@ -627,51 +734,44 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/04/22/vdom/">
+                <a href="/2019/07/09/DOM/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="virtual DOM及diff算法">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="文档对象模型(DOM)">
                         
-                        <span class="card-title">virtual DOM及diff算法</span>
+                        <span class="card-title">文档对象模型(DOM)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">什么是virtual dom？从本质上而言，Vdom只是一个用于描述DOM节点的原生JS对象，并且最少包括tag，props，和children三个属性，下面是一个经典的Vdom例子：
-{
-    tag: "div",
-    props</div>
+                    <div class="summary">文档对象模型(DOM)针对HTML和XML文档的一个API,DOM描绘了一个层次化的节点树，允许开发人员添加，移除和修改页面的一部分。
+分级DOM1级定义了HTML和XML文档的底层结构，为基本的文档结构和查询提供了接口。
+DOM2级对DO</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/VUE/" class="post-category" target="_blank">
-                                    VUE
+                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
+                                    JavaScript
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/vue/" target="_blank">
-                        <span class="chip bg-color">vue</span>
-                    </a>
-                    
-                    <a href="/tags/diff算法/" target="_blank">
-                        <span class="chip bg-color">diff算法</span>
-                    </a>
-                    
-                    <a href="/tags/VDom/" target="_blank">
-                        <span class="chip bg-color">VDom</span>
+                    <a href="/tags/ES5基础知识/" target="_blank">
+                        <span class="chip bg-color">ES5基础知识</span>
                     </a>
                     
                 </div>
@@ -685,20 +785,21 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/04/11/ES6异步操作/">
+                <a href="/2019/07/05/promise/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="ES6异步操作">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Promise">
                         
-                        <span class="card-title">ES6异步操作</span>
+                        <span class="card-title">Promise</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">异步操作async/awaitasync函数返回的是一个promise对象，如果在函数中return一个直接量，saync会把这个直接量通过Promise.resolve()封装成一个Promise对象。，如果async函数没有返回值，就会</div>
+                    <div class="summary">所谓promise，简单来说是一个容器，里面保存着某个未来才会结束的事情(通常是一个异步操作)的结果，从语法上来讲Promise是一个对象，从它可以获取异步操作的消息。
+Promise对象代表着一个异步操作，有三种状态，Pending（进行</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-11
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-05
                             </span>
                         <span class="publish-author">
                             
@@ -717,10 +818,6 @@
                     
                     <a href="/tags/ES6/" target="_blank">
                         <span class="chip bg-color">ES6</span>
-                    </a>
-                    
-                    <a href="/tags/async-await/" target="_blank">
-                        <span class="chip bg-color">async/await</span>
                     </a>
                     
                 </div>
