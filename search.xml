@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>HTTP协议状态码</title>
+      <link href="/2019/07/10/HTTP%E5%8D%8F%E8%AE%AE%E7%8A%B6%E6%80%81%E7%A0%81/"/>
+      <url>/2019/07/10/HTTP%E5%8D%8F%E8%AE%AE%E7%8A%B6%E6%80%81%E7%A0%81/</url>
+      
+        <content type="html"><![CDATA[<h1 id="HTTP协议状态码"><a href="#HTTP协议状态码" class="headerlink" title="HTTP协议状态码"></a>HTTP协议状态码</h1><blockquote><p>常用的不多，其余的权当了解一下</p></blockquote><h2 id="1-信息性状态码"><a href="#1-信息性状态码" class="headerlink" title="1**     信息性状态码"></a>1**     信息性状态码</h2><ol><li><code>100 continue</code>:服务器端收到了初始部分，请客户端继续</li></ol><p><strong>注</strong>：这个状态码是一种优化，客户端应用程序只有在避免向服务器发送一个服务器无法处理或者使用的大的实体时，才使用这个状态码</p><ol start="2"><li><code>101 switching protocol</code>:服务器正在根据客户端的指定，将协议切换成update首部所列的协议</li></ol><h2 id="2-成功状态码"><a href="#2-成功状态码" class="headerlink" title="2**      成功状态码"></a>2**      成功状态码</h2><ol><li><code>200 ok</code>:请求成功，响应报文的主体部分包括了所请求的资源</li><li><code>201 created</code>:用于创建服务器对象的请求，例如<code>put</code></li><li><code>202 Accepted</code>:请求已经被接受，但是服务器还未对齐执行任何操作</li><li><code>203 Not-Authoritative</code>:实体首部包含的信息不是来自于源端服务器，而是来自于资源的一个副本。</li><li><code>204 no content</code>:响应报文的主体部分没有内容</li><li><code>205 reset Content</code>:用于重置表单内容</li><li><code>206 partial content</code>:成功执行一个部分请求，一般这种响应的请求报文的首部字段都有一个<code>content-range</code>字段</li></ol><h2 id="3-重定向状态码"><a href="#3-重定向状态码" class="headerlink" title="3**        重定向状态码"></a>3**        重定向状态码</h2><ol><li><code>300 multiple choice</code>:请求的url对应着服务器的多个资源</li><li><code>301 moved permanently</code>:请求的url已经被移除了</li><li><code>302 found</code>:客户端应该使用<code>location</code>首部给出的URL来临时定位资源，将来的请求仍然使用老的URL</li><li><code>303 see other</code>:告知客户端应该使用另外一个URL来获取资源</li><li><code>304 not modified</code>:客户端请求的资源并没有被修改，在协商缓存的时候通过<code>expire</code>或者<code>Etag</code>来判断</li><li><code>307 temporary redirect</code>:客户端应该使用<code>location</code>首部给出的URL来临时定位资源，将来的请求仍然使用老的UR</li></ol><h4 id="302，303，307之间的区别："><a href="#302，303，307之间的区别：" class="headerlink" title="302，303，307之间的区别："></a>302，303，307之间的区别：</h4><p>当<strong>HTTP/1.0</strong>客户端发起一个POST请求，并在响应中收到302重定向状态码时，它会接受Location首部的重定向URL,并向那个URL发起一个GET请求（实际上并不希望用GET来代替POST,这种行为实际上时不合法的）。</p><p>在HTTP/1.1规范使用303状态码来实现同样的行为(承认POST变GET的合法性)</p><p>对于HTTP/1.1客户端，用307状态码取代302状态码来进行临时重定向。(实际上时实现了HTTP/1.0中302的理想型作用，不会将POST变为GET)</p><h2 id="4-客户端错误的状态码"><a href="#4-客户端错误的状态码" class="headerlink" title="4**      客户端错误的状态码"></a>4**      客户端错误的状态码</h2><ol><li><code>400 bad request</code>:客户端发送了一个错误的请求</li><li><code>401 Unauthorized</code>:告知客户端在对资源进行访问之前，需要对自身进行认证</li><li><code>403 forbidden</code>:请求被服务器拒绝了</li><li><code>404 not found</code>:服务器无法找到这个资源</li><li><code>405 method not allow</code>:这个资源不支持请求发起的方法</li><li><code>408 request timeout</code>:请求超时</li><li><code>409 conflict</code>:请求可能在资源上会引起一些冲突</li><li><code>410 gone</code>:请求的资源已经被删除了</li></ol><h2 id="5-服务器端错误的状态码"><a href="#5-服务器端错误的状态码" class="headerlink" title="5**    服务器端错误的状态码"></a>5**    服务器端错误的状态码</h2><ol><li><code>500  Internal Server Error</code>:服务器内部发生错误</li><li><code>501 no implement</code>:客户端发起的请求超出了服务器的能力范围</li><li><code>502 bad gateway</code>网关错误</li><li><code>503 Service Unavailable</code>:服务器现在不可用</li><li><code>504 gateway timeout</code>:网关请求超时</li><li><code>505 HTTP version not support</code>:不支持这个版本的http协议。</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络协议 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> HTTP协议 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>文档对象模型(DOM)</title>
       <link href="/2019/07/09/DOM/"/>
       <url>/2019/07/09/DOM/</url>
@@ -1033,31 +1058,6 @@
     
     
     <entry>
-      <title>JavaScript运行机制</title>
-      <link href="/2019/04/11/EventLoop/"/>
-      <url>/2019/04/11/EventLoop/</url>
-      
-        <content type="html"><![CDATA[<h2 id="为什么JavaScript是单线程"><a href="#为什么JavaScript是单线程" class="headerlink" title="为什么JavaScript是单线程"></a>为什么JavaScript是单线程</h2><p>JavaScript的单线程，与它的用途有关，作为浏览器脚本语言，JavaScript的主要用途是为了与用户互动以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如：假定JavaScript同时又两个线程，一个线程在某个DOM节点上添加内容，一个线程要删除这个节点，这时，浏览器就不知道该以哪个线程为准。</p><h2 id="同步任务和异步任务"><a href="#同步任务和异步任务" class="headerlink" title="同步任务和异步任务"></a>同步任务和异步任务</h2><p>同步任务：在主线程上排队执行额任务，只有前一个任务执行完毕之后才能执行下一个任务。</p><p>异步任务：不进入主线程，而是进入任务队列的任务。</p><p><strong>注</strong>：除了放置异步任务的事件，任务队列还可以放置定时器任务。</p><h2 id="EventLoop"><a href="#EventLoop" class="headerlink" title="EventLoop"></a>EventLoop</h2><p>任务队列是一个事件的队列，主线程读取任务队列，就是读取里面的事件。</p><p>主线程从“任务队列”中读取事件，这种过程是循环不断的，所以整个过程的运行机制又称为EventLoop</p><p>不同的任务源会被分配到不同的Task队列中去，任务源又可以分为微任务(miscrotask)和宏任务(mascrotask)</p><p><img src="/2019/04/11/EventLoop/宏任务和微任务.PNG" alt></p><p>EventLoop循环过程如下：</p><ol><li>执行完同步代码，当所有同步代码均被执行完毕之后，执行栈清空，查询是否有异步代码</li><li>在macrotask队列中选择最早的那一个，如果没有可选的任务，就跳到下面的microtask队列中</li><li>将上面选中的macrotask设置为正在运行的task</li><li>运行被选中的task</li><li>运行完毕之后，将eventloop中的current running task设置为null</li><li>从task队列中移除前面运行的macrotask</li><li>执行所有在microtask队列里的任务。</li><li>更新渲染</li><li>返回到开始</li></ol><h3 id="另一理解"><a href="#另一理解" class="headerlink" title="另一理解"></a>另一理解</h3><ol><li>一段代码执行时先执行宏任务中的同步代码</li><li>如果遇到像setTimeOut这种宏任务就会把代码放置在宏任务队列中去</li><li>如果遇到promise.then这类任务会放置在微任务队列中。</li><li>在本轮宏任务执行完之后会依此执行本轮微任务队列中的所有代码，然后开始下一轮的宏任务代码。</li></ol><p><strong>注</strong>：await后面无论接的是同步代码还是异步代码都必须等他们执行完毕之后才能执行await结果后面的代码。</p><p><strong>注释</strong>：在遇见定时器后，会将定时器内的函数进行注册，也就是放在Event Table。然后在定时器设定的事件后将Event Table内注册的函数放入Event queue。如果主线程中的call stack为空就将Event queue按顺序放入call stack中进行执行，如果call stack并不为空，Event queue内的事件并不会进入call stack，也就不会执行。</p><p>在call stack中的内容执行完毕后清空，会在Event queue检查一下哪些任务时宏任务，哪些是微任务，然后执行所有的微任务，然后执行下一个宏任务，之后再次执行所有的微任务。也就是说在主线程任务执行完毕后会把任务队列里的微任务全部执行，然后再执行下一个宏任务，这个宏任务执行完再次检查队列内部的微任务，有就全部执行，没有就再执行一个宏任务。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> JavaScript </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> EventLoop </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>ES6异步操作</title>
       <link href="/2019/04/11/ES6%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C/"/>
       <url>/2019/04/11/ES6%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C/</url>
@@ -1077,6 +1077,31 @@
             <tag> ES6 </tag>
             
             <tag> async/await </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JavaScript运行机制</title>
+      <link href="/2019/04/11/EventLoop/"/>
+      <url>/2019/04/11/EventLoop/</url>
+      
+        <content type="html"><![CDATA[<h2 id="为什么JavaScript是单线程"><a href="#为什么JavaScript是单线程" class="headerlink" title="为什么JavaScript是单线程"></a>为什么JavaScript是单线程</h2><p>JavaScript的单线程，与它的用途有关，作为浏览器脚本语言，JavaScript的主要用途是为了与用户互动以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如：假定JavaScript同时又两个线程，一个线程在某个DOM节点上添加内容，一个线程要删除这个节点，这时，浏览器就不知道该以哪个线程为准。</p><h2 id="同步任务和异步任务"><a href="#同步任务和异步任务" class="headerlink" title="同步任务和异步任务"></a>同步任务和异步任务</h2><p>同步任务：在主线程上排队执行额任务，只有前一个任务执行完毕之后才能执行下一个任务。</p><p>异步任务：不进入主线程，而是进入任务队列的任务。</p><p><strong>注</strong>：除了放置异步任务的事件，任务队列还可以放置定时器任务。</p><h2 id="EventLoop"><a href="#EventLoop" class="headerlink" title="EventLoop"></a>EventLoop</h2><p>任务队列是一个事件的队列，主线程读取任务队列，就是读取里面的事件。</p><p>主线程从“任务队列”中读取事件，这种过程是循环不断的，所以整个过程的运行机制又称为EventLoop</p><p>不同的任务源会被分配到不同的Task队列中去，任务源又可以分为微任务(miscrotask)和宏任务(mascrotask)</p><p><img src="/2019/04/11/EventLoop/宏任务和微任务.PNG" alt></p><p>EventLoop循环过程如下：</p><ol><li>执行完同步代码，当所有同步代码均被执行完毕之后，执行栈清空，查询是否有异步代码</li><li>在macrotask队列中选择最早的那一个，如果没有可选的任务，就跳到下面的microtask队列中</li><li>将上面选中的macrotask设置为正在运行的task</li><li>运行被选中的task</li><li>运行完毕之后，将eventloop中的current running task设置为null</li><li>从task队列中移除前面运行的macrotask</li><li>执行所有在microtask队列里的任务。</li><li>更新渲染</li><li>返回到开始</li></ol><h3 id="另一理解"><a href="#另一理解" class="headerlink" title="另一理解"></a>另一理解</h3><ol><li>一段代码执行时先执行宏任务中的同步代码</li><li>如果遇到像setTimeOut这种宏任务就会把代码放置在宏任务队列中去</li><li>如果遇到promise.then这类任务会放置在微任务队列中。</li><li>在本轮宏任务执行完之后会依此执行本轮微任务队列中的所有代码，然后开始下一轮的宏任务代码。</li></ol><p><strong>注</strong>：await后面无论接的是同步代码还是异步代码都必须等他们执行完毕之后才能执行await结果后面的代码。</p><p><strong>注释</strong>：在遇见定时器后，会将定时器内的函数进行注册，也就是放在Event Table。然后在定时器设定的事件后将Event Table内注册的函数放入Event queue。如果主线程中的call stack为空就将Event queue按顺序放入call stack中进行执行，如果call stack并不为空，Event queue内的事件并不会进入call stack，也就不会执行。</p><p>在call stack中的内容执行完毕后清空，会在Event queue检查一下哪些任务时宏任务，哪些是微任务，然后执行所有的微任务，然后执行下一个宏任务，之后再次执行所有的微任务。也就是说在主线程任务执行完毕后会把任务队列里的微任务全部执行，然后再执行下一个宏任务，这个宏任务执行完再次检查队列内部的微任务，有就全部执行，没有就再执行一个宏任务。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> JavaScript </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> EventLoop </tag>
             
         </tags>
       

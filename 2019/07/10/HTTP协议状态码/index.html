@@ -5,16 +5,14 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="类型转换, TomoFur">
-    <meta name="description" content="
-这个知识点还是有一些繁琐。需要认真理解并记忆
+    <meta name="keywords" content="HTTP协议状态码, TomoFur">
+    <meta name="description" content="HTTP协议状态码
+常用的不多，其余的权当了解一下
 
-ToStringToString负责处理非字符串到字符串啊的强制类型转换
+1**     信息性状态码
+100 continue:服务器端收到了初始部分，请客户端继续
 
-基本类型的值转换为字符串
-null 转化为&#39;null&#39;
-undefined 转化为&#39;undefined&#39;
-true">
+注：这个状态码是一种优化，客户端应用程序只有在避免向服务器发送一个服务器无法处理或者使用的">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -22,7 +20,7 @@ true">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>类型转换 | TomoFur</title>
+    <title>HTTP协议状态码 | TomoFur</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -248,13 +246,13 @@ true">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        类型转换
+                        HTTP协议状态码
                     </div>
                 </div>
             </div>
@@ -365,8 +363,8 @@ true">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/ES5基础知识/" target="_blank">
-                                <span class="chip bg-color">ES5基础知识</span>
+                            <a href="/tags/HTTP协议/" target="_blank">
+                                <span class="chip bg-color">HTTP协议</span>
                             </a>
                         
                     </div>
@@ -377,8 +375,8 @@ true">
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                JavaScript
+                            <a href="/categories/网络协议/" class="post-category" target="_blank">
+                                网络协议
                             </a>
                         
                     </div>
@@ -389,14 +387,14 @@ true">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-07-01
+                    2019-07-10
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        971
+                        842
                     </div>
                     
 
@@ -414,71 +412,53 @@ true">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p>这个知识点还是有一些繁琐。需要认真理解并记忆</p>
+                <h1 id="HTTP协议状态码"><a href="#HTTP协议状态码" class="headerlink" title="HTTP协议状态码"></a>HTTP协议状态码</h1><blockquote>
+<p>常用的不多，其余的权当了解一下</p>
 </blockquote>
-<h2 id="ToString"><a href="#ToString" class="headerlink" title="ToString"></a>ToString</h2><p>ToString负责处理非字符串到字符串啊的强制类型转换</p>
-<ol>
-<li><p><strong>基本类型的值转换为字符串</strong></p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">null</span> 转化为<span class="token string">'null'</span>
-undefined 转化为<span class="token string">'undefined'</span>
-<span class="token boolean">true</span> 转化为<span class="token string">'true'</span>
-数字的字符串转化规则遵守通用规则
-</code></pre>
-</li>
-<li><p>对于普通对象来说，如果没有自定义toString()方法，则返回<code>[object Object]</code>,如果有自己的toSting方法，就会调用该方法并返回值</p>
-</li>
-<li><p>数组的toString()返回所有单元字符串化后用’,’连接起来。</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token punctuation">[</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//结果为'a,b,c'</span>
-</code></pre>
-</li>
+<h2 id="1-信息性状态码"><a href="#1-信息性状态码" class="headerlink" title="1**     信息性状态码"></a>1**     信息性状态码</h2><ol>
+<li><code>100 continue</code>:服务器端收到了初始部分，请客户端继续</li>
 </ol>
-<h2 id="ToNumber"><a href="#ToNumber" class="headerlink" title="ToNumber"></a>ToNumber</h2><ol>
-<li><p>基本类型的值转化为数字</p>
-<pre class=" language-JavaScript"><code class="language-JavaScript">null 转化为0
-undefined 转化为 NaN
-true 转化为1，false转化为 0
-字符串的处理遵循通用规则
-</code></pre>
-</li>
-<li><p>对象或数组首先会被转化为响应的基本类型，如果返回的是非数字的基本类型，再按照以上规则进行转换，其中对象转换为基本类型时会使用ToPrimitive操作。</p>
-</li>
+<p><strong>注</strong>：这个状态码是一种优化，客户端应用程序只有在避免向服务器发送一个服务器无法处理或者使用的大的实体时，才使用这个状态码</p>
+<ol start="2">
+<li><code>101 switching protocol</code>:服务器正在根据客户端的指定，将协议切换成update首部所列的协议</li>
 </ol>
-<h2 id="ToPrimitive"><a href="#ToPrimitive" class="headerlink" title="ToPrimitive"></a>ToPrimitive</h2><p>ToPrimitive操作会首先检查对象是否有valueOf()方法，如果有并且<strong>返回基本类型的值</strong>，就调用该方法进行类型转换，如果没有就使用toSting类型的返回的值。</p>
-<p>如果valueOf()和toString均不返回基本类型的值，就会产生TypeError错误</p>
-<p>如果没有对对象的valueOf()和toString()方法重写，那么：</p>
-<p>对象的valueOf()返回对象本身，toString()返回<code>[object Object]</code></p>
-<p>数组的valueOf()返回数组本身，toSring()返回所有单元字符串化以后再用’,’连接。</p>
-<h2 id="ToBoolean"><a href="#ToBoolean" class="headerlink" title="ToBoolean"></a>ToBoolean</h2><ol>
-<li><code>null</code>转为<code>false</code></li>
-<li><code>undefined</code>转为<code>false</code></li>
-<li>除了<code>&#39;&#39;</code>以外都转为<code>true</code></li>
-<li>除了<code>0</code>和<code>NaN</code>以外都转为<code>true</code></li>
-<li>所有对象都转为<code>true</code></li>
+<h2 id="2-成功状态码"><a href="#2-成功状态码" class="headerlink" title="2**      成功状态码"></a>2**      成功状态码</h2><ol>
+<li><code>200 ok</code>:请求成功，响应报文的主体部分包括了所请求的资源</li>
+<li><code>201 created</code>:用于创建服务器对象的请求，例如<code>put</code></li>
+<li><code>202 Accepted</code>:请求已经被接受，但是服务器还未对齐执行任何操作</li>
+<li><code>203 Not-Authoritative</code>:实体首部包含的信息不是来自于源端服务器，而是来自于资源的一个副本。</li>
+<li><code>204 no content</code>:响应报文的主体部分没有内容</li>
+<li><code>205 reset Content</code>:用于重置表单内容</li>
+<li><code>206 partial content</code>:成功执行一个部分请求，一般这种响应的请求报文的首部字段都有一个<code>content-range</code>字段</li>
 </ol>
-<h2 id="隐式类型转换"><a href="#隐式类型转换" class="headerlink" title="隐式类型转换"></a>隐式类型转换</h2><h3 id="字符串和数字之间的隐式类型转换"><a href="#字符串和数字之间的隐式类型转换" class="headerlink" title="字符串和数字之间的隐式类型转换"></a>字符串和数字之间的隐式类型转换</h3><h4 id="数字转为字符串"><a href="#数字转为字符串" class="headerlink" title="数字转为字符串"></a>数字转为字符串</h4><p><code>+</code>运算符即能够用于数字相加，也可以用于字符串拼接，简单理解应当是<strong>如果<code>+</code>运算符的操作数其中一个是字符串或者可以通过ToPrimitive(针对对象，也包括数组)转为字符串的则执行字符串的拼接，负责执行数字相加</strong></p>
-<h4 id="字符串转化为数字"><a href="#字符串转化为数字" class="headerlink" title="字符串转化为数字"></a>字符串转化为数字</h4><p><code>-</code>,<code>*</code>,<code>/</code>都可以用来将字符串转化为数字，其规则和+相似。</p>
-<h3 id="隐式类型转化为布尔值"><a href="#隐式类型转化为布尔值" class="headerlink" title="隐式类型转化为布尔值"></a>隐式类型转化为布尔值</h3><p>以下几种情况会发生隐式类型转换为布尔值</p>
-<ol>
-<li><code>if()</code>条件判断语句</li>
-<li><code>for()</code>中的条件判断语句</li>
-<li><code>while()</code>和<code>do...while()</code>中的条件判断语句</li>
-<li><code>?:</code>三目运算符中的条件判断语句</li>
-<li>逻辑运算符<code>||</code>和<code>&amp;&amp;</code>左边的操作数</li>
+<h2 id="3-重定向状态码"><a href="#3-重定向状态码" class="headerlink" title="3**        重定向状态码"></a>3**        重定向状态码</h2><ol>
+<li><code>300 multiple choice</code>:请求的url对应着服务器的多个资源</li>
+<li><code>301 moved permanently</code>:请求的url已经被移除了</li>
+<li><code>302 found</code>:客户端应该使用<code>location</code>首部给出的URL来临时定位资源，将来的请求仍然使用老的URL</li>
+<li><code>303 see other</code>:告知客户端应该使用另外一个URL来获取资源</li>
+<li><code>304 not modified</code>:客户端请求的资源并没有被修改，在协商缓存的时候通过<code>expire</code>或者<code>Etag</code>来判断</li>
+<li><code>307 temporary redirect</code>:客户端应该使用<code>location</code>首部给出的URL来临时定位资源，将来的请求仍然使用老的UR</li>
 </ol>
-<h3 id="和-amp-amp"><a href="#和-amp-amp" class="headerlink" title="||和&amp;&amp;"></a>||和&amp;&amp;</h3><p><code>&amp;&amp;</code>和<code>||</code>运算符并不一定返回布尔值，他实际返回的是两个操作数中的一个的值</p>
-<p><code>&amp;&amp;</code>和<code>||</code>首先对第一个操作数进行条件判断，如果第一个操作数不是布尔类型的值，则会被转为布尔类型的值，再进行下面的判断</p>
-<p>对于<code>||</code>而言，如果第一个操作数条件判断结果为true，则返回第一个操作数，否则，返回第二个操作数</p>
-<p>对于<code>&amp;&amp;</code>而言，如果第一个操作数条件判断结果为false，则反返回第一个操作数，否则，返回第二个操作数。</p>
-<h2 id="强制类型转换：-和"><a href="#强制类型转换：-和" class="headerlink" title="强制类型转换：==和==="></a>强制类型转换：<code>==</code>和<code>===</code></h2><p>正确理解：<code>==</code>允许在相等比较中进行强制类型转换，而<code>===</code>不允许</p>
-<ol>
-<li><strong>字符串和数字之间的相等比较：将字符串转换为数字进行相等比较</strong></li>
-<li><strong>其他类型与布尔值之间的相等比较：将布尔值转换为数字进行比较</strong></li>
-<li>对象和非对象之间的相等比较：<ol>
-<li>如果x是数字或者字符串，y是对象，则返回 <code>x==ToPrimitive(y)</code></li>
-<li>如果x是对象，y是字符串或者数字，则返回<code>ToPrimitive(x)==y</code></li>
+<h4 id="302，303，307之间的区别："><a href="#302，303，307之间的区别：" class="headerlink" title="302，303，307之间的区别："></a>302，303，307之间的区别：</h4><p>当<strong>HTTP/1.0</strong>客户端发起一个POST请求，并在响应中收到302重定向状态码时，它会接受Location首部的重定向URL,并向那个URL发起一个GET请求（实际上并不希望用GET来代替POST,这种行为实际上时不合法的）。</p>
+<p>在HTTP/1.1规范使用303状态码来实现同样的行为(承认POST变GET的合法性)</p>
+<p>对于HTTP/1.1客户端，用307状态码取代302状态码来进行临时重定向。(实际上时实现了HTTP/1.0中302的理想型作用，不会将POST变为GET)</p>
+<h2 id="4-客户端错误的状态码"><a href="#4-客户端错误的状态码" class="headerlink" title="4**      客户端错误的状态码"></a>4**      客户端错误的状态码</h2><ol>
+<li><code>400 bad request</code>:客户端发送了一个错误的请求</li>
+<li><code>401 Unauthorized</code>:告知客户端在对资源进行访问之前，需要对自身进行认证</li>
+<li><code>403 forbidden</code>:请求被服务器拒绝了</li>
+<li><code>404 not found</code>:服务器无法找到这个资源</li>
+<li><code>405 method not allow</code>:这个资源不支持请求发起的方法</li>
+<li><code>408 request timeout</code>:请求超时</li>
+<li><code>409 conflict</code>:请求可能在资源上会引起一些冲突</li>
+<li><code>410 gone</code>:请求的资源已经被删除了</li>
 </ol>
-</li>
+<h2 id="5-服务器端错误的状态码"><a href="#5-服务器端错误的状态码" class="headerlink" title="5**    服务器端错误的状态码"></a>5**    服务器端错误的状态码</h2><ol>
+<li><code>500  Internal Server Error</code>:服务器内部发生错误</li>
+<li><code>501 no implement</code>:客户端发起的请求超出了服务器的能力范围</li>
+<li><code>502 bad gateway</code>网关错误</li>
+<li><code>503 Service Unavailable</code>:服务器现在不可用</li>
+<li><code>504 gateway timeout</code>:网关请求超时</li>
+<li><code>505 HTTP version not support</code>:不支持这个版本的http协议。</li>
 </ol>
 
             </div>
@@ -627,7 +607,7 @@ true 转化为1，false转化为 0
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">TomoFur</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/07/01/类型转换/" class="b-link-green">类型转换</a>
+                    <a href="/2019/07/10/HTTP协议状态码/" class="b-link-green">HTTP协议状态码</a>
                 </p>
             </div>
         </div>
@@ -672,43 +652,48 @@ true 转化为1，false转化为 0
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/07/01/重排和重绘/">
+                <a href="/2019/07/10/HTTP协议状态码/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="重排和重绘">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="HTTP协议状态码">
                         
-                        <span class="card-title">重排和重绘</span>
+                        <span class="card-title">HTTP协议状态码</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">浏览器的运行机制：
-构建DOM树：渲染引擎解析HTML文档，首先将标签转换为DOM树中的DOM节点（包括js生成的标签），生成DOM树
-构建渲染树：解析对应的CSS样式文件信息（包括js生成的样式和外部CSS文件），构建渲染树。
-布局渲染树</div>
+                    <div class="summary">HTTP协议状态码
+常用的不多，其余的权当了解一下
+
+1**     信息性状态码
+100 continue:服务器端收到了初始部分，请客户端继续
+
+注：这个状态码是一种优化，客户端应用程序只有在避免向服务器发送一个服务器无法处理或者使用的</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-01
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/css/" class="post-category" target="_blank">
-                                    css
+                            <a href="/categories/网络协议/" class="post-category" target="_blank">
+                                    网络协议
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/css布局/" target="_blank">
-                        <span class="chip bg-color">css布局</span>
+                    <a href="/tags/HTTP协议/" target="_blank">
+                        <span class="chip bg-color">HTTP协议</span>
                     </a>
                     
                 </div>
@@ -722,29 +707,29 @@ true 转化为1，false转化为 0
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/06/27/webpack学习笔记---基础配置篇/">
+                <a href="/2019/07/09/DOM/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="webpack学习---基础配置篇">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="文档对象模型(DOM)">
                         
-                        <span class="card-title">webpack学习---基础配置篇</span>
+                        <span class="card-title">文档对象模型(DOM)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">webpack：模块打包机
-webpack安装：推荐在项目内本地安装，不推荐使用全局安装。
-如果配置文件的名字不是webpack.config.js的话，在使用npx webpack进行打包的时候要npx webpack --config </div>
+                    <div class="summary">文档对象模型(DOM)针对HTML和XML文档的一个API,DOM描绘了一个层次化的节点树，允许开发人员添加，移除和修改页面的一部分。
+分级DOM1级定义了HTML和XML文档的底层结构，为基本的文档结构和查询提供了接口。
+DOM2级对DO</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-27
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-09
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/webpack/" class="post-category" target="_blank">
-                                    webpack
+                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
+                                    JavaScript
                                 </a>
                             
                             
@@ -754,8 +739,8 @@ webpack安装：推荐在项目内本地安装，不推荐使用全局安装。
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/webpack/" target="_blank">
-                        <span class="chip bg-color">webpack</span>
+                    <a href="/tags/ES5基础知识/" target="_blank">
+                        <span class="chip bg-color">ES5基础知识</span>
                     </a>
                     
                 </div>
