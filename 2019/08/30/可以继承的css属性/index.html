@@ -5,8 +5,22 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="网络攻击, TomoFur">
-    <meta name="description" content="Cross-Site-Scripting(xss)跨站脚本攻击为了不和层叠样式表的缩写混淆，故将跨站脚本攻击写为XSS.恶意攻击者往Web页面里插入恶意Script代码，当用户浏览该页面时，嵌入Web里面的Script代码会被执行，从而达到">
+    <meta name="keywords" content="可以继承的css属性, TomoFur">
+    <meta name="description" content="
+字体系列属性
+font，
+font-style，
+font-weight,
+font-size ,
+font-family, 
+line-hegiht
+
+
+文本系列属性：
+color
+letter-sapcing
+lext-align
+t">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +28,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>网络攻击 | TomoFur</title>
+    <title>可以继承的css属性 | TomoFur</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -240,13 +254,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        网络攻击
+                        可以继承的css属性
                     </div>
                 </div>
             </div>
@@ -357,8 +371,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/网络安全相关/" target="_blank">
-                                <span class="chip bg-color">网络安全相关</span>
+                            <a href="/tags/css属性/" target="_blank">
+                                <span class="chip bg-color">css属性</span>
                             </a>
                         
                     </div>
@@ -369,8 +383,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                JavaScript
+                            <a href="/categories/css/" class="post-category" target="_blank">
+                                css
                             </a>
                         
                     </div>
@@ -381,21 +395,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-08-07
+                    2019-08-30
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.2k
+                        77
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        4 分
+                        1 分
                     </div>
                     
                 
@@ -406,45 +420,39 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Cross-Site-Scripting-xss-跨站脚本攻击"><a href="#Cross-Site-Scripting-xss-跨站脚本攻击" class="headerlink" title="Cross-Site-Scripting(xss)跨站脚本攻击"></a>Cross-Site-Scripting(xss)跨站脚本攻击</h2><p>为了不和层叠样式表的缩写混淆，故将跨站脚本攻击写为XSS.恶意攻击者往Web页面里插入恶意Script代码，当用户浏览该页面时，嵌入Web里面的Script代码会被执行，从而达到恶意攻击用户的目的.</p>
-<h3 id="非持续型xss攻击"><a href="#非持续型xss攻击" class="headerlink" title="非持续型xss攻击"></a>非持续型xss攻击</h3><p>非持久性型xss攻击是一次性的，仅对档次的页面访问产生影响，非持久型xss攻击要求永固访问一个被攻击者篡改后的链接，用户访问该链接时，被植入的攻击脚本被用户浏览器执行，从而达到攻击目的。</p>
-<h3 id="持久型xss攻击"><a href="#持久型xss攻击" class="headerlink" title="持久型xss攻击"></a>持久型xss攻击</h3><p>持久型xss攻击会把攻击者的数据存储在服务端，攻击行为将伴随着攻击数据一直存在。</p>
-<h3 id="DOM-Based-xss-基于dom的跨站脚本攻击"><a href="#DOM-Based-xss-基于dom的跨站脚本攻击" class="headerlink" title="DOM Based xss 基于dom的跨站脚本攻击"></a>DOM Based xss 基于dom的跨站脚本攻击</h3><p>当用户能够通过交互修改浏览器页面中的DOM并显示在浏览器上时，就可能产生这种漏洞，即通过修改页面的DOM节点形成的xss，称之为DOMBasedXSS。在这种攻击下攻击者可以随意创建，删除和更改DOM树节点。</p>
-<h3 id="防御"><a href="#防御" class="headerlink" title="防御"></a>防御</h3><p>主要思路有以下几点：</p>
-<ol>
-<li>输入有效性检测<ol>
-<li>检测输入长度，类型，语法等的有效性。</li>
-<li>拒绝无效的恶意的输入数据。</li>
+                <ol>
+<li>字体系列属性<ol>
+<li>font，</li>
+<li>font-style，</li>
+<li>font-weight,</li>
+<li>font-size ,</li>
+<li>font-family, </li>
+<li>line-hegiht</li>
 </ol>
 </li>
-<li>对输出进行html编码<ol>
-<li>实体在呈现HTML.XML等之前对所有用户的数据进行编码，使其不能作为脚本运行。</li>
+<li>文本系列属性：<ol>
+<li>color</li>
+<li>letter-sapcing</li>
+<li>lext-align</li>
+<li>text-decoration</li>
+<li>text-indent</li>
+<li>text-shadow</li>
+<li>text-transform</li>
+<li>word-spacing</li>
 </ol>
 </li>
-<li><strong>CSP Content-Security-Policy(内容安全策略)</strong><br> CSP本质上是建立白名单，开发者告诉浏览器哪些外部资源可以加载或者是执行，我们只需要配置规则，如何拦截是由浏览器自己实现的，我们可以通过这种方式来尽量减少XSS攻击<br> 通常情况下，有两种方法开启CSP:<ol>
-<li>设置HTTP Header中的Content-Security-policy<ol>
-<li>只允许加载本站资源：<code>Content-Security-Policy:default-src &#39;self&#39;</code></li>
-<li>只允许加载HTTPS协议图片：<code>Content-Security-Police:img-src https://*</code></li>
-<li>允许加载任何来源框架：<code>Content-Security-Police:child-src &#39;none&#39;</code></li>
+<li>列表属性：<ol>
+<li>list-style</li>
+<li>list-style-image</li>
+<li>list-style-position</li>
+<li>list-style-type</li>
 </ol>
 </li>
-<li>设置 <code>meta</code> 标签的方式 <code>&lt;meta http-equiv=&quot;Content-Security-Policy&quot;&gt;</code></li>
+<li>所有元素都可以继承的属性：<ol>
+<li>元素可见性：visiblity，opacity</li>
+<li>光标属性：cursor</li>
 </ol>
 </li>
-</ol>
-<h2 id="Cross-Site-Requset-Forgey-CSRF-跨站请求伪造"><a href="#Cross-Site-Requset-Forgey-CSRF-跨站请求伪造" class="headerlink" title="Cross-Site Requset Forgey(CSRF)跨站请求伪造"></a>Cross-Site Requset Forgey(CSRF)跨站请求伪造</h2><p>也被称为“one click attack”或者session riding。是一种对网站的恶意利用。下图是一个CSRF攻击的原理图</p>
-<p><img src="/2019/08/07/网络攻击/csrf.png" alt></p>
-<p>从上图可以看出来，要完成一次CSRF攻击，受害者必须依次完成两个步骤：</p>
-<ol>
-<li>登录受信任网站A，并在本地生成Cookie</li>
-<li>在不退出A的情况下，访问危险网站B</li>
-</ol>
-<p>举一个简单的例子：一个网站用户Bob可能在浏览聊天论坛，而同时另一个用户Alice也在此论坛中，并且后者刚刚发布了一个具有Bob银行链接的图片消息，设想一下，Alice编写了一个在Bob的银行站点上进行取款的form提交的链接，并将此链接作为图片tag。如果Bob的银行在cookie中保存他的授权信息，并且此cookie没有过期，那么当Bob的浏览器尝试装载图片时将提交这个取款form和他的cookie，这样在没经Bob同意的情况下便授权了这次事务。</p>
-<h3 id="防御-1"><a href="#防御-1" class="headerlink" title="防御"></a>防御</h3><ol>
-<li>对于敏感数据，例如银行账户信息等，要避免使用GET请求，更多的去使用POST请求。</li>
-<li>CRFS在攻击的时候往往是在用户不知情的情况下提交的请求，我们可以使用验证码来强制跟用户交互。</li>
-<li>在重要的请求中添加Token。CSRF攻击成功在于攻击者能够预测所有的参数从而构造出合法的请求，所以我们可以加大这个预测难度，加入一些黑客不能伪造的信息，在我们提交表单的时候，在保持原有参数不变，另外添加一个参数Token，该值是随机且加密的，当提交表单时，客户端也同时提交这个token，然后由服务端验证，验证通过才是有效的请求</li>
-<li>检测Referer.所谓Referer，就是在一个网络请求头中的键值对，标示着目前的请求是从哪个页面过来的。服务器通过检查Referer的值，如果判断出Referer并非本站页面，而是一个外部站点的页面，那么我们就可以判断出这个请求是非法的。与此同时，我们也就检测到了一次csrf攻击</li>
 </ol>
 
             </div>
@@ -593,7 +601,7 @@
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">TomoFur</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/08/07/网络攻击/" class="b-link-green">网络攻击</a>
+                    <a href="/2019/08/30/可以继承的css属性/" class="b-link-green">可以继承的css属性</a>
                 </p>
             </div>
         </div>
@@ -638,7 +646,8 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2019/08/30/可以继承的css属性/">
                     <div class="card-image">
@@ -666,9 +675,9 @@ letter-sapcing
 lext-align
 t</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -681,6 +690,7 @@ t</div>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -699,24 +709,20 @@ t</div>
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/08/06/继承实现的方式/">
+                <a href="/2019/08/07/网络攻击/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="实现继承的方法">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="网络攻击">
                         
-                        <span class="card-title">实现继承的方法</span>
+                        <span class="card-title">网络攻击</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">圣杯模式//简易版
-function extend(Target,Origin){
-    function F(){}
-    F.prototype = Origin.prototype;
-    Target.prototype = </div>
+                    <div class="summary">Cross-Site-Scripting(xss)跨站脚本攻击为了不和层叠样式表的缩写混淆，故将跨站脚本攻击写为XSS.恶意攻击者往Web页面里插入恶意Script代码，当用户浏览该页面时，嵌入Web里面的Script代码会被执行，从而达到</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-06
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-07
                             </span>
                         <span class="publish-author">
                             
@@ -733,8 +739,8 @@ function extend(Target,Origin){
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ES5基础知识/" target="_blank">
-                        <span class="chip bg-color">ES5基础知识</span>
+                    <a href="/tags/网络安全相关/" target="_blank">
+                        <span class="chip bg-color">网络安全相关</span>
                     </a>
                     
                 </div>

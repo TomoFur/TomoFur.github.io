@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>可以继承的css属性</title>
+      <link href="/2019/08/30/%E5%8F%AF%E4%BB%A5%E7%BB%A7%E6%89%BF%E7%9A%84css%E5%B1%9E%E6%80%A7/"/>
+      <url>/2019/08/30/%E5%8F%AF%E4%BB%A5%E7%BB%A7%E6%89%BF%E7%9A%84css%E5%B1%9E%E6%80%A7/</url>
+      
+        <content type="html"><![CDATA[<ol><li>字体系列属性<ol><li>font，</li><li>font-style，</li><li>font-weight,</li><li>font-size ,</li><li>font-family, </li><li>line-hegiht</li></ol></li><li>文本系列属性：<ol><li>color</li><li>letter-sapcing</li><li>lext-align</li><li>text-decoration</li><li>text-indent</li><li>text-shadow</li><li>text-transform</li><li>word-spacing</li></ol></li><li>列表属性：<ol><li>list-style</li><li>list-style-image</li><li>list-style-position</li><li>list-style-type</li></ol></li><li>所有元素都可以继承的属性：<ol><li>元素可见性：visiblity，opacity</li><li>光标属性：cursor</li></ol></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> css </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> css属性 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>网络攻击</title>
       <link href="/2019/08/07/%E7%BD%91%E7%BB%9C%E6%94%BB%E5%87%BB/"/>
       <url>/2019/08/07/%E7%BD%91%E7%BB%9C%E6%94%BB%E5%87%BB/</url>
