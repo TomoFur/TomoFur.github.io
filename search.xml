@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>vue-router</title>
+      <link href="/2019/09/01/vue-router%E5%8E%9F%E7%90%86/"/>
+      <url>/2019/09/01/vue-router%E5%8E%9F%E7%90%86/</url>
+      
+        <content type="html"><![CDATA[<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>当前Vue项目一般都是单页面应用，也就是说vue-router是应用在单页面中的。</p><p>单页面应用：第一次进入页时候会请求一个html文件，当切换到其他组件的时候，路径也发生了相应的变化，但是并没有新的html文件请求额，页面内容却也发生了变化。</p><p><strong>原理</strong>：JS可以感知到URL的变化，通过这一点可以用js动态的将当前页面的内容清除掉，然后将下一个页面的内容挂载在当前页面上。这个时候的路由不是由后端来做的，而是前端来做的，判断页面到底要显示哪个组件，然后清除掉不需要的，显示需要的组件，这个过程就是单页面应用，每次跳转的时候不再需要请求html文件了。</p><p>多页面应用：每一次页面跳转的时候，后台服务器都会返回一个新的html文档，这种类型的网站就是多页网站，也就是多页应用。</p><p><strong>原理</strong>：传统的页面应用，使用一些超链接来实现页面切换和跳转的。</p><p>vue-router实现原理：<strong>更新视图但是不重新请求页面</strong></p><p>vue-router常用的由有两种方式，hash模式和history模式</p><p>hash模式：使用url hash值来做路由，是默认模式</p><p>history模式：依赖html5 的historyAPI</p><p>hash模式：hash即浏览器URL中#后面的内容，相当于锚点，代表的是网页中的一个位置，单单改变#后面的部分，浏览器就会加载相应位置的内容，不会重新加载页面。hash模式通过锚点值的改变，根据不同的值来渲染指定DOM位置的不同数据。</p><p>history模式：利用<strong>history.pushState</strong>和<strong>history.replace</strong> API来完成url跳转而无需重新加载页面。</p><h2 id="路由守卫"><a href="#路由守卫" class="headerlink" title="路由守卫"></a>路由守卫</h2><blockquote><p>这些导航守卫其实都是一个个的钩子函数，每一个钩子函数除了afterEach之外，都有三个参数，分别是to,from,next。其中to和from是两个对象，中间包含了路由跳转前后的路径，next是一个函数，可以写一个路径，用来进行跳转</p></blockquote><h3 id="全局导航守卫"><a href="#全局导航守卫" class="headerlink" title="全局导航守卫"></a>全局导航守卫</h3><h4 id="beforeEach"><a href="#beforeEach" class="headerlink" title="beforeEach"></a>beforeEach</h4><h4 id="beforeResolve"><a href="#beforeResolve" class="headerlink" title="beforeResolve"></a>beforeResolve</h4><h4 id="afterEach"><a href="#afterEach" class="headerlink" title="afterEach"></a>afterEach</h4><h3 id="路由独享守卫"><a href="#路由独享守卫" class="headerlink" title="路由独享守卫"></a>路由独享守卫</h3><h4 id="beforeEnter"><a href="#beforeEnter" class="headerlink" title="beforeEnter"></a>beforeEnter</h4><h3 id="组件私有守卫"><a href="#组件私有守卫" class="headerlink" title="组件私有守卫"></a>组件私有守卫</h3><h4 id="beforeRouterEnter"><a href="#beforeRouterEnter" class="headerlink" title="beforeRouterEnter"></a>beforeRouterEnter</h4><h4 id="beforeRouterLeave"><a href="#beforeRouterLeave" class="headerlink" title="beforeRouterLeave"></a>beforeRouterLeave</h4><h2 id="路由传参"><a href="#路由传参" class="headerlink" title="路由传参"></a>路由传参</h2><h4 id="使用查询字符串"><a href="#使用查询字符串" class="headerlink" title="使用查询字符串"></a>使用查询字符串</h4><p>如果在路由中使用查询字符串给路由传递参数时，不需要修改路由规则的path属性。使用查询字符串传参的形式是:<code>&lt;router-link to=&#39;/path?id=10&#39;&gt;&lt;/router-link&gt;</code>通过这种方式传递参数的时候，在相对于的组件中调用<code>$route.query</code>使用键就可以得到相应的参数</p><h4 id="使用-route-params来传递参数"><a href="#使用-route-params来传递参数" class="headerlink" title="使用$route.params来传递参数"></a>使用$route.params来传递参数</h4><p><code>&lt;router-link to=&#39;/login/12/ls&#39;&gt;&lt;/router-link&gt;</code></p><p><strong>注意:</strong>使用这种方式，需要修改路由规则中的path属性，在此例中就要修改为<code>{path:&quot;/login/:id/:name&quot;,component:login}</code>这种规则是严格匹配的。如果to后面的属性不能完全匹配规则，就不会执行相应的规则进行路由跳转。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> VUE </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>可以继承的css属性</title>
       <link href="/2019/08/30/%E5%8F%AF%E4%BB%A5%E7%BB%A7%E6%89%BF%E7%9A%84css%E5%B1%9E%E6%80%A7/"/>
       <url>/2019/08/30/%E5%8F%AF%E4%BB%A5%E7%BB%A7%E6%89%BF%E7%9A%84css%E5%B1%9E%E6%80%A7/</url>
@@ -1083,6 +1108,31 @@
     
     
     <entry>
+      <title>JavaScript运行机制</title>
+      <link href="/2019/04/11/EventLoop/"/>
+      <url>/2019/04/11/EventLoop/</url>
+      
+        <content type="html"><![CDATA[<h2 id="为什么JavaScript是单线程"><a href="#为什么JavaScript是单线程" class="headerlink" title="为什么JavaScript是单线程"></a>为什么JavaScript是单线程</h2><p>JavaScript的单线程，与它的用途有关，作为浏览器脚本语言，JavaScript的主要用途是为了与用户互动以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如：假定JavaScript同时又两个线程，一个线程在某个DOM节点上添加内容，一个线程要删除这个节点，这时，浏览器就不知道该以哪个线程为准。</p><h2 id="同步任务和异步任务"><a href="#同步任务和异步任务" class="headerlink" title="同步任务和异步任务"></a>同步任务和异步任务</h2><p>同步任务：在主线程上排队执行额任务，只有前一个任务执行完毕之后才能执行下一个任务。</p><p>异步任务：不进入主线程，而是进入任务队列的任务。</p><p><strong>注</strong>：除了放置异步任务的事件，任务队列还可以放置定时器任务。</p><h2 id="EventLoop"><a href="#EventLoop" class="headerlink" title="EventLoop"></a>EventLoop</h2><p>任务队列是一个事件的队列，主线程读取任务队列，就是读取里面的事件。</p><p>主线程从“任务队列”中读取事件，这种过程是循环不断的，所以整个过程的运行机制又称为EventLoop</p><p>不同的任务源会被分配到不同的Task队列中去，任务源又可以分为微任务(miscrotask)和宏任务(mascrotask)</p><p><img src="/2019/04/11/EventLoop/宏任务和微任务.PNG" alt></p><p>EventLoop循环过程如下：</p><ol><li>执行完同步代码，当所有同步代码均被执行完毕之后，执行栈清空，查询是否有异步代码</li><li>在macrotask队列中选择最早的那一个，如果没有可选的任务，就跳到下面的microtask队列中</li><li>将上面选中的macrotask设置为正在运行的task</li><li>运行被选中的task</li><li>运行完毕之后，将eventloop中的current running task设置为null</li><li>从task队列中移除前面运行的macrotask</li><li>执行所有在microtask队列里的任务。</li><li>更新渲染</li><li>返回到开始</li></ol><h3 id="另一理解"><a href="#另一理解" class="headerlink" title="另一理解"></a>另一理解</h3><ol><li>一段代码执行时先执行宏任务中的同步代码</li><li>如果遇到像setTimeOut这种宏任务就会把代码放置在宏任务队列中去</li><li>如果遇到promise.then这类任务会放置在微任务队列中。</li><li>在本轮宏任务执行完之后会依此执行本轮微任务队列中的所有代码，然后开始下一轮的宏任务代码。</li></ol><p><strong>注</strong>：await后面无论接的是同步代码还是异步代码都必须等他们执行完毕之后才能执行await结果后面的代码。</p><p><strong>注释</strong>：在遇见定时器后，会将定时器内的函数进行注册，也就是放在Event Table。然后在定时器设定的事件后将Event Table内注册的函数放入Event queue。如果主线程中的call stack为空就将Event queue按顺序放入call stack中进行执行，如果call stack并不为空，Event queue内的事件并不会进入call stack，也就不会执行。</p><p>在call stack中的内容执行完毕后清空，会在Event queue检查一下哪些任务时宏任务，哪些是微任务，然后执行所有的微任务，然后执行下一个宏任务，之后再次执行所有的微任务。也就是说在主线程任务执行完毕后会把任务队列里的微任务全部执行，然后再执行下一个宏任务，这个宏任务执行完再次检查队列内部的微任务，有就全部执行，没有就再执行一个宏任务。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> JavaScript </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> EventLoop </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ES6异步操作</title>
       <link href="/2019/04/11/ES6%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C/"/>
       <url>/2019/04/11/ES6%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C/</url>
@@ -1102,31 +1152,6 @@
             <tag> ES6 </tag>
             
             <tag> async/await </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>JavaScript运行机制</title>
-      <link href="/2019/04/11/EventLoop/"/>
-      <url>/2019/04/11/EventLoop/</url>
-      
-        <content type="html"><![CDATA[<h2 id="为什么JavaScript是单线程"><a href="#为什么JavaScript是单线程" class="headerlink" title="为什么JavaScript是单线程"></a>为什么JavaScript是单线程</h2><p>JavaScript的单线程，与它的用途有关，作为浏览器脚本语言，JavaScript的主要用途是为了与用户互动以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如：假定JavaScript同时又两个线程，一个线程在某个DOM节点上添加内容，一个线程要删除这个节点，这时，浏览器就不知道该以哪个线程为准。</p><h2 id="同步任务和异步任务"><a href="#同步任务和异步任务" class="headerlink" title="同步任务和异步任务"></a>同步任务和异步任务</h2><p>同步任务：在主线程上排队执行额任务，只有前一个任务执行完毕之后才能执行下一个任务。</p><p>异步任务：不进入主线程，而是进入任务队列的任务。</p><p><strong>注</strong>：除了放置异步任务的事件，任务队列还可以放置定时器任务。</p><h2 id="EventLoop"><a href="#EventLoop" class="headerlink" title="EventLoop"></a>EventLoop</h2><p>任务队列是一个事件的队列，主线程读取任务队列，就是读取里面的事件。</p><p>主线程从“任务队列”中读取事件，这种过程是循环不断的，所以整个过程的运行机制又称为EventLoop</p><p>不同的任务源会被分配到不同的Task队列中去，任务源又可以分为微任务(miscrotask)和宏任务(mascrotask)</p><p><img src="/2019/04/11/EventLoop/宏任务和微任务.PNG" alt></p><p>EventLoop循环过程如下：</p><ol><li>执行完同步代码，当所有同步代码均被执行完毕之后，执行栈清空，查询是否有异步代码</li><li>在macrotask队列中选择最早的那一个，如果没有可选的任务，就跳到下面的microtask队列中</li><li>将上面选中的macrotask设置为正在运行的task</li><li>运行被选中的task</li><li>运行完毕之后，将eventloop中的current running task设置为null</li><li>从task队列中移除前面运行的macrotask</li><li>执行所有在microtask队列里的任务。</li><li>更新渲染</li><li>返回到开始</li></ol><h3 id="另一理解"><a href="#另一理解" class="headerlink" title="另一理解"></a>另一理解</h3><ol><li>一段代码执行时先执行宏任务中的同步代码</li><li>如果遇到像setTimeOut这种宏任务就会把代码放置在宏任务队列中去</li><li>如果遇到promise.then这类任务会放置在微任务队列中。</li><li>在本轮宏任务执行完之后会依此执行本轮微任务队列中的所有代码，然后开始下一轮的宏任务代码。</li></ol><p><strong>注</strong>：await后面无论接的是同步代码还是异步代码都必须等他们执行完毕之后才能执行await结果后面的代码。</p><p><strong>注释</strong>：在遇见定时器后，会将定时器内的函数进行注册，也就是放在Event Table。然后在定时器设定的事件后将Event Table内注册的函数放入Event queue。如果主线程中的call stack为空就将Event queue按顺序放入call stack中进行执行，如果call stack并不为空，Event queue内的事件并不会进入call stack，也就不会执行。</p><p>在call stack中的内容执行完毕后清空，会在Event queue检查一下哪些任务时宏任务，哪些是微任务，然后执行所有的微任务，然后执行下一个宏任务，之后再次执行所有的微任务。也就是说在主线程任务执行完毕后会把任务队列里的微任务全部执行，然后再执行下一个宏任务，这个宏任务执行完再次检查队列内部的微任务，有就全部执行，没有就再执行一个宏任务。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> JavaScript </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> EventLoop </tag>
             
         </tags>
       

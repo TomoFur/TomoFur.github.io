@@ -5,9 +5,9 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="图片懒加载和图片预加载, TomoFur">
-    <meta name="description" content="懒加载也叫延迟加载，即延迟加载图片或者符合某种条件时才加载某些图片。牺牲了服务器前端性能，换取更好的用户体验，这样可以使用户的操作得到最快的响应。
-预加载是提前加载图片，当用户需要查看时可以直接从本地缓存中渲染。作为服务器前端的优化，减少请">
+    <meta name="keywords" content="vue-router, TomoFur">
+    <meta name="description" content="原理当前Vue项目一般都是单页面应用，也就是说vue-router是应用在单页面中的。
+单页面应用：第一次进入页时候会请求一个html文件，当切换到其他组件的时候，路径也发生了相应的变化，但是并没有新的html文件请求额，页面内容却也发生了">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>图片懒加载和图片预加载 | TomoFur</title>
+    <title>vue-router | TomoFur</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -241,13 +241,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        图片懒加载和图片预加载
+                        vue-router
                     </div>
                 </div>
             </div>
@@ -358,8 +358,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/性能优化/" target="_blank">
-                                <span class="chip bg-color">性能优化</span>
+                            <a href="/tags/vue/" target="_blank">
+                                <span class="chip bg-color">vue</span>
                             </a>
                         
                     </div>
@@ -370,8 +370,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                JavaScript
+                            <a href="/categories/VUE/" class="post-category" target="_blank">
+                                VUE
                             </a>
                         
                     </div>
@@ -382,21 +382,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-05-30
+                    2019-09-01
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        843
+                        805
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        3 分
+                        2 分
                     </div>
                     
                 
@@ -407,113 +407,23 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><strong>懒加载</strong>也叫延迟加载，即延迟加载图片或者符合某种条件时才加载某些图片。牺牲了服务器前端性能，换取更好的用户体验，这样可以使用户的操作得到最快的响应。</p>
-<p><strong>预加载</strong>是提前加载图片，当用户需要查看时可以直接从本地缓存中渲染。作为服务器前端的优化，减少请求次数或者延迟请求。</p>
-<p><strong>本质</strong>：两者的行为是相反的，一个是提前加载，一个是迟缓加载甚至是不加载，懒加载对服务器前端有一定的缓解压力作用，预加载则会增加服务器前端的压力。</p>
-<h2 id="懒加载实现"><a href="#懒加载实现" class="headerlink" title="懒加载实现"></a>懒加载实现</h2><p>实现方式:可视区加载。即仅加载用户可以看到的区域，这个主要是由监控滚动条来实现，一般会在距离用户看到某图片前一定距离便开始加载，这样能保证用户拉下时正好能看到图片。</p>
-<p><strong>Tips</strong></p>
-<ol>
-<li>自定义属性，以<code>data-</code>为前缀，可以通过绑定的DOM对象的dataset来获取自定义属性的值。</li>
-<li>DOM API <code>getBoundingClientRect</code>：这个API会返回一个对象，蓝色区域表示DOM实际所在的地方，top属性表示元素顶端距离视口顶端的位置。</li>
-</ol>
-<p><img src="/2019/05/30/懒加载和预加载/getBoundingClientRect.png" alt></p>
-<ol start="3">
-<li>不能直接给<code>img</code>标签设置<code>src</code>属性</li>
-</ol>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div <span class="token keyword">class</span> <span class="token operator">=</span> <span class="token string">'container'</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span>img src <span class="token operator">=</span> <span class="token string">''</span> alt<span class="token operator">=</span><span class="token string">'lazy-load'</span> data<span class="token operator">-</span>src <span class="token operator">=</span> <span class="token string">'图片实际的url地址'</span><span class="token operator">></span>
-        <span class="token operator">...</span> <span class="token comment" spellcheck="true">//此处略去多个相同的img标签。</span>
-   <span class="token operator">&lt;</span>img src <span class="token operator">=</span> <span class="token string">''</span> alt<span class="token operator">=</span><span class="token string">'lazy-load'</span> data<span class="token operator">-</span>src <span class="token operator">=</span> <span class="token string">'图片实际的url地址'</span><span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-
-<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
-
-<span class="token operator">&lt;</span>script<span class="token operator">></span>
-       <span class="token comment" spellcheck="true">//所有具有data-src属性的图片都需要懒加载。</span>
-       <span class="token keyword">function</span> <span class="token function">lazyLoad</span><span class="token punctuation">(</span>defaultImg<span class="token punctuation">)</span><span class="token punctuation">{</span>
-               <span class="token comment" spellcheck="true">//第0步，先得到所有需要懒加载的图片</span>
-               <span class="token keyword">var</span> imgs <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'img[data-src]'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-               <span class="token comment" spellcheck="true">//将其转化为真正的数组</span>
-               imgs <span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token keyword">from</span><span class="token punctuation">(</span>imgs<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-               <span class="token comment" spellcheck="true">//设置默认图片</span>
-               <span class="token function">setDefaultImgs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-               <span class="token comment" spellcheck="true">//懒加载所有图片</span>
-               <span class="token function">loadAllImgs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-               <span class="token comment" spellcheck="true">//监听滚动条</span>
-               <span class="token keyword">var</span> timer <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-               document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>onscroll <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                <span class="token comment" spellcheck="true">//函数防抖</span>
-               <span class="token keyword">if</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                    <span class="token function">clearTimeOut</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                 <span class="token punctuation">}</span>
-                 timer <span class="token operator">=</span> <span class="token function">setTimeOut</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                    <span class="token function">loadAllImgs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token number">500</span><span class="token punctuation">)</span>
-               <span class="token punctuation">}</span>
-<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>函数区<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>
-           <span class="token function">setDefaultImgs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-               <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>defaultImg<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                   <span class="token keyword">return</span> <span class="token punctuation">;</span>
-               <span class="token punctuation">}</span>
-               imgs<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>item<span class="token operator">=</span><span class="token operator">></span>item<span class="token punctuation">.</span>src <span class="token operator">=</span>defaultImg <span class="token punctuation">)</span>
-           <span class="token punctuation">}</span>
-
-           <span class="token keyword">function</span> <span class="token function">loadAllImgs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-               imgs<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span>index<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
-                   <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">loadImg</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                       imgs<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                       index<span class="token operator">--</span><span class="token punctuation">;</span>
-                   <span class="token punctuation">}</span>
-               <span class="token punctuation">}</span><span class="token punctuation">)</span>
-           <span class="token punctuation">}</span>
-
-               <span class="token comment" spellcheck="true">/*
-               *懒加载一张图片，自行判断是否应该加载
-               *img：图片的dom对象
-               */</span>
-           <span class="token keyword">function</span> <span class="token function">loadImg</span><span class="token punctuation">(</span>img<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                <span class="token comment" spellcheck="true">//判断该图片是否能够加载。实际上时判断该图片是否在可视区范围内</span>
-               <span class="token keyword">var</span> rect <span class="token operator">=</span> img<span class="token punctuation">.</span><span class="token function">getBoundingClientRect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-               <span class="token keyword">if</span><span class="token punctuation">(</span>rect<span class="token punctuation">.</span>bottom<span class="token operator">&lt;=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                   <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-               <span class="token punctuation">}</span>
-               <span class="token keyword">if</span><span class="token punctuation">(</span>rect<span class="token punctuation">.</span>top<span class="token operator">>=</span>document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>clientHeight<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                   <span class="token keyword">return</span> <span class="token boolean">false</span>
-               <span class="token punctuation">}</span>
-               img<span class="token punctuation">.</span>src <span class="token operator">=</span> img<span class="token punctuation">.</span>dataset<span class="token punctuation">.</span>src<span class="token punctuation">;</span>
-               <span class="token comment" spellcheck="true">//判断是否由原图</span>
-               <span class="token keyword">if</span>（img<span class="token punctuation">.</span>dataset<span class="token punctuation">.</span>original）<span class="token punctuation">{</span>
-                   img<span class="token punctuation">.</span>onload <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                       img<span class="token punctuation">.</span>src <span class="token operator">=</span> img<span class="token punctuation">.</span>dataset<span class="token punctuation">.</span>original<span class="token punctuation">;</span>
-                       img<span class="token punctuation">.</span>onload <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//不写这一步就会导致无限循环。因为小图加载完触发onlod时间后，大图加载完又触发onload事件。</span>
-                   <span class="token punctuation">}</span>
-               <span class="token punctuation">}</span>
-               <span class="token keyword">return</span> <span class="token boolean">true</span>
-           <span class="token punctuation">}</span>
-           <span class="token punctuation">}</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>       
-
-</code></pre>
-<h2 id="预加载实现"><a href="#预加载实现" class="headerlink" title="预加载实现"></a>预加载实现</h2><p>​    核心原理是浏览器请求过的资源会有缓存，所以使用js创建一个看不见的img标签，浏览器就会发出请求，这个过程用户是看不见的，到了页面上真正要显示这张图片的时候，浏览器一检查之前缓存过，就不会再向服务器发出请求，直接从缓存中获取，给用户的感觉就是秒加载了。</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">preloadImg</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> img <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Image</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    img<span class="token punctuation">.</span>src <span class="token operator">=</span> url<span class="token punctuation">;</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>img<span class="token punctuation">.</span>complete<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">//如果有缓存</span>
-        <span class="token comment" spellcheck="true">//接下来可以使用图片了</span>
-        <span class="token comment" spellcheck="true">//do something here</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">else</span> <span class="token punctuation">{</span>
-        img<span class="token punctuation">.</span>onload <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            img<span class="token punctuation">.</span>onload <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-            <span class="token comment" spellcheck="true">//接下来可以使用图片了</span>
-            <span class="token comment" spellcheck="true">//do something here</span>
-        <span class="token punctuation">}</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
+                <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>当前Vue项目一般都是单页面应用，也就是说vue-router是应用在单页面中的。</p>
+<p>单页面应用：第一次进入页时候会请求一个html文件，当切换到其他组件的时候，路径也发生了相应的变化，但是并没有新的html文件请求额，页面内容却也发生了变化。</p>
+<p><strong>原理</strong>：JS可以感知到URL的变化，通过这一点可以用js动态的将当前页面的内容清除掉，然后将下一个页面的内容挂载在当前页面上。这个时候的路由不是由后端来做的，而是前端来做的，判断页面到底要显示哪个组件，然后清除掉不需要的，显示需要的组件，这个过程就是单页面应用，每次跳转的时候不再需要请求html文件了。</p>
+<p>多页面应用：每一次页面跳转的时候，后台服务器都会返回一个新的html文档，这种类型的网站就是多页网站，也就是多页应用。</p>
+<p><strong>原理</strong>：传统的页面应用，使用一些超链接来实现页面切换和跳转的。</p>
+<p>vue-router实现原理：<strong>更新视图但是不重新请求页面</strong></p>
+<p>vue-router常用的由有两种方式，hash模式和history模式</p>
+<p>hash模式：使用url hash值来做路由，是默认模式</p>
+<p>history模式：依赖html5 的historyAPI</p>
+<p>hash模式：hash即浏览器URL中#后面的内容，相当于锚点，代表的是网页中的一个位置，单单改变#后面的部分，浏览器就会加载相应位置的内容，不会重新加载页面。hash模式通过锚点值的改变，根据不同的值来渲染指定DOM位置的不同数据。</p>
+<p>history模式：利用<strong>history.pushState</strong>和<strong>history.replace</strong> API来完成url跳转而无需重新加载页面。</p>
+<h2 id="路由守卫"><a href="#路由守卫" class="headerlink" title="路由守卫"></a>路由守卫</h2><blockquote>
+<p>这些导航守卫其实都是一个个的钩子函数，每一个钩子函数除了afterEach之外，都有三个参数，分别是to,from,next。其中to和from是两个对象，中间包含了路由跳转前后的路径，next是一个函数，可以写一个路径，用来进行跳转</p>
+</blockquote>
+<h3 id="全局导航守卫"><a href="#全局导航守卫" class="headerlink" title="全局导航守卫"></a>全局导航守卫</h3><h4 id="beforeEach"><a href="#beforeEach" class="headerlink" title="beforeEach"></a>beforeEach</h4><h4 id="beforeResolve"><a href="#beforeResolve" class="headerlink" title="beforeResolve"></a>beforeResolve</h4><h4 id="afterEach"><a href="#afterEach" class="headerlink" title="afterEach"></a>afterEach</h4><h3 id="路由独享守卫"><a href="#路由独享守卫" class="headerlink" title="路由独享守卫"></a>路由独享守卫</h3><h4 id="beforeEnter"><a href="#beforeEnter" class="headerlink" title="beforeEnter"></a>beforeEnter</h4><h3 id="组件私有守卫"><a href="#组件私有守卫" class="headerlink" title="组件私有守卫"></a>组件私有守卫</h3><h4 id="beforeRouterEnter"><a href="#beforeRouterEnter" class="headerlink" title="beforeRouterEnter"></a>beforeRouterEnter</h4><h4 id="beforeRouterLeave"><a href="#beforeRouterLeave" class="headerlink" title="beforeRouterLeave"></a>beforeRouterLeave</h4><h2 id="路由传参"><a href="#路由传参" class="headerlink" title="路由传参"></a>路由传参</h2><h4 id="使用查询字符串"><a href="#使用查询字符串" class="headerlink" title="使用查询字符串"></a>使用查询字符串</h4><p>如果在路由中使用查询字符串给路由传递参数时，不需要修改路由规则的path属性。使用查询字符串传参的形式是:<code>&lt;router-link to=&#39;/path?id=10&#39;&gt;&lt;/router-link&gt;</code>通过这种方式传递参数的时候，在相对于的组件中调用<code>$route.query</code>使用键就可以得到相应的参数</p>
+<h4 id="使用-route-params来传递参数"><a href="#使用-route-params来传递参数" class="headerlink" title="使用$route.params来传递参数"></a>使用$route.params来传递参数</h4><p><code>&lt;router-link to=&#39;/login/12/ls&#39;&gt;&lt;/router-link&gt;</code></p>
+<p><strong>注意:</strong>使用这种方式，需要修改路由规则中的path属性，在此例中就要修改为<code>{path:&quot;/login/:id/:name&quot;,component:login}</code>这种规则是严格匹配的。如果to后面的属性不能完全匹配规则，就不会执行相应的规则进行路由跳转。</p>
 
             </div>
             <hr>
@@ -661,7 +571,7 @@
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">TomoFur</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/05/30/懒加载和预加载/" class="b-link-green">图片懒加载和图片预加载</a>
+                    <a href="/2019/09/01/vue-router原理/" class="b-link-green">vue-router</a>
                 </p>
             </div>
         </div>
@@ -706,41 +616,43 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/05/30/BOM/">
+                <a href="/2019/09/01/vue-router原理/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="浏览器对象模型(BOM)">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="vue-router">
                         
-                        <span class="card-title">浏览器对象模型(BOM)</span>
+                        <span class="card-title">vue-router</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">BOM提供了很多对象，用于访问浏览器的功能。
-窗口位置IE,Safari,Opera和Chrome使用screenLeft和screenTop分别用来表示浏览器窗口相对电脑屏幕的左边和上边的距离。而在FireFox中。使用的是screenX</div>
+                    <div class="summary">原理当前Vue项目一般都是单页面应用，也就是说vue-router是应用在单页面中的。
+单页面应用：第一次进入页时候会请求一个html文件，当切换到其他组件的时候，路径也发生了相应的变化，但是并没有新的html文件请求额，页面内容却也发生了</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-01
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                    JavaScript
+                            <a href="/categories/VUE/" class="post-category" target="_blank">
+                                    VUE
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ES5基础知识/" target="_blank">
-                        <span class="chip bg-color">ES5基础知识</span>
+                    <a href="/tags/vue/" target="_blank">
+                        <span class="chip bg-color">vue</span>
                     </a>
                     
                 </div>
@@ -754,37 +666,41 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/05/24/正则表达式/">
+                <a href="/2019/08/30/可以继承的css属性/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="正则表达式">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="可以继承的css属性">
                         
-                        <span class="card-title">正则表达式</span>
+                        <span class="card-title">可以继承的css属性</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary">
-处理字符串的利器.主要作用是判断字符串中是否含有符合正则表达式匹配规则的片段
+字体系列属性
+font，
+font-style，
+font-weight,
+font-size ,
+font-family, 
+line-hegiht
 
-创建方法1：
-var reg = /abc/
 
-方法2：
-var reg = new RegExp('abc')
-
-正则表达式修饰符g:全局匹配
-var re</div>
+文本系列属性：
+color
+letter-sapcing
+lext-align
+t</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-24
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-30
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                    JavaScript
+                            <a href="/categories/css/" class="post-category" target="_blank">
+                                    css
                                 </a>
                             
                             
@@ -794,8 +710,8 @@ var re</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ES5基础知识/" target="_blank">
-                        <span class="chip bg-color">ES5基础知识</span>
+                    <a href="/tags/css属性/" target="_blank">
+                        <span class="chip bg-color">css属性</span>
                     </a>
                     
                 </div>
