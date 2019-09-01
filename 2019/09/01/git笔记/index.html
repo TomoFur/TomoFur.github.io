@@ -5,22 +5,14 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="可以继承的css属性, TomoFur">
-    <meta name="description" content="
-字体系列属性
-font，
-font-style，
-font-weight,
-font-size ,
-font-family, 
-line-hegiht
+    <meta name="keywords" content="git学习笔记, TomoFur">
+    <meta name="description" content="初始化一个git仓库：git init
+添加文件到代码仓库，分两步：
 
+使用命令git add 文件名  —–&amp;gt;把文件修改添加到暂存区
+使用命令git commit -m 提示消息  —-&amp;gt;把暂存区所有内容提交到当前分支
 
-文本系列属性：
-color
-letter-sapcing
-lext-align
-t">
+要随">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -28,7 +20,7 @@ t">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>可以继承的css属性 | TomoFur</title>
+    <title>git学习笔记 | TomoFur</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -254,13 +246,13 @@ t">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        可以继承的css属性
+                        git学习笔记
                     </div>
                 </div>
             </div>
@@ -371,8 +363,8 @@ t">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/css属性/" target="_blank">
-                                <span class="chip bg-color">css属性</span>
+                            <a href="/tags/git/" target="_blank">
+                                <span class="chip bg-color">git</span>
                             </a>
                         
                     </div>
@@ -383,8 +375,8 @@ t">
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/css/" class="post-category" target="_blank">
-                                css
+                            <a href="/categories/工程化工具/" class="post-category" target="_blank">
+                                工程化工具
                             </a>
                         
                     </div>
@@ -395,21 +387,21 @@ t">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-08-30
+                    2019-09-01
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        77
+                        615
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        2 分
                     </div>
                     
                 
@@ -420,40 +412,43 @@ t">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ol>
-<li>字体系列属性<ol>
-<li>font，</li>
-<li>font-style，</li>
-<li>font-weight,</li>
-<li>font-size ,</li>
-<li>font-family, </li>
-<li>line-hegiht</li>
+                <p>初始化一个git仓库：<code>git init</code></p>
+<p>添加文件到代码仓库，分两步：</p>
+<ol>
+<li>使用命令<code>git add 文件名</code>  —–&gt;把文件修改添加到暂存区</li>
+<li>使用命令<code>git commit -m 提示消息</code>  —-&gt;把暂存区所有内容提交到当前分支</li>
+</ol>
+<p>要随时掌握工作区的状态，使用<code>git status</code></p>
+<p>如果<code>git status</code>告诉你文件被修改过，用<code>git diff</code>可以查看修改内容</p>
+<pre class=" language-javascript"><code class="language-javascript">回退到上一个版本git reset <span class="token operator">--</span>hard HEAD<span class="token operator">^</span>
+
+回退到上上一个版本git reset <span class="token operator">--</span>hard HEAD<span class="token operator">^</span><span class="token operator">^</span>
+
+指定去往某一个特定版本：git reset <span class="token operator">--</span>hard 版本的commit id
+
+记录每一次命令的日志：git reflog
+
+</code></pre>
+<h2 id="版本穿梭"><a href="#版本穿梭" class="headerlink" title="版本穿梭"></a>版本穿梭</h2><p><code>HEAD</code>指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令<code>git reset --hard commit_id</code>。</p>
+<p>穿梭前，用<code>git log</code>可以查看提交历史，以便确定要回退到哪个版本</p>
+<p>要重返未来，用<code>git reflog</code>查看命令历史，以便确定要回到未来的哪个版本。</p>
+<h2 id="撤销修改："><a href="#撤销修改：" class="headerlink" title="撤销修改："></a>撤销修改：</h2><ol>
+<li>当你改乱了工作区某个文件的内容（就是还没有<code>git add 操作</code>），想直接丢弃工作区的修改时，用命令<code>git checkout -- file</code>。</li>
+<li>当你不但改乱了工作区某个文件的内容，还添加到了暂存区时（已经<code>git add</code>但是还没有<code>git commit</code>），想丢弃修改，分两步:<ol>
+<li><code>git reset HEAD 文件名字</code>。通过这个操作后回到了只是修改，但是尚未<code>git add</code>的状态</li>
+<li>通过情景一的操作即可</li>
 </ol>
 </li>
-<li>文本系列属性：<ol>
-<li>color</li>
-<li>letter-sapcing</li>
-<li>lext-align</li>
-<li>text-decoration</li>
-<li>text-indent</li>
-<li>text-shadow</li>
-<li>text-transform</li>
-<li>word-spacing</li>
+<li>已经提交了不合适的修改到版本库时，想要撤销本次提交。则可以版本回退：<code>git reset --hard commit_id</code></li>
 </ol>
-</li>
-<li>列表属性：<ol>
-<li>list-style</li>
-<li>list-style-image</li>
-<li>list-style-position</li>
-<li>list-style-type</li>
-</ol>
-</li>
-<li>所有元素都可以继承的属性：<ol>
-<li>元素可见性：visiblity，opacity</li>
-<li>光标属性：cursor</li>
-</ol>
-</li>
-</ol>
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><p><code>git rm 文件名字</code></p>
+<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><p>查看分支：<code>git branch</code></p>
+<p>创建分支：<code>git branch dev</code>//创建了一个名字叫dev的分支</p>
+<p>切换分支:<code>git checkout dev</code>//切换到dev分支上</p>
+<p>合并某分支到当前分支上：<code>git merge dev</code>合并dev分支到当前分支上</p>
+<p>删除分支：<code>git branch -d dev</code> 删除dev分支</p>
+<h2 id="rebase和merge的区别"><a href="#rebase和merge的区别" class="headerlink" title="rebase和merge的区别"></a>rebase和merge的区别</h2><p>merge操作会生成一个新的节点，之前的提交分开显示，而rebase操作不会生成新的节点，而是将两个分支融合成一个线性的提交</p>
+<p>如果你想要一个干净的，没有merge commit的线性历史树，那么应该选择git rebase，如果你想要留下完整的历史记录，那么应该选择git merge</p>
 
             </div>
             <hr>
@@ -601,7 +596,7 @@ t">
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">TomoFur</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/08/30/可以继承的css属性/" class="b-link-green">可以继承的css属性</a>
+                    <a href="/2019/09/01/git笔记/" class="b-link-green">git学习笔记</a>
                 </p>
             </div>
         </div>
@@ -648,6 +643,53 @@ t">
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
+                <a href="/2019/09/01/webpack学习笔记---基础配置篇/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="webpack学习---基础配置篇">
+                        
+                        <span class="card-title">webpack学习---基础配置篇</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">webpack：模块打包机
+webpack安装：推荐在项目内本地安装，不推荐使用全局安装。
+如果配置文件的名字不是webpack.config.js的话，在使用npx webpack进行打包的时候要npx webpack --config </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-01
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/工程化工具/" class="post-category" target="_blank">
+                                    工程化工具
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/webpack/" target="_blank">
+                        <span class="chip bg-color">webpack</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/2019/09/01/vue-router原理/">
                     <div class="card-image">
                         
@@ -661,9 +703,9 @@ t">
                     <div class="summary">原理当前Vue项目一般都是单页面应用，也就是说vue-router是应用在单页面中的。
 单页面应用：第一次进入页时候会请求一个html文件，当切换到其他组件的时候，路径也发生了相应的变化，但是并没有新的html文件请求额，页面内容却也发生了</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-01
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-01
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -681,51 +723,6 @@ t">
                     
                     <a href="/tags/vue/" target="_blank">
                         <span class="chip bg-color">vue</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/08/07/网络攻击/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="网络攻击">
-                        
-                        <span class="card-title">网络攻击</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">Cross-Site-Scripting(xss)跨站脚本攻击为了不和层叠样式表的缩写混淆，故将跨站脚本攻击写为XSS.恶意攻击者往Web页面里插入恶意Script代码，当用户浏览该页面时，嵌入Web里面的Script代码会被执行，从而达到</div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-07
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                    JavaScript
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/网络安全相关/" target="_blank">
-                        <span class="chip bg-color">网络安全相关</span>
                     </a>
                     
                 </div>
